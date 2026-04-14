@@ -3,857 +3,410 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>الريهام تورز | حجز طيران داخلي ودولي</title>
-  <meta
-    name="description"
-    content="احجز رحلات الطيران الداخلي والدولي مع الريهام تورز، مع دعم مباشر للحجز وسرعة في التواصل وخيارات مناسبة للأفراد والعائلات."
-  />
-  <meta
-    name="keywords"
-    content="حجز طيران, طيران داخلي, طيران دولي, تذاكر طيران, الريهام تورز, Elreham Tours, حجز سفر"
-  />
-  <meta name="author" content="Elreham Tours" />
+  <meta name="description" content="احجز رحلات الطيران الداخلي والدولي مع الريهام تورز، مع دعم مباشر للحجز وسرعة في التواصل." />
   <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#06152c" />
-  <link rel="canonical" href="https://elrehamtours.vercel.app/flights.html" />
-
-  <meta property="og:title" content="الريهام تورز | حجز طيران داخلي ودولي" />
-  <meta
-    property="og:description"
-    content="صفحة حجز الطيران من الريهام تورز لخدمات الرحلات الداخلية والدولية."
-  />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://elrehamtours.vercel.app/flights.html" />
-  <meta
-    property="og:image"
-    content="https://images.unsplash.com/photo-1436491865332-7a61a109c0f2?auto=format&fit=crop&w=1400&q=80"
-  />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="الريهام تورز | حجز طيران داخلي ودولي" />
-  <meta
-    name="twitter:description"
-    content="احجز رحلتك الجوية مع الريهام تورز بخدمة سريعة وواضحة."
-  />
-  <meta
-    name="twitter:image"
-    content="https://images.unsplash.com/photo-1436491865332-7a61a109c0f2?auto=format&fit=crop&w=1400&q=80"
-  />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "TravelAgency",
-    "name": "Elreham Tours",
-    "url": "https://elrehamtours.vercel.app/flights.html",
-    "logo": "https://elrehamtours.vercel.app/logo.png",
-    "telephone": "+201129101092",
-    "sameAs": [
-      "https://facebook.com/elrehamtours",
-      "https://instagram.com/elrehamtours",
-      "https://tiktok.com/@elrehamtours"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "شارع مترو، متفرع من ش شيراتون",
-      "addressLocality": "الغردقة",
-      "addressCountry": "EG"
-    },
-    "department": {
-      "@type": "Organization",
-      "name": "Flight Booking"
-    }
-  }
-  </script>
-
+  
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700&display=swap"
-    rel="stylesheet"
-  >
-
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  
   <style>
-    :root {
-      --brand: #d4a853;
-      --navy: #06152c;
-      --navy-2: #0a1d38;
-      --soft: #f7f4ee;
+    :root { --brand: #d4a853; --navy: #06152c; --blue-widget: #0288d1; }
+    body { font-family: "Cairo", "Tajawal", sans-serif; background: #f7f4ee; overflow-x: hidden; color: #0f172a; }
+    
+    .glass-nav { background: rgba(6, 21, 44, 0.95); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .nav-link { position: relative; color: white; font-weight: 700; transition: 0.3s; font-size: 0.95rem; }
+    .nav-link::after { content: ""; position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%); width: 0; height: 2px; background: var(--brand); transition: 0.3s; }
+    .nav-link:hover { color: var(--brand); }
+    .nav-link:hover::after { width: 100%; }
+    
+    .lang-btn { width: 36px; height: 36px; border-radius: 50%; font-weight: 900; font-size: 11px; color: white; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
+    .lang-btn:hover { background: rgba(255,255,255,0.1); }
+    .lang-btn-active { background: var(--brand) !important; color: var(--navy) !important; transform: scale(1.1); box-shadow: 0 4px 12px rgba(212,168,83,0.4); }
+
+    /* خلفية الهيرو */
+    .hero-wrap { 
+      position: relative; 
+      min-height: 100vh; 
+      background: linear-gradient(to bottom, rgba(6, 21, 44, 0.8), rgba(6, 21, 44, 0.95)), url("https://images.unsplash.com/photo-1436491865332-7a61a109c0f2?auto=format&fit=crop&w=2000&q=80") center/cover fixed; 
     }
 
-    * {
-      box-sizing: border-box;
+    /* حركة الطائرة وراء الهيدر */
+    @keyframes flyAcross {
+      0% { transform: translate(-20vw, 20vh) scale(0.7) rotate(5deg); opacity: 0; }
+      15% { opacity: 0.15; }
+      85% { opacity: 0.15; }
+      100% { transform: translate(110vw, -30vh) scale(1.2) rotate(5deg); opacity: 0; }
+    }
+    .flying-plane-wrapper {
+      position: absolute; inset: 0; pointer-events: none; z-index: 2; overflow: hidden;
+    }
+    .flying-plane {
+      position: absolute; top: 20%; left: -10%; width: clamp(350px, 40vw, 700px); fill: #ffffff; opacity: 0.15; animation: flyAcross 22s linear infinite; filter: drop-shadow(0 20px 15px rgba(0,0,0,0.5));
     }
 
-    html {
-      scroll-behavior: smooth;
+    /* تصميم محرك البحث (مفرود ومريح) */
+    .widget-box { 
+      background: rgba(10, 29, 56, 0.85);
+      backdrop-filter: blur(20px);
+      border-radius: 2.5rem; 
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6); 
+      border: 1px solid rgba(255,255,255,0.1);
+      border-top: 4px solid var(--brand);
     }
 
-    body {
-      margin: 0;
-      font-family: "Cairo", "Tajawal", sans-serif;
-      background: var(--soft);
-      overflow-x: hidden;
-      color: #0f172a;
+    .input-group {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1.5rem;
+      padding: 1.25rem 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .input-group:focus-within {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--brand);
+      box-shadow: 0 0 15px rgba(212, 168, 83, 0.15);
     }
 
-    .glass-nav {
-      background: rgba(6, 21, 44, 0.9);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
+    /* كروت العروض (البوسترات) */
+    .album-card { overflow: hidden; border-radius: 2rem; background: white; box-shadow: 0 20px 40px rgba(0,0,0,0.1); transition: 0.4s ease; height: 100%; }
+    .album-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,0,0,0.15); }
+    .album-card img { width: 100%; height: 420px; object-fit: cover; object-position: top; transition: 0.6s ease; }
+    .album-card:hover img { transform: scale(1.05); }
 
-    .hero-wrap {
-      position: relative;
-      min-height: 92vh;
-      overflow: hidden;
-      background:
-        linear-gradient(to bottom, rgba(6, 21, 44, 0.86), rgba(6, 21, 44, 0.42), rgba(6, 21, 44, 0.94)),
-        url("https://images.unsplash.com/photo-1436491865332-7a61a109c0f2?auto=format&fit=crop&w=1900&q=80");
-      background-size: cover;
-      background-position: center;
-    }
-
-    .hero-wrap::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 18% 20%, rgba(212,168,83,0.12), transparent 20%),
-        radial-gradient(circle at 80% 75%, rgba(212,168,83,0.08), transparent 18%);
-      pointer-events: none;
-    }
-
-    @keyframes logoFloat {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-5px); }
-    }
-
-    @keyframes planeMove {
-      0% {
-        transform: translate(-20%, 15%) rotate(-9deg);
-        opacity: 0.04;
-      }
-      100% {
-        transform: translate(8%, -4%) rotate(-9deg);
-        opacity: 0.08;
-      }
-    }
-
-    .wing-shape {
-      position: absolute;
-      right: 2%;
-      top: 14%;
-      width: min(30vw, 430px);
-      height: min(24vw, 300px);
-      background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.03));
-      clip-path: polygon(18% 0%, 100% 42%, 100% 66%, 37% 34%, 0% 58%);
-      animation: planeMove 9s ease-in-out infinite alternate;
-      pointer-events: none;
-    }
-
-    .logo-box {
-      animation: logoFloat 3.6s ease-in-out infinite;
-      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.22);
-    }
-
-    .nav-link {
-      position: relative;
-      color: white;
-      font-weight: 800;
-      text-decoration: none;
-      transition: 0.25s ease;
-      font-size: 0.95rem;
-    }
-
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      bottom: -7px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 2px;
-      border-radius: 999px;
-      background: var(--brand);
-      transition: 0.25s ease;
-    }
-
-    .nav-link:hover {
-      color: var(--brand);
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    .lang-btn {
-      width: 38px;
-      height: 38px;
-      border-radius: 999px;
-      border: none;
-      background: transparent;
-      color: white;
-      font-weight: 900;
-      cursor: pointer;
-      transition: 0.25s ease;
-    }
-
-    .lang-btn:hover {
-      background: rgba(255,255,255,0.08);
-    }
-
-    .lang-btn-active {
-      background: var(--brand) !important;
-      color: var(--navy) !important;
-      box-shadow: 0 0 18px rgba(212,168,83,.35);
-      transform: scale(1.03);
-    }
-
-    .gold-btn {
-      background: var(--brand);
-      color: var(--navy);
-      font-weight: 900;
-      border-radius: 999px;
-      transition: 0.25s ease;
-      box-shadow: 0 15px 40px rgba(212, 168, 83, 0.18);
-    }
-
-    .gold-btn:hover {
-      transform: translateY(-2px);
-      background: #e1b75f;
-    }
-
-    .outline-btn {
-      background: rgba(255,255,255,0.06);
-      color: white;
-      border: 1px solid rgba(255,255,255,0.12);
-      font-weight: 900;
-      border-radius: 999px;
-      transition: 0.25s ease;
-    }
-
-    .outline-btn:hover {
-      background: rgba(255,255,255,0.12);
-    }
-
-    .soft-panel {
-      background: rgba(0, 0, 0, 0.16);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .section-bg {
-      background:
-        radial-gradient(circle at top right, rgba(212,168,83,0.10), transparent 22%),
-        radial-gradient(circle at bottom left, rgba(6,21,44,0.05), transparent 24%);
-    }
-
-    .info-card {
-      background: white;
-      border-radius: 30px;
-      border: 1px solid rgba(15, 23, 42, 0.05);
-      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
-      transition: 0.3s ease;
-      height: 100%;
-    }
-
-    .info-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 24px 55px rgba(15, 23, 42, 0.12);
-    }
-
-    .feature-card {
-      border-radius: 34px;
-      overflow: hidden;
-      background: linear-gradient(180deg, #0a1d38, #08152b);
-      color: white;
-      box-shadow: 0 22px 55px rgba(6, 21, 44, 0.18);
-      border: 1px solid rgba(255,255,255,0.05);
-      transition: 0.35s ease;
-      height: 100%;
-    }
-
-    .feature-card:hover {
-      transform: translateY(-6px);
-    }
-
-    .social-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.10);
-      backdrop-filter: blur(8px);
-      padding: 12px 18px;
-      border-radius: 999px;
-      transition: 0.28s ease;
-    }
-
-    .social-pill:hover {
-      transform: translateY(-2px);
-      border-color: rgba(212,168,83,0.34);
-      background: rgba(212,168,83,0.10);
-    }
-
-    .social-icon {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
-    }
-
-    .footer-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 34px;
-    }
-
-    a:focus-visible,
-    button:focus-visible {
-      outline: 2px solid var(--brand);
-      outline-offset: 3px;
-    }
-
-    @media (max-width: 1024px) {
-      .wing-shape {
-        width: 48vw;
-        height: 32vw;
-        right: -5%;
-        top: 18%;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .hero-wrap {
-        min-height: 88vh;
-      }
-
-      .wing-shape {
-        width: 70vw;
-        height: 44vw;
-        right: -18%;
-        top: 26%;
-        opacity: .8;
-      }
-    }
+    .social-icon { transition: all 0.3s ease; }
+    .social-icon:hover { transform: translateY(-3px) scale(1.1); color: var(--brand); }
   </style>
 </head>
-<body>
+<body class="overflow-x-hidden">
 
-  <!-- Navbar -->
-  <nav id="navbar" class="fixed top-0 inset-x-0 z-[100] py-5 transition-all duration-500">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="glass-nav rounded-[28px] px-4 md:px-6 py-3 flex items-center justify-between gap-4">
-
-        <div class="flex items-center gap-4 min-w-0">
-          <a href="index.html" class="logo-box w-20 h-20 md:w-24 md:h-24 bg-white rounded-[26px] p-2 flex items-center justify-center shrink-0">
-            <img src="logo.png" alt="شعار الريهام تورز" class="w-full h-full object-contain" loading="eager" decoding="async">
-          </a>
-
-          <div class="hidden sm:block text-white min-w-0">
-            <div class="font-black text-2xl md:text-4xl leading-none" id="brand-name">الريهام تورز</div>
-            <div class="text-[#D4A853] font-extrabold tracking-[0.25em] text-[10px] md:text-lg uppercase mt-1" id="brand-sub">Aviation & Travel Experts</div>
-          </div>
+  <!-- القائمة العلوية -->
+  <nav id="navbar" class="fixed top-0 inset-x-0 z-[100] transition-all duration-500 glass-nav py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+      
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="w-14 h-14 md:w-16 md:h-16 bg-white rounded-xl p-1.5 shadow-lg flex items-center justify-center overflow-hidden hover:scale-105 transition-transform">
+          <img src="logo.png" alt="الريهام تورز" class="w-full h-full object-contain">
+        </a>
+        <div class="hidden sm:block text-white leading-tight">
+          <div class="font-black text-2xl" id="brand-name">الريهام تورز</div>
+          <div class="text-[#D4A853] font-bold uppercase tracking-[0.2em] text-[9px] mt-1">Aviation & Travel</div>
         </div>
-
-        <div class="hidden lg:flex items-center gap-8">
-          <a href="index.html" class="nav-link" id="n-home">الرئيسية</a>
-          <a href="#flight-services" class="nav-link" id="n-services">خدمات الطيران</a>
-          <a href="#why-us" class="nav-link" id="n-why">لماذا نحن</a>
-          <a href="#social" class="nav-link" id="n-social">تابعنا</a>
-          <a href="#footer" class="nav-link" id="n-contact">اتصل بنا</a>
-        </div>
-
-        <div class="flex items-center gap-3 shrink-0">
-          <a href="https://wa.me/201002429863" target="_blank" rel="noopener noreferrer" class="gold-btn hidden md:inline-flex items-center px-6 py-3 text-sm md:text-base" id="nav-cta">دردش معنا</a>
-
-          <div class="flex items-center gap-1 bg-white/5 p-1 rounded-full border border-white/10" aria-label="اختيار اللغة">
-            <button onclick="setLanguage('de')" id="btn-de" class="lang-btn" aria-label="German">DE</button>
-            <button onclick="setLanguage('ru')" id="btn-ru" class="lang-btn" aria-label="Russian">RU</button>
-            <button onclick="setLanguage('en')" id="btn-en" class="lang-btn" aria-label="English">EN</button>
-            <button onclick="setLanguage('ar')" id="btn-ar" class="lang-btn" aria-label="Arabic">AR</button>
-          </div>
-        </div>
-
       </div>
+
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="nav-link" id="n-home">الرئيسية</a>
+        <a href="flights.html" class="nav-link !text-[#D4A853]" id="n-flights">الطيران</a>
+        <a href="domestic-trips.html" class="nav-link" id="n-domestic">رحلات داخلية</a>
+        <a href="#footer" class="nav-link" id="n-contact">اتصل بنا</a>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <div class="flex items-center gap-1 bg-white/5 p-1.5 rounded-full border border-white/10">
+          <button onclick="setLanguage('en')" id="btn-en" class="lang-btn">EN</button>
+          <button onclick="setLanguage('ru')" id="btn-ru" class="lang-btn">RU</button>
+          <button onclick="setLanguage('de')" id="btn-de" class="lang-btn">DE</button>
+          <button onclick="setLanguage('ar')" id="btn-ar" class="lang-btn">AR</button>
+        </div>
+      </div>
+
     </div>
   </nav>
 
-  <!-- Hero -->
-  <header class="hero-wrap flex items-center">
-    <div class="wing-shape"></div>
-
-    <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 pt-36 pb-16 relative z-10">
-      <div class="grid lg:grid-cols-[1.15fr_0.85fr] gap-10 items-center">
-        <div class="text-center lg:text-right">
-          <div id="hero-slogan" class="inline-block text-[#D4A853] font-extrabold text-sm md:text-2xl mb-6 tracking-[0.06em]">
-            الريهام تورز.. بداية ونهاية كل رحلة
-          </div>
-
-          <h1 id="hero-title" class="text-white font-black leading-[0.95] text-5xl md:text-7xl xl:text-[6.8rem] drop-shadow-2xl">
-            حجز طيران
-            <span class="block text-[#D4A853]">داخلي ودولي</span>
-          </h1>
-
-          <p id="hero-desc" class="soft-panel text-white/90 text-lg md:text-3xl leading-relaxed max-w-4xl mx-auto lg:mx-0 mt-8 rounded-[30px] px-6 py-5">
-            نوفر لك خدمة حجز طيران سريعة وواضحة، مع دعم مباشر للتواصل واختيار الأنسب لرحلتك.
-          </p>
-
-          <div class="mt-10 flex flex-wrap gap-4 justify-center lg:justify-start">
-            <a href="https://wa.me/201002429863" target="_blank" rel="noopener noreferrer" class="gold-btn inline-flex items-center gap-3 px-10 py-5 text-xl" id="hero-btn-main">
-              احجز رحلتك الآن
-            </a>
-
-            <a href="domestic-trips.html" class="outline-btn inline-flex items-center gap-3 px-8 py-5 text-lg" id="hero-btn-secondary">
-              الرحلات الداخلية
-            </a>
-          </div>
-        </div>
-
-        <div class="hidden lg:block"></div>
-      </div>
+  <!-- الهيرو ومحرك البحث (مفرود ومريح) -->
+  <header class="hero-wrap flex flex-col items-center justify-center pt-32 pb-16 px-4">
+    
+    <!-- الطائرة المظللة في الخلفية -->
+    <div class="flying-plane-wrapper">
+      <svg class="flying-plane" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+      </svg>
     </div>
-  </header>
 
-  <!-- Flight services -->
-  <section id="flight-services" class="py-24 px-4 sm:px-6 section-bg">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-14">
-        <div id="services-label" class="text-[#a98538] font-black tracking-[0.2em] text-sm uppercase mb-3">Flights</div>
-        <h2 id="services-title" class="text-[#06152c] font-black text-4xl md:text-6xl mb-4">خدمات الطيران</h2>
-        <p id="services-sub" class="text-slate-600 text-lg md:text-2xl max-w-3xl mx-auto">
-          صفحة مخصصة لحجز الطيران بخدمة أوضح، ورسائل أقوى، وتجهيز أفضل للإعلانات والظهور في البحث.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8 text-center">
-        <div class="info-card p-8 md:p-10">
-          <div class="text-5xl mb-5">✈️</div>
-          <h3 id="s1-t" class="text-3xl font-black text-[#06152c] mb-4">حجز داخلي ودولي</h3>
-          <p id="s1-d" class="text-slate-600 text-lg leading-relaxed">نوفر خيارات متعددة للرحلات داخل مصر وخارجها حسب احتياجك وميزانيتك.</p>
-        </div>
-
-        <div class="info-card p-8 md:p-10">
-          <div class="text-5xl mb-5">🕒</div>
-          <h3 id="s2-t" class="text-3xl font-black text-[#06152c] mb-4">سرعة في التواصل</h3>
-          <p id="s2-d" class="text-slate-600 text-lg leading-relaxed">رد سريع على الاستفسارات ومتابعة مباشرة للحجز عبر واتساب أو الهاتف.</p>
-        </div>
-
-        <div class="info-card p-8 md:p-10">
-          <div class="text-5xl mb-5">💼</div>
-          <h3 id="s3-t" class="text-3xl font-black text-[#06152c] mb-4">خيارات مناسبة</h3>
-          <p id="s3-d" class="text-slate-600 text-lg leading-relaxed">حلول مناسبة للأفراد والعائلات مع الاهتمام بالتفاصيل الأساسية لرحلتك.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why us -->
-  <section id="why-us" class="py-24 px-4 sm:px-6 bg-white border-y border-slate-100">
-    <div class="max-w-7xl mx-auto">
-      <div class="grid lg:grid-cols-2 gap-8 items-stretch">
-        <div class="feature-card p-8 md:p-10">
-          <div class="text-[#D4A853] font-black tracking-[0.18em] text-sm uppercase mb-4" id="why-label">Why Elreham Tours</div>
-          <h2 id="why-title" class="text-4xl md:text-6xl font-black mb-6">لماذا تختار الريهام تورز؟</h2>
-          <p id="why-desc" class="text-white/78 text-lg md:text-2xl leading-relaxed mb-8">
-            لأننا نركز على سهولة التواصل ووضوح الخدمة، ونبني تجربة سفر مريحة من أول استفسار حتى تأكيد الحجز.
-          </p>
-
-          <div class="grid sm:grid-cols-2 gap-4">
-            <div class="bg-white/5 rounded-[24px] p-5 border border-white/10">
-              <div class="text-2xl mb-2">✔</div>
-              <div id="why-item-1" class="font-black text-xl">خدمة واضحة</div>
-            </div>
-            <div class="bg-white/5 rounded-[24px] p-5 border border-white/10">
-              <div class="text-2xl mb-2">✔</div>
-              <div id="why-item-2" class="font-black text-xl">تواصل سريع</div>
-            </div>
-            <div class="bg-white/5 rounded-[24px] p-5 border border-white/10">
-              <div class="text-2xl mb-2">✔</div>
-              <div id="why-item-3" class="font-black text-xl">صفحة مهيأة للطيران</div>
-            </div>
-            <div class="bg-white/5 rounded-[24px] p-5 border border-white/10">
-              <div class="text-2xl mb-2">✔</div>
-              <div id="why-item-4" class="font-black text-xl">أسهل للتطوير والإعلانات</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="info-card overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=1200&q=80"
-            alt="مشهد سفر وطيران"
-            class="w-full h-full object-cover min-h-[420px]"
-            loading="lazy"
-            decoding="async"
-          >
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="py-24 px-4 sm:px-6 section-bg">
-    <div class="max-w-5xl mx-auto text-center">
-      <div class="info-card p-10 md:p-14">
-        <div id="cta-label" class="text-[#a98538] font-black tracking-[0.2em] text-sm uppercase mb-4">Book Now</div>
-        <h2 id="cta-title" class="text-[#06152c] font-black text-4xl md:text-6xl mb-5">جاهز تبدأ رحلتك؟</h2>
-        <p id="cta-desc" class="text-slate-600 text-lg md:text-2xl leading-relaxed max-w-3xl mx-auto mb-8">
-          تواصل معنا الآن للحجز والاستفسار، وسنساعدك في اختيار الرحلة الأنسب.
-        </p>
-
-        <div class="flex flex-wrap items-center justify-center gap-4">
-          <a href="https://wa.me/201002429863" target="_blank" rel="noopener noreferrer" class="gold-btn inline-flex items-center px-10 py-5 text-xl" id="cta-btn-main">تواصل عبر واتساب</a>
-          <a href="index.html" class="outline-btn inline-flex items-center px-8 py-5 text-lg !text-[#06152c] !bg-[#f8f5ef] !border-slate-200" id="cta-btn-secondary">العودة للرئيسية</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Social -->
-  <section id="social" class="py-20 px-4 sm:px-6 bg-[#06152c]">
-    <div class="max-w-6xl mx-auto text-center">
-      <h2 id="social-title" class="text-white font-black text-4xl md:text-5xl mb-4">تابع الريهام تورز</h2>
-      <p id="social-sub" class="text-white/65 text-lg md:text-xl mb-10">@elrehamtours</p>
-
-      <div class="flex flex-wrap items-center justify-center gap-4">
-        <a href="https://facebook.com/elrehamtours" target="_blank" rel="noopener noreferrer" class="social-pill text-white">
-          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M22 12.07C22 6.5 17.52 2 12 2S2 6.5 2 12.07C2 17.1 5.66 21.27 10.44 22v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.1 0 2.24.2 2.24.2v2.48h-1.26c-1.24 0-1.62.77-1.62 1.56v1.88h2.77l-.44 2.9h-2.33V22C18.34 21.27 22 17.1 22 12.07z"/>
-          </svg>
-          <span id="social-fb">Facebook</span>
-          <span class="text-[#D4A853] font-black">@elrehamtours</span>
-        </a>
-
-        <a href="https://instagram.com/elrehamtours" target="_blank" rel="noopener noreferrer" class="social-pill text-white">
-          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5zm8.95 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2zM12 6.85A5.15 5.15 0 1 1 6.85 12 5.16 5.16 0 0 1 12 6.85zm0 1.8A3.35 3.35 0 1 0 15.35 12 3.36 3.36 0 0 0 12 8.65z"/>
-          </svg>
-          <span id="social-ig">Instagram</span>
-          <span class="text-[#D4A853] font-black">@elrehamtours</span>
-        </a>
-
-        <a href="https://tiktok.com/@elrehamtours" target="_blank" rel="noopener noreferrer" class="social-pill text-white">
-          <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M16.5 3c.24 1.96 1.4 3.63 3 4.62V10a8.1 8.1 0 0 1-3-.72v5.7a6.28 6.28 0 1 1-6.28-6.28c.3 0 .59.02.88.07v2.9a3.5 3.5 0 1 0 2.6 3.38V3h2.8z"/>
-          </svg>
-          <span id="social-tt">TikTok</span>
-          <span class="text-[#D4A853] font-black">@elrehamtours</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer id="footer" class="bg-[#040d1b] py-20 px-4 sm:px-6 text-center text-white">
-    <div class="max-w-6xl mx-auto">
-      <div id="footer-slogan" class="text-[#D4A853] text-2xl md:text-4xl font-black mb-12">
+    <div class="text-center w-full max-w-6xl relative z-10 mt-8">
+      
+      <div id="h-slogan" class="inline-block text-[#D4A853] font-bold text-sm md:text-xl tracking-[0.15em] mb-4 animate-pulse">
         الريهام تورز.. بداية ونهاية كل رحلة
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8 mb-12">
-        <div class="footer-card p-8 md:p-10">
-          <div class="text-4xl mb-4">📍</div>
-          <h3 id="footer-address-title" class="text-2xl font-black text-[#D4A853] mb-3">مقرنا الرئيسي</h3>
-          <p id="footer-address-desc" class="text-white/75 text-lg">شارع مترو، متفرع من ش شيراتون، الغردقة، مصر</p>
-        </div>
+      <h1 id="hero-title" class="text-white font-black text-5xl md:text-7xl mb-4 drop-shadow-xl">حجز طيران</h1>
+      <p id="hero-sub" class="text-white/80 text-xl md:text-2xl font-bold mb-12 drop-shadow-md">داخلي ودولي بأفضل الأسعار</p>
 
-        <div class="footer-card p-8 md:p-10">
-          <div class="text-4xl mb-4">📞</div>
-          <h3 id="footer-phone-title" class="text-2xl font-black text-[#D4A853] mb-3">للحجز والتواصل</h3>
-          <div class="space-y-3 text-2xl md:text-3xl font-black">
+      <!-- محرك البحث المفرود -->
+      <div class="widget-box p-8 md:p-10 text-white text-start rtl:text-right mx-auto w-full">
+        <form class="w-full">
+          
+          <!-- اختيار نوع الرحلة -->
+          <div class="flex flex-wrap gap-8 mb-8 pb-6 border-b border-white/10">
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input type="radio" name="trip" id="trip-return" checked class="w-5 h-5 accent-[#D4A853]">
+              <span id="w-return" class="text-lg font-bold group-hover:text-[#D4A853] transition-colors">ذهاب وعودة</span>
+            </label>
+            <label class="flex items-center gap-3 cursor-pointer group">
+              <input type="radio" name="trip" id="trip-oneway" class="w-5 h-5 accent-[#D4A853]">
+              <span id="w-oneway" class="text-lg font-bold text-gray-300 group-hover:text-[#D4A853] transition-colors">اتجاه واحد</span>
+            </label>
+          </div>
+
+          <!-- الحقول مقسمة على صفين مريحين -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <!-- الصف الأول -->
+            <div class="input-group">
+              <label class="block text-xs text-[#D4A853] font-bold mb-2 uppercase tracking-wider" id="w-from">من</label>
+              <input type="text" placeholder="مطار الإقلاع" class="w-full bg-transparent text-white font-bold text-lg placeholder-white/40 outline-none" id="w-from-inp">
+            </div>
+            
+            <div class="input-group">
+              <label class="block text-xs text-[#D4A853] font-bold mb-2 uppercase tracking-wider" id="w-to">إلى</label>
+              <input type="text" placeholder="وجهتك" class="w-full bg-transparent text-white font-bold text-lg placeholder-white/40 outline-none" id="w-to-inp">
+            </div>
+            
+            <div class="input-group">
+              <label class="block text-xs text-[#D4A853] font-bold mb-2 uppercase tracking-wider" id="w-date">التاريخ</label>
+              <input type="text" placeholder="الذهاب - العودة" class="w-full bg-transparent text-white font-bold text-lg placeholder-white/40 outline-none" id="w-date-inp">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
+            <!-- الصف الثاني -->
+            <div class="input-group">
+              <label class="block text-xs text-[#D4A853] font-bold mb-2 uppercase tracking-wider" id="w-phone">رقم الهاتف</label>
+              <input type="tel" placeholder="أدخل رقمك للتواصل" class="w-full bg-transparent text-white font-bold text-lg placeholder-white/40 outline-none" id="w-phone-inp">
+            </div>
+            
+            <div class="input-group">
+              <label class="block text-xs text-[#D4A853] font-bold mb-2 uppercase tracking-wider" id="w-email">البريد الإلكتروني</label>
+              <input type="email" placeholder="أدخل بريدك الإلكتروني" class="w-full bg-transparent text-white font-bold text-lg placeholder-white/40 outline-none" id="w-email-inp">
+            </div>
+
+            <!-- زر الإرسال -->
+            <button type="button" onclick="buildAndSendWhatsApp()" class="h-full w-full bg-[#D4A853] text-[#06152c] rounded-3xl p-4 font-black text-2xl hover:bg-white hover:text-[#06152c] transition-all duration-300 shadow-[0_10px_30px_rgba(212,168,83,0.3)] flex items-center justify-center gap-3">
+              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              <span id="w-btn-send">أرسل الطلب</span>
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- معرض العروض (البوسترات بالأرقام المطلوبة) -->
+  <section id="flight-promos" class="py-24 px-4 sm:px-6 bg-[#f8f5ef]">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <div id="promo-label" class="text-[#a98538] font-black tracking-[0.2em] text-sm uppercase mb-3">Exclusive Offers</div>
+        <h2 id="promo-title" class="text-[#06152c] font-black text-4xl md:text-5xl">أفضل العروض والوجهات</h2>
+      </div>
+
+      <div id="promo-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- الفوتر -->
+  <footer id="footer" class="bg-[#06152c] py-20 px-4 sm:px-6 text-center text-white border-t border-white/5">
+    <div class="max-w-6xl mx-auto">
+      <div id="f-slogan" class="text-[#D4A853] text-2xl md:text-3xl font-black mb-12 tracking-wide opacity-90">
+        الريهام تورز.. بداية ونهاية كل رحلة
+      </div>
+
+      <div class="w-24 h-24 bg-white rounded-3xl p-2 shadow-2xl mx-auto mb-12 flex items-center justify-center">
+        <img src="logo.png" alt="Logo" class="w-full h-full object-contain">
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-white/5 border border-white/10 rounded-[2rem] p-10 hover:bg-white/10 transition">
+          <h3 id="f-addr-t" class="text-2xl font-black text-[#D4A853] mb-4">📍 مقرنا الرئيسي</h3>
+          <p id="f-addr-d" class="text-white/80 text-lg">شارع مترو، متفرع من ش شيراتون، الغردقة، مصر</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-[2rem] p-10 hover:bg-white/10 transition">
+          <h3 id="f-phone-t" class="text-2xl font-black text-[#D4A853] mb-4">📞 للحجز والتواصل</h3>
+          <div class="space-y-3 text-2xl font-black font-sans tracking-wider">
             <a href="tel:01129101092" class="block hover:text-[#D4A853] transition">01129101092</a>
             <a href="tel:01002429863" class="block hover:text-[#D4A853] transition">01002429863</a>
           </div>
         </div>
       </div>
 
-      <p class="text-white/25 text-xs tracking-[0.35em] uppercase font-bold">Elreham Tours & Aviation © 2026</p>
+      <!-- أيقونات السوشيال ميديا -->
+      <div class="flex justify-center gap-8 mb-10">
+        <a href="https://facebook.com/elrehamtours" target="_blank" class="social-icon text-white/70 hover:text-[#1877F2]">
+          <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12.07C22 6.5 17.52 2 12 2S2 6.5 2 12.07C2 17.1 5.66 21.27 10.44 22v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.1 0 2.24.2 2.24.2v2.48h-1.26c-1.24 0-1.62.77-1.62 1.56v1.88h2.77l-.44 2.9h-2.33V22C18.34 21.27 22 17.1 22 12.07z"/></svg>
+        </a>
+        <a href="https://instagram.com/elrehamtours" target="_blank" class="social-icon text-white/70 hover:text-[#E1306C]">
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="https://tiktok.com/@elrehamtours" target="_blank" class="social-icon text-white/70 hover:text-white">
+          <svg width="32" height="32" fill="currentColor" viewBox="0 0 24 24"><path d="M16.5 3c.24 1.96 1.4 3.63 3 4.62V10a8.1 8.1 0 0 1-3-.72v5.7a6.28 6.28 0 1 1-6.28-6.28c.3 0 .59.02.88.07v2.9a3.5 3.5 0 1 0 2.6 3.38V3h2.8z"/></svg>
+        </a>
+      </div>
+
+      <p class="text-white/30 text-xs tracking-[0.2em] uppercase font-bold">Elreham Tours & Aviation © 2026</p>
     </div>
   </footer>
 
-  <!-- Floating WhatsApp -->
-  <a href="https://wa.me/201002429863" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="fixed bottom-6 right-6 z-[120]">
+  <!-- زر واتساب العائم -->
+  <a href="https://wa.me/201002429863" target="_blank" class="fixed bottom-6 right-6 z-[120]">
     <div class="w-16 h-16 bg-[#25D366] text-white rounded-full shadow-[0_10px_40px_rgba(37,211,102,0.5)] flex items-center justify-center hover:scale-110 transition-transform border-4 border-white/20">
-      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/>
-      </svg>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
     </div>
   </a>
 
   <script>
     const translations = {
-      ar: {
-        dir: "rtl",
-        font: "Cairo",
-        title: "الريهام تورز | حجز طيران داخلي ودولي",
-        description: "احجز رحلات الطيران الداخلي والدولي مع الريهام تورز، مع دعم مباشر للحجز وسرعة في التواصل وخيارات مناسبة للأفراد والعائلات.",
-        brand_name: "الريهام تورز",
-        brand_sub: "Aviation & Travel Experts",
-        n_home: "الرئيسية",
-        n_services: "خدمات الطيران",
-        n_why: "لماذا نحن",
-        n_social: "تابعنا",
-        n_contact: "اتصل بنا",
-        nav_cta: "دردش معنا",
-        hero_slogan: "الريهام تورز.. بداية ونهاية كل رحلة",
-        hero_title: 'حجز طيران <span class="block text-[#D4A853]">داخلي ودولي</span>',
-        hero_desc: "نوفر لك خدمة حجز طيران سريعة وواضحة، مع دعم مباشر للتواصل واختيار الأنسب لرحلتك.",
-        hero_btn_main: "احجز رحلتك الآن",
-        hero_btn_secondary: "الرحلات الداخلية",
-        services_label: "Flights",
-        services_title: "خدمات الطيران",
-        services_sub: "صفحة مخصصة لحجز الطيران بخدمة أوضح، ورسائل أقوى، وتجهيز أفضل للإعلانات والظهور في البحث.",
-        s1_t: "حجز داخلي ودولي",
-        s1_d: "نوفر خيارات متعددة للرحلات داخل مصر وخارجها حسب احتياجك وميزانيتك.",
-        s2_t: "سرعة في التواصل",
-        s2_d: "رد سريع على الاستفسارات ومتابعة مباشرة للحجز عبر واتساب أو الهاتف.",
-        s3_t: "خيارات مناسبة",
-        s3_d: "حلول مناسبة للأفراد والعائلات مع الاهتمام بالتفاصيل الأساسية لرحلتك.",
-        why_label: "Why Elreham Tours",
-        why_title: "لماذا تختار الريهام تورز؟",
-        why_desc: "لأننا نركز على سهولة التواصل ووضوح الخدمة، ونبني تجربة سفر مريحة من أول استفسار حتى تأكيد الحجز.",
-        why_1: "خدمة واضحة",
-        why_2: "تواصل سريع",
-        why_3: "صفحة مهيأة للطيران",
-        why_4: "أسهل للتطوير والإعلانات",
-        cta_label: "Book Now",
-        cta_title: "جاهز تبدأ رحلتك؟",
-        cta_desc: "تواصل معنا الآن للحجز والاستفسار، وسنساعدك في اختيار الرحلة الأنسب.",
-        cta_btn_main: "تواصل عبر واتساب",
-        cta_btn_secondary: "العودة للرئيسية",
-        social_title: "تابع الريهام تورز",
-        social_sub: "@elrehamtours",
-        social_fb: "Facebook",
-        social_ig: "Instagram",
-        social_tt: "TikTok",
-        footer_slogan: "الريهام تورز.. بداية ونهاية كل رحلة",
-        footer_address_title: "مقرنا الرئيسي",
-        footer_address_desc: "شارع مترو، متفرع من ش شيراتون، الغردقة، مصر",
-        footer_phone_title: "للحجز والتواصل"
+      ar: { 
+        dir: "rtl", font: "Cairo", brand: "الريهام تورز", n_home: "الرئيسية", n_flights: "الطيران", n_domestic: "رحلات داخلية", n_contact: "اتصل بنا", slogan: "الريهام تورز.. بداية ونهاية كل رحلة",
+        h_title: "حجز طيران", h_sub: "داخلي ودولي بأفضل الأسعار", 
+        w_return: "ذهاب وعودة", w_oneway: "اتجاه واحد", w_from: "من", w_from_inp: "مطار الإقلاع", w_to: "إلى", w_to_inp: "وجهتك", w_date: "التاريخ", w_date_inp: "الذهاب - العودة", w_phone: "رقم الهاتف", w_phone_inp: "أدخل رقمك للتواصل", w_email: "البريد الإلكتروني", w_email_inp: "أدخل إيميلك", w_btn_send: "أرسل الطلب", 
+        promo_label: "عروض حصرية", promo_title: "أفضل العروض والوجهات",
+        f_addr_t: "مقرنا الرئيسي", f_addr_d: "شارع مترو، متفرع من ش شيراتون، الغردقة، مصر", f_phone_t: "للحجز والتواصل", wa_intro: "أهلاً الريهام تورز، أريد الاستفسار عن حجز طيران:", wa_type: "نوع الرحلة",
+        promos: [
+          { name: "راحة الطيران", img: "9.png", desc: "مقاعد مريحة ورحلات مباشرة وخدمة قبل وبعد الوصول.", tag: "خدمة مميزة" },
+          { name: "حجز سهل وسريع", img: "13.png", desc: "الحجز بقى أسهل مع الريهام تورز، تذاكر جاهزة في دقائق.", tag: "حجز طيران" },
+          { name: "سعر مضمون", img: "16.png", desc: "أسعار تنافسية مضمونة في بداية ونهاية كل رحلة.", tag: "أفضل الأسعار" },
+          { name: "السفر العائلي", img: "17.png", desc: "عائلتك تستاهل أحسن رحلة، خطط لرحلتكم بأمان.", tag: "عائلات" },
+          { name: "متعة السفر", img: "11.png", desc: "متعة السفر تكتمل وأكتر معانا إلى أفضل الوجهات.", tag: "رفاهية" },
+          { name: "بالي - إندونيسيا", img: "8.png", desc: "الجنة اللي تستاهلها.. رحلات طيران لأجمل الشواطئ.", tag: "عروض حصرية" },
+          { name: "جورجيا", img: "10.png", desc: "سحر الطبيعة الخلابة والجبال الخضراء.", tag: "طبيعة" },
+          { name: "تايلاند", img: "12.png", desc: "ابتسامة الشرق.. وجهتك المثالية للاستكشاف.", tag: "مغامرة" },
+          { name: "اليونان", img: "14.png", desc: "البحر والتاريخ.. عروض مميزة لأوروبا.", tag: "أوروبا" },
+          { name: "شهر العسل", img: "15.png", desc: "رحلات استجمام بفنادق وخدمات فاخرة.", tag: "شهر عسل" }
+        ]
       },
-
-      en: {
-        dir: "ltr",
-        font: "Tajawal",
-        title: "Elreham Tours | Domestic & International Flight Booking",
-        description: "Book domestic and international flights with Elreham Tours with direct support and fast communication.",
-        brand_name: "Elreham Tours",
-        brand_sub: "Aviation & Travel Experts",
-        n_home: "Home",
-        n_services: "Flight Services",
-        n_why: "Why Us",
-        n_social: "Follow Us",
-        n_contact: "Contact",
-        nav_cta: "Chat Now",
-        hero_slogan: "Elreham Tours.. The start and end of every trip",
-        hero_title: 'Domestic & International <span class="block text-[#D4A853]">Flight Booking</span>',
-        hero_desc: "We provide a clear and fast flight booking service with direct support to help you choose the right trip.",
-        hero_btn_main: "Book Your Flight",
-        hero_btn_secondary: "Domestic Trips",
-        services_label: "Flights",
-        services_title: "Flight Services",
-        services_sub: "A dedicated aviation page with stronger messaging and better structure for ads and search visibility.",
-        s1_t: "Domestic & International",
-        s1_d: "Multiple flight options inside Egypt and abroad depending on your needs and budget.",
-        s2_t: "Fast Communication",
-        s2_d: "Quick response to inquiries and direct booking support through WhatsApp or phone.",
-        s3_t: "Suitable Options",
-        s3_d: "Flexible solutions for individuals and families with focus on travel essentials.",
-        why_label: "Why Elreham Tours",
-        why_title: "Why choose Elreham Tours?",
-        why_desc: "Because we focus on clear service, fast communication, and a smoother travel experience from inquiry to booking confirmation.",
-        why_1: "Clear service",
-        why_2: "Fast communication",
-        why_3: "Aviation-focused page",
-        why_4: "Better for growth and ads",
-        cta_label: "Book Now",
-        cta_title: "Ready to start your trip?",
-        cta_desc: "Contact us now for booking and inquiries, and we will help you choose the right flight.",
-        cta_btn_main: "Chat on WhatsApp",
-        cta_btn_secondary: "Back to Home",
-        social_title: "Follow Elreham Tours",
-        social_sub: "@elrehamtours",
-        social_fb: "Facebook",
-        social_ig: "Instagram",
-        social_tt: "TikTok",
-        footer_slogan: "Elreham Tours.. The start and end of every trip",
-        footer_address_title: "Head Office",
-        footer_address_desc: "Metro St., off Sheraton St., Hurghada, Egypt",
-        footer_phone_title: "Booking & Contact"
+      en: { 
+        dir: "ltr", font: "Tajawal", brand: "Elreham Tours", n_home: "Home", n_flights: "Flights", n_domestic: "Domestic", n_contact: "Contact", slogan: "Elreham Tours.. The start and end of every trip",
+        h_title: "Flight Booking", h_sub: "Domestic & International Best Rates", 
+        w_return: "Return", w_oneway: "One way", w_from: "Flying from", w_from_inp: "Departure Airport", w_to: "Flying to", w_to_inp: "Destination", w_date: "Dates", w_date_inp: "Pick up - Drop off", w_phone: "Phone Number", w_phone_inp: "Enter your phone", w_email: "Email Address", w_email_inp: "Enter your email", w_btn_send: "Send Request", 
+        promo_label: "Exclusive Offers", promo_title: "Best Flight Deals",
+        f_addr_t: "Head Office", f_addr_d: "Metro St., Hurghada, Egypt", f_phone_t: "Contact Numbers", wa_intro: "Hello Elreham Tours, I want to inquire about a flight booking:", wa_type: "Trip Type",
+        promos: [
+          { name: "Premium Flights", img: "9.png", desc: "Comfortable seats, direct flights, and service before & after arrival.", tag: "Premium" },
+          { name: "Easy Booking", img: "13.png", desc: "Booking is now easier, tickets ready in minutes.", tag: "Flights" },
+          { name: "Guaranteed Price", img: "16.png", desc: "Competitive prices guaranteed at the start and end of every trip.", tag: "Best Rates" },
+          { name: "Family Travel", img: "17.png", desc: "Your family deserves the best trip, plan safely with us.", tag: "Families" },
+          { name: "Joy of Travel", img: "11.png", desc: "The joy of travel is complete with our top destinations.", tag: "Luxury" },
+          { name: "Bali, Indonesia", img: "8.png", desc: "The paradise you deserve... flights to the best beaches.", tag: "Exclusive" },
+          { name: "Georgia", img: "10.png", desc: "The magic of breathtaking nature and green mountains.", tag: "Nature" },
+          { name: "Thailand", img: "12.png", desc: "Smile of the East... your ideal destination for exploration.", tag: "Adventure" },
+          { name: "Greece", img: "14.png", desc: "Sea and History... special offers for Europe.", tag: "Europe" },
+          { name: "Honeymoon", img: "15.png", desc: "Relaxation trips with luxury hotels and premium services.", tag: "Honeymoon" }
+        ]
       },
-
-      ru: {
-        dir: "ltr",
-        font: "Tajawal",
-        title: "Elreham Tours | Бронирование внутренних и международных рейсов",
-        description: "Бронирование внутренних и международных рейсов с Elreham Tours и быстрой поддержкой.",
-        brand_name: "Elreham Tours",
-        brand_sub: "Aviation & Travel Experts",
-        n_home: "Главная",
-        n_services: "Авиасервис",
-        n_why: "Почему мы",
-        n_social: "Соцсети",
-        n_contact: "Контакты",
-        nav_cta: "Чат",
-        hero_slogan: "Elreham Tours.. Начало и конец каждого путешествия",
-        hero_title: 'Внутренние и международные <span class="block text-[#D4A853]">авиабилеты</span>',
-        hero_desc: "Мы предлагаем понятную и быструю услугу бронирования авиабилетов с прямой поддержкой.",
-        hero_btn_main: "Забронировать",
-        hero_btn_secondary: "Внутренние туры",
-        services_label: "Flights",
-        services_title: "Авиасервис",
-        services_sub: "Отдельная страница для авиабилетов с более сильной подачей и лучшей подготовкой для рекламы и поиска.",
-        s1_t: "Внутренние и международные",
-        s1_d: "Различные варианты рейсов по Египту и за его пределами.",
-        s2_t: "Быстрая связь",
-        s2_d: "Быстрые ответы на запросы и поддержка через WhatsApp или телефон.",
-        s3_t: "Подходящие варианты",
-        s3_d: "Решения для индивидуальных путешественников и семей.",
-        why_label: "Why Elreham Tours",
-        why_title: "Почему выбирают Elreham Tours?",
-        why_desc: "Потому что мы делаем сервис понятным, быстрым и удобным от первого запроса до подтверждения брони.",
-        why_1: "Понятный сервис",
-        why_2: "Быстрая связь",
-        why_3: "Страница под авиабилеты",
-        why_4: "Лучше для роста и рекламы",
-        cta_label: "Book Now",
-        cta_title: "Готовы начать поездку?",
-        cta_desc: "Свяжитесь с нами сейчас для бронирования и консультации.",
-        cta_btn_main: "Написать в WhatsApp",
-        cta_btn_secondary: "Назад на главную",
-        social_title: "Следите за Elreham Tours",
-        social_sub: "@elrehamtours",
-        social_fb: "Facebook",
-        social_ig: "Instagram",
-        social_tt: "TikTok",
-        footer_slogan: "Elreham Tours.. Начало и конец каждого путешествия",
-        footer_address_title: "Главный офис",
-        footer_address_desc: "Метро-стрит, от Шератон-стрит, Хургада, Египет",
-        footer_phone_title: "Бронирование и связь"
+      ru: { 
+        dir: "ltr", font: "Tajawal", brand: "Elreham Tours", n_home: "Главная", n_flights: "Рейсы", n_domestic: "Внутренние", n_contact: "Контакты", slogan: "Elreham Tours.. Начало и конец каждого путешествия",
+        h_title: "Авиабилеты", h_sub: "Внутренние и международные рейсы", 
+        w_return: "Туда-обратно", w_oneway: "В одну сторону", w_from: "Откуда", w_from_inp: "Аэропорт", w_to: "Куда", w_to_inp: "Назначение", w_date: "Даты", w_date_inp: "Туда - Обратно", w_phone: "Телефон", w_phone_inp: "Ваш номер", w_email: "Email", w_email_inp: "Ваш email", w_btn_send: "Отправить", 
+        promo_label: "Специальные предложения", promo_title: "Лучшие авиабилеты",
+        f_addr_t: "Главный офис", f_addr_d: "Метро-стрит, Хургада, Египет", f_phone_t: "Контакты", wa_intro: "Здравствуйте, Elreham Tours. Я хочу узнать о бронировании авиабилета:", wa_type: "Тип поездки",
+        promos: [
+          { name: "Комфортные рейсы", img: "9.png", desc: "Удобные кресла, прямые рейсы и отличный сервис.", tag: "Комфорт" },
+          { name: "Простое бронирование", img: "13.png", desc: "Бронировать стало проще, билеты готовы за минуты.", tag: "Авиабилеты" },
+          { name: "Гарантия цены", img: "16.png", desc: "Выгодные цены гарантированы в каждой поездке.", tag: "Лучшие цены" },
+          { name: "Семейный отдых", img: "17.png", desc: "Ваша семья заслуживает лучшего путешествия.", tag: "Семьи" },
+          { name: "Радость путешествия", img: "11.png", desc: "Идеальные впечатления от поездки с нами.", tag: "Роскошь" },
+          { name: "Бали, Индонезия", img: "8.png", desc: "Рай, который вы заслуживаете.", tag: "Эксклюзив" },
+          { name: "Грузия", img: "10.png", desc: "Магия природы и зеленых гор.", tag: "Природа" },
+          { name: "Таиланд", img: "12.png", desc: "Улыбка Востока... идеальное место для открытий.", tag: "Приключение" },
+          { name: "Греция", img: "14.png", desc: "Море и история... специальные предложения.", tag: "Европа" },
+          { name: "Медовый месяц", img: "15.png", desc: "Роскошный отдых в лучших отелях.", tag: "Медовый месяц" }
+        ]
       },
-
-      de: {
-        dir: "ltr",
-        font: "Tajawal",
-        title: "Elreham Tours | Inlands- und internationale Flugbuchung",
-        description: "Buchen Sie Inlands- und internationale Flüge mit Elreham Tours und direkter Unterstützung.",
-        brand_name: "Elreham Tours",
-        brand_sub: "Aviation & Travel Experts",
-        n_home: "Start",
-        n_services: "Flugservice",
-        n_why: "Warum wir",
-        n_social: "Folgen",
-        n_contact: "Kontakt",
-        nav_cta: "Chat",
-        hero_slogan: "Elreham Tours.. Der Anfang und das Ende jeder Reise",
-        hero_title: 'Inlands- und internationale <span class="block text-[#D4A853]">Flugbuchung</span>',
-        hero_desc: "Wir bieten einen klaren und schnellen Flugbuchungsservice mit direkter Unterstützung.",
-        hero_btn_main: "Jetzt buchen",
-        hero_btn_secondary: "Inlandsreisen",
-        services_label: "Flights",
-        services_title: "Flugservice",
-        services_sub: "Eine eigene Flugseite mit stärkerer Positionierung und besserer Vorbereitung für Werbung und Suche.",
-        s1_t: "Inland & international",
-        s1_d: "Verschiedene Flugoptionen innerhalb Ägyptens und international.",
-        s2_t: "Schnelle Kommunikation",
-        s2_d: "Schnelle Antworten auf Anfragen und direkte Unterstützung per WhatsApp oder Telefon.",
-        s3_t: "Passende Optionen",
-        s3_d: "Geeignete Lösungen für Einzelpersonen und Familien.",
-        why_label: "Why Elreham Tours",
-        why_title: "Warum Elreham Tours?",
-        why_desc: "Weil wir klaren Service, schnelle Kommunikation und eine reibungslose Buchungserfahrung bieten.",
-        why_1: "Klarer Service",
-        why_2: "Schnelle Kommunikation",
-        why_3: "Flugorientierte Seite",
-        why_4: "Besser für Wachstum und Werbung",
-        cta_label: "Book Now",
-        cta_title: "Bereit für Ihre Reise?",
-        cta_desc: "Kontaktieren Sie uns jetzt für Buchung und Beratung.",
-        cta_btn_main: "Über WhatsApp schreiben",
-        cta_btn_secondary: "Zurück zur Startseite",
-        social_title: "Folgen Sie Elreham Tours",
-        social_sub: "@elrehamtours",
-        social_fb: "Facebook",
-        social_ig: "Instagram",
-        social_tt: "TikTok",
-        footer_slogan: "Elreham Tours.. Der Anfang und das Ende jeder Reise",
-        footer_address_title: "Hauptsitz",
-        footer_address_desc: "Metro St., nahe Sheraton St., Hurghada, Ägypten",
-        footer_phone_title: "Buchung & Kontakt"
+      de: { 
+        dir: "ltr", font: "Tajawal", brand: "Elreham Tours", n_home: "Start", n_flights: "Flüge", n_domestic: "Inlands", n_contact: "Kontakt", slogan: "Elreham Tours.. Der Anfang und das Ende jeder Reise",
+        h_title: "Flugbuchung", h_sub: "Inlands- und Auslandsflüge", 
+        w_return: "Hin & Rück", w_oneway: "Hinflug", w_from: "Abflug", w_from_inp: "Flughafen", w_to: "Nach", w_to_inp: "Ziel", w_date: "Datum", w_date_inp: "Hin - Rück", w_phone: "Telefon", w_phone_inp: "Ihre Nummer", w_email: "E-Mail", w_email_inp: "Ihre E-Mail", w_btn_send: "Senden", 
+        promo_label: "Angebote", promo_title: "Top Flugangebote",
+        f_addr_t: "Hauptsitz", f_addr_d: "Metro Str., Hurghada", f_phone_t: "Kontakt", wa_intro: "Hallo Elreham Tours, ich möchte mich nach einer Flugbuchung erkundigen:", wa_type: "Reiseart",
+        promos: [
+          { name: "Premium-Flüge", img: "9.png", desc: "Bequeme Sitze, Direktflüge und erstklassiger Service.", tag: "Premium" },
+          { name: "Einfache Buchung", img: "13.png", desc: "Die Buchung ist jetzt einfacher, Tickets in wenigen Minuten.", tag: "Flüge" },
+          { name: "Garantierter Preis", img: "16.png", desc: "Wettbewerbsfähige Preise für jede Reise.", tag: "Beste Preise" },
+          { name: "Familienreisen", img: "17.png", desc: "Ihre Familie verdient die beste Reise.", tag: "Familien" },
+          { name: "Freude am Reisen", img: "11.png", desc: "Die Freude am Reisen ist mit uns komplett.", tag: "Luxus" },
+          { name: "Bali, Indonesien", img: "8.png", desc: "Das Paradies, das Sie verdienen.", tag: "Exklusiv" },
+          { name: "Georgien", img: "10.png", desc: "Die Magie der Natur und der grünen Berge.", tag: "Natur" },
+          { name: "Thailand", img: "12.png", desc: "Lächeln des Ostens... ideal für Erkundungen.", tag: "Abenteuer" },
+          { name: "Griechenland", img: "14.png", desc: "Meer und Geschichte... Top-Angebote.", tag: "Europa" },
+          { name: "Flitterwochen", img: "15.png", desc: "Entspannungsreisen mit Luxushotels.", tag: "Flitterwochen" }
+        ]
       }
     };
 
-    function setLanguage(lang) {
-      const t = translations[lang];
-      document.documentElement.dir = t.dir;
-      document.documentElement.lang = lang;
-      document.body.style.fontFamily = `${t.font}, sans-serif`;
-
-      document.title = t.title;
-      document.querySelector('meta[name="description"]').setAttribute("content", t.description);
-      document.querySelector('meta[property="og:description"]').setAttribute("content", t.description);
-      document.querySelector('meta[name="twitter:description"]').setAttribute("content", t.description);
-
-      document.getElementById("brand-name").innerText = t.brand_name;
-      document.getElementById("brand-sub").innerText = t.brand_sub;
-      document.getElementById("n-home").innerText = t.n_home;
-      document.getElementById("n-services").innerText = t.n_services;
-      document.getElementById("n-why").innerText = t.n_why;
-      document.getElementById("n-social").innerText = t.n_social;
-      document.getElementById("n-contact").innerText = t.n_contact;
-      document.getElementById("nav-cta").innerText = t.nav_cta;
-
-      document.getElementById("hero-slogan").innerText = t.hero_slogan;
-      document.getElementById("hero-title").innerHTML = t.hero_title;
-      document.getElementById("hero-desc").innerText = t.hero_desc;
-      document.getElementById("hero-btn-main").innerText = t.hero_btn_main;
-      document.getElementById("hero-btn-secondary").innerText = t.hero_btn_secondary;
-
-      document.getElementById("services-label").innerText = t.services_label;
-      document.getElementById("services-title").innerText = t.services_title;
-      document.getElementById("services-sub").innerText = t.services_sub;
-      document.getElementById("s1-t").innerText = t.s1_t;
-      document.getElementById("s1-d").innerText = t.s1_d;
-      document.getElementById("s2-t").innerText = t.s2_t;
-      document.getElementById("s2-d").innerText = t.s2_d;
-      document.getElementById("s3-t").innerText = t.s3_t;
-      document.getElementById("s3-d").innerText = t.s3_d;
-
-      document.getElementById("why-label").innerText = t.why_label;
-      document.getElementById("why-title").innerText = t.why_title;
-      document.getElementById("why-desc").innerText = t.why_desc;
-      document.getElementById("why-item-1").innerText = t.why_1;
-      document.getElementById("why-item-2").innerText = t.why_2;
-      document.getElementById("why-item-3").innerText = t.why_3;
-      document.getElementById("why-item-4").innerText = t.why_4;
-
-      document.getElementById("cta-label").innerText = t.cta_label;
-      document.getElementById("cta-title").innerText = t.cta_title;
-      document.getElementById("cta-desc").innerText = t.cta_desc;
-      document.getElementById("cta-btn-main").innerText = t.cta_btn_main;
-      document.getElementById("cta-btn-secondary").innerText = t.cta_btn_secondary;
-
-      document.getElementById("social-title").innerText = t.social_title;
-      document.getElementById("social-sub").innerText = t.social_sub;
-      document.getElementById("social-fb").innerText = t.social_fb;
-      document.getElementById("social-ig").innerText = t.social_ig;
-      document.getElementById("social-tt").innerText = t.social_tt;
-
-      document.getElementById("footer-slogan").innerText = t.footer_slogan;
-      document.getElementById("footer-address-title").innerText = t.footer_address_title;
-      document.getElementById("footer-address-desc").innerText = t.footer_address_desc;
-      document.getElementById("footer-phone-title").innerText = t.footer_phone_title;
-
-      ["ar", "en", "ru", "de"].forEach((code) => {
-        document.getElementById(`btn-${code}`).classList.remove("lang-btn-active");
+    function renderPromos(items) {
+      const grid = document.getElementById("promo-grid");
+      grid.innerHTML = "";
+      items.forEach((item) => {
+        grid.innerHTML += `
+          <div class="album-card group">
+            <div class="relative overflow-hidden">
+              <img src="${item.img}" alt="${item.name}" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#06152c] to-transparent opacity-80"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
+                <span class="inline-block bg-[#D4A853] text-[#06152c] px-3 py-1 rounded-full text-xs font-black mb-3 shadow-md">${item.tag}</span>
+                <h3 class="text-2xl md:text-3xl font-black mb-2 drop-shadow-md">${item.name}</h3>
+                <p class="text-white/90 text-sm md:text-base leading-relaxed drop-shadow-md">${item.desc}</p>
+              </div>
+            </div>
+          </div>
+        `;
       });
-      document.getElementById(`btn-${lang}`).classList.add("lang-btn-active");
     }
 
+    function buildAndSendWhatsApp() {
+      const from = document.getElementById("w-from-inp").value;
+      const to = document.getElementById("w-to-inp").value;
+      const date = document.getElementById("w-date-inp").value;
+      const phone = document.getElementById("w-phone-inp").value;
+      const email = document.getElementById("w-email-inp").value;
+      const isReturn = document.getElementById("trip-return").checked;
+      const lang = document.documentElement.lang || 'ar';
+      const t = translations[lang];
+      const tripType = isReturn ? t.w_return : t.w_oneway;
+      
+      const text = `${t.wa_intro}\n✈️ ${t.wa_type}: ${tripType}\n🛫 ${t.w_from}: ${from || '-'}\n🛬 ${t.w_to}: ${to || '-'}\n📅 ${t.w_date}: ${date || '-'}\n📞 ${t.w_phone}: ${phone || '-'}\n✉️ ${t.w_email}: ${email || '-'}`;
+      window.open(`https://wa.me/201002429863?text=${encodeURIComponent(text)}`, "_blank");
+    }
+
+    function setLanguage(lang) {
+      const t = translations[lang];
+      document.documentElement.dir = t.dir; document.body.style.fontFamily = `${t.font}, sans-serif`;
+      
+      document.getElementById("brand-name").innerText = t.brand;
+      document.getElementById("n-home").innerText = t.n_home; 
+      document.getElementById("n-flights").innerText = t.n_flights; 
+      document.getElementById("n-domestic").innerText = t.n_domestic; 
+      document.getElementById("n-contact").innerText = t.n_contact;
+      
+      document.getElementById("h-slogan").innerText = t.slogan;
+      document.getElementById("hero-title").innerHTML = t.h_title; 
+      document.getElementById("hero-sub").innerText = t.h_sub;
+      
+      document.getElementById("w-return").innerText = t.w_return; 
+      document.getElementById("w-oneway").innerText = t.w_oneway;
+      
+      document.getElementById("w-from").innerText = t.w_from; document.getElementById("w-from-inp").placeholder = t.w_from_inp;
+      document.getElementById("w-to").innerText = t.w_to; document.getElementById("w-to-inp").placeholder = t.w_to_inp;
+      document.getElementById("w-date").innerText = t.w_date; document.getElementById("w-date-inp").placeholder = t.w_date_inp;
+      document.getElementById("w-phone").innerText = t.w_phone; document.getElementById("w-phone-inp").placeholder = t.w_phone_inp;
+      document.getElementById("w-email").innerText = t.w_email; document.getElementById("w-email-inp").placeholder = t.w_email_inp;
+      document.getElementById("w-btn-send").innerText = t.w_btn_send;
+
+      document.getElementById("promo-label").innerText = t.promo_label;
+      document.getElementById("promo-title").innerText = t.promo_title;
+      renderPromos(t.promos);
+
+      document.getElementById("f-slogan").innerText = t.slogan; 
+      document.getElementById("f-addr-t").innerText = t.f_addr_t; 
+      document.getElementById("f-addr-d").innerText = t.f_addr_d; 
+      document.getElementById("f-phone-t").innerText = t.f_phone_t;
+      
+      ["ar", "en", "ru", "de"].forEach(code => document.getElementById(`btn-${code}`).classList.remove("lang-btn-active"));
+      document.getElementById(`btn-${lang}`).classList.add("lang-btn-active");
+    }
+    
     setLanguage("ar");
 
     window.addEventListener("scroll", () => {
