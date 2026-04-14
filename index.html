@@ -4,172 +4,170 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الريهام تورز | Elreham Tours - خبراء الطيران والسفر</title>
-    <!-- Tailwind CSS للتصميم -->
+    <meta name="description" content="شركة الريهام تورز للسياحة والطيران - حجز رحلات طيران دولية وفنادق سياحية وخدمات ليموزين في الغردقة ومصر.">
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- خطوط جوجل -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --brand: #D4A853;
-            --navy: #0a1628;
+        :root { --brand: #D4A853; --navy: #0a1628; }
+        body { font-family: 'Cairo', 'Tajawal', sans-serif; scroll-behavior: smooth; background-color: #fcfaf7; }
+        .hero-gradient { background: linear-gradient(to bottom, rgba(10, 22, 40, 0.9) 0%, rgba(10, 22, 40, 0.4) 50%, rgba(10, 22, 40, 0.9) 100%); }
+        .lang-btn-active { background-color: var(--brand) !important; color: var(--navy) !important; transform: scale(1.1); box-shadow: 0 10px 15px -3px rgba(212, 168, 83, 0.4); }
+        .glass-nav { background: rgba(10, 22, 40, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        /* حركة خيال الطائرة */
+        @keyframes planeFly {
+            0% { transform: translate(-20%, 30%) rotate(-5deg) scale(1); opacity: 0; }
+            10% { opacity: 0.12; }
+            90% { opacity: 0.12; }
+            100% { transform: translate(120%, -20%) rotate(-5deg) scale(1.2); opacity: 0; }
         }
-        body {
-            font-family: 'Cairo', 'Tajawal', sans-serif;
-            scroll-behavior: smooth;
-            background-color: #fcfaf7;
-        }
-        .font-sans { font-family: sans-serif; }
-        .hero-gradient {
-            background: linear-gradient(to bottom, rgba(10, 22, 40, 0.9) 0%, rgba(10, 22, 40, 0.4) 50%, rgba(10, 22, 40, 0.9) 100%);
-        }
-        .lang-btn-active {
-            background-color: var(--brand) !important;
-            color: var(--navy) !important;
-            transform: scale(1.1);
-            box-shadow: 0 10px 15px -3px rgba(212, 168, 83, 0.4);
-        }
-        .glass-nav {
-            background: rgba(10, 22, 40, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        /* لتجنب مشاكل العرض عند قلب الاتجاه */
-        [dir="ltr"] .text-right-custom { text-align: left; }
-        [dir="rtl"] .text-right-custom { text-align: right; }
+        .plane-shadow { position: absolute; width: 600px; fill: white; opacity: 0.12; z-index: 5; animation: planeFly 25s linear infinite; pointer-events: none; }
+        
+        .nav-link { position: relative; transition: all 0.3s ease; }
+        .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 50%; width: 0; height: 2px; background: var(--brand); transition: all 0.3s ease; transform: translateX(-50%); }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link:hover { color: var(--brand); }
     </style>
 </head>
 <body class="overflow-x-hidden">
 
-    <!-- القائمة العلوية -->
+    <!-- القائمة العلوية المطورة -->
     <nav id="navbar" class="fixed top-0 inset-x-0 z-[100] transition-all duration-500 py-6">
         <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
-            <!-- الشعار -->
-            <div class="flex items-center gap-3">
-                <div class="w-12 h-12 bg-white rounded-xl p-1 shadow-lg border border-[#D4A853]/20 flex items-center justify-center overflow-hidden">
-                    <img src="logo.png" alt="Logo" class="w-full h-full object-contain" onerror="this.src='https://via.placeholder.com/50?text=Logo'">
+            <!-- اللوجو الكبير -->
+            <div class="flex items-center gap-4">
+                <div class="w-16 h-16 md:w-20 md:h-20 bg-white rounded-2xl p-1.5 shadow-xl border-2 border-[#D4A853]/30 flex items-center justify-center overflow-hidden">
+                    <img src="logo.png" alt="Elreham Tours" class="w-full h-full object-contain" onerror="this.src='https://via.placeholder.com/100?text=Logo'">
                 </div>
                 <div class="hidden sm:block text-white">
-                    <div class="font-black text-xl leading-none">الريهام تورز</div>
-                    <div class="text-[8px] text-[#D4A853] font-bold uppercase tracking-widest mt-1">Aviation & Travel</div>
+                    <div class="font-black text-2xl leading-none">الريهام تورز</div>
+                    <div class="text-[10px] text-[#D4A853] font-bold uppercase tracking-widest mt-1">Aviation & Travel</div>
                 </div>
             </div>
 
-            <!-- مبدل اللغات -->
-            <div class="flex items-center gap-1.5 bg-white/5 p-1 rounded-full border border-white/20 backdrop-blur-lg">
-                <button onclick="setLanguage('ar')" id="btn-ar" class="w-9 h-9 rounded-full text-[10px] font-black text-white hover:bg-white/10 transition-all">AR</button>
-                <button onclick="setLanguage('en')" id="btn-en" class="w-9 h-9 rounded-full text-[10px] font-black text-white hover:bg-white/10 transition-all">EN</button>
-                <button onclick="setLanguage('ru')" id="btn-ru" class="w-9 h-9 rounded-full text-[10px] font-black text-white hover:bg-white/10 transition-all">RU</button>
-                <button onclick="setLanguage('de')" id="btn-de" class="w-9 h-9 rounded-full text-[10px] font-black text-white hover:bg-white/10 transition-all">DE</button>
+            <!-- روابط الصفحات (منتصف النافبار) -->
+            <div class="hidden lg:flex items-center gap-10 text-white font-bold text-sm tracking-wide">
+                <a href="#home" class="nav-link" id="nav-home">الرئيسية</a>
+                <a href="#services" class="nav-link" id="nav-services">خدماتنا</a>
+                <a href="#about" class="nav-link" id="nav-about">من نحن</a>
+                <a href="#footer" class="nav-link" id="nav-contact">اتصل بنا</a>
             </div>
 
-            <!-- زر التواصل -->
-            <div class="hidden lg:block">
-                <a href="https://wa.me/201002429863" target="_blank" class="bg-[#D4A853] hover:bg-white text-[#0a1628] px-6 py-2.5 rounded-full font-black text-xs transition-all flex items-center gap-2 shadow-xl">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
-                    <span id="nav-cta">دردش معنا</span>
+            <!-- مبدل اللغات وزر الواتساب -->
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-1.5 bg-white/5 p-1 rounded-full border border-white/20 backdrop-blur-lg">
+                    <button onclick="setLanguage('ar')" id="btn-ar" class="w-9 h-9 rounded-full text-[10px] font-black text-white hover:bg-white/10 transition-all">AR</button>
+                    <button onclick="setLanguage('en')" id="btn-en" class="w-9 h-9 rounded-full text-[10px] font-black text-white hover:bg-white/10 transition-all">EN</button>
+                    <button onclick="setLanguage('ru')" id="btn-ru" class="w-9 h-9 rounded-full text-[10px] font-black text-white hover:bg-white/10 transition-all">RU</button>
+                    <button onclick="setLanguage('de')" id="btn-de" class="w-9 h-9 rounded-full text-[10px] font-black text-white hover:bg-white/10 transition-all">DE</button>
+                </div>
+                <a href="https://wa.me/201002429863" target="_blank" class="hidden sm:block">
+                    <button class="bg-[#D4A853] hover:bg-white text-[#0a1628] px-6 py-2.5 rounded-full font-black text-xs transition-all shadow-xl">
+                        <span id="nav-cta">دردش معنا</span>
+                    </button>
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- قسم الهيرو -->
-    <section class="relative h-screen min-h-[650px] flex items-center justify-center bg-[#0a1628] overflow-hidden">
-        <div id="hero-bg" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-45 scale-105" style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109c0f2?auto=format&fit=crop&q=80');"></div>
+    <!-- قسم الهيرو (هوية وSEO فقط) -->
+    <section id="home" class="relative h-screen flex items-center justify-center bg-[#0a1628] overflow-hidden">
+        
+        <!-- خيال الطائرة SVG -->
+        <svg class="plane-shadow" viewBox="0 0 24 24">
+            <path d="M22,16L12,10L2,16V13L12,7L22,13V16M12,2L13,5H11L12,2Z" />
+        </svg>
+
+        <div id="hero-bg" class="absolute inset-0 bg-cover bg-center transition-opacity duration-1000 opacity-40 scale-105" style="background-image: url('https://images.unsplash.com/photo-1436491865332-7a61a109c0f2?auto=format&fit=crop&q=80');"></div>
         <div class="absolute inset-0 hero-gradient"></div>
         
         <div class="relative z-10 text-center px-6 max-w-5xl">
-            <div class="inline-block mb-6 px-5 py-2 rounded-full bg-white/10 border border-white/20 text-[#D4A853] text-[10px] font-bold tracking-[0.3em] uppercase backdrop-blur-md">
-               Elite Aviation & Global Travel
+            <div class="inline-block mb-8 px-6 py-2 rounded-full bg-white/10 border border-white/20 text-[#D4A853] text-xs font-bold tracking-[0.3em] uppercase backdrop-blur-md">
+               Professional Aviation & Travel Agency
             </div>
-            <h1 id="hero-title" class="text-5xl md:text-[90px] font-black text-white leading-[1] mb-8 tracking-tighter drop-shadow-2xl">
-                بوابتك لعالم <br> <span class="text-[#D4A853]">الطيران المتميز</span>
+            <h1 id="hero-title" class="text-6xl md:text-[110px] font-black text-white leading-[0.9] mb-10 tracking-tighter drop-shadow-2xl">
+                الريهام تورز <br> <span class="text-[#D4A853]">نربطك بالعالم</span>
             </h1>
-            <p id="hero-sub" class="text-lg md:text-2xl text-white/70 max-w-2xl mx-auto mb-12 leading-relaxed italic">
-                نحن لا نبيع تذاكر فقط، بل نصمم لك رحلة جوية مريحة وآمنة بأفضل الأسعار العالمية من قلب الغردقة.
+            <p id="hero-sub" class="text-xl md:text-3xl text-white/80 max-w-3xl mx-auto mb-14 leading-relaxed italic">
+                رحلات طيران مباشرة، فنادق فاخرة، وخدمات VIP متكاملة من قلب الغردقة إلى جميع أنحاء العالم.
             </p>
-            <a href="https://wa.me/201002429863" target="_blank" class="inline-flex">
-                <button id="hero-btn" class="bg-[#D4A853] text-[#0a1628] font-black px-12 py-5 rounded-[2.5rem] text-xl shadow-2xl hover:bg-white transition-all transform hover:scale-105 flex items-center gap-4">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
-                    <span>احجز الآن</span>
-                </button>
-            </a>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#services">
+                    <button id="hero-btn" class="bg-[#D4A853] text-[#0a1628] font-black px-12 py-5 rounded-[2.5rem] text-xl shadow-2xl hover:bg-white transition-all transform hover:scale-105">
+                        اكتشف خدماتنا
+                    </button>
+                </a>
+                <a href="https://wa.me/201002429863" target="_blank">
+                    <button class="border-2 border-white/20 text-white font-black px-12 py-5 rounded-[2.5rem] text-xl hover:bg-white/10 transition-all">
+                        تواصل للحجز
+                    </button>
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- قسم الخدمات -->
-    <section class="py-32 px-6 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-24">
-                <h2 id="services-label" class="text-[#D4A853] font-bold text-sm tracking-widest uppercase mb-4">ماذا نقدم</h2>
-                <h3 id="services-title" class="text-4xl md:text-6xl font-black text-[#0a1628]">خدماتنا الاحترافية</h3>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <!-- خدمة 1 -->
-                <div class="bg-[#fcfaf7] p-12 rounded-[4rem] border border-slate-100 shadow-xl group hover:bg-[#0a1628] transition-all duration-500 text-center">
-                    <div class="w-20 h-20 bg-[#D4A853]/10 rounded-3xl flex items-center justify-center text-[#D4A853] mb-10 group-hover:bg-[#D4A853] group-hover:text-white transition-all mx-auto">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
-                    </div>
-                    <h4 id="s1-t" class="text-2xl font-black text-[#0a1628] mb-6 group-hover:text-white">حجز طيران دولي</h4>
-                    <p id="s1-d" class="text-slate-500 group-hover:text-white/60 leading-relaxed text-lg">عروض حصرية على كافة الخطوط العالمية والداخلية لجميع الوجهات.</p>
+    <section id="services" class="py-32 px-6 bg-white">
+        <div class="max-w-7xl mx-auto text-center">
+            <h2 id="s-title" class="text-4xl md:text-7xl font-black text-[#0a1628] mb-24">خدمات الريهام تورز</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                <div class="bg-[#fcfaf7] p-12 rounded-[4rem] border border-slate-100 shadow-xl group hover:bg-[#0a1628] transition-all">
+                    <div class="text-5xl mb-8">✈️</div>
+                    <h4 id="s1-t" class="text-3xl font-black text-[#0a1628] mb-6 group-hover:text-white">حجز طيران</h4>
+                    <p id="s1-d" class="text-slate-500 group-hover:text-white/60 text-xl">عروض حصرية على كافة الخطوط الدولية والداخلية.</p>
                 </div>
-                <!-- خدمة 2 -->
-                <div class="bg-[#fcfaf7] p-12 rounded-[4rem] border border-slate-100 shadow-xl group hover:bg-[#0a1628] transition-all duration-500 text-center">
-                    <div class="w-20 h-20 bg-[#D4A853]/10 rounded-3xl flex items-center justify-center text-[#D4A853] mb-10 group-hover:bg-[#D4A853] group-hover:text-white transition-all mx-auto">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16M9 7h1m-1 4h1m4-4h1m-1 4h1M9 15h1m4 0h1"/></svg>
-                    </div>
-                    <h4 id="s2-t" class="text-2xl font-black text-[#0a1628] mb-6 group-hover:text-white">فنادق ومنتجعات</h4>
-                    <p id="s2-d" class="text-slate-500 group-hover:text-white/60 leading-relaxed text-lg">إقامة فاخرة في أرقى المنتجعات المختارة بعناية لضمان رفاهيتك.</p>
+                <div class="bg-[#fcfaf7] p-12 rounded-[4rem] border border-slate-100 shadow-xl group hover:bg-[#0a1628] transition-all">
+                    <div class="text-5xl mb-8">🏨</div>
+                    <h4 id="s2-t" class="text-3xl font-black text-[#0a1628] mb-6 group-hover:text-white">فنادق عالمية</h4>
+                    <p id="s2-d" class="text-slate-500 group-hover:text-white/60 text-xl">إقامة فاخرة في أرقى المنتجعات المختارة بعناية.</p>
                 </div>
-                <!-- خدمة 3 -->
-                <div class="bg-[#fcfaf7] p-12 rounded-[4rem] border border-slate-100 shadow-xl group hover:bg-[#0a1628] transition-all duration-500 text-center">
-                    <div class="w-20 h-20 bg-[#D4A853]/10 rounded-3xl flex items-center justify-center text-[#D4A853] mb-10 group-hover:bg-[#D4A853] group-hover:text-white transition-all mx-auto">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    </div>
-                    <h4 id="s3-t" class="text-2xl font-black text-[#0a1628] mb-6 group-hover:text-white">خدمات الـ VIP</h4>
-                    <p id="s3-d" class="text-slate-500 group-hover:text-white/60 leading-relaxed text-lg">استقبال خاص في المطار وإنهاء كافة إجراءات السفر والفيزا.</p>
+                <div class="bg-[#fcfaf7] p-12 rounded-[4rem] border border-slate-100 shadow-xl group hover:bg-[#0a1628] transition-all">
+                    <div class="text-5xl mb-8">⭐</div>
+                    <h4 id="s3-t" class="text-3xl font-black text-[#0a1628] mb-6 group-hover:text-white">خدمات VIP</h4>
+                    <p id="s3-d" class="text-slate-500 group-hover:text-white/60 text-xl">استقبال في المطار وتخليص إجراءات السفر والفيزا.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- الفوتر ومعلومات التواصل -->
-    <footer class="bg-[#050b16] py-32 px-6 border-t border-white/5">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 id="footer-cta" class="text-4xl md:text-7xl font-black text-white mb-16">تواصل معنا الآن للحجز</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-24 text-white/80">
-                <!-- العنوان الجديد -->
-                <div class="bg-white/5 p-10 rounded-[3rem] border border-white/10 flex flex-col items-center gap-6">
-                    <div class="w-14 h-14 bg-[#D4A853]/20 text-[#D4A853] rounded-2xl flex items-center justify-center">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                    </div>
-                    <h4 id="f-addr-t" class="text-xl font-bold text-[#D4A853]">مقرنا</h4>
-                    <p id="f-addr-d" class="text-lg leading-relaxed max-w-sm">شارع مترو متفرع من شارع شيراتون خلف السنترال السياحي امام أسواق الخير، الغردقة</p>
-                </div>
-
-                <!-- أرقام التليفونات -->
-                <div class="bg-white/5 p-10 rounded-[3rem] border border-white/10 flex flex-col items-center gap-6">
-                    <div class="w-14 h-14 bg-[#D4A853]/20 text-[#D4A853] rounded-2xl flex items-center justify-center">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    </div>
-                    <h4 id="f-phone-t" class="text-xl font-bold text-[#D4A853]">أرقام التواصل</h4>
-                    <div class="space-y-4 text-2xl font-black tracking-wider font-sans">
-                        <a href="tel:01129101092" class="block hover:text-[#D4A853] transition-colors">01129101092</a>
-                        <a href="tel:01002429863" class="block hover:text-[#D4A853] transition-colors">01002429863</a>
-                    </div>
-                </div>
+    <!-- قسم من نحن (About) -->
+    <section id="about" class="py-24 bg-[#0a1628] text-white px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/2">
+                <img src="https://images.unsplash.com/photo-1542296332-2e4473faf563?auto=format&fit=crop&q=80" class="rounded-[3rem] shadow-2xl border-4 border-white/5" alt="About Us">
             </div>
-
-            <!-- الفوتر السفلي -->
-            <div class="pt-20 border-t border-white/5 flex flex-col items-center">
-                <div class="w-20 h-20 mb-8 opacity-20 grayscale brightness-200">
-                    <img src="logo.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'">
-                </div>
-                <p class="text-white/20 text-[10px] font-bold uppercase tracking-[0.5em]">
-                    © 2024 Elreham Tours & Aviation - Hurghada, Egypt
+            <div class="md:w-1/2">
+                <h2 class="text-[#D4A853] font-bold text-xl mb-6" id="about-label">قصة النجاح</h2>
+                <h3 class="text-4xl md:text-6xl font-black mb-8" id="about-title">الريهام تورز.. أكثر من مجرد وكالة سفر</h3>
+                <p class="text-white/60 text-xl leading-relaxed italic" id="about-desc">
+                    منذ عام 2014 ونحن نسعى لتقديم تجربة سفر لا تُنسى. نضع الجودة والأمان في المقام الأول، لنكون رفيقك الدائم في كل رحلة جوية.
                 </p>
             </div>
+        </div>
+    </section>
+
+    <!-- قسم التواصل والعناوين -->
+    <footer id="footer" class="bg-[#050b16] py-32 px-6 border-t border-white/5 text-center text-white">
+        <div class="max-w-5xl mx-auto">
+            <h2 id="footer-cta" class="text-4xl md:text-8xl font-black mb-16 leading-tight text-white">اتصل بنا للحجز</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-24 text-white/80">
+                <div class="bg-white/5 p-10 rounded-[3rem] border border-white/10 flex flex-col items-center gap-4">
+                    <span class="text-3xl text-[#D4A853]">📍</span>
+                    <h4 id="f-addr-t" class="text-xl font-bold text-[#D4A853]">مقرنا</h4>
+                    <p id="f-addr-d" class="text-lg">شارع مترو متفرع من شارع شيراتون خلف السنترال السياحي امام أسواق الخير، الغردقة</p>
+                </div>
+                <div class="bg-white/5 p-10 rounded-[3rem] border border-white/10 flex flex-col items-center gap-4">
+                    <span class="text-3xl text-[#D4A853]">📞</span>
+                    <h4 id="f-phone-t" class="text-xl font-bold text-[#D4A853]">أرقام التواصل</h4>
+                    <div class="space-y-4 text-2xl font-black font-sans tracking-widest">
+                        <a href="tel:01129101092" class="block hover:text-[#D4A853]">01129101092</a>
+                        <a href="tel:01002429863" class="block hover:text-[#D4A853]">01002429863</a>
+                    </div>
+                </div>
+            </div>
+            <p class="opacity-20 text-[10px] uppercase font-bold tracking-[0.8em]">Elreham Tours & Aviation © 2024</p>
         </div>
     </footer>
 
@@ -180,158 +178,100 @@
         </div>
     </a>
 
-    <!-- البرمجة (اللغات والتبديل) -->
     <script>
         const translations = {
             ar: {
-                dir: 'rtl',
-                font: 'Cairo',
-                cta: 'دردش معنا',
-                h_title: 'بوابتك لعالم <br> <span class="text-[#D4A853]">الطيران المتميز</span>',
-                h_sub: 'نحن لا نبيع تذاكر فقط، بل نصمم لك رحلة جوية مريحة وآمنة بأفضل الأسعار العالمية من قلب الغردقة.',
-                h_btn: 'احجز الآن',
-                s_label: 'ماذا نقدم',
-                s_title: 'خدماتنا الاحترافية',
-                s1_t: 'حجز طيران دولي',
-                s1_d: 'عروض حصرية على كافة الخطوط العالمية والداخلية لجميع الوجهات.',
-                s2_t: 'فنادق ومنتجعات',
-                s2_d: 'إقامة فاخرة في أرقى المنتجعات المختارة بعناية لضمان رفاهيتك.',
-                s3_t: 'خدمات الـ VIP',
-                s3_d: 'استقبال خاص في المطار وإنهاء كافة إجراءات السفر والفيزا.',
-                f_cta: 'تواصل معنا الآن للحجز',
-                f_addr_t: 'مقرنا',
-                f_addr_d: 'شارع مترو متفرع من شارع شيراتون خلف السنترال السياحي امام أسواق الخير، الغردقة',
-                f_phone_t: 'أرقام التواصل'
+                dir: 'rtl', font: 'Cairo', cta: 'دردش معنا',
+                n_home: 'الرئيسية', n_services: 'خدماتنا', n_about: 'من نحن', n_contact: 'اتصل بنا',
+                h_title: 'الريهام تورز <br> <span class="text-[#D4A853]">نربطك بالعالم</span>',
+                h_sub: 'رحلات طيران مباشرة، فنادق فاخرة، وخدمات VIP متكاملة من قلب الغردقة إلى جميع أنحاء العالم.',
+                h_btn: 'اكتشف خدماتنا', s_title: 'خدمات الريهام تورز',
+                s1_t: 'حجز طيران', s1_d: 'عروض حصرية على كافة الخطوط الدولية والداخلية.',
+                s2_t: 'فنادق عالمية', s2_d: 'إقامة فاخرة في أرقى المنتجعات المختارة بعناية.',
+                s3_t: 'خدمات VIP', s3_d: 'استقبال في المطار وتخليص إجراءات السفر والفيزا.',
+                a_l: 'قصة النجاح', a_t: 'الريهام تورز.. أكثر من مجرد وكالة سفر', a_d: 'منذ عام 2014 ونحن نسعى لتقديم تجربة سفر لا تُنسى. نضع الجودة والأمان في المقام الأول.',
+                f_cta: 'اتصل بنا للحجز', f_addr_t: 'مقرنا', f_addr_d: 'شارع مترو متفرع من شارع شيراتون، الغردقة', f_phone_t: 'أرقام التواصل'
             },
             en: {
-                dir: 'ltr',
-                font: 'Tajawal',
-                cta: 'Chat Now',
-                h_title: 'Your Gateway to <br> <span class="text-[#D4A853]">Elite Aviation</span>',
-                h_sub: 'We don\'t just book flights; we design seamless journeys with the best global rates from the heart of Hurghada.',
-                h_btn: 'Book Now',
-                s_label: 'OUR SERVICES',
-                s_title: 'Our Elite Services',
-                s1_t: 'Global Flights',
-                s1_d: 'Exclusive rates on major international and domestic airlines worldwide.',
-                s2_t: 'Luxury Stays',
-                s2_d: 'Handpicked premium resorts for a seamless vacation experience.',
-                s3_t: 'VIP Concierge',
-                s3_d: 'Fast-track airport services and luxury private transfers.',
-                f_cta: 'Contact Us for Booking',
-                f_addr_t: 'Our Office',
-                f_addr_d: 'Metro St. off Sheraton St., behind Tourist Central, Hurghada',
-                f_phone_t: 'Contact Numbers'
+                dir: 'ltr', font: 'Tajawal', cta: 'Chat Now',
+                n_home: 'Home', n_services: 'Services', n_about: 'About Us', n_contact: 'Contact',
+                h_title: 'Elreham Tours <br> <span class="text-[#D4A853]">Connects You</span>',
+                h_sub: 'Direct flights, luxury hotels, and premium VIP services from Hurghada to the world.',
+                h_btn: 'Our Services', s_title: 'Elreham Professional Services',
+                s1_t: 'Flight Booking', s1_d: 'Exclusive deals on all major international and domestic airlines.',
+                s2_t: 'Global Hotels', s2_d: 'Luxury stays at handpicked premium resorts worldwide.',
+                s3_t: 'VIP Services', s3_d: 'Airport meet & assist, visa support, and fast-track procedures.',
+                a_l: 'SUCCESS STORY', a_t: 'More Than Just a Travel Agency', a_d: 'Since 2014, we have provided unforgettable travel experiences with quality and safety as our priority.',
+                f_cta: 'Contact Us for Booking', f_addr_t: 'Our Office', f_addr_d: 'Metro St., Hurghada', f_phone_t: 'Contact Numbers'
             },
             ru: {
-                dir: 'ltr',
-                font: 'Tajawal',
-                cta: 'Чат',
-                h_title: 'Ваше окно в <br> <span class="text-[#D4A853]">мир полетов</span>',
-                h_sub: 'Мы не просто бронируем билеты, мы создаем комфортные путешествия по лучшим мировым ценам из Хургады.',
-                h_btn: 'Забронировать',
-                s_label: 'НАШИ УСЛУГИ',
-                s_title: 'Наши Услуги',
-                s1_t: 'Авиабилеты',
-                s1_d: 'Прямые рейсы и удобные стыковки по самым низким ценам.',
-                s2_t: 'Отели 5*',
-                s2_d: 'Лучшие предложения All-Inclusive на берегу Красного моря.',
-                s3_t: 'VIP Трансфер',
-                s3_d: 'Комфортабельные поездки на новых автомобилях из аэропорта.',
-                f_cta: 'Свяжитесь с нами',
-                f_addr_t: 'Наш офис',
-                f_addr_d: 'Метро-стрит, Шеридан-стрит, за туристическим центром, Хургада',
-                f_phone_t: 'Контакты'
+                dir: 'ltr', font: 'Tajawal', cta: 'Чат',
+                n_home: 'Главная', n_services: 'Услуги', n_about: 'О нас', n_contact: 'Контакты',
+                h_title: 'Эльрехам Турс <br> <span class="text-[#D4A853]">Связь с миром</span>',
+                h_sub: 'Прямые рейсы, отели 5* и VIP-сервис из Хургады по всему миру.',
+                h_btn: 'Наши Услуги', s_title: 'Наши Услуги',
+                s1_t: 'Авиабилеты', s1_d: 'Лучшие цены на международные и внутренние рейсы.',
+                s2_t: 'Отели 5*', s2_d: 'Роскошное проживание в лучших отелях на берегу Красного моря.',
+                s3_t: 'VIP Сервис', s3_d: 'Встреча в аэропорту, помощь с визой и быстрое прохождение.',
+                a_l: 'ИСТОРИЯ УСПЕХА', a_t: 'Больше, чем просто агентство', a_d: 'С 2014 года мы создаем незабываемые путешествия, делая качество нашим приоритетом.',
+                f_cta: 'Свяжитесь с нами', f_addr_t: 'Наш офис', f_addr_d: 'Метро-стрит, Хургада', f_phone_t: 'Контакты'
             },
             de: {
-                dir: 'ltr',
-                font: 'Tajawal',
-                cta: 'Kontakt',
-                h_title: 'Ihr Profi für <br> <span class="text-[#D4A853]">Flüge & Reisen</span>',
-                h_sub: 'Höchste Sicherheit und Zuverlässigkeit. Wir organisieren Ihre Flüge nach deutschen Qualitätsstandards.',
-                h_btn: 'Jetzt buchen',
-                s_label: 'UNSERE LEISTUNGEN',
-                s_title: 'Unsere Leistungen',
-                s1_t: 'Flugbuchungen',
-                s1_d: 'Sicher und günstig fliegen mit allen namhaften Airlines weltweit.',
-                s2_t: 'Kultur & Meer',
-                s2_d: 'Exklusive Ausflüge nach Luxor و erstklassige Resorts.',
-                s3_t: 'Privattransfer',
-                s3_d: 'Pünktlicher VIP-Service direkt vom Gate zu Ihrem Hotel.',
-                f_cta: 'Kontaktieren Sie uns',
-                f_addr_t: 'Unser Büro',
-                f_addr_d: 'Metro Str., Sheraton Str., hinter dem Touristenzentrum, Hurghada',
-                f_phone_t: 'Kontaktnummern'
+                dir: 'ltr', font: 'Tajawal', cta: 'Kontakt',
+                n_home: 'Startseite', n_services: 'Leistungen', n_about: 'Über uns', n_contact: 'Kontakt',
+                h_title: 'Elreham Tours <br> <span class="text-[#D4A853]">Elite-Service</span>',
+                h_sub: 'Direktflüge, Luxushotels und erstklassige VIP-Services von Hurghada aus.',
+                h_btn: 'Leistungen', s_title: 'Unsere Leistungen',
+                s1_t: 'Flugbuchungen', s1_d: 'Sonderangebote für alle namhaften internationalen Airlines.',
+                s2_t: 'Luxushotels', s2_d: 'Handverlesene Premium-Resorts für ultimativen Komfort.',
+                s3_t: 'VIP-Service', s3_d: 'Pünktlicher VIP-Service direkt vom Gate zu Ihrem Hotel.',
+                a_l: 'ERFOLGSGESCHICHTE', a_t: 'Mehr als nur ein Reisebüro', a_d: 'Seit 2014 organisieren wir erstklassige Reisen nach höchsten Qualitätsstandards.',
+                f_cta: 'Kontaktieren Sie uns', f_addr_t: 'Unser Büro', f_addr_d: 'Metro Str., Hurghada', f_phone_t: 'Kontaktnummern'
             }
         };
 
-        const heroImages = [
-            "https://images.unsplash.com/photo-1436491865332-7a61a109c0f2?auto=format&fit=crop&q=80",
-            "https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&q=80",
-            "https://images.unsplash.com/photo-1524850011238-e3d235c7d4c9?auto=format&fit=crop&q=80"
-        ];
-
-        let imgIdx = 0;
-        setInterval(() => {
-            imgIdx = (imgIdx + 1) % heroImages.length;
-            const bg = document.getElementById('hero-bg');
-            bg.style.opacity = '0';
-            setTimeout(() => {
-                bg.style.backgroundImage = `url('${heroImages[imgIdx]}')`;
-                bg.style.opacity = '0.45';
-            }, 500);
-        }, 7000);
-
         function setLanguage(lang) {
             const t = translations[lang];
-            
-            // تغيير اتجاه الصفحة والخط
             document.documentElement.dir = t.dir;
-            document.documentElement.lang = lang;
             document.body.style.fontFamily = t.font + ', sans-serif';
-
-            // تحديث النصوص
+            document.getElementById('nav-home').innerText = t.n_home;
+            document.getElementById('nav-services').innerText = t.n_services;
+            document.getElementById('nav-about').innerText = t.n_about;
+            document.getElementById('nav-contact').innerText = t.n_contact;
             document.getElementById('nav-cta').innerText = t.cta;
             document.getElementById('hero-title').innerHTML = t.h_title;
             document.getElementById('hero-sub').innerText = t.h_sub;
-            document.getElementById('hero-btn').querySelector('span').innerText = t.h_btn;
-            document.getElementById('services-label').innerText = t.s_label;
-            document.getElementById('services-title').innerText = t.s_title;
+            document.getElementById('hero-btn').innerText = t.h_btn;
+            document.getElementById('s-title').innerText = t.s_title;
             document.getElementById('s1-t').innerText = t.s1_t;
             document.getElementById('s1-d').innerText = t.s1_d;
             document.getElementById('s2-t').innerText = t.s2_t;
             document.getElementById('s2-d').innerText = t.s2_d;
             document.getElementById('s3-t').innerText = t.s3_t;
             document.getElementById('s3-d').innerText = t.s3_d;
+            document.getElementById('about-label').innerText = t.a_l;
+            document.getElementById('about-title').innerText = t.a_t;
+            document.getElementById('about-desc').innerText = t.a_d;
             document.getElementById('footer-cta').innerText = t.f_cta;
             document.getElementById('f-addr-t').innerText = t.f_addr_t;
             document.getElementById('f-addr-d').innerText = t.f_addr_d;
             document.getElementById('f-phone-t').innerText = t.f_phone_t;
 
-            // تحديث حالة الأزرار
-            ['ar', 'en', 'ru', 'de'].forEach(l => {
-                document.getElementById('btn-' + l).classList.remove('lang-btn-active');
-            });
+            ['ar', 'en', 'ru', 'de'].forEach(l => document.getElementById('btn-' + l).classList.remove('lang-btn-active'));
             document.getElementById('btn-' + lang).classList.add('lang-btn-active');
-
-            // العودة لقمة الصفحة
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // اللغة الافتراضية
         setLanguage('ar');
 
-        // تغيير شفافية القائمة عند التمرير
         window.onscroll = function() {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
                 nav.classList.add('glass-nav', 'shadow-2xl');
-                nav.classList.remove('py-6');
-                nav.classList.add('py-3');
+                nav.classList.remove('py-6'); nav.classList.add('py-3');
             } else {
                 nav.classList.remove('glass-nav', 'shadow-2xl');
-                nav.classList.add('py-6');
-                nav.classList.remove('py-3');
+                nav.classList.add('py-6'); nav.classList.remove('py-3');
             }
         };
     </script>
