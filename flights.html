@@ -14,7 +14,7 @@
     :root { --brand: #F26522; --navy: #06152c; --blue-widget: #0288d1; }
     body { font-family: "Cairo", "Tajawal", sans-serif; background: #f7f4ee; overflow-x: hidden; color: #0f172a; }
     
-    .glass-nav { background: rgba(43, 52, 65, 0.98); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .glass-nav { background: rgba(6, 21, 44, 0.95); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.05); }
     .nav-link { position: relative; color: white; font-weight: 700; transition: 0.3s; font-size: 0.95rem; }
     .nav-link::after { content: ""; position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%); width: 0; height: 2px; background: var(--brand); transition: 0.3s; }
     .nav-link:hover { color: var(--brand); }
@@ -24,12 +24,14 @@
     .lang-btn:hover { background: rgba(255,255,255,0.1); }
     .lang-btn-active { background: var(--brand) !important; color: white !important; transform: scale(1.1); box-shadow: 0 4px 12px rgba(242,101,34,0.4); }
 
-    /* خلفية الهيرو الرمادية الداكنة مع تقليل الارتفاع لتسليط الضوء على البانر */
+    /* خلفية الهيرو باللون الأزرق الداكن الخاص باللوجو */
     .hero-wrap { 
       position: relative; 
       padding-top: 140px; 
       padding-bottom: 60px;
-      background-color: #374151; /* لون رمادي مزرق فخم Slate 700 */
+      background-color: var(--navy); /* لون أزرق الريهام تورز */
+      background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 20px 20px;
       overflow: hidden;
     }
 
@@ -46,7 +48,7 @@
 
     /* تصميم محرك البحث ليكون بارز وملفت (Glassmorphism) */
     .widget-box { 
-      background: rgba(255, 255, 255, 0.08); /* زجاجي مضيء تبرز الخلفية من ورائه */
+      background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-radius: 2rem; 
@@ -120,10 +122,12 @@
   <header class="hero-wrap flex flex-col items-center justify-center px-4">
     
     <!-- اللوجو كعلامة مائية فخمة وبارزة في الخلفية -->
-    <img src="logo.png" alt="Logo Watermark" class="absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[350px] md:w-[500px] opacity-[0.06] grayscale pointer-events-none z-0" />
+    <img src="logo.png" alt="Logo Watermark" class="absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[350px] md:w-[500px] opacity-[0.05] pointer-events-none z-0" />
 
-    <!-- صورة الطائرة الحقيقية المتحركة بوضوح -->
-    <img src="https://cdn.pixabay.com/photo/2014/04/02/10/45/airplane-304481_960_720.png" alt="Flying Plane" class="flying-plane" />
+    <!-- صورة الطائرة التي قمتِ برفعها -->
+    <img src="image_c2dae4.png" 
+         alt="Flying Plane" 
+         class="flying-plane" />
 
     <div class="text-center w-full max-w-6xl relative z-10 mt-4">
       
