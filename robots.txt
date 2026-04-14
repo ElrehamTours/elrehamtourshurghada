@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# منع أي ملفات غير مهمة (اختياري)
+Disallow: /admin/
+Disallow: /private/
+
+# رابط خريطة الموقع (مهم جداً للسيو)
+Sitemap: https://elrehamtours.vercel.app/sitemap.xml
