@@ -24,17 +24,17 @@
     .lang-btn:hover { background: rgba(255,255,255,0.1); }
     .lang-btn-active { background: var(--brand) !important; color: white !important; transform: scale(1.1); box-shadow: 0 4px 12px rgba(242,101,34,0.4); }
 
-    /* تغيير الخلفية لتكون صورة الدلافين dolfin background.jpg */
+    /* إعدادات قسم الهيرو لاستيعاب الفيديو كخلفية */
     .hero-wrap { 
       position: relative; 
       min-height: 80vh;
-      background: linear-gradient(to bottom, rgba(6, 21, 44, 0.6), rgba(6, 21, 44, 0.95)), url("dolfin background.jpg") center/cover;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 140px 20px 60px;
+      overflow: hidden;
     }
 
     /* تصميم محرك الحجز */
@@ -120,9 +120,17 @@
 
   <!-- Hero & Booking Widget -->
   <header class="hero-wrap">
+    <!-- فيديو الدلافين كخلفية -->
+    <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+      <source src="grok-video-ef2a5198-15a1-4a03-afa2-8568957a8575.mp4" type="video/mp4">
+    </video>
+    
+    <!-- طبقة تظليل متدرجة لضمان وضوح النصوص ومحرك الحجز فوق الفيديو -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[rgba(6,21,44,0.5)] via-[rgba(6,21,44,0.4)] to-[rgba(6,21,44,0.95)] z-0"></div>
+
     <div class="relative z-10 w-full max-w-5xl">
       <div class="text-center mb-10">
-        <h1 id="hero-title" class="text-white font-black text-5xl md:text-7xl drop-shadow-xl mb-4">رحلات داخلية وسفاري</h1>
+        <h1 id="hero-title" class="text-white font-black text-5xl md:text-7xl drop-shadow-2xl mb-4">رحلات داخلية وسفاري</h1>
         <p id="hero-sub" class="text-white/90 font-bold text-xl md:text-3xl drop-shadow-md">اكتشف أجمل الأنشطة واحجز الآن</p>
       </div>
 
@@ -248,7 +256,7 @@
           { name: "سفاري الصحراء", img: "9j2wQ.jpg", desc: "مغامرة صحراوية", tag: "الغردقة" },
           { name: "براشوت", img: "OQ6wQ.jpg", desc: "إطلالة بحرية من الأعلى", tag: "الغردقة" },
           { name: "ألعاب مائية", img: "8s62Q.jpg", desc: "أنشطة بحرية ترفيهية", tag: "الغردقة" },
-          { name: "جلاس بوت", img: "image_d1cffe.png", desc: "مشاهدة البحر والشعاب من القارب", tag: "الغردقة" }
+          { name: "جلاس بوت", img: "x1Mp0.jpg", desc: "مشاهدة البحر والشعاب من القارب", tag: "الغردقة" }
         ]
       },
       en: { dir: "ltr", font: "Tajawal", brand: "Elreham Tours", n_home: "Home", n_flights: "Flight Booking", n_domestic: "Domestic", n_contact: "Contact Us", h_title: "Domestic Trips & Safari", h_sub: "Explore & Book the best activities", promo_label: "Top Activities", promo_title: "Our Premium Packages", social_title: "Follow Elreham Tours", social_sub: "@elrehamtours", cta_btn_secondary: "Back to Home", f_slogan: "Elreham Tours.. The start and end of every trip", f_addr_t: "Head Office", f_addr_d: "Metro St., Hurghada, Egypt", f_phone_t: "Contact Numbers", 
@@ -260,7 +268,7 @@
           { name: "Desert Safari", img: "9j2wQ.jpg", desc: "Desert adventure", tag: "Hurghada" },
           { name: "Parasailing", img: "OQ6wQ.jpg", desc: "Sea view from above", tag: "Hurghada" },
           { name: "Water Activities", img: "8s62Q.jpg", desc: "Fun marine activities", tag: "Hurghada" },
-          { name: "Glass Boat", img: "image_d1cffe.png", desc: "View sea & reefs from boat", tag: "Hurghada" }
+          { name: "Glass Boat", img: "x1Mp0.jpg", desc: "View sea & reefs from boat", tag: "Hurghada" }
         ]
       },
       ru: { dir: "ltr", font: "Tajawal", brand: "Elreham Tours", n_home: "Главная", n_flights: "Бронь авиабилетов", n_domestic: "Внутренние", n_contact: "Контакты", h_title: "Внутренние туры и сафари", h_sub: "Бронируйте лучшие активности", promo_label: "Лучшие активности", promo_title: "Наши программы", social_title: "Следите за нами", social_sub: "@elrehamtours", cta_btn_secondary: "На главную", f_slogan: "Начало и конец каждого путешествия", f_addr_t: "Главный офис", f_addr_d: "Метро-стрит, Хургада, Египет", f_phone_t: "Контакты",
@@ -272,7 +280,7 @@
           { name: "Сафари", img: "9j2wQ.jpg", desc: "Приключение в пустыне", tag: "Хургада" },
           { name: "Парасейлинг", img: "OQ6wQ.jpg", desc: "Вид на море сверху", tag: "Хургада" },
           { name: "Водные развлечения", img: "8s62Q.jpg", desc: "Веселые морские развлечения", tag: "Хургада" },
-          { name: "Лодка с прозрачным дном", img: "image_d1cffe.png", desc: "Вид на море и рифы с лодки", tag: "Хургада" }
+          { name: "Лодка с прозрачным дном", img: "x1Mp0.jpg", desc: "Вид на море и рифы с лодки", tag: "Хургада" }
         ]
       },
       de: { dir: "ltr", font: "Tajawal", brand: "Elreham Tours", n_home: "Start", n_flights: "Flugbuchung", n_domestic: "Inlands", n_contact: "Kontakt", h_title: "Inlandsreisen & Safari", h_sub: "Buchen Sie die besten Aktivitäten", promo_label: "Top Aktivitäten", promo_title: "Unsere Pakete", social_title: "Folgen Sie uns", social_sub: "@elrehamtours", cta_btn_secondary: "Zur Startseite", f_slogan: "Der Anfang und das Ende jeder Reise", f_addr_t: "Hauptsitz", f_addr_d: "Metro Str., Hurghada", f_phone_t: "Kontakt",
@@ -284,7 +292,7 @@
           { name: "Wüstensafari", img: "9j2wQ.jpg", desc: "Wüstenabenteuer", tag: "Hurghada" },
           { name: "Parasailing", img: "OQ6wQ.jpg", desc: "Meerblick von oben", tag: "Hurghada" },
           { name: "Wassersport", img: "8s62Q.jpg", desc: "Unterhaltsame Meeresaktivitäten", tag: "Hurghada" },
-          { name: "Glasbodenboot", img: "image_d1cffe.png", desc: "Blick auf Meer & Riffe vom Boot", tag: "Hurghada" }
+          { name: "Glasbodenboot", img: "x1Mp0.jpg", desc: "Blick auf Meer & Riffe vom Boot", tag: "Hurghada" }
         ]
       }
     };
