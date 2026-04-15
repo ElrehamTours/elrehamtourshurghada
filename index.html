@@ -13,9 +13,9 @@
     :root { --brand: #F26522; --navy: #06152c; }
     body { font-family: "Cairo", "Tajawal", sans-serif; background: #fcfaf7; color: var(--navy); overflow-x: hidden; }
     
-    /* البانر العلوي الثابت (تم تقليل سماكته وتفتيح لونه) */
+    /* البانر العلوي الثابت (لون أفتح درجتين ومشرق) */
     .hero-simple {
-      background: linear-gradient(135deg, #1e3a8a, #1e293b); /* لون أزرق ملكي أفتح وأكثر إشراقاً */
+      background: linear-gradient(135deg, #2563eb, #1d4ed8); /* أزرق فاتح زاهي يبرز اللوجو بوضوح */
       padding: 15px 0; /* تقليل السماكة */
       text-align: center;
       color: white;
@@ -132,12 +132,12 @@
     <div class="max-w-6xl mx-auto px-6 flex flex-wrap items-center justify-center md:justify-between gap-4">
       <div class="flex items-center gap-4">
         
-        <!-- منطقة اللوجو مع إضافة إضاءة (جريديانت فاتح) خلفه مباشرة -->
+        <!-- منطقة اللوجو مع إضاءة ناعمة جداً -->
         <div class="relative w-16 h-16 md:w-20 md:h-20 shrink-0 flex items-center justify-center">
-          <!-- تأثير الإضاءة الفاتحة خلف اللوجو -->
-          <div class="absolute inset-[-50%] bg-gradient-to-tr from-white/60 via-white/20 to-transparent blur-xl rounded-full z-0 pointer-events-none"></div>
+          <!-- تأثير الإضاءة الفاتحة (مخفف وأنقى ليتناسب مع الخلفية الأفتح) -->
+          <div class="absolute inset-[-30%] bg-white/30 blur-2xl rounded-full z-0 pointer-events-none"></div>
           
-          <img src="logo.png" alt="الريهام تورز" class="relative z-10 w-full h-full object-contain drop-shadow-2xl hover:scale-105 transition-transform cursor-pointer">
+          <img src="logo.png" alt="الريهام تورز" class="relative z-10 w-full h-full object-contain drop-shadow-xl hover:scale-105 transition-transform cursor-pointer">
         </div>
 
         <div class="text-white text-right relative z-10">
