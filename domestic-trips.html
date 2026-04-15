@@ -8,20 +8,35 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root { --brand: #F26522; --navy: #06152c; }
-    body { font-family: "Cairo", "Tajawal", sans-serif; background: #fcfaf7; overflow-x: hidden; color: #0f172a; transition: background 0.3s; }
+    body { font-family: "Cairo", "Tajawal", sans-serif; background: #fcfaf7; overflow-x: hidden; color: #0f172a; }
+    
     .glass-nav { background: rgba(6, 21, 44, 0.98); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .nav-link { color: white; font-weight: 700; transition: 0.3s; font-size: 0.9rem; white-space: nowrap; }
+    .nav-link:hover, .nav-link-active { color: var(--brand); }
+    
     .lang-btn { width: 36px; height: 36px; border-radius: 50%; font-weight: 900; font-size: 11px; color: white; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
-    .lang-btn-active { background: var(--brand) !important; box-shadow: 0 4px 12px rgba(242,101,34,0.4); }
-    .hero-wrap { position: relative; min-height: 85vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 140px 20px 60px; overflow: hidden; background-color: var(--navy); }
-    .widget-box { background: rgba(10, 29, 56, 0.85); backdrop-filter: blur(16px); border-radius: 2rem; border-top: 5px solid var(--brand); box-shadow: 0 25px 60px rgba(0,0,0,0.5); }
-    .input-group { background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 1.25rem; padding: 0.8rem 1.25rem; }
-    .album-card { overflow: hidden; border-radius: 2rem; background: white; box-shadow: 0 15px 35px rgba(0,0,0,0.1); cursor: zoom-in; transition: 0.4s; }
+    .lang-btn-active { background: var(--brand) !important; transform: scale(1.1); box-shadow: 0 4px 12px rgba(242,101,34,0.4); }
+
+    .hero-wrap { 
+      position: relative; min-height: 85vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 140px 20px 60px; overflow: hidden; background-color: var(--navy); 
+    }
+
+    .widget-box { background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); border-radius: 2.5rem; border-top: 5px solid var(--brand); box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4); position: relative; z-index: 10; }
+    .input-group { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 1.25rem; padding: 1rem 1.25rem; transition: 0.3s; }
+    .input-group:focus-within { border-color: var(--brand); background: rgba(0, 0, 0, 0.45); }
+    
+    input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
+
+    .album-card { overflow: hidden; border-radius: 2rem; background: white; box-shadow: 0 15px 35px rgba(0,0,0,0.1); cursor: zoom-in; transition: 0.4s; position: relative; }
     .album-card img { width: 100%; height: 450px; object-fit: cover; transition: 0.6s; }
+    .album-card:hover img { transform: scale(1.05); }
+
     #lightbox { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95); z-index: 2000; align-items: center; justify-content: center; padding: 20px; opacity: 0; transition: 0.3s; }
     #lightbox.active { display: flex; opacity: 1; }
     .lb-content { transform: scale(0.9); transition: 0.3s; max-width: 500px; width: 100%; }
     #lightbox.active .lb-content { transform: scale(1); }
     .lb-details { background: rgba(6, 21, 44, 0.98); padding: 25px; border-radius: 0 0 1.5rem 1.5rem; text-align: center; border-top: 4px solid var(--brand); color: white; }
+    
     select option { background-color: var(--navy); color: white; }
   </style>
 </head>
@@ -43,18 +58,37 @@
     </div>
   </div>
 
-  <nav class="fixed top-0 inset-x-0 z-[100] glass-nav py-4">
-    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+  <div id="toast-container" class="fixed top-24 left-1/2 transform -translate-x-1/2 z-[200] pointer-events-none text-center"></div>
+
+  <!-- Navbar المطور مع روابط التنقل المترجمة -->
+  <nav class="fixed top-0 inset-x-0 z-[100] glass-nav py-3 md:py-4">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between gap-4 text-white">
+      
+      <div class="flex items-center gap-4 md:gap-8">
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl p-1 shadow-lg group-hover:scale-105 transition-transform">
+            <img src="logo.png" class="w-full h-full object-contain" alt="Logo">
+          </div>
+          <div class="hidden sm:block font-black text-lg md:text-xl uppercase" id="brand-name">الريهام تورز</div>
+        </a>
+        
+        <!-- روابط التنقل بجانب اللوجو -->
+        <div class="hidden lg:flex items-center gap-6">
+          <a href="index.html" class="nav-link" id="n-home">الرئيسية</a>
+          <a href="flights.html" class="nav-link" id="n-flights">حجز طيران</a>
+          <a href="domestic-trips.html" class="nav-link nav-link-active" id="n-trips">رحلات داخلية</a>
+        </div>
+      </div>
+
       <div class="flex items-center gap-3">
-        <a href="index.html" class="w-12 h-12 bg-white rounded-xl p-1 shadow-lg"><img src="logo.png" class="w-full h-full object-contain"></a>
-        <div class="hidden sm:block text-white font-black text-xl" id="brand-name">الريهام تورز</div>
+        <div class="flex bg-white/5 p-1 rounded-full border border-white/10 backdrop-blur-md">
+          <button onclick="setLanguage('de')" id="btn-de" class="lang-btn">DE</button>
+          <button onclick="setLanguage('ru')" id="btn-ru" class="lang-btn">RU</button>
+          <button onclick="setLanguage('en')" id="btn-en" class="lang-btn">EN</button>
+          <button onclick="setLanguage('ar')" id="btn-ar" class="lang-btn">AR</button>
+        </div>
       </div>
-      <div class="flex bg-white/5 p-1 rounded-full border border-white/10 backdrop-blur-md">
-        <button onclick="setLanguage('ar')" id="btn-ar" class="lang-btn">AR</button>
-        <button onclick="setLanguage('en')" id="btn-en" class="lang-btn">EN</button>
-        <button onclick="setLanguage('ru')" id="btn-ru" class="lang-btn">RU</button>
-        <button onclick="setLanguage('de')" id="btn-de" class="lang-btn">DE</button>
-      </div>
+
     </div>
   </nav>
 
@@ -64,44 +98,52 @@
     </video>
     <div class="absolute inset-0 bg-gradient-to-b from-[#0a1628]/60 via-[#0a1628]/40 to-[#0a1628]/95 z-0"></div>
 
-    <div class="relative z-10 w-full max-w-5xl">
-      <div class="text-center mb-10 text-white px-4">
-        <h1 id="h-title" class="font-black text-5xl md:text-7xl drop-shadow-2xl mb-4">رحلات داخلية وسفاري</h1>
-        <p id="h-sub" class="opacity-90 font-bold text-xl md:text-3xl drop-shadow-md">اكتشف أجمل الأنشطة واحجز الآن</p>
-      </div>
+    <div class="relative z-10 w-full max-w-6xl px-4 mt-8 text-white text-center">
+      <h1 id="h-title" class="font-black text-4xl md:text-7xl drop-shadow-2xl mb-4 uppercase">رحلات داخلية وسفاري</h1>
+      <p id="h-sub" class="opacity-90 font-bold text-lg md:text-2xl drop-shadow-md mb-12"></p>
 
-      <div class="widget-box p-6 md:p-8 text-white mx-auto w-[95%] max-w-5xl">
-        <form onsubmit="event.preventDefault();" class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
-          <div class="input-group text-right">
-            <label class="text-xs text-[#F26522] font-bold block mb-1" id="l-trip">اختر الرحلة</label>
-            <select id="w-trip" class="bg-transparent w-full font-bold outline-none cursor-pointer"></select>
+      <!-- مربع التسجيل المستعاد (صفين منظمين) -->
+      <div class="widget-box p-6 md:p-10 max-w-5xl mx-auto">
+        <form onsubmit="event.preventDefault();" class="space-y-5 text-right">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="input-group">
+              <label class="text-[10px] text-[#F26522] font-black uppercase block mb-1" id="l-trip">الرحلة</label>
+              <select id="w-trip" class="bg-transparent w-full font-bold outline-none cursor-pointer text-base text-white"></select>
+            </div>
+            <div class="input-group">
+              <label class="text-[10px] text-[#F26522] font-black uppercase block mb-1" id="l-date">التاريخ</label>
+              <input id="w-date" type="date" class="bg-transparent w-full outline-none font-bold text-white text-base">
+            </div>
           </div>
-          <div class="input-group text-right">
-            <label class="text-xs text-[#F26522] font-bold block mb-1" id="l-phone">رقم الهاتف</label>
-            <input id="w-phone" type="tel" placeholder="رقمك للتواصل" class="bg-transparent w-full outline-none font-bold placeholder-white/30">
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-end">
+            <div class="input-group">
+              <label class="text-[10px] text-[#F26522] font-black uppercase block mb-1" id="l-phone">رقم الهاتف</label>
+              <input id="w-phone" type="tel" placeholder="..." class="bg-transparent w-full outline-none font-bold text-white text-base">
+            </div>
+            <div class="input-group">
+              <label class="text-[10px] text-[#F26522] font-black uppercase block mb-1" id="l-email">الإيميل</label>
+              <input id="w-email" type="email" placeholder="..." class="bg-transparent w-full outline-none font-bold text-white text-base">
+            </div>
+            <button type="button" onclick="sendDirect()" id="btn-book-main" class="bg-[#F26522] text-white rounded-[1.25rem] font-black text-xl h-[64px] shadow-lg hover:bg-[#d9531e] transition-all hover:scale-[1.02] active:scale-95 uppercase tracking-wide">احجز الآن</button>
           </div>
-          <div class="input-group text-right">
-            <label class="text-xs text-[#F26522] font-bold block mb-1" id="l-email">الإيميل</label>
-            <input id="w-email" type="email" placeholder="إيميلك" class="bg-transparent w-full outline-none font-bold placeholder-white/30">
-          </div>
-          <button type="button" onclick="sendDirect()" id="w-btn-send" class="bg-[#F26522] h-[55px] rounded-2xl font-black text-xl hover:bg-[#d9531e] transition shadow-lg">احجز الآن</button>
         </form>
       </div>
     </div>
   </header>
 
-  <section class="py-20 px-6 max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="album-grid"></section>
+  <section class="py-16 px-4 md:px-6 max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8" id="album-grid"></section>
 
-  <!-- الشريط العائم -->
-  <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-[150] bg-[#06152c]/90 backdrop-blur-xl p-1.5 rounded-full shadow-2xl border border-white/10 flex items-center gap-1 w-max">
-    <a href="flights.html" class="px-6 md:px-8 py-2.5 rounded-full font-black text-sm text-white/70 hover:text-white transition-all flex items-center gap-2">✈️ <span id="f-f">الطيران</span></a>
-    <a href="domestic-trips.html" class="px-6 md:px-8 py-2.5 rounded-full font-black text-sm bg-[#F26522] text-white shadow-lg pointer-events-none flex items-center gap-2">📍 <span id="f-d">رحلات داخلية</span></a>
+  <!-- الشريط العائم للتبديل -->
+  <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-[150] bg-[#06152c]/90 backdrop-blur-xl p-1.5 rounded-full shadow-2xl border border-white/10 flex items-center gap-1 w-max text-white">
+    <a href="flights.html" class="px-6 md:px-10 py-3 rounded-full font-black text-xs md:text-sm text-white/70 hover:text-white transition-all flex items-center gap-2">✈️ <span id="f-f">الطيران</span></a>
+    <a href="domestic-trips.html" class="px-6 md:px-10 py-3 rounded-full font-black text-xs md:text-sm bg-[#F26522] text-white shadow-lg pointer-events-none flex items-center gap-2">📍 <span id="f-d">رحلات داخلية</span></a>
   </div>
 
   <script>
     const translations = {
       ar: {
-        dir: 'rtl', brand: "الريهام تورز", h_title: "رحلات داخلية وسفاري", h_sub: "اكتشف أجمل الأنشطة واحجز الآن", l_trip: "اختر الرحلة", l_phone: "رقم الهاتف", l_email: "الإيميل", f_f: "الطيران", f_d: "رحلات داخلية", lb_btn: "حجز واتساب",
+        dir: 'rtl', brand: "الريهام تورز", n_home: "الرئيسية", n_flights: "حجز طيران", n_trips: "رحلات داخلية", h_title: "رحلات داخلية وسفاري", h_sub: "اكتشف أجمل الأنشطة واحجز الآن", l_trip: "اختر الرحلة", l_date: "التاريخ", l_phone: "رقم الهاتف", l_email: "الإيميل", f_f: "الطيران", f_d: "رحلات داخلية", btn_book: "احجز الآن", lb_btn: "حجز واتساب", wa_intro: "أهلاً الريهام تورز، أريد حجز رحلة:", err: "يرجى إدخال الهاتف",
         trips: [
           { name: "دولفين هاوس", img: "ptjsP.jpg", desc: "سباحة مع الدلافين + سنوركلينج + غداء ومشروبات + انتقالات", tag: "الغردقة" },
           { name: "أورانج باي", img: "3dNyl.jpg", desc: "جزيرة + سنوركلينج + غداء ومشروبات + انتقالات", tag: "الغردقة" },
@@ -109,23 +151,25 @@
           { name: "سفاري الصحراء", img: "9j2wQ.jpg", desc: "مغامرة صحراوية بالبيتش باجي", tag: "الغردقة" },
           { name: "براشوت", img: "OQ6wQ.jpg", desc: "إطلالة بحرية بانورامية من الأعلى", tag: "الغردقة" },
           { name: "ألعاب مائية", img: "8s62Q.jpg", desc: "أنشطة بحرية ترفيهية ممتعة", tag: "الغردقة" },
-          { name: "جلاس بوت", img: "x1Mp0.jpg", desc: "مشاهدة البحر والشعاب من القارب", tag: "الغردقة" }
+          { name: "جلاس بوت", img: "x1Mp0.jpg", desc: "مشاهدة البحر والشعاب من القارب", tag: "الغردقة" },
+          { name: "جولة المدينة", img: "WlkBg.jpg", desc: "تسوق + زيارة معالم + انتقالات", tag: "الغردقة" }
         ]
       },
       en: {
-        dir: 'ltr', brand: "Elreham Tours", h_title: "Domestic Trips", h_sub: "Explore & Book Best Activities", l_trip: "Select Trip", l_phone: "Phone Number", l_email: "Email", f_f: "Flights", f_d: "Domestic", lb_btn: "Book WhatsApp",
+        dir: 'ltr', brand: "Elreham Tours", n_home: "Home", n_flights: "Flights", n_trips: "Trips", h_title: "Domestic Trips", h_sub: "Explore & Book Best Activities", l_trip: "Select Trip", l_date: "Date", l_phone: "Phone Number", l_email: "Email", f_f: "Flights", f_d: "Trips", btn_book: "Book Now", lb_btn: "WhatsApp Book", wa_intro: "Hello Elreham Tours, I want to book a trip:", err: "Enter phone",
         trips: [
           { name: "Dolphin House", img: "ptjsP.jpg", desc: "Swim with dolphins + snorkeling + lunch & drinks + transfers", tag: "Hurghada" },
           { name: "Orange Bay", img: "3dNyl.jpg", desc: "Island + snorkeling + lunch & drinks + transfers", tag: "Hurghada" },
           { name: "Abu Dabbab", img: "ajWpB.jpg", desc: "Turtles & coral reefs + breakfast & lunch + transfers", tag: "Marsa Alam" },
           { name: "Desert Safari", img: "9j2wQ.jpg", desc: "Desert adventure with quad bikes", tag: "Hurghada" },
           { name: "Parasailing", img: "OQ6wQ.jpg", desc: "Panoramic sea view from above", tag: "Hurghada" },
-          { name: "Water Sports", img: "8s62Q.jpg", desc: "Fun and entertaining marine activities", tag: "Hurghada" },
-          { name: "Glass Boat", img: "x1Mp0.jpg", desc: "View sea and reefs from the boat", tag: "Hurghada" }
+          { name: "Water Sports", img: "8s62Q.jpg", desc: "Fun marine activities for everyone", tag: "Hurghada" },
+          { name: "Glass Boat", img: "x1Mp0.jpg", desc: "View sea & reefs from boat", tag: "Hurghada" },
+          { name: "City Tour", img: "WlkBg.jpg", desc: "Shopping + Sightseeing + Transfers", tag: "Hurghada" }
         ]
       },
       ru: {
-        dir: 'ltr', brand: "Elreham Tours", h_title: "Внутренние туры", h_sub: "Лучшие развлечения в Египте", l_trip: "Выберите тур", l_phone: "Телефон", l_email: "Email", f_f: "Авиабилеты", f_d: "Туры", lb_btn: "Забронировать",
+        dir: 'ltr', brand: "Elreham Tours", n_home: "Главная", n_flights: "Авиабилеты", n_trips: "Туры", h_title: "Внутренние туры", h_sub: "Лучшие развлечения в Египте", l_trip: "Выберите тур", l_date: "Дата", l_phone: "Телефон", l_email: "Email", f_f: "Билеты", f_d: "Туры", btn_book: "Забронировать", lb_btn: "WhatsApp Бронь", wa_intro: "Здравствуйте, Elreham Tours, хочу забронировать тур:", err: "Введите номер",
         trips: [
           { name: "Дом Дельфинов", img: "ptjsP.jpg", desc: "Плавание с дельфинами + снорклинг + обед и напитки + трансфер", tag: "Хургада" },
           { name: "Оранж Бэй", img: "3dNyl.jpg", desc: "Остров + снорклинг + обед и напитки + трансфер", tag: "Хургада" },
@@ -133,11 +177,12 @@
           { name: "Сафари", img: "9j2wQ.jpg", desc: "Приключение в пустыне на квадроциклах", tag: "Хургада" },
           { name: "Парасейлинг", img: "OQ6wQ.jpg", desc: "Панорамный вид на море сверху", tag: "Хургада" },
           { name: "Водный спорт", img: "8s62Q.jpg", desc: "Веселые морские развлечения", tag: "Хургада" },
-          { name: "Лодка с дном", img: "x1Mp0.jpg", desc: "Вид на море и рифы с лодки", tag: "Хургада" }
+          { name: "Лодка с дном", img: "x1Mp0.jpg", desc: "Вид на море и рифы с лодки", tag: "Хургада" },
+          { name: "Обзорная экскурсия", img: "WlkBg.jpg", desc: "Шопинг + Достопримечательности + Трансфер", tag: "Хургада" }
         ]
       },
       de: {
-        dir: 'ltr', brand: "Elreham Tours", h_title: "Inlandsreisen", h_sub: "Beste Aktivitäten buchen", l_trip: "Reise wählen", l_phone: "Telefon", l_email: "E-Mail", f_f: "Flüge", f_d: "Reisen", lb_btn: "WhatsApp Buchung",
+        dir: 'ltr', brand: "Elreham Tours", n_home: "Startseite", n_flights: "Flugbuchung", n_trips: "Reisen", h_title: "Inlandsreisen", h_sub: "Beste Aktivitäten buchen", l_trip: "Reise wählen", l_date: "Datum", l_phone: "Telefon", l_email: "E-Mail", f_f: "Flüge", f_d: "Reisen", btn_book: "Jetzt Buchen", lb_btn: "WhatsApp Buchung", wa_intro: "Hallo Elreham Tours, ich möchte eine Reise buchen:", err: "Nummer eingeben",
         trips: [
           { name: "Delfinhaus", img: "ptjsP.jpg", desc: "Schwimmen mit Delfinen + Schnorcheln + Mittagessen & Getränke + Transfer", tag: "Hurghada" },
           { name: "Orange Bay", img: "3dNyl.jpg", desc: "Insel + Schnorcheln + Mittagessen & Getränke + Transfer", tag: "Hurghada" },
@@ -145,25 +190,32 @@
           { name: "Wüstensafari", img: "9j2wQ.jpg", desc: "Wüstenabenteuer mit Quads", tag: "Hurghada" },
           { name: "Parasailing", img: "OQ6wQ.jpg", desc: "Meerblick von oben", tag: "Hurghada" },
           { name: "Wassersport", img: "8s62Q.jpg", desc: "Unterhaltsame Meeresaktivitäten", tag: "Hurghada" },
-          { name: "Glasbodenboot", img: "x1Mp0.jpg", desc: "Blick auf Meer & Riffe vom Boot", tag: "Hurghada" }
+          { name: "Glasbodenboot", img: "x1Mp0.jpg", desc: "Blick auf Meer & Riffe vom Boot", tag: "Hurghada" },
+          { name: "Stadtrundfahrt", img: "WlkBg.jpg", desc: "Shopping + Sehenswürdigkeiten + Transfer", tag: "Hurghada" }
         ]
       }
     };
 
-    let currentTrips = [];
+    let curTrips = [];
+    let curLang = 'ar';
 
     function setLanguage(l) {
-      const t = translations[l] || translations.ar;
-      document.documentElement.dir = t.dir;
-      currentTrips = t.trips;
+      curLang = l; const t = translations[l] || translations.ar; document.documentElement.dir = t.dir; curTrips = t.trips;
       
       document.getElementById('brand-name').innerText = t.brand;
-      document.getElementById('h-title').innerText = t.h_title;
+      document.getElementById('n-home').innerText = t.n_home; 
+      document.getElementById('n-flights').innerText = t.n_flights; 
+      document.getElementById('n-trips').innerText = t.n_trips;
+      document.getElementById('h-title').innerText = t.h_title; 
       document.getElementById('h-sub').innerText = t.h_sub;
-      document.getElementById('l-trip').innerText = t.l_trip;
+      
+      document.getElementById('l-trip').innerText = t.l_trip; 
+      document.getElementById('l-date').innerText = t.l_date;
       document.getElementById('l-phone').innerText = t.l_phone;
       document.getElementById('l-email').innerText = t.l_email;
-      document.getElementById('f-f').innerText = t.f_f;
+      
+      document.getElementById('btn-book-main').innerText = t.btn_book;
+      document.getElementById('f-f').innerText = t.f_f; 
       document.getElementById('f-d').innerText = t.f_d;
       document.getElementById('lb-btn-txt').innerText = t.lb_btn;
 
@@ -171,7 +223,7 @@
       document.getElementById('album-grid').innerHTML = t.trips.map((x, i) => `
         <div class="album-card group relative" onclick="openLB(${i})">
           <img src="${x.img}" loading="lazy">
-          <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/90 via-black/40 to-transparent text-white">
+          <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/90 via-black/40 to-transparent text-white text-right">
             <span class="bg-[#F26522] text-[10px] font-black px-2 py-1 rounded-full mb-2 inline-block border border-white/20">${x.tag}</span>
             <h3 class="text-xl font-black drop-shadow-md">${x.name}</h3>
           </div>
@@ -183,7 +235,7 @@
     }
 
     function openLB(i) {
-      const trip = currentTrips[i];
+      const trip = curTrips[i];
       document.getElementById('lb-img').src = trip.img;
       document.getElementById('lb-title').innerText = trip.name;
       document.getElementById('lb-desc').innerText = trip.desc;
@@ -199,21 +251,33 @@
 
     function sendDirect() {
       const trip = document.getElementById('w-trip').value;
+      const date = document.getElementById('w-date').value;
       const phone = document.getElementById('w-phone').value;
       const email = document.getElementById('w-email').value;
+      
+      const t = translations[curLang];
       if(!phone) return;
-      // Fire and forget: إرسال للشيت في الخلفية
+
+      // إرسال صامت للشيت
       fetch('https://script.google.com/macros/s/AKfycbxGgySg1t6yVUE_d6Ib2AjJU__Rm18KC44SlPkCOIrW9fvSGsKTJBapuYQ7ju2R43fQfw/exec', { 
-        method: 'POST', body: new URLSearchParams({tripType: 'Domestic', from: trip, phone, email}), mode: 'no-cors' 
+        method: 'POST', body: new URLSearchParams({tripType: 'Domestic', from: trip, date, phone, email}), mode: 'no-cors' 
       }).catch(() => {});
-      // الانتقال الفوري للواتساب
-      window.open(`https://wa.me/201002429863?text=أريد حجز رحلة: ${trip} - الهاتف: ${phone}`, "_blank");
+
+      // التحويل للواتساب
+      const text = `${t.wa_intro}\n🌴 ${t.l_trip}: ${trip}\n📅 ${t.l_date}: ${date || '?'}\n📞 ${t.l_phone}: ${phone}\n✉️ ${t.l_email}: ${email || '-'}`;
+      window.open(`https://wa.me/201002429863?text=${encodeURIComponent(text)}`, "_blank");
     }
 
     function sendFromLB() {
       const title = document.getElementById('lb-title').innerText;
-      window.open(`https://wa.me/201002429863?text=أريد حجز رحلة من الصور: ${title}`, "_blank");
+      const t = translations[curLang];
+      window.open(`https://wa.me/201002429863?text=${encodeURIComponent(t.wa_intro + " " + title)}`, "_blank");
     }
+
+    window.onload = function() {
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('w-date').setAttribute('min', today);
+    };
 
     setLanguage('ar');
   </script>
