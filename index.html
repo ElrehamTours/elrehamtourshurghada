@@ -38,6 +38,17 @@
     .lang-full-btn:hover { background: #f0f0f0; color: var(--brand); }
     .lang-full-active { background: var(--brand) !important; color: white !important; }
 
+    /* حركة الطائرة */
+    @keyframes flyAcross {
+      0% { transform: translate(-20vw, 20vh) scale(0.6) rotate(-10deg); opacity: 0; }
+      15% { opacity: 0.5; } 
+      85% { opacity: 0.5; } 
+      100% { transform: translate(110vw, -15vh) scale(1.1) rotate(-10deg); opacity: 0; }
+    }
+    .flying-plane {
+      position: absolute; top: 15%; left: -10%; width: clamp(250px, 35vw, 500px); opacity: 0.5; animation: flyAcross 25s linear infinite; filter: drop-shadow(0 15px 15px rgba(0,0,0,0.5)); pointer-events: none; z-index: 5;
+    }
+
     /* منطقة الصورة الكبيرة التي تحتوي على محرك الحجز */
     .booking-scenic-area {
       position: relative;
@@ -50,6 +61,7 @@
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
+      overflow: hidden;
     }
 
     /* محرك الحجز الزجاجي */
@@ -144,6 +156,9 @@
   <section class="booking-scenic-area px-4 py-16">
     <!-- تظليل خفيف لضمان قراءة محرك الحجز -->
     <div class="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
+
+    <!-- الطائرة المتحركة -->
+    <img src="grok-image-0bf4d94f-06e5-4787-a049-5a61365c41ee.png" alt="Flying Plane" class="flying-plane" onerror="this.src='image_c2dae4.png'" />
 
     <div class="relative z-10 w-full max-w-5xl">
       <div class="text-center mb-10">
