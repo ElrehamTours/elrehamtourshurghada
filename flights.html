@@ -18,40 +18,50 @@
     .lang-btn-active { background: var(--brand) !important; transform: scale(1.1); box-shadow: 0 4px 12px rgba(242,101,34,0.4); }
 
     .hero-wrap { 
-      position: relative; min-height: 75vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
-      background: linear-gradient(rgba(6,21,44,0.5), rgba(6,21,44,0.7)), url('flight background.jpg') center/cover;
+      position: relative; min-height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+      background: linear-gradient(rgba(6,21,44,0.5), rgba(6,21,44,0.8)), url('flight background.jpg') center/cover;
       padding: 120px 20px 60px; overflow: hidden;
     }
 
+    /* حركة الطائرة المتحركة فوق الخلفية */
     @keyframes flyAcross {
       0% { transform: translate(-20vw, 20vh) scale(0.6) rotate(-10deg); opacity: 0; }
-      15% { opacity: 0.5; } 85% { opacity: 0.5; } 
+      15% { opacity: 0.6; } 85% { opacity: 0.6; } 
       100% { transform: translate(110vw, -15vh) scale(1.1) rotate(-10deg); opacity: 0; }
     }
-    .flying-plane { position: absolute; top: 15%; left: -10%; width: clamp(250px, 35vw, 500px); opacity: 0.5; animation: flyAcross 25s linear infinite; pointer-events: none; z-index: 5; }
+    .flying-plane { position: absolute; top: 15%; left: -10%; width: clamp(250px, 35vw, 500px); opacity: 0.6; animation: flyAcross 25s linear infinite; pointer-events: none; z-index: 5; }
 
     .widget-box { background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); border-radius: 2rem; border-top: 5px solid var(--brand); box-shadow: 0 25px 50px rgba(0,0,0,0.4); position: relative; z-index: 10; }
     .input-group { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 1.25rem; padding: 0.8rem 1.25rem; }
     
     .promo-card { overflow: hidden; border-radius: 2rem; background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; }
+    .promo-card:hover { transform: translateY(-5px); }
   </style>
 </head>
 <body class="pb-24">
 
-  <!-- Navbar -->
+  <div id="toast-container" class="fixed top-24 left-1/2 transform -translate-x-1/2 z-[200] pointer-events-none"></div>
+
+  <!-- Navbar مع روابط التنقل كما في صورة التصميم -->
   <nav class="fixed top-0 inset-x-0 z-[100] glass-nav py-3 md:py-4">
     <div class="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between gap-4">
+      
       <div class="flex items-center gap-4 md:gap-8">
         <a href="index.html" class="flex items-center gap-2 group">
-          <div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl p-1 shadow-lg group-hover:scale-105 transition-transform"><img src="logo.png" class="w-full h-full object-contain"></div>
+          <div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl p-1 shadow-lg group-hover:scale-105 transition-transform">
+            <img src="logo.png" class="w-full h-full object-contain" alt="Logo">
+          </div>
           <div class="hidden sm:block text-white font-black text-lg md:text-xl" id="brand-name">الريهام تورز</div>
         </a>
+        
+        <!-- روابط التنقل في البانر العلوي -->
         <div class="hidden lg:flex items-center gap-6">
           <a href="index.html" class="nav-link" id="n-home">الرئيسية</a>
           <a href="flights.html" class="nav-link nav-link-active" id="n-flights">حجز طيران</a>
           <a href="domestic-trips.html" class="nav-link" id="n-trips">رحلات داخلية</a>
         </div>
       </div>
+
       <div class="flex items-center gap-3">
         <div class="flex bg-white/5 p-1 rounded-full border border-white/10 backdrop-blur-md">
           <button onclick="setLanguage('de')" id="btn-de" class="lang-btn">DE</button>
@@ -60,48 +70,64 @@
           <button onclick="setLanguage('ar')" id="btn-ar" class="lang-btn">AR</button>
         </div>
       </div>
+
     </div>
   </nav>
 
   <header class="hero-wrap">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Boeing_777-300ER_transparent.png/1024px-Boeing_777-300ER_transparent.png" class="flying-plane" alt="Plane">
+    <!-- الطائرة المتحركة بالاسم الجديد -->
+    <img src="grok-image-0bf4d94f-06e5-4787-a049-5a61365c41ee.png" class="flying-plane" alt="Plane" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Boeing_777-300ER_transparent.png/1024px-Boeing_777-300ER_transparent.png'">
+    
     <div class="max-w-5xl mx-auto w-full relative z-10 px-4 text-center">
       <h1 id="h-title" class="text-4xl md:text-7xl font-black text-white mb-4 drop-shadow-2xl">حجز طيران</h1>
-      <p id="h-sub" class="text-lg md:text-2xl text-white/90 mb-10 font-bold">داخلي ودولي بأفضل الأسعار العالمية</p>
+      <p id="h-sub" class="text-lg md:text-2xl text-white/90 mb-10 font-bold drop-shadow-md">داخلي ودولي بأفضل الأسعار العالمية</p>
+      
       <div class="widget-box p-6 md:p-8">
-        <form onsubmit="event.preventDefault();" class="grid md:grid-cols-3 gap-4 mb-4 items-end">
-          <div class="input-group text-right"><label class="text-[10px] text-[#F26522] font-black uppercase block mb-1" id="l-from">من</label><input id="w-from" type="text" placeholder="..." class="bg-transparent w-full outline-none font-bold text-white text-sm md:text-base"></div>
-          <div class="input-group text-right"><label class="text-[10px] text-[#F26522] font-black uppercase block mb-1" id="l-to">إلى</label><input id="w-to" type="text" placeholder="..." class="bg-transparent w-full outline-none font-bold text-white text-sm md:text-base"></div>
-          <div class="input-group text-right"><label class="text-[10px] text-[#F26522] font-black uppercase block mb-1" id="l-phone">الهاتف</label><input id="w-phone" type="tel" placeholder="..." class="bg-transparent w-full outline-none font-bold text-white text-sm md:text-base"></div>
-          <button type="button" onclick="sendFlight()" class="md:col-span-3 bg-[#F26522] rounded-2xl font-black text-xl py-4 shadow-lg hover:bg-[#d9531e] transition mt-2" id="btn-book">احجز تذكرتك الآن</button>
+        <form onsubmit="event.preventDefault();" class="grid md:grid-cols-3 gap-4 mb-4 items-end text-right">
+          <div class="input-group"><label class="text-[10px] text-[#F26522] font-black uppercase block mb-1" id="l-from">من</label><input id="w-from" type="text" placeholder="..." class="bg-transparent w-full outline-none font-bold text-white text-sm md:text-base"></div>
+          <div class="input-group"><label class="text-[10px] text-[#F26522] font-black uppercase block mb-1" id="l-to">إلى</label><input id="w-to" type="text" placeholder="..." class="bg-transparent w-full outline-none font-bold text-white text-sm md:text-base"></div>
+          <div class="input-group"><label class="text-[10px] text-[#F26522] font-black uppercase block mb-1" id="l-phone">الهاتف</label><input id="w-phone" type="tel" placeholder="..." class="bg-transparent w-full outline-none font-bold text-white text-sm md:text-base"></div>
+          <button type="button" onclick="sendFlight()" class="md:col-span-3 bg-[#F26522] rounded-2xl font-black text-xl py-4 shadow-lg hover:bg-[#d9531e] transition mt-2 uppercase tracking-wide" id="btn-book">احجز الآن</button>
         </form>
       </div>
     </div>
   </header>
 
-  <section class="py-16 px-6 max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-    <div class="promo-card group"><img src="3.png" loading="lazy"><div class="p-6"><h3 class="text-xl font-black">Dubai</h3></div></div>
-    <div class="promo-card group"><img src="6.png" loading="lazy"><div class="p-6"><h3 class="text-xl font-black">Turkey</h3></div></div>
-    <div class="promo-card group"><img src="14.png" loading="lazy"><div class="p-6"><h3 class="text-xl font-black">Europe</h3></div></div>
-    <div class="promo-card group"><img src="15.png" loading="lazy"><div class="p-6"><h3 class="text-xl font-black">Maldives</h3></div></div>
-  </section>
+  <section class="py-16 px-6 max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8" id="promo-grid"></section>
 
+  <!-- الشريط العائم للتبديل بين الصفحات -->
   <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-[150] bg-[#06152c]/90 backdrop-blur-xl p-1.5 rounded-full shadow-2xl border border-white/10 flex items-center gap-1 w-max">
-    <a href="flights.html" class="px-5 md:px-8 py-2.5 rounded-full font-black text-xs md:text-sm bg-[#F26522] text-white shadow-lg pointer-events-none">✈️ <span id="f-f">الطيران</span></a>
-    <a href="domestic-trips.html" class="px-5 md:px-8 py-2.5 rounded-full font-black text-xs md:text-sm text-white/70 hover:text-white transition-all">📍 <span id="f-d">رحلات داخلية</span></a>
+    <a href="flights.html" class="px-5 md:px-8 py-2.5 rounded-full font-black text-xs md:text-sm bg-[#F26522] text-white shadow-lg pointer-events-none flex items-center gap-2">✈️ <span id="f-f">الطيران</span></a>
+    <a href="domestic-trips.html" class="px-5 md:px-8 py-2.5 rounded-full font-black text-xs md:text-sm text-white/70 hover:text-white transition-all flex items-center gap-2">📍 <span id="f-d">رحلات داخلية</span></a>
   </div>
 
   <script>
     const trans = {
-      ar: { n_home: "الرئيسية", n_flights: "حجز طيران", n_trips: "رحلات داخلية", h_title: "حجز طيران", h_sub: "داخلي ودولي بأفضل الأسعار العالمية", l_from: "من", l_to: "إلى", l_phone: "الهاتف", btn: "احجز الآن", f_f: "الطيران", f_d: "رحلات داخلية" },
-      en: { n_home: "Home", n_flights: "Flights", n_trips: "Trips", h_title: "Flight Booking", h_sub: "International & Domestic Best Rates", l_from: "From", l_to: "To", l_phone: "Phone", btn: "Book Now", f_f: "Flights", f_d: "Trips" },
-      ru: { n_home: "Главная", n_flights: "Билеты", n_trips: "Туры", h_title: "Авиабилеты", h_sub: "Лучшие цены на перелеты", l_from: "Откуда", l_to: "Куда", l_phone: "Телефон", btn: "Забронировать", f_f: "Билеты", f_d: "Туры" },
-      de: { n_home: "Startseite", n_flights: "Flüge", n_trips: "Reisen", h_title: "Flugbuchung", h_sub: "Beste Flugtarife weltweit", l_from: "Von", l_to: "Nach", l_phone: "Telefon", btn: "Buchen", f_f: "Flüge", f_d: "Reisen" }
+      ar: { 
+        dir: 'rtl', brand: "الريهام تورز", n_home: "الرئيسية", n_flights: "حجز طيران", n_trips: "رحلات داخلية", h_title: "حجز طيران", h_sub: "داخلي ودولي بأفضل الأسعار العالمية", l_from: "من", l_to: "إلى", l_phone: "الهاتف", btn: "احجز الآن", f_f: "الطيران", f_d: "رحلات داخلية", wa_intro: "أهلاً الريهام تورز، أريد حجز طيران:", err_phone: "يرجى إدخال الهاتف",
+        items: [{name: "دبي", img: "3.png", tag: "الخليج"}, {name: "تركيا", img: "6.png", tag: "تاريخ"}, {name: "أوروبا", img: "14.png", tag: "سياحة"}, {name: "المالديف", img: "15.png", tag: "استجمام"}]
+      },
+      en: { 
+        dir: 'ltr', brand: "Elreham Tours", n_home: "Home", n_flights: "Flights", n_trips: "Trips", h_title: "Flight Booking", h_sub: "International & Domestic Best Rates", l_from: "From", l_to: "To", l_phone: "Phone", btn: "Book Now", f_f: "Flights", f_d: "Trips", wa_intro: "Hello Elreham Tours, I want to book a flight:", err_phone: "Enter phone number",
+        items: [{name: "Dubai", img: "3.png", tag: "Gulf"}, {name: "Turkey", img: "6.png", tag: "History"}, {name: "Europe", img: "14.png", tag: "Tourism"}, {name: "Maldives", img: "15.png", tag: "Relax"}]
+      },
+      ru: { 
+        dir: 'ltr', brand: "Elreham Tours", n_home: "Главная", n_flights: "Билеты", n_trips: "Туры", h_title: "Авиабилеты", h_sub: "Лучшие цены на перелеты", l_from: "Откуда", l_to: "Куда", l_phone: "Телефон", btn: "Забронировать", f_f: "Билеты", f_d: "Туры", wa_intro: "Здравствуйте, Elreham Tours, я хочу забронировать билет:", err_phone: "Введите номер",
+        items: [{name: "Дубай", img: "3.png", tag: "Залив"}, {name: "Турция", img: "6.png", tag: "История"}, {name: "Европа", img: "14.png", tag: "Туризм"}, {name: "Мальдивы", img: "15.png", tag: "Отдых"}]
+      },
+      de: { 
+        dir: 'ltr', brand: "Elreham Tours", n_home: "Startseite", n_flights: "Flüge", n_trips: "Reisen", h_title: "Flugbuchung", h_sub: "Beste Flugtarife weltweit", l_from: "Von", l_to: "Nach", l_phone: "Telefon", btn: "Jetzt Buchen", f_f: "Flüge", f_d: "Reisen", wa_intro: "Hallo Elreham Tours, ich möchte einen Flug buchen:", err_phone: "Nummer eingeben",
+        items: [{name: "Dubai", img: "3.png", tag: "Golf"}, {name: "Türkei", img: "6.png", tag: "Geschichte"}, {name: "Europa", img: "14.png", tag: "Tourismus"}, {name: "Malediven", img: "15.png", tag: "Entspannung"}]
+      }
     };
 
+    let curLang = 'ar';
+
     function setLanguage(l) {
+      curLang = l;
       const t = trans[l] || trans.ar;
-      document.documentElement.dir = (l === 'ar' ? 'rtl' : 'ltr');
+      document.documentElement.dir = t.dir;
+      document.getElementById('brand-name').innerText = t.brand;
       document.getElementById('n-home').innerText = t.n_home;
       document.getElementById('n-flights').innerText = t.n_flights;
       document.getElementById('n-trips').innerText = t.n_trips;
@@ -113,6 +139,17 @@
       document.getElementById('btn-book').innerText = t.btn;
       document.getElementById('f-f').innerText = t.f_f;
       document.getElementById('f-d').innerText = t.f_d;
+
+      document.getElementById('promo-grid').innerHTML = t.items.map(i => `
+        <div class="promo-card group">
+          <img src="${i.img}" loading="lazy" class="w-full h-[350px] object-cover">
+          <div class="p-6">
+            <span class="bg-[#F26522] text-white text-[10px] px-3 py-1 rounded-full font-black uppercase border border-white/20">${i.tag}</span>
+            <h3 class="text-2xl font-black mt-3 text-[#06152c]">${i.name}</h3>
+          </div>
+        </div>
+      `).join('');
+      
       document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('lang-btn-active'));
       document.getElementById('btn-'+l).classList.add('lang-btn-active');
     }
@@ -122,9 +159,17 @@
       const to = document.getElementById('w-to').value;
       const phone = document.getElementById('w-phone').value;
       if(!phone) return;
-      fetch('https://script.google.com/macros/s/AKfycbxGgySg1t6yVUE_d6Ib2AjJU__Rm18KC44SlPkCOIrW9fvSGsKTJBapuYQ7ju2R43fQfw/exec', { method: 'POST', body: new URLSearchParams({from, to, phone, type: 'Flight'}), mode: 'no-cors' });
-      window.open(`https://wa.me/201002429863?text=Flight Request: From ${from} to ${to} - Phone: ${phone}`, "_blank");
+
+      // Fire and forget
+      fetch('https://script.google.com/macros/s/AKfycbxGgySg1t6yVUE_d6Ib2AjJU__Rm18KC44SlPkCOIrW9fvSGsKTJBapuYQ7ju2R43fQfw/exec', { 
+        method: 'POST', body: new URLSearchParams({tripType: 'Flight', from, to, phone}), mode: 'no-cors' 
+      }).catch(() => {});
+      
+      const t = trans[curLang];
+      const text = `${t.wa_intro}\n🛫 ${t.l_from}: ${from}\n🛬 ${t.l_to}: ${to}\n📞 ${t.l_phone}: ${phone}`;
+      window.open(`https://wa.me/201002429863?text=${encodeURIComponent(text)}`, "_blank");
     }
+
     setLanguage('ar');
   </script>
 </body>
