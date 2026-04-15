@@ -138,98 +138,100 @@
     </div>
   </section>
 
-  <!-- المربعات المميزة للوصول السريع للخدمات (مستطيلة وأصغر كما في الصورة المرفقة) -->
-  <section class="py-10 px-6 bg-[#fcfaf7] relative z-20">
-    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+  <!-- المنطقة المدمجة (الصورة الخلفية تشمل الكروت السريعة ومحرك الحجز) -->
+  <main class="relative w-full min-h-[85vh] bg-cover bg-center bg-fixed" style="background-image: url('main-bg.png');">
+    
+    <!-- طبقة تظليل خفيفة -->
+    <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px] z-0"></div>
+
+    <!-- الطائرة المتحركة تمر خلف الكروت ومحرك الحجز -->
+    <img src="grok-image-0bf4d94f-06e5-4787-a049-5a61365c41ee.png" alt="Flying Plane" class="flying-plane z-10" onerror="this.src='image_c2dae4.png'" />
+
+    <!-- حاوية المحتوى (فوق الطائرة والخلفية) -->
+    <div class="relative z-20 w-full pt-12 pb-16 px-4 flex flex-col items-center">
       
-      <!-- بوكس الرحلات الداخلية -->
-      <div class="bg-white rounded-[1.5rem] p-6 text-center shadow-sm border border-slate-100 hover:shadow-md hover:border-[#F26522]/30 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center">
-        <div class="w-16 h-16 bg-[#f0f7ff] text-[#0288d1] rounded-2xl flex items-center justify-center mb-3">
-          <!-- أيقونة الموقع الجغرافي للرحلات -->
-          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <!-- المربعات المميزة للوصول السريع للخدمات (مستطيلة وأصغر) -->
+      <div class="max-w-4xl w-full mx-auto grid md:grid-cols-2 gap-6 mb-16 mt-4">
+        
+        <!-- بوكس الرحلات الداخلية -->
+        <div class="bg-white/95 backdrop-blur-md rounded-[1.5rem] p-6 text-center shadow-lg border border-white/20 hover:shadow-2xl hover:border-[#F26522]/50 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center">
+          <div class="w-16 h-16 bg-[#f0f7ff] text-[#0288d1] rounded-2xl flex items-center justify-center mb-3">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h2 id="domestic-title" class="text-xl font-black text-[#06152c] mb-2">رحلات داخلية وسفاري</h2>
+          <p id="domestic-desc" class="text-slate-500 text-sm mb-5 leading-relaxed">استمتع بجمال مصر مع رحلات الغردقة، شرم الشيخ، والسفاري بأفضل الأسعار.</p>
+          <a href="domestic-trips.html" id="domestic-btn" class="w-[85%] bg-[#F26522] text-white font-bold text-sm px-6 py-2.5 rounded-full hover:bg-[#d9531e] transition-colors mt-auto shadow-md">اكتشف الرحلات الداخلية</a>
         </div>
-        <h2 id="domestic-title" class="text-xl font-black text-[#06152c] mb-2">رحلات داخلية وسفاري</h2>
-        <p id="domestic-desc" class="text-slate-500 text-sm mb-5 leading-relaxed">استمتع بجمال مصر مع رحلات الغردقة، شرم الشيخ، والسفاري بأفضل الأسعار.</p>
-        <a href="domestic-trips.html" id="domestic-btn" class="w-[85%] bg-[#F26522] text-white font-bold text-sm px-6 py-2.5 rounded-full hover:bg-[#d9531e] transition-colors mt-auto shadow-sm">اكتشف الرحلات الداخلية</a>
-      </div>
 
-      <!-- بوكس حجز الطيران -->
-      <div class="bg-white rounded-[1.5rem] p-6 text-center shadow-sm border border-slate-100 hover:shadow-md hover:border-[#F26522]/30 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center">
-        <div class="w-16 h-16 bg-[#fff3ec] text-[#F26522] rounded-2xl flex items-center justify-center mb-3">
-          <!-- أيقونة الطائرة -->
-          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+        <!-- بوكس حجز الطيران -->
+        <div class="bg-white/95 backdrop-blur-md rounded-[1.5rem] p-6 text-center shadow-lg border border-white/20 hover:shadow-2xl hover:border-[#F26522]/50 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center">
+          <div class="w-16 h-16 bg-[#fff3ec] text-[#F26522] rounded-2xl flex items-center justify-center mb-3">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+          </div>
+          <h2 id="flights-title" class="text-xl font-black text-[#06152c] mb-2">حجز طيران وعروض</h2>
+          <p id="flights-desc" class="text-slate-500 text-sm mb-5 leading-relaxed">استكشف أفضل عروض الطيران الدولي والداخلي والبوسترات المخصصة للوجهات العالمية.</p>
+          <a href="flights.html" id="flights-btn" class="w-[85%] bg-[#F26522] text-white font-bold text-sm px-6 py-2.5 rounded-full hover:bg-[#d9531e] transition-colors mt-auto shadow-md">صفحة العروض والطيران</a>
         </div>
-        <h2 id="flights-title" class="text-xl font-black text-[#06152c] mb-2">حجز طيران وعروض</h2>
-        <p id="flights-desc" class="text-slate-500 text-sm mb-5 leading-relaxed">استكشف أفضل عروض الطيران الدولي والداخلي والبوسترات المخصصة للوجهات العالمية.</p>
-        <a href="flights.html" id="flights-btn" class="w-[85%] bg-[#F26522] text-white font-bold text-sm px-6 py-2.5 rounded-full hover:bg-[#d9531e] transition-colors mt-auto shadow-sm">صفحة العروض والطيران</a>
+
       </div>
 
+      <!-- محرك الحجز (سجل الآن) -->
+      <div class="w-full max-w-5xl mt-4">
+        <div class="text-center mb-10">
+          <h2 id="booking-title" class="text-white font-black text-5xl md:text-7xl drop-shadow-2xl mb-4">سجل الآن</h2>
+          <p id="booking-sub" class="text-white/90 font-bold text-lg md:text-2xl drop-shadow-md">أفضل عروض الطيران والرحلات السياحية</p>
+        </div>
+
+        <div class="widget-box p-6 md:p-8 text-white text-start rtl:text-right mx-auto w-full">
+          <form class="w-full" onsubmit="event.preventDefault();">
+            
+            <div class="flex flex-wrap gap-8 mb-8 pb-5 border-b border-white/10">
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="radio" name="trip" id="trip-return" checked class="w-6 h-6 accent-[#F26522]">
+                <span id="w-return" class="text-xl font-bold group-hover:text-[#F26522] transition-colors">ذهاب وعودة</span>
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input type="radio" name="trip" id="trip-oneway" class="w-6 h-6 accent-[#F26522]">
+                <span id="w-oneway" class="text-xl font-bold text-gray-300 group-hover:text-[#F26522] transition-colors">اتجاه واحد</span>
+              </label>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
+              <div class="input-group">
+                <label class="block text-sm text-[#F26522] font-bold mb-2 uppercase tracking-wider" id="w-from">من</label>
+                <input type="text" placeholder="مطار الإقلاع" class="w-full bg-transparent text-white font-bold text-lg placeholder-white/40 outline-none" id="w-from-inp">
+              </div>
+              <div class="input-group">
+                <label class="block text-sm text-[#F26522] font-bold mb-2 uppercase tracking-wider" id="w-to">إلى</label>
+                <input type="text" placeholder="وجهتك" class="w-full bg-transparent text-white font-bold text-lg placeholder-white/40 outline-none" id="w-to-inp">
+              </div>
+              <div class="input-group">
+                <label class="block text-sm text-[#F26522] font-bold mb-2 uppercase tracking-wider" id="w-date">التاريخ</label>
+                <input type="text" placeholder="الذهاب - العودة" class="w-full bg-transparent text-white font-bold text-lg placeholder-white/40 outline-none" id="w-date-inp">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-end">
+              <div class="input-group">
+                <label class="block text-sm text-[#F26522] font-bold mb-2 uppercase tracking-wider" id="w-phone">رقم الهاتف</label>
+                <input type="tel" placeholder="أدخل رقمك للتواصل" class="w-full bg-transparent text-white font-bold text-lg placeholder-white/40 outline-none" id="w-phone-inp">
+              </div>
+              <div class="input-group">
+                <label class="block text-sm text-[#F26522] font-bold mb-2 uppercase tracking-wider" id="w-email">البريد الإلكتروني</label>
+                <input type="email" placeholder="أدخل بريدك الإلكتروني" class="w-full bg-transparent text-white font-bold text-lg placeholder-white/40 outline-none" id="w-email-inp">
+              </div>
+              <button type="button" onclick="buildAndSendWhatsApp()" id="w-btn-send-wrapper" class="h-full w-full bg-[#F26522] text-white rounded-[1.25rem] p-4 font-black text-2xl hover:bg-[#d9531e] transition-all duration-300 shadow-[0_10px_30px_rgba(242,101,34,0.4)] flex items-center justify-center gap-3">
+                <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                <span id="w-btn-send">أرسل الطلب</span>
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+      
     </div>
-  </section>
-
-  <!-- منطقة الصورة الكبيرة + محرك الحجز (سجل الآن) -->
-  <section class="booking-scenic-area px-4 py-16">
-    <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
-
-    <!-- الطائرة المتحركة -->
-    <img src="grok-image-0bf4d94f-06e5-4787-a049-5a61365c41ee.png" alt="Flying Plane" class="flying-plane" onerror="this.src='image_c2dae4.png'" />
-
-    <div class="relative z-10 w-full max-w-5xl mt-4">
-      <div class="text-center mb-10">
-        <!-- عنوان سجل الآن -->
-        <h2 id="booking-title" class="text-white font-black text-5xl md:text-7xl drop-shadow-2xl mb-4">سجل الآن</h2>
-        <p id="booking-sub" class="text-white/90 font-bold text-lg md:text-2xl drop-shadow-md">أفضل عروض الطيران والرحلات السياحية</p>
-      </div>
-
-      <!-- محرك الحجز -->
-      <div class="widget-box p-6 md:p-8 text-white text-start rtl:text-right mx-auto w-full">
-        <form class="w-full" onsubmit="event.preventDefault();">
-          
-          <div class="flex flex-wrap gap-8 mb-8 pb-5 border-b border-white/10">
-            <label class="flex items-center gap-3 cursor-pointer group">
-              <input type="radio" name="trip" id="trip-return" checked class="w-6 h-6 accent-[#F26522]">
-              <span id="w-return" class="text-xl font-bold group-hover:text-[#F26522] transition-colors">ذهاب وعودة</span>
-            </label>
-            <label class="flex items-center gap-3 cursor-pointer group">
-              <input type="radio" name="trip" id="trip-oneway" class="w-6 h-6 accent-[#F26522]">
-              <span id="w-oneway" class="text-xl font-bold text-gray-300 group-hover:text-[#F26522] transition-colors">اتجاه واحد</span>
-            </label>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
-            <div class="input-group">
-              <label class="block text-sm text-[#F26522] font-bold mb-2 uppercase tracking-wider" id="w-from">من</label>
-              <input type="text" placeholder="مطار الإقلاع" class="w-full bg-transparent text-white font-bold text-lg placeholder-white/40 outline-none" id="w-from-inp">
-            </div>
-            <div class="input-group">
-              <label class="block text-sm text-[#F26522] font-bold mb-2 uppercase tracking-wider" id="w-to">إلى</label>
-              <input type="text" placeholder="وجهتك" class="w-full bg-transparent text-white font-bold text-lg placeholder-white/40 outline-none" id="w-to-inp">
-            </div>
-            <div class="input-group">
-              <label class="block text-sm text-[#F26522] font-bold mb-2 uppercase tracking-wider" id="w-date">التاريخ</label>
-              <input type="text" placeholder="الذهاب - العودة" class="w-full bg-transparent text-white font-bold text-lg placeholder-white/40 outline-none" id="w-date-inp">
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-end">
-            <div class="input-group">
-              <label class="block text-sm text-[#F26522] font-bold mb-2 uppercase tracking-wider" id="w-phone">رقم الهاتف</label>
-              <input type="tel" placeholder="أدخل رقمك للتواصل" class="w-full bg-transparent text-white font-bold text-lg placeholder-white/40 outline-none" id="w-phone-inp">
-            </div>
-            <div class="input-group">
-              <label class="block text-sm text-[#F26522] font-bold mb-2 uppercase tracking-wider" id="w-email">البريد الإلكتروني</label>
-              <input type="email" placeholder="أدخل بريدك الإلكتروني" class="w-full bg-transparent text-white font-bold text-lg placeholder-white/40 outline-none" id="w-email-inp">
-            </div>
-            <button type="button" onclick="buildAndSendWhatsApp()" id="w-btn-send-wrapper" class="h-full w-full bg-[#F26522] text-white rounded-[1.25rem] p-4 font-black text-2xl hover:bg-[#d9531e] transition-all duration-300 shadow-[0_10px_30px_rgba(242,101,34,0.4)] flex items-center justify-center gap-3">
-              <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-              <span id="w-btn-send">أرسل الطلب</span>
-            </button>
-          </div>
-
-        </form>
-      </div>
-    </div>
-  </section>
+  </main>
 
   <!-- قسم السوشيال ميديا -->
   <section class="py-16 px-6 bg-white text-center border-t border-slate-100">
