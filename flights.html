@@ -121,9 +121,11 @@
   <!-- الهيرو ومحرك البحث -->
   <header class="hero-wrap flex flex-col items-center justify-center px-4">
     
+    <!-- اللوجو كعلامة مائية فخمة وبارزة في الخلفية -->
     <img src="logo.png" alt="Logo Watermark" class="absolute top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[350px] md:w-[500px] opacity-[0.06] grayscale pointer-events-none z-0" />
 
-    <img src="image_c2dae4.png" alt="Flying Plane" class="flying-plane" />
+    <!-- صورة الطائرة الحقيقية المتحركة بوضوح -->
+    <img src="image_c2dae4.png" alt="Flying Plane" class="flying-plane" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Boeing_777-300ER_transparent.png/1024px-Boeing_777-300ER_transparent.png'" />
 
     <div class="text-center w-full max-w-6xl relative z-10 mt-4">
       
@@ -188,26 +190,32 @@
     </div>
   </header>
 
+  <!-- معرض العروض والوجهات -->
   <section id="flight-promos" class="py-24 px-4 sm:px-6 bg-[#f8f5ef]">
     <div class="max-w-7xl mx-auto">
       
+      <!-- قسم المميزات -->
       <div class="text-center mb-12">
         <div id="features-label" class="text-[#d9531e] font-black tracking-[0.2em] text-sm uppercase mb-3">Why Choose Us</div>
         <h2 id="features-title" class="text-[#06152c] font-black text-4xl md:text-5xl">مميزات الحجز معنا</h2>
       </div>
       <div id="features-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
-        </div>
+        <!-- Rendered via JS -->
+      </div>
 
+      <!-- قسم الوجهات -->
       <div class="text-center mb-12">
         <div id="promo-label" class="text-[#d9531e] font-black tracking-[0.2em] text-sm uppercase mb-3">Top Destinations</div>
         <h2 id="promo-title" class="text-[#06152c] font-black text-4xl md:text-5xl">أفضل الوجهات السياحية</h2>
       </div>
       <div id="promo-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        </div>
+        <!-- Rendered via JS -->
+      </div>
 
     </div>
   </section>
 
+  <!-- قسم السوشيال ميديا والعودة للرئيسية -->
   <section id="social-section" class="py-24 px-4 sm:px-6 bg-[#06152c] text-center border-t border-white/5">
     <div class="max-w-4xl mx-auto flex flex-col items-center">
       
@@ -233,6 +241,7 @@
     </div>
   </section>
 
+  <!-- الفوتر -->
   <footer id="footer" class="bg-[#040d1b] py-20 px-4 sm:px-6 text-center text-white border-t border-white/5">
     <div class="max-w-6xl mx-auto">
       <div id="f-slogan" class="text-[#F26522] text-2xl md:text-3xl font-black mb-12 tracking-wide opacity-90">
@@ -261,6 +270,7 @@
     </div>
   </footer>
 
+  <!-- زر واتساب العائم -->
   <a href="https://wa.me/201002429863" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="fixed bottom-6 right-6 z-[120]">
     <div class="w-16 h-16 bg-[#25D366] text-white rounded-full shadow-[0_10px_40px_rgba(37,211,102,0.5)] flex items-center justify-center hover:scale-110 transition-transform border-4 border-white/20">
       <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -307,21 +317,22 @@
         promo_label: "Top Destinations", promo_title: "Best Travel Destinations",
         social_title: "Follow Elreham Tours", social_sub: "@elrehamtours", cta_btn_secondary: "Back to Home",
         f_addr_t: "Head Office", f_addr_d: "Metro St., Hurghada, Egypt", f_phone_t: "Contact Numbers", wa_intro: "Hello Elreham Tours, I want to inquire about a flight booking:", wa_type: "Trip Type",
+        // English customized images
         features: [
-          { name: "Flights & Hotels Offers", img: "18.png", desc: "Ready to travel? We provide the best offers for flights and hotel bookings.", tag: "Complete Packages" },
-          { name: "Premium Flights", img: "9.png", desc: "Comfortable seats, direct flights, and service before & after arrival.", tag: "Premium" },
-          { name: "Easy Booking", img: "13.png", desc: "Booking is now easier, tickets ready in minutes.", tag: "Flights" },
-          { name: "Guaranteed Price", img: "16.png", desc: "Competitive prices guaranteed at the start and end of every trip.", tag: "Best Rates" },
-          { name: "Family Travel", img: "17.png", desc: "Your family deserves the best trip, plan safely with us.", tag: "Families" },
-          { name: "Joy of Travel", img: "11.png", desc: "The joy of travel is complete with our top destinations.", tag: "Luxury" }
+          { name: "Flights & Hotels Offers", img: "Yhpnl.jpg", desc: "Ready to travel? We provide the best offers for flights and hotel bookings.", tag: "Complete Packages" },
+          { name: "Premium Flights", img: "MKRGk.jpg", desc: "Comfortable seats, direct flights, and service before & after arrival.", tag: "Premium" },
+          { name: "Easy Booking", img: "9RXli.jpg", desc: "Booking is now easier, tickets ready in minutes.", tag: "Flights" },
+          { name: "Guaranteed Price", img: "iKLgX.jpg", desc: "Competitive prices guaranteed at the start and end of every trip.", tag: "Best Rates" },
+          { name: "Family Travel", img: "LOab2.jpg", desc: "Your family deserves the best trip, plan safely with us.", tag: "Families" },
+          { name: "Joy of Travel", img: "3ff5u.jpg", desc: "The joy of travel is complete with our top destinations.", tag: "Luxury" }
         ],
         destinations: [
-          { name: "Dubai", img: "3.png", desc: "Dubai is waiting for you... daily flights at the best rates.", tag: "Gulf" },
-          { name: "Georgia", img: "10.png", desc: "The magic of breathtaking nature and green mountains.", tag: "Nature" },
-          { name: "Bali, Indonesia", img: "8.png", desc: "The paradise you deserve... flights to the best beaches.", tag: "Exclusive" },
+          { name: "Dubai", img: "jvX8T.jpg", desc: "Dubai is waiting for you... daily flights at the best rates.", tag: "Gulf" },
+          { name: "Georgia", img: "zlGo7.jpg", desc: "The magic of breathtaking nature and green mountains.", tag: "Nature" },
+          { name: "Bali, Indonesia", img: "my8e1.jpg", desc: "The paradise you deserve... flights to the best beaches.", tag: "Exclusive" },
           { name: "Thailand", img: "12.png", desc: "Smile of the East... your ideal destination for exploration.", tag: "Adventure" },
           { name: "Turkey", img: "6.png", desc: "Discover Turkey anew... where East meets West.", tag: "History & Nature" },
-          { name: "Europe & Greece", img: "14.png", desc: "Sea and History... special offers for Europe.", tag: "Europe" },
+          { name: "Europe & Greece", img: "UIOfc.jpg", desc: "Sea and History... special offers for Europe.", tag: "Europe" },
           { name: "Maldives & Honeymoon", img: "15.png", desc: "Relaxation trips with luxury hotels and premium services.", tag: "Honeymoon" }
         ]
       },
@@ -335,15 +346,15 @@
         social_title: "Следите за нами", social_sub: "@elrehamtours", cta_btn_secondary: "На главную",
         f_addr_t: "Главный офис", f_addr_d: "Метро-стрит, Хургада, Египет", f_phone_t: "Контакты", wa_intro: "Здравствуйте, Elreham Tours. Я хочу узнать о бронировании авиабилета:", wa_type: "Тип поездки",
         features: [
-          { name: "Предложения по перелетам и отелям", img: "18.png", desc: "Готовы к путешествию? Мы предлагаем лучшие предложения на авиабилеты и отели.", tag: "Полные пакеты" },
-          { name: "Комфортные рейсы", img: "9.png", desc: "Удобные кресла, прямые рейсы и отличный сервис.", tag: "Комфорт" },
-          { name: "Простое бронирование", img: "13.png", desc: "Бронировать стало проще, билеты готовы за минуты.", tag: "Авиабилеты" },
-          { name: "Гарантия цены", img: "16.png", desc: "Выгодные цены гарантированы в каждой поездке.", tag: "Лучшие цены" },
-          { name: "Семейный отдых", img: "17.png", desc: "Ваша семья заслуживает лучшего путешествия.", tag: "Семьи" },
-          { name: "Радость путешествия", img: "11.png", desc: "Идеальные впечатления от поездки с нами.", tag: "Роскошь" }
+          { name: "Предложения по перелетам и отелям", img: "zZsQa.jpg", desc: "Готовы к путешествию? Мы предлагаем лучшие предложения на авиабилеты и отели.", tag: "Полные пакеты" },
+          { name: "Комфортные рейсы", img: "CDlm1.jpg", desc: "Удобные кресла, прямые рейсы и отличный сервис.", tag: "Комфорт" },
+          { name: "Простое бронирование", img: "85XtP.jpg", desc: "Бронировать стало проще, билеты готовы за минуты.", tag: "Авиабилеты" },
+          { name: "Гарантия цены", img: "ou78x.jpg", desc: "Выгодные цены гарантированы в каждой поездке.", tag: "Лучшие цены" },
+          { name: "Семейный отдых", img: "GuTgH.jpg", desc: "Ваша семья заслуживает лучшего путешествия.", tag: "Семьи" },
+          { name: "Радость путешествия", img: "y7HCq.jpg", desc: "Идеальные впечатления от поездки с нами.", tag: "Роскошь" }
         ],
         destinations: [
-          { name: "Дубай", img: "3.png", desc: "Дубай ждет вас... ежедневные рейсы по лучшим ценам.", tag: "Залив" },
+          { name: "Дубай", img: "Qki9w.jpg", desc: "Дубай ждет вас... ежедневные рейсы по лучшим ценам.", tag: "Залив" },
           { name: "Грузия", img: "10.png", desc: "Магия природы и зеленых гор.", tag: "Природа" },
           { name: "Бали, Индонезия", img: "8.png", desc: "Рай, который вы заслуживаете.", tag: "Эксклюзив" },
           { name: "Таиланд", img: "12.png", desc: "Улыбка Востока... идеальное место для открытий.", tag: "Приключение" },
@@ -362,20 +373,20 @@
         social_title: "Folgen Sie uns", social_sub: "@elrehamtours", cta_btn_secondary: "Zurück zur Startseite",
         f_addr_t: "Hauptsitz", f_addr_d: "Metro Str., Hurghada", f_phone_t: "Kontakt", wa_intro: "Hallo Elreham Tours, ich möchte mich nach einer Flugbuchung erkundigen:", wa_type: "Reiseart",
         features: [
-          { name: "Flug- & Hotelangebote", img: "18.png", desc: "Bereit zu reisen? Wir bieten die besten Angebote für Flüge und Hotelbuchungen.", tag: "Komplettpakete" },
-          { name: "Premium-Flüge", img: "9.png", desc: "Bequeme Sitze, Direktflüge und erstklassiger Service.", tag: "Premium" },
-          { name: "Einfache Buchung", img: "13.png", desc: "Die Buchung ist jetzt einfacher, Tickets in wenigen Minuten.", tag: "Flüge" },
-          { name: "Garantierter Preis", img: "16.png", desc: "Wettbewerbsfähige Preise für jede Reise.", tag: "Beste Preise" },
-          { name: "Familienreisen", img: "17.png", desc: "Ihre Familie verdient die beste Reise.", tag: "Familien" },
-          { name: "Freude am Reisen", img: "11.png", desc: "Die Freude am Reisen ist mit uns komplett.", tag: "Luxus" }
+          { name: "Flug- & Hotelangebote", img: "JGIXO.jpg", desc: "Bereit zu reisen? Wir bieten die besten Angebote für Flüge und Hotelbuchungen.", tag: "Komplettpakete" },
+          { name: "Premium-Flüge", img: "OkD7W.jpg", desc: "Bequeme Sitze, Direktflüge und erstklassiger Service.", tag: "Premium" },
+          { name: "Einfache Buchung", img: "55TmY.jpg", desc: "Die Buchung ist jetzt einfacher, Tickets in wenigen Minuten.", tag: "Flüge" },
+          { name: "Garantierter Preis", img: "m6y0V.jpg", desc: "Wettbewerbsfähige Preise für jede Reise.", tag: "Beste Preise" },
+          { name: "Familienreisen", img: "ajxOx.jpg", desc: "Ihre Familie verdient die beste Reise.", tag: "Familien" },
+          { name: "Freude am Reisen", img: "PKAMx.jpg", desc: "Die Freude am Reisen ist mit uns komplett.", tag: "Luxus" }
         ],
         destinations: [
-          { name: "Dubai", img: "3.png", desc: "Dubai wartet auf Sie... tägliche Flüge zu Bestpreisen.", tag: "Golf" },
-          { name: "Georgien", img: "10.png", desc: "Die Magie der Natur und der grünen Berge.", tag: "Natur" },
-          { name: "Bali, Indonesien", img: "8.png", desc: "Das Paradies, das Sie verdienen.", tag: "Exklusiv" },
+          { name: "Dubai", img: "ndPNj.jpg", desc: "Dubai wartet auf Sie... tägliche Flüge zu Bestpreisen.", tag: "Golf" },
+          { name: "Georgien", img: "hpL9o.jpg", desc: "Die Magie der Natur und der grünen Berge.", tag: "Natur" },
+          { name: "Bali, Indonesien", img: "sJM6o.jpg", desc: "Das Paradies, das Sie verdienen.", tag: "Exklusiv" },
           { name: "Thailand", img: "12.png", desc: "Lächeln des Ostens... ideal für Erkundungen.", tag: "Abenteuer" },
           { name: "Türkei", img: "6.png", desc: "Entdecken Sie die Türkei neu... wo Ost auf West trifft.", tag: "Geschichte & Natur" },
-          { name: "Europa & Griechenland", img: "14.png", desc: "Meer und Geschichte... Top-Angebote.", tag: "Europa" },
+          { name: "Europa & Griechenland", img: "KrmiB.jpg", desc: "Meer und Geschichte... Top-Angebote.", tag: "Europa" },
           { name: "Malediven", img: "15.png", desc: "Entspannungsreisen mit Luxushotels.", tag: "Flitterwochen" }
         ]
       }
