@@ -24,7 +24,6 @@
     .lang-btn:hover { background: rgba(255,255,255,0.1); }
     .lang-btn-active { background: var(--brand) !important; color: white !important; transform: scale(1.1); box-shadow: 0 4px 12px rgba(242,101,34,0.4); }
 
-    /* خلفية الهيرو بالأزرق الداكن الخاص باللوجو */
     .hero-wrap { 
       position: relative; 
       padding-top: 140px; 
@@ -35,7 +34,6 @@
       overflow: hidden;
     }
 
-    /* حركة الطائرة */
     @keyframes flyAcross {
       0% { transform: translate(-20vw, 20vh) scale(0.6) rotate(-10deg); opacity: 0; }
       15% { opacity: 0.3; } 
@@ -46,7 +44,6 @@
       position: absolute; top: 15%; left: -10%; width: clamp(250px, 35vw, 500px); opacity: 0.3; animation: flyAcross 25s linear infinite; filter: drop-shadow(0 15px 15px rgba(0,0,0,0.5)); pointer-events: none; z-index: 1;
     }
 
-    /* تصميم محرك البحث (Glassmorphism) */
     .widget-box { 
       background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(20px);
@@ -70,26 +67,55 @@
       box-shadow: 0 0 15px rgba(242, 101, 34, 0.2);
     }
 
-    /* كروت العروض */
-    .album-card { overflow: hidden; border-radius: 2rem; background: white; box-shadow: 0 20px 40px rgba(0,0,0,0.1); transition: 0.4s ease; height: 100%; }
+    .album-card { overflow: hidden; border-radius: 2rem; background: white; box-shadow: 0 20px 40px rgba(0,0,0,0.1); transition: 0.4s ease; height: 100%; cursor: zoom-in; }
     .album-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,0,0,0.15); }
-    .album-card img { width: 100%; height: 420px; object-fit: cover; object-position: center; transition: 0.6s ease; }
-    .album-card:hover img { transform: scale(1.05); }
+    /* زيادة سطوع الصورة وإبراز جمالها */
+    .album-card img { width: 100%; height: 420px; object-fit: cover; object-position: center; transition: 0.6s ease; filter: brightness(1.05) contrast(1.02); }
+    .album-card:hover img { transform: scale(1.05); filter: brightness(1.1) contrast(1.05); }
 
-    .social-icon { transition: all 0.3s ease; }
-    .social-icon:hover { transform: translateY(-3px) scale(1.1); color: var(--brand); }
+    /* Lightbox Styles */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      cursor: zoom-out;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    #lightbox.active { display: flex; opacity: 1; }
+    #lightbox img { 
+      max-width: 95%; 
+      max-height: 90vh; 
+      border-radius: 1rem; 
+      box-shadow: 0 0 50px rgba(0,0,0,0.5);
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+    }
+    #lightbox.active img { transform: scale(1); }
   </style>
 </head>
 <body class="overflow-x-hidden">
+
+  <!-- Lightbox Overlay -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <button class="absolute top-6 right-6 text-white hover:text-brand transition-colors">
+      <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <img src="" alt="Enlarged Poster" onclick="event.stopPropagation()">
+  </div>
 
   <div id="toast-container" class="fixed top-24 left-1/2 transform -translate-x-1/2 z-[200] flex flex-col gap-3 w-[90%] max-w-md pointer-events-none"></div>
 
   <nav id="navbar" class="fixed top-0 inset-x-0 z-[100] transition-all duration-500 glass-nav py-4">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-      
       <div class="flex items-center gap-3">
         <a href="index.html" class="w-14 h-14 md:w-16 md:h-16 bg-white rounded-xl p-1.5 shadow-lg flex items-center justify-center overflow-hidden hover:scale-105 transition-transform">
-          <img src="logo.png" alt="الريهام تورز" class="w-full h-full object-contain">
+          <img src="logo.png" alt="Logo" class="w-full h-full object-contain">
         </a>
         <div class="hidden sm:block text-white leading-tight">
           <div class="font-black text-2xl" id="brand-name">الريهام تورز</div>
@@ -112,7 +138,6 @@
           <button onclick="setLanguage('ar')" id="btn-ar" class="lang-btn">AR</button>
         </div>
       </div>
-
     </div>
   </nav>
 
@@ -317,11 +342,11 @@
         ],
         destinations: [
           { name: "Дубай", img: "Qki9w.jpg", desc: "Дубай ждет вас... ежедневные рейсы по лучшим ценам.", tag: "Залив" },
-          { name: "Грузия", img: "10.png", desc: "Магия природы и зеленых гор.", tag: "Природа" },
-          { name: "Бали, Индонезия", img: "8.png", desc: "Рай, который вы заслуживаете.", tag: "Эксклюзив" },
+          { name: "Грузия", img: "zlGo7.jpg", desc: "Магия природы и зеленых гор.", tag: "Природа" },
+          { name: "Бали, Индонезия", img: "my8e1.jpg", desc: "Рай, который вы заслуживаете.", tag: "Эксклюзив" },
           { name: "Таиланд", img: "12.png", desc: "Улыбка Востока... идеальное место для открытий.", tag: "Приключение" },
           { name: "Турция", img: "6.png", desc: "Откройте для себя Турцию заново... магия Востока и Запада.", tag: "История и природа" },
-          { name: "Европа и Греция", img: "14.png", desc: "Море и история... специальные предложения.", tag: "Европа" },
+          { name: "Европа и Греция", img: "UIOfc.jpg", desc: "Море и история... специальные предложения.", tag: "Европа" },
           { name: "Мальдивы", img: "15.png", desc: "Роскошный отдых в лучших отелях.", tag: "Медовый месяц" }
         ]
       },
@@ -336,7 +361,7 @@
         f_addr_t: "Hauptsitz", f_addr_d: "Metro Str., Hurghada", f_phone_t: "Kontakt", wa_intro: "Hallo Elreham Tours, ich möchte mich nach einer Flugbuchung erkundigen:", wa_type: "Reiseart",
         features: [
           { name: "Yacht-Kreuzfahrt", img: "30C5i.jpg", desc: "Luxuriöse Momente auf dem Roten Meer genießen.", tag: "Luxus" },
-          { name: "Wüstensafari", img: "udrzp.jpg", desc: "Ein unvergessliches Abenteuer für wahre Entdecker.", tag: "Safari" },
+          { name: "Wüstensafari", img: "udrzp.jpg", desc: "Ein unvergessliches Abenteuer für wahre Entدهcker.", tag: "Safari" },
           { name: "Tauchen", img: "Pdrnd.jpg", desc: "Tauchen Sie ein in das Paradies der Meere.", tag: "Sport" }
         ],
         destinations: [
@@ -363,16 +388,36 @@
       if (el && html) el.innerHTML = html;
     }
 
+    // Lightbox Logic
+    function openLightbox(src) {
+      const lb = document.getElementById('lightbox');
+      const lbImg = lb.querySelector('img');
+      lbImg.src = src;
+      lb.style.display = 'flex';
+      setTimeout(() => lb.classList.add('active'), 10);
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const lb = document.getElementById('lightbox');
+      lb.classList.remove('active');
+      setTimeout(() => {
+        lb.style.display = 'none';
+        document.body.style.overflow = '';
+      }, 300);
+    }
+
     function renderCards(items, containerId) {
       const grid = document.getElementById(containerId);
       if (!grid) return;
       grid.innerHTML = "";
       items.forEach((item) => {
         grid.innerHTML += `
-          <div class="album-card group">
+          <div class="album-card group" onclick="openLightbox('${item.img}')">
             <div class="relative overflow-hidden h-full">
               <img src="${item.img}" alt="${item.name}" loading="lazy">
-              <div class="absolute inset-0 bg-gradient-to-t from-[#06152c] via-[#06152c]/50 to-transparent opacity-90"></div>
+              <!-- تحسين التدرج اللوني ليكون في الأسفل فقط لزيادة الإضاءة -->
+              <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
                 <span class="inline-block bg-[#F26522] text-white px-3 py-1 rounded-full text-xs font-black mb-3 shadow-md">${item.tag}</span>
                 <h3 class="text-2xl md:text-3xl font-black mb-2 drop-shadow-md">${item.name}</h3>
@@ -415,7 +460,6 @@
 
       const tripType = isReturn ? t.w_return : t.w_oneway;
       const btnSpan = document.getElementById("w-btn-send");
-      const originalText = btnSpan ? btnSpan.innerText : "";
       if (btnSpan) btnSpan.innerText = t.w_btn_sending;
 
       const scriptURL = 'https://script.google.com/macros/s/AKfycbxGgySg1t6yVUE_d6Ib2AjJU__Rm18KC44SlPkCOIrW9fvSGsKTJBapuYQ7ju2R43fQfw/exec';
@@ -429,10 +473,10 @@
           formData.append('phone', phone || 'غير محدد');
           formData.append('email', email || 'غير محدد');
           await fetch(scriptURL, { method: 'POST', body: formData, mode: 'no-cors' });
-        } catch (error) { console.error('Error saving to sheet:', error); }
+        } catch (error) { console.error('Error:', error); }
       }
 
-      if (btnSpan) btnSpan.innerText = originalText;
+      if (btnSpan) btnSpan.innerText = t.w_btn_send;
       const text = `${t.wa_intro}\n✈️ ${t.wa_type}: ${tripType}\n🛫 ${t.w_from}: ${from || '-'}\n🛬 ${t.w_to}: ${to || '-'}\n📅 ${t.w_date}: ${date || '-'}\n📞 ${t.w_phone}: ${phone || '-'}\n✉️ ${t.w_email}: ${email || '-'}`;
       window.open(`https://wa.me/201002429863?text=${encodeURIComponent(text)}`, "_blank");
     }
@@ -476,9 +520,10 @@
 
     window.addEventListener("scroll", () => {
       const nav = document.getElementById("navbar");
-      if (!nav) return;
-      if (window.scrollY > 20) { nav.classList.add("py-3"); nav.classList.remove("py-4"); } 
-      else { nav.classList.add("py-4"); nav.classList.remove("py-3"); }
+      if (nav) {
+        if (window.scrollY > 20) { nav.classList.add("py-3"); nav.classList.remove("py-4"); } 
+        else { nav.classList.add("py-4"); nav.classList.remove("py-3"); }
+      }
     });
   </script>
 </body>
