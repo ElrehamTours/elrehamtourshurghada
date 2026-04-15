@@ -13,10 +13,10 @@
     :root { --brand: #F26522; --navy: #06152c; }
     body { font-family: "Cairo", "Tajawal", sans-serif; background: #fcfaf7; color: var(--navy); overflow-x: hidden; }
     
-    /* البانر العلوي الثابت (تم توسيعه) */
+    /* البانر العلوي الثابت (تم تقليل سماكته وتفتيح لونه) */
     .hero-simple {
-      background: linear-gradient(135deg, var(--navy), #0a1d38);
-      padding: 45px 0; /* تمت زيادة المساحة لإبراز اللوجو */
+      background: linear-gradient(135deg, #1e3a8a, #1e293b); /* لون أزرق ملكي أفتح وأكثر إشراقاً */
+      padding: 15px 0; /* تقليل السماكة */
       text-align: center;
       color: white;
       position: relative;
@@ -119,7 +119,7 @@
       margin-top: 1.5rem;
     }
     .btn-action:hover { background: var(--navy); }
-
+    #lightbox.active img { transform: scale(1); }
   </style>
 </head>
 <body>
@@ -130,24 +130,24 @@
   <!-- البانر العلوي الثابت -->
   <header class="hero-simple sticky top-0 z-40 shadow-md">
     <div class="max-w-6xl mx-auto px-6 flex flex-wrap items-center justify-center md:justify-between gap-4">
-      <div class="flex items-center gap-5">
-        <!-- اللوجو بحجم أكبر لتباين أفضل -->
-        <div class="w-24 h-24 md:w-32 md:h-32 shrink-0">
-          <img src="logo.png" alt="الريهام تورز" class="w-full h-full object-contain drop-shadow-2xl hover:scale-105 transition-transform cursor-pointer">
+      <div class="flex items-center gap-4">
+        <!-- اللوجو بحجم متناسق مع البانر النحيف -->
+        <div class="w-16 h-16 md:w-20 md:h-20 shrink-0">
+          <img src="logo.png" alt="الريهام تورز" class="w-full h-full object-contain drop-shadow-xl hover:scale-105 transition-transform cursor-pointer">
         </div>
         <div class="text-white text-right">
-          <div id="hero-title" class="font-black text-3xl md:text-4xl tracking-wide drop-shadow-md">الريهام تورز</div>
-          <p id="hero-desc" class="text-sm md:text-base text-[#F26522] font-bold uppercase tracking-widest mt-2">بداية ونهاية كل رحلة</p>
+          <div id="hero-title" class="font-black text-2xl md:text-3xl tracking-wide drop-shadow-md">الريهام تورز</div>
+          <p id="hero-desc" class="text-xs md:text-sm text-[#F26522] font-bold uppercase tracking-widest mt-1">بداية ونهاية كل رحلة</p>
         </div>
       </div>
-      <div id="welcome-msg" class="text-white/90 font-bold text-base hidden lg:block border-r-2 border-white/20 pr-6 drop-shadow-sm">
+      <div id="welcome-msg" class="text-white/90 font-bold text-sm hidden lg:block border-r-2 border-white/20 pr-5 drop-shadow-sm">
         أهلاً بك في بوابتك المثالية للسياحة والطيران
       </div>
     </div>
   </header>
 
-  <!-- شريط اللغات مع الأيقونات والأعلام -->
-  <section class="lang-bar sticky top-[150px] md:top-[120px] z-50 shadow-sm relative">
+  <!-- شريط اللغات مع الأيقونات والأعلام (تم تعديل المسافة ليتناسب مع البانر الجديد) -->
+  <section class="lang-bar sticky top-[95px] md:top-[100px] z-50 shadow-sm relative">
     <div class="max-w-5xl mx-auto px-4 flex flex-wrap justify-center gap-3 md:gap-5">
       <button onclick="setLanguage('ar')" id="fbtn-ar" class="lang-full-btn lang-full-active">
         <span class="text-2xl drop-shadow-sm">🇪🇬</span> العربية
