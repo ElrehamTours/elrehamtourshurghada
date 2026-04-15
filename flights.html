@@ -13,9 +13,9 @@
     :root { --brand: #F26522; --navy: #06152c; }
     body { font-family: "Cairo", "Tajawal", sans-serif; background: #fcfaf7; color: var(--navy); overflow-x: hidden; }
     
-    /* البانر العلوي الثابت (تم إرجاع اللون الأصلي الداكن) */
+    /* البانر العلوي الثابت (عاد للون الكحلي الأصلي) */
     .hero-simple {
-      background: linear-gradient(135deg, var(--navy), #0a1d38); /* كحلي داكن فخم */
+      background: linear-gradient(135deg, var(--navy), #0a1d38);
       padding: 15px 0;
       text-align: center;
       color: white;
@@ -37,7 +37,7 @@
       color: var(--navy);
       display: inline-flex;
       align-items: center;
-      gap: 10px; /* مسافة بين العلم والاسم */
+      gap: 10px;
     }
     .lang-full-btn:hover { background: #f8f5ef; color: var(--brand); transform: translateY(-2px); }
     .lang-full-active { background: var(--brand) !important; color: white !important; box-shadow: 0 10px 20px rgba(242, 101, 34, 0.2); }
@@ -119,7 +119,7 @@
       margin-top: 1.5rem;
     }
     .btn-action:hover { background: var(--navy); }
-    #lightbox.active img { transform: scale(1); }
+
   </style>
 </head>
 <body>
@@ -128,31 +128,29 @@
   <div id="toast-container" class="fixed top-32 left-1/2 transform -translate-x-1/2 z-[200] flex flex-col gap-3 w-[90%] max-w-md pointer-events-none"></div>
 
   <!-- البانر العلوي الثابت -->
-  <header class="hero-simple sticky top-0 z-40 shadow-md">
-    <div class="max-w-6xl mx-auto px-6 flex flex-wrap items-center justify-center md:justify-between gap-4">
-      <div class="flex items-center gap-4">
-        
-        <!-- منطقة اللوجو مع إضاءة ناعمة جداً -->
-        <div class="relative w-16 h-16 md:w-20 md:h-20 shrink-0 flex items-center justify-center">
-          <!-- تأثير الإضاءة الفاتحة (مخفف وأنقى ليتناسب مع الخلفية الأفتح) -->
-          <div class="absolute inset-[-30%] bg-white/30 blur-2xl rounded-full z-0 pointer-events-none"></div>
-          
-          <img src="logo.png" alt="الريهام تورز" class="relative z-10 w-full h-full object-contain drop-shadow-xl hover:scale-105 transition-transform cursor-pointer">
-        </div>
+  <header class="hero-simple sticky top-0 z-[60] shadow-md">
+    
+    <!-- اللوجو المنسدل (بخلفية بيضاء صريحة وبدون ظلال يتدلى من الأعلى) -->
+    <div class="absolute top-0 rtl:right-4 ltr:left-4 rtl:md:right-10 ltr:md:left-10 w-24 h-32 md:w-32 md:h-40 bg-white rounded-b-2xl p-2 md:p-3 flex items-center justify-center z-[70] border-x border-b border-gray-100">
+      <img src="logo.png" alt="الريهام تورز" class="w-full h-full object-contain hover:scale-105 transition-transform cursor-pointer">
+    </div>
 
-        <div class="text-white text-right relative z-10">
-          <div id="hero-title" class="font-black text-2xl md:text-3xl tracking-wide drop-shadow-md">الريهام تورز</div>
+    <div class="max-w-6xl mx-auto px-6 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center">
+        <!-- هوامش ديناميكية تترك مساحة للوجو المنسدل -->
+        <div class="rtl:pr-28 ltr:pl-28 rtl:md:pr-36 ltr:md:pl-36 text-white rtl:text-right ltr:text-left py-2">
+          <div id="hero-title" class="font-black text-2xl md:text-3xl tracking-wide">الريهام تورز</div>
           <p id="hero-desc" class="text-xs md:text-sm text-[#F26522] font-bold uppercase tracking-widest mt-1">بداية ونهاية كل رحلة</p>
         </div>
       </div>
-      <div id="welcome-msg" class="text-white/90 font-bold text-sm hidden lg:block border-r-2 border-white/20 pr-5 drop-shadow-sm">
+      <div id="welcome-msg" class="text-white/90 font-bold text-sm hidden lg:block rtl:border-r-2 ltr:border-l-2 border-white/20 rtl:pr-5 ltr:pl-5">
         أهلاً بك في بوابتك المثالية للسياحة والطيران
       </div>
     </div>
   </header>
 
-  <!-- شريط اللغات مع الأيقونات والأعلام (تم تعديل المسافة ليتناسب مع البانر الجديد) -->
-  <section class="lang-bar sticky top-[95px] md:top-[100px] z-50 shadow-sm relative">
+  <!-- شريط اللغات مع الأيقونات والأعلام (مثبت تحت البانر مباشرة) -->
+  <section class="lang-bar sticky top-[78px] md:top-[85px] z-50 shadow-sm relative">
     <div class="max-w-5xl mx-auto px-4 flex flex-wrap justify-center gap-3 md:gap-5">
       <button onclick="setLanguage('ar')" id="fbtn-ar" class="lang-full-btn lang-full-active">
         <span class="text-2xl drop-shadow-sm">🇪🇬</span> العربية
@@ -170,7 +168,7 @@
   </section>
 
   <!-- منطقة الصورة الكبيرة (main-bg.png) + محرك الحجز -->
-  <section class="booking-scenic-area px-4 py-16">
+  <section class="booking-scenic-area px-4 py-16 mt-4">
     <div class="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
 
     <!-- الطائرة المتحركة -->
@@ -178,7 +176,7 @@
 
     <div class="relative z-10 w-full max-w-5xl mt-8">
       <div class="text-center mb-10">
-        <h2 id="booking-title" class="text-white font-black text-4xl md:text-6xl drop-shadow-xl mb-4">احجز رحلتك الآن</h2>
+        <h2 id="booking-title" class="text-white font-black text-4xl md:text-6xl drop-shadow-xl mb-4">سجل الآن</h2>
         <p id="booking-sub" class="text-white/90 font-bold text-lg md:text-2xl drop-shadow-md">أفضل عروض الطيران والرحلات السياحية</p>
       </div>
 
@@ -290,12 +288,20 @@
     </div>
   </footer>
 
+  <a href="https://wa.me/201002429863" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="fixed bottom-6 right-6 z-[120]">
+    <div class="w-16 h-16 bg-[#25D366] text-white rounded-full shadow-[0_10px_40px_rgba(37,211,102,0.5)] flex items-center justify-center hover:scale-110 transition-transform border-4 border-white/20">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/>
+      </svg>
+    </div>
+  </a>
+
   <script>
     const translations = {
       ar: {
         dir: "rtl", font: "Cairo", hero_title: "الريهام تورز",
         hero_desc: "بداية ونهاية كل رحلة", welcome: "أهلاً بك في بوابتك المثالية للسياحة والطيران",
-        booking_title: "احجز رحلتك الآن", booking_sub: "أفضل عروض الطيران والرحلات السياحية",
+        booking_title: "سجل الآن", booking_sub: "أفضل عروض الطيران والرحلات السياحية",
         w_return: "ذهاب وعودة", w_oneway: "اتجاه واحد", w_from: "من", w_from_inp: "مطار الإقلاع", w_to: "إلى", w_to_inp: "وجهتك", w_date: "التاريخ", w_date_inp: "الذهاب - العودة", w_phone: "رقم الهاتف", w_phone_inp: "أدخل رقمك للتواصل", w_email: "البريد الإلكتروني", w_email_inp: "أدخل إيميلك", w_btn_send: "أرسل الطلب", w_btn_sending: "جاري الإرسال...",
         err_phone: "يرجى إدخال رقم هاتف صحيح (9 أرقام على الأقل)", err_email: "يرجى إدخال بريد إلكتروني صحيح",
         wa_intro: "أهلاً الريهام تورز، أريد الاستفسار عن رحلة من الصفحة الرئيسية:", wa_type: "نوع الرحلة",
@@ -306,7 +312,7 @@
       en: {
         dir: "ltr", font: "Tajawal", hero_title: "Elreham Tours",
         hero_desc: "Start and end of every trip", welcome: "Welcome to your perfect gateway for tourism and aviation",
-        booking_title: "Book Your Trip Now", booking_sub: "Best flight and tour offers",
+        booking_title: "Register Now", booking_sub: "Best flight and tour offers",
         w_return: "Return", w_oneway: "One way", w_from: "Flying from", w_from_inp: "Departure Airport", w_to: "Flying to", w_to_inp: "Destination", w_date: "Dates", w_date_inp: "Pick up - Drop off", w_phone: "Phone Number", w_phone_inp: "Enter your phone", w_email: "Email", w_email_inp: "Enter your email", w_btn_send: "Send Request", w_btn_sending: "Sending...",
         err_phone: "Please enter a valid phone number", err_email: "Please enter a valid email",
         wa_intro: "Hello Elreham Tours, I want to inquire about a trip from the Home Page:", wa_type: "Trip Type",
@@ -317,7 +323,7 @@
       ru: {
         dir: "ltr", font: "Tajawal", hero_title: "Elreham Tours",
         hero_desc: "Начало и конец каждой поездки", welcome: "Добро пожаловать в ваш идеальный путь в мир туризма и авиации",
-        booking_title: "Забронируйте поездку", booking_sub: "Лучшие предложения на авиабилеты и туры",
+        booking_title: "Зарегистрироваться", booking_sub: "Лучшие предложения на авиабилеты и туры",
         w_return: "Туда-обратно", w_oneway: "В одну сторону", w_from: "Откуда", w_from_inp: "Аэропорт", w_to: "Куда", w_to_inp: "Назначение", w_date: "Даты", w_date_inp: "Туда - Обратно", w_phone: "Телефон", w_phone_inp: "Ваш номер", w_email: "Email", w_email_inp: "Ваш email", w_btn_send: "Отправить", w_btn_sending: "Отправка...",
         err_phone: "Пожалуйста, введите действительный номер телефона", err_email: "Пожалуйста, введите действительный email",
         wa_intro: "Здравствуйте, Elreham Tours. Я хочу узнать о поездке с Главной страницы:", wa_type: "Тип поездки",
@@ -328,7 +334,7 @@
       de: {
         dir: "ltr", font: "Tajawal", hero_title: "Elreham Tours",
         hero_desc: "Anfang und Ende jeder Reise", welcome: "Willkommen zu Ihrem perfekten Partner für Tourismus und Luftfahrt",
-        booking_title: "Buchen Sie jetzt", booking_sub: "Die besten Flug- und Tourangebote",
+        booking_title: "Jetzt Registrieren", booking_sub: "Die besten Flug- und Tourangebote",
         w_return: "Hin & Rück", w_oneway: "Hinflug", w_from: "Abflug", w_from_inp: "Flughafen", w_to: "Nach", w_to_inp: "Ziel", w_date: "Datum", w_date_inp: "Hin - Rück", w_phone: "Telefon", w_phone_inp: "Ihre Nummer", w_email: "E-Mail", w_email_inp: "Ihre E-Mail", w_btn_send: "Senden", w_btn_sending: "Senden...",
         err_phone: "Bitte geben Sie eine gültige Telefonnummer ein", err_email: "Bitte geben Sie eine gültige E-Mail-Adresse ein",
         wa_intro: "Hallo Elreham Tours, ich möchte mich nach einer Reise von der Startseite erkundigen:", wa_type: "Reiseart",
