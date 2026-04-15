@@ -69,7 +69,6 @@
 
     .album-card { overflow: hidden; border-radius: 2rem; background: white; box-shadow: 0 20px 40px rgba(0,0,0,0.1); transition: 0.4s ease; height: 100%; cursor: zoom-in; }
     .album-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,0,0,0.15); }
-    /* زيادة سطوع الصورة وإبراز جمالها */
     .album-card img { width: 100%; height: 420px; object-fit: cover; object-position: center; transition: 0.6s ease; filter: brightness(1.05) contrast(1.02); }
     .album-card:hover img { transform: scale(1.05); filter: brightness(1.1) contrast(1.05); }
 
@@ -103,7 +102,7 @@
 
   <!-- Lightbox Overlay -->
   <div id="lightbox" onclick="closeLightbox()">
-    <button class="absolute top-6 right-6 text-white hover:text-brand transition-colors">
+    <button class="absolute top-6 right-6 text-white hover:text-[#F26522] transition-colors">
       <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg>
     </button>
     <img src="" alt="Enlarged Poster" onclick="event.stopPropagation()">
@@ -114,9 +113,9 @@
   <nav id="navbar" class="fixed top-0 inset-x-0 z-[100] transition-all duration-500 glass-nav py-4">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <a href="index.html" class="w-14 h-14 md:w-16 md:h-16 bg-white rounded-xl p-1.5 shadow-lg flex items-center justify-center overflow-hidden hover:scale-105 transition-transform">
-          <img src="logo.png" alt="Logo" class="w-full h-full object-contain">
-        </a>
+        <div class="w-14 h-14 md:w-16 md:h-16 shrink-0">
+          <img src="logo.png" alt="الريهام تورز" class="w-full h-full object-contain drop-shadow-xl">
+        </div>
         <div class="hidden sm:block text-white leading-tight">
           <div class="font-black text-2xl" id="brand-name">الريهام تورز</div>
           <div class="text-[#F26522] font-bold uppercase tracking-[0.2em] text-[9px] mt-1">Aviation & Travel</div>
@@ -215,22 +214,25 @@
     </div>
   </section>
 
-  <section id="social-section" class="py-24 px-4 sm:px-6 bg-[#06152c] text-center border-t border-white/5">
+  <!-- قسم السوشيال ميديا الجديد المتناسق مع الرئيسية -->
+  <section class="py-16 px-6 bg-white text-center border-t border-slate-100">
     <div class="max-w-4xl mx-auto flex flex-col items-center">
-      <h2 id="social-title" class="text-white font-black text-4xl md:text-5xl mb-4">تابع الريهام تورز</h2>
-      <p id="social-sub" class="text-[#F26522] text-xl md:text-2xl font-bold tracking-widest mb-8">@elrehamtours</p>
-      <div class="flex flex-wrap items-center justify-center gap-6 mb-16">
-        <a href="https://facebook.com/elrehamtours" target="_blank" rel="noopener noreferrer" class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#1877F2] hover:border-[#1877F2] transition-all hover:-translate-y-2 shadow-lg">
-          <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12.07C22 6.5 17.52 2 12 2S2 6.5 2 12.07C2 17.1 5.66 21.27 10.44 22v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.1 0 2.24.2 2.24.2v2.48h-1.26c-1.24 0-1.62.77-1.62 1.56v1.88h2.77l-.44 2.9h-2.33V22C18.34 21.27 22 17.1 22 12.07z"/></svg>
+      <h2 id="social-title" class="text-[#06152c] font-black text-3xl md:text-4xl mb-3">تابع الريهام تورز</h2>
+      <p id="social-sub" class="text-[#F26522] text-lg font-bold tracking-widest mb-8">@elrehamtours</p>
+      
+      <div class="flex flex-wrap items-center justify-center gap-6 mb-10">
+        <a href="https://facebook.com/elrehamtours" target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-white border border-slate-200 flex items-center justify-center text-[#06152c] hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white transition-all hover:-translate-y-2 shadow-sm">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12.07C22 6.5 17.52 2 12 2S2 6.5 2 12.07C2 17.1 5.66 21.27 10.44 22v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.1 0 2.24.2 2.24.2v2.48h-1.26c-1.24 0-1.62.77-1.62 1.56v1.88h2.77l-.44 2.9h-2.33V22C18.34 21.27 22 17.1 22 12.07z"/></svg>
         </a>
-        <a href="https://instagram.com/elrehamtours" target="_blank" rel="noopener noreferrer" class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#E1306C] hover:border-[#E1306C] transition-all hover:-translate-y-2 shadow-lg">
-          <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        <a href="https://instagram.com/elrehamtours" target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-white border border-slate-200 flex items-center justify-center text-[#06152c] hover:bg-[#E1306C] hover:border-[#E1306C] hover:text-white transition-all hover:-translate-y-2 shadow-sm">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
         </a>
-        <a href="https://tiktok.com/@elrehamtours" target="_blank" rel="noopener noreferrer" class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-black hover:border-black transition-all hover:-translate-y-2 shadow-lg">
-          <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M16.5 3c.24 1.96 1.4 3.63 3 4.62V10a8.1 8.1 0 0 1-3-.72v5.7a6.28 6.28 0 1 1-6.28-6.28c.3 0 .59.02.88.07v2.9a3.5 3.5 0 1 0 2.6 3.38V3h2.8z"/></svg>
+        <a href="https://tiktok.com/@elrehamtours" target="_blank" rel="noopener noreferrer" class="w-14 h-14 rounded-full bg-white border border-slate-200 flex items-center justify-center text-[#06152c] hover:bg-black hover:border-black hover:text-white transition-all hover:-translate-y-2 shadow-sm">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M16.5 3c.24 1.96 1.4 3.63 3 4.62V10a8.1 8.1 0 0 1-3-.72v5.7a6.28 6.28 0 1 1-6.28-6.28c.3 0 .59.02.88.07v2.9a3.5 3.5 0 1 0 2.6 3.38V3h2.8z"/></svg>
         </a>
       </div>
-      <a href="index.html" class="inline-flex items-center justify-center gap-3 px-10 py-4 rounded-full border-2 border-[#F26522] text-[#F26522] font-black hover:bg-[#F26522] hover:text-white transition-all text-xl shadow-[0_10px_30px_rgba(242,101,34,0.2)]" id="cta-btn-secondary">
+
+      <a href="index.html" class="inline-flex items-center justify-center gap-3 px-10 py-3 rounded-full border-2 border-[#F26522] text-[#F26522] font-black hover:bg-[#F26522] hover:text-white transition-all shadow-sm" id="cta-btn-secondary">
         العودة للرئيسية
       </a>
     </div>
@@ -239,8 +241,8 @@
   <footer id="footer" class="bg-[#040d1b] py-20 px-4 sm:px-6 text-center text-white border-t border-white/5">
     <div class="max-w-6xl mx-auto">
       <div id="f-slogan" class="text-[#F26522] text-2xl md:text-3xl font-black mb-12 tracking-wide opacity-90">الريهام تورز.. بداية ونهاية كل رحلة</div>
-      <div class="w-24 h-24 bg-white rounded-3xl p-2 shadow-2xl mx-auto mb-12 flex items-center justify-center">
-        <img src="logo.png" alt="Logo" class="w-full h-full object-contain">
+      <div class="w-24 h-24 mb-12 mx-auto shrink-0">
+        <img src="logo.png" alt="Logo" class="w-full h-full object-contain drop-shadow-xl">
       </div>
       <div class="grid md:grid-cols-2 gap-8 mb-12">
         <div class="bg-white/5 border border-white/10 rounded-[2rem] p-10 hover:bg-white/10 transition">
@@ -287,12 +289,12 @@
           { name: "متعة السفر", img: "11.png", desc: "متعة السفر تكتمل وأكتر معانا إلى أفضل الوجهات.", tag: "رفاهية" }
         ],
         destinations: [
-          { name: "دبي", img: "Txqlf.jpg", desc: "دبي مستنياك وإحنا جاهزين.. رحلات يومية بأفضل الأسعار.", tag: "الخليج" },
-          { name: "جورجيا", img: "zlGo7.jpg", desc: "سحر الطبيعة الخلابة والجبال الخضراء.", tag: "طبيعة" },
-          { name: "بالي - إندونيسيا", img: "my8e1.jpg", desc: "الجنة اللي تستاهلها.. رحلات طيران لأجمل الشواطئ.", tag: "عروض حصرية" },
+          { name: "دبي", img: "3.png", desc: "دبي مستنياك وإحنا جاهزين.. رحلات يومية بأفضل الأسعار.", tag: "الخليج" },
+          { name: "جورجيا", img: "10.png", desc: "سحر الطبيعة الخلابة والجبال الخضراء.", tag: "طبيعة" },
+          { name: "بالي - إندونيسيا", img: "8.png", desc: "الجنة اللي تستاهلها.. رحلات طيران لأجمل الشواطئ.", tag: "عروض حصرية" },
           { name: "تايلاند", img: "12.png", desc: "ابتسامة الشرق.. وجهتك المثالية للاستكشاف.", tag: "مغامرة" },
           { name: "تركيا", img: "6.png", desc: "اكتشف تركيا من جديد.. سحر الشرق وعراقة الغرب.", tag: "تاريخ وطبيعة" },
-          { name: "أوروبا واليونان", img: "UIOfc.jpg", desc: "البحر والتاريخ.. عروض مميزة لأوروبا.", tag: "أوروبا" },
+          { name: "أوروبا واليونان", img: "14.png", desc: "البحر والتاريخ.. عروض مميزة لأوروبا.", tag: "أوروبا" },
           { name: "المالديف وشهر العسل", img: "15.png", desc: "رحلات استجمام بفنادق وخدمات فاخرة.", tag: "شهر عسل" }
         ]
       },
@@ -301,26 +303,22 @@
         h_title: "Flight Booking", h_sub: "Domestic & International Best Rates", 
         w_return: "Return", w_oneway: "One way", w_from: "Flying from", w_from_inp: "Departure Airport", w_to: "Flying to", w_to_inp: "Destination", w_date: "Dates", w_date_inp: "Pick up - Drop off", w_phone: "Phone Number", w_phone_inp: "Enter your phone", w_email: "Email Address", w_email_inp: "Enter your email", w_btn_send: "Send Request", w_btn_sending: "Sending...",
         err_phone: "Please enter a valid phone number", err_email: "Please enter a valid email address",
-        features_label: "Why Us", features_title: "Why Book With Us?",
-        promo_label: "Top Destinations", promo_title: "Best Travel Destinations",
+        features_label: "Exclusive Experiences", features_title: "Why Elreham Tours?",
+        promo_label: "Top Activities", promo_title: "Unforgettable Moments",
         social_title: "Follow Elreham Tours", social_sub: "@elrehamtours", cta_btn_secondary: "Back to Home",
         f_addr_t: "Head Office", f_addr_d: "Metro St., Hurghada, Egypt", f_phone_t: "Contact Numbers", wa_intro: "Hello Elreham Tours, I want to inquire about a flight booking:", wa_type: "Trip Type",
         features: [
-          { name: "Flights & Hotels Offers", img: "Yhpnl.jpg", desc: "Ready to travel? We provide the best offers for flights and hotel bookings.", tag: "Complete Packages" },
-          { name: "Premium Flights", img: "MKRGk.jpg", desc: "Comfortable seats, direct flights, and service before & after arrival.", tag: "Premium" },
-          { name: "Easy Booking", img: "9RXli.jpg", desc: "Booking is now easier, tickets ready in minutes.", tag: "Flights" },
-          { name: "Guaranteed Price", img: "iKLgX.jpg", desc: "Competitive prices guaranteed at the start and end of every trip.", tag: "Best Rates" },
-          { name: "Family Travel", img: "LOab2.jpg", desc: "Your family deserves the best trip, plan safely with us.", tag: "Families" },
-          { name: "Joy of Travel", img: "3ff5u.jpg", desc: "The joy of travel is complete with our top destinations.", tag: "Luxury" }
+          { name: "Yacht Cruise", img: "30C5i.jpg", desc: "Enjoy luxurious moments on the Red Sea.", tag: "Luxury" },
+          { name: "Desert Safari", img: "udrzp.jpg", desc: "An unforgettable adventure for true explorers.", tag: "Safari" },
+          { name: "Scuba Diving", img: "Pdrnd.jpg", desc: "Dive into the paradise of the seas.", tag: "Sport" }
         ],
         destinations: [
-          { name: "Dubai", img: "jvX8T.jpg", desc: "Dubai is waiting for you... daily flights at the best rates.", tag: "Gulf" },
-          { name: "Georgia", img: "zlGo7.jpg", desc: "The magic of breathtaking nature and green mountains.", tag: "Nature" },
-          { name: "Bali, Indonesia", img: "my8e1.jpg", desc: "The paradise you deserve... flights to the best beaches.", tag: "Exclusive" },
-          { name: "Thailand", img: "12.png", desc: "Smile of the East... your ideal destination for exploration.", tag: "Adventure" },
-          { name: "Turkey", img: "6.png", desc: "Discover Turkey anew... where East meets West.", tag: "History & Nature" },
-          { name: "Europe & Greece", img: "UIOfc.jpg", desc: "Sea and History... special offers for Europe.", tag: "Europe" },
-          { name: "Maldives & Honeymoon", img: "15.png", desc: "Relaxation trips with luxury hotels and premium services.", tag: "Honeymoon" }
+          { name: "Camel Safari", img: "o6j2Q.jpg", desc: "Experience the silence of the Egyptian desert.", tag: "Culture" },
+          { name: "Quad Adventure", img: "73aE5.jpg", desc: "Action-packed rides along the coast.", tag: "Action" },
+          { name: "Snorkeling", img: "S9rcZ.jpg", desc: "Discover the colorful underwater world.", tag: "Nature" },
+          { name: "Parasailing", img: "i6Esm.jpg", desc: "Soar above the crystal blue water.", tag: "Adventure" },
+          { name: "Beach Buggy", img: "Rc2pD.jpg", desc: "Limitless fun in the golden sand.", tag: "Fun" },
+          { name: "Lunch at Sea", img: "eXyhR.jpg", desc: "Enjoy fresh delicacies on board.", tag: "Experience" }
         ]
       },
       ru: { 
@@ -328,26 +326,22 @@
         h_title: "Авиабилеты", h_sub: "Внутренние и международные рейсы", 
         w_return: "Туда-обратно", w_oneway: "В одну сторону", w_from: "Откуда", w_from_inp: "Аэропорт", w_to: "Куда", w_to_inp: "Назначение", w_date: "Даты", w_date_inp: "Туда - Обратно", w_phone: "Телефон", w_phone_inp: "Ваш номер", w_email: "Email", w_email_inp: "Ваш email", w_btn_send: "Отправить", w_btn_sending: "Отправка...",
         err_phone: "Пожалуйста, введите действительный номер телефона", err_email: "Пожалуйста, введите действительный email",
-        features_label: "Почему мы", features_title: "Наши преимущества",
-        promo_label: "Направления", promo_title: "Лучшие направления",
+        features_label: "Эксклюзивные впечатления", features_title: "Почему Elreham Tours?",
+        promo_label: "Лучшие активности", promo_title: "Незабываемые моменты",
         social_title: "Следите за нами", social_sub: "@elrehamtours", cta_btn_secondary: "На главную",
         f_addr_t: "Главный офис", f_addr_d: "Метро-стрит, Хургада, Египет", f_phone_t: "Контакты", wa_intro: "Здравствуйте, Elreham Tours. Я хочу узнать о бронировании авиабилета:", wa_type: "Тип поездки",
         features: [
-          { name: "Предложения по перелетам и отелям", img: "zZsQa.jpg", desc: "Готовы к путешествию? Мы предлагаем лучшие предложения на авиабилеты и отели.", tag: "Полные пакеты" },
-          { name: "Комфортные рейсы", img: "3ff5u.jpg", desc: "Удобные кресла, прямые рейсы и отличный сервис.", tag: "Комфорт" },
-          { name: "Простое бронирование", img: "85XtP.jpg", desc: "Бронировать стало проще, билеты готовы за минуты.", tag: "Авиабилеты" },
-          { name: "Гарантия цены", img: "ou78x.jpg", desc: "Выгодные цены гарантированы в каждой поездке.", tag: "Лучшие цены" },
-          { name: "Семейный отдых", img: "GuTgH.jpg", desc: "Ваша семья заслуживает лучшего путешествия.", tag: "Семьи" },
-          { name: "Радость путешествия", img: "y7HCq.jpg", desc: "Идеальные впечатления от поездки с нами.", tag: "Роскошь" }
+          { name: "Яхт-круиз", img: "30C5i.jpg", desc: "Наслаждайтесь роскошными моментами на Красном море.", tag: "Люкс" },
+          { name: "Сафари в пустыне", img: "udrzp.jpg", desc: "Незабываемое приключение для настоящих исследователей.", tag: "Сафари" },
+          { name: "Дайвинг", img: "Pdrnd.jpg", desc: "Погрузитесь в райские глубины моря.", tag: "Спорт" }
         ],
         destinations: [
-          { name: "Дубай", img: "Qki9w.jpg", desc: "Дубай ждет вас... ежедневные рейсы по лучшим ценам.", tag: "Залив" },
-          { name: "Грузия", img: "zlGo7.jpg", desc: "Магия природы и зеленых гор.", tag: "Природа" },
-          { name: "Бали, Индонезия", img: "my8e1.jpg", desc: "Рай, который вы заслуживаете.", tag: "Эксклюзив" },
-          { name: "Таиланд", img: "12.png", desc: "Улыбка Востока... идеальное место для открытий.", tag: "Приключение" },
-          { name: "Турция", img: "6.png", desc: "Откройте для себя Турцию заново... магия Востока и Запада.", tag: "История и природа" },
-          { name: "Европа и Греция", img: "UIOfc.jpg", desc: "Море и история... специальные предложения.", tag: "Европа" },
-          { name: "Мальдивы", img: "15.png", desc: "Роскошный отдых в лучших отелях.", tag: "Медовый месяц" }
+          { name: "Сафари на верблюдах", img: "o6j2Q.jpg", desc: "Ощутите тишину египетской пустыни.", tag: "Культура" },
+          { name: "Квадроциклы", img: "73aE5.jpg", desc: "Захватывающие поездки вдоль побережья.", tag: "Экстрим" },
+          { name: "Снорклинг", img: "S9rcZ.jpg", desc: "Откройте для себя красочный подводный мир.", tag: "Природа" },
+          { name: "Парасейлинг", img: "i6Esm.jpg", desc: "Парите над кристально чистой синей водой.", tag: "Приключение" },
+          { name: "Багги по пляжу", img: "Rc2pD.jpg", desc: "Безграничное веселье на золотом песке.", tag: "Веселье" },
+          { name: "Обед в море", img: "eXyhR.jpg", desc: "Наслаждайтесь свежими деликатесами на борту.", tag: "Впечатление" }
         ]
       },
       de: { 
@@ -361,7 +355,7 @@
         f_addr_t: "Hauptsitz", f_addr_d: "Metro Str., Hurghada", f_phone_t: "Kontakt", wa_intro: "Hallo Elreham Tours, ich möchte mich nach einer Flugbuchung erkundigen:", wa_type: "Reiseart",
         features: [
           { name: "Yacht-Kreuzfahrt", img: "30C5i.jpg", desc: "Luxuriöse Momente auf dem Roten Meer genießen.", tag: "Luxus" },
-          { name: "Wüstensafari", img: "udrzp.jpg", desc: "Ein unvergessliches Abenteuer für wahre Entدهcker.", tag: "Safari" },
+          { name: "Wüstensafari", img: "udrzp.jpg", desc: "Ein unvergessliches Abenteuer für wahre Entdecker.", tag: "Safari" },
           { name: "Tauchen", img: "Pdrnd.jpg", desc: "Tauchen Sie ein in das Paradies der Meere.", tag: "Sport" }
         ],
         destinations: [
@@ -416,7 +410,6 @@
           <div class="album-card group" onclick="openLightbox('${item.img}')">
             <div class="relative overflow-hidden h-full">
               <img src="${item.img}" alt="${item.name}" loading="lazy">
-              <!-- تحسين التدرج اللوني ليكون في الأسفل فقط لزيادة الإضاءة -->
               <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
               <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
                 <span class="inline-block bg-[#F26522] text-white px-3 py-1 rounded-full text-xs font-black mb-3 shadow-md">${item.tag}</span>
