@@ -29,7 +29,6 @@
     }
     .flying-plane { position: absolute; top: 15%; left: -10%; width: clamp(250px, 35vw, 500px); opacity: 0.6; animation: flyAcross 25s linear infinite; pointer-events: none; z-index: 5; }
 
-    /* بوكس الحجز بالأيقونات */
     .widget-box { background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); border-radius: 2.5rem; border-top: 5px solid var(--brand); box-shadow: 0 25px 50px rgba(0,0,0,0.4); position: relative; z-index: 10; }
     .input-group { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 1.25rem; padding: 0.8rem 1.25rem; transition: 0.3s; display: flex; align-items: center; gap: 12px; }
     .input-group:focus-within { border-color: var(--brand); background: rgba(0, 0, 0, 0.45); }
@@ -38,7 +37,7 @@
     input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
     
     .promo-card { overflow: hidden; border-radius: 2rem; background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; cursor: pointer; border: 1px solid #f1f5f9; }
-    .promo-card:hover { transform: translateY(-8px); border-color: var(--brand); }
+    .promo-card:hover { transform: translateY(-8px); border-color: var(--brand); box-shadow: 0 20px 40px rgba(242,101,34,0.1); }
 
     footer { background: #040d1a; color: white; padding: 70px 20px 30px; }
     .footer-link { color: rgba(255,255,255,0.6); transition: 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 0.9rem; text-align: right; }
@@ -51,7 +50,7 @@
 
   <div id="toast-container" class="fixed top-24 left-1/2 transform -translate-x-1/2 z-[200] pointer-events-none text-center"></div>
 
-  <!-- Navbar المطور -->
+  <!-- Navbar -->
   <nav class="fixed top-0 inset-x-0 z-[100] glass-nav py-3 md:py-4 shadow-2xl">
     <div class="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between gap-4 text-white">
       <div class="flex items-center gap-4 md:gap-8">
@@ -85,9 +84,9 @@
     
     <div class="max-w-6xl mx-auto w-full relative z-10 px-4 text-center">
       <h1 id="h-title" class="text-4xl md:text-8xl font-black text-white mb-4 drop-shadow-2xl uppercase">حجز طيران</h1>
-      <p id="h-sub" class="text-lg md:text-2xl text-white/90 mb-12 font-bold drop-shadow-md italic"></p>
+      <p id="h-sub" class="text-lg md:text-2xl text-white/90 mb-12 font-bold drop-shadow-md"></p>
       
-      <!-- مربع الحجز الكامل بالأيقونات -->
+      <!-- بوكس الحجز الكامل بـ 5 حقول -->
       <div class="widget-box p-6 md:p-10 max-w-5xl mx-auto">
         <form onsubmit="event.preventDefault();" class="space-y-6 text-right">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -136,7 +135,7 @@
     </div>
   </header>
 
-  <!-- قسم العروض -->
+  <!-- قسم العروض المستعاد بالكامل -->
   <section class="py-20 px-6 max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8" id="promo-grid"></section>
 
   <!-- الشريط العائم -->
@@ -145,7 +144,7 @@
     <a href="javascript:void(0)" onclick="navigate('domestic-trips.html')" class="px-6 md:px-10 py-3 rounded-full font-black text-sm text-white/70 hover:text-white transition-all">📍 <span id="f-d">رحلات داخلية</span></a>
   </div>
 
-  <!-- Footer الشامل -->
+  <!-- Footer الكامل المترجم -->
   <footer>
     <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 border-b border-white/10 pb-12 text-right">
       <div>
@@ -176,25 +175,46 @@
         </div>
       </div>
     </div>
+    <div class="text-center mt-12 text-white/20 text-[10px] font-bold uppercase tracking-[0.4em]">© 2024 Elreham Tours & Aviation - Egypt</div>
   </footer>
 
   <script>
     const trans = {
       ar: { 
-        dir: 'rtl', brand: "الريهام تورز", n_home: "الرئيسية", n_flights: "حجز طيران", n_trips: "رحلات داخلية", h_title: "حجز طيران", h_sub: "بداية ونهاية كل رحلة", l_from: "من", l_to: "إلى", l_date: "التاريخ", l_phone: "الهاتف", l_email: "الإيميل", btn: "احجز الآن", f_f: "الطيران", f_d: "رحلات داخلية", wa_intro: "أريد حجز طيران إلى:", err: "دخل الهاتف", contact_t: "تواصل معنا", pages_t: "صفحاتنا", social: "تابعنا على", addr: "شارع مترو، شيراتون، الغردقة",
-        items: [{name: "دبي", img: "3.png", tag: "الخليج"}, {name: "تركيا", img: "6.png", tag: "تاريخ"}]
+        dir: 'rtl', brand: "الريهام تورز", n_home: "الرئيسية", n_flights: "حجز طيران", n_trips: "رحلات داخلية", h_title: "حجز طيران", h_sub: "بداية ونهاية كل رحلة", l_from: "من", l_to: "إلى", l_date: "التاريخ", l_phone: "الهاتف", l_email: "الإيميل", btn: "احجز الآن", f_f: "الطيران", f_d: "رحلات داخلية", wa_intro: "أريد حجز طيران إلى:", contact_t: "تواصل معنا", pages_t: "صفحاتنا", social: "تابعنا على", addr: "شارع مترو، شيراتون، الغردقة",
+        items: [
+          {name: "دبي", img: "3.png", tag: "الخليج"}, 
+          {name: "تركيا", img: "6.png", tag: "تاريخ"}, 
+          {name: "أوروبا", img: "14.png", tag: "سياحة"}, 
+          {name: "المالديف", img: "15.png", tag: "استجمام"}
+        ]
       },
       en: { 
-        dir: 'ltr', brand: "Elreham Tours", n_home: "Home", n_flights: "Flights", n_trips: "Trips", h_title: "Flight Booking", h_sub: "Start & end of every journey", l_from: "From", l_to: "To", l_date: "Date", l_phone: "Phone", l_email: "Email", btn: "Book Now", f_f: "Flights", f_d: "Trips", wa_intro: "I want to book flight to:", err: "Enter phone", contact_t: "Contact Us", pages_t: "Pages", social: "Follow Us", addr: "Metro St, Sheraton, Hurghada",
-        items: [{name: "Dubai", img: "3.png", tag: "Gulf"}, {name: "Turkey", img: "6.png", tag: "History"}]
+        dir: 'ltr', brand: "Elreham Tours", n_home: "Home", n_flights: "Flights", n_trips: "Trips", h_title: "Flight Booking", h_sub: "Start & end of every journey", l_from: "From", l_to: "To", l_date: "Date", l_phone: "Phone", l_email: "Email", btn: "Book Now", f_f: "Flights", f_d: "Trips", wa_intro: "I want to book a flight to:", contact_t: "Contact Us", pages_t: "Pages", social: "Follow Us", addr: "Metro St, Hurghada",
+        items: [
+          {name: "Dubai", img: "3.png", tag: "Gulf"}, 
+          {name: "Turkey", img: "6.png", tag: "History"}, 
+          {name: "Europe", img: "14.png", tag: "Tourism"}, 
+          {name: "Maldives", img: "15.png", tag: "Relax"}
+        ]
       },
       ru: { 
-        dir: 'ltr', brand: "Elreham Tours", n_home: "Главная", n_flights: "Билеты", n_trips: "Туры", h_title: "Авиабилеты", h_sub: "Начало и конец каждой поездки", l_from: "Откуда", l_to: "Куда", l_date: "Дата", l_phone: "Телефон", l_email: "Email", btn: "Забронировать", f_f: "Билеты", f_d: "Туры", wa_intro: "Хочу забронировать билет в:", err: "Введите номер", contact_t: "Контакты", pages_t: "Страницы", social: "Соцсети", addr: "Метро-стрит, Хургада",
-        items: [{name: "Дубай", img: "3.png", tag: "Залив"}]
+        dir: 'ltr', brand: "Elreham Tours", n_home: "Главная", n_flights: "Билеты", n_trips: "Туры", h_title: "Авиабилеты", h_sub: "Начало и конец каждой поездки", l_from: "Откуда", l_to: "Куда", l_date: "Дата", l_phone: "Телефон", l_email: "Email", btn: "Забронировать", f_f: "Билеты", f_d: "Туры", wa_intro: "Хочу забронировать билет في:", contact_t: "Контакты", pages_t: "Страницы", social: "Соцсети", addr: "Метро-стрит, Хургада",
+        items: [
+          {name: "Дубай", img: "3.png", tag: "Залив"}, 
+          {name: "Турция", img: "6.png", tag: "История"}, 
+          {name: "Европа", img: "14.png", tag: "Туризм"}, 
+          {name: "Мальдивы", img: "15.png", tag: "Отдых"}
+        ]
       },
       de: { 
-        dir: 'ltr', brand: "Elreham Tours", n_home: "Startseite", n_flights: "Flüge", n_trips: "Reisen", h_title: "Flugbuchung", h_sub: "Anfang und Ende jeder Reise", l_from: "Von", l_to: "Nach", l_date: "Datum", l_phone: "Telefon", l_email: "Email", btn: "Buchen", f_f: "Flüge", f_d: "Reisen", wa_intro: "Flug buchen nach:", err: "Nummer eingeben", contact_t: "Kontakt", pages_t: "Seiten", social: "Folgen", addr: "Metro Str., Hurghada",
-        items: [{name: "Dubai", img: "3.png", tag: "Gulf"}]
+        dir: 'ltr', brand: "Elreham Tours", n_home: "Startseite", n_flights: "Flüge", n_trips: "Reisen", h_title: "Flugbuchung", h_sub: "Anfang und Ende jeder Reise", l_from: "Von", l_to: "Nach", l_date: "Datum", l_phone: "Telefon", l_email: "Email", btn: "Buchen", f_f: "Flüge", f_d: "Reisen", wa_intro: "Flug buchen nach:", contact_t: "Kontakt", pages_t: "Seiten", social: "Folgen", addr: "Metro Str., Hurghada",
+        items: [
+          {name: "Dubai", img: "3.png", tag: "Golf"}, 
+          {name: "Türkei", img: "6.png", tag: "Geschichte"}, 
+          {name: "Europa", img: "14.png", tag: "Tourismus"}, 
+          {name: "Malediven", img: "15.png", tag: "Entspannung"}
+        ]
       }
     };
 
@@ -223,7 +243,7 @@
       document.getElementById('promo-grid').innerHTML = t.items.map(i => `
         <div class="promo-card group" onclick="bookFromCard('${i.name}')">
           <img src="${i.img}" class="w-full h-[380px] object-cover transition-transform group-hover:scale-110">
-          <div class="p-6">
+          <div class="p-6 text-right">
             <span class="bg-[#F26522] text-white text-[10px] px-3 py-1 rounded-full font-black uppercase">${i.tag}</span>
             <h3 class="text-2xl font-black mt-3 text-[#06152c]">${i.name}</h3>
             <div class="mt-4 text-[#25D366] font-bold text-sm">WhatsApp ${t.btn}</div>
