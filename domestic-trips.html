@@ -52,7 +52,7 @@
         <p id="lb-desc" class="text-lg font-bold leading-relaxed"></p>
         <button onclick="sendFromLB()" class="mt-5 bg-[#25D366] text-white px-10 py-3 rounded-full font-black flex items-center justify-center gap-2 mx-auto shadow-lg hover:scale-105 transition-transform">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m3 21 1.9-5.7a8.5 8.5 0 1 1 3.8 3.8z"/></svg>
-          <span id="lb-btn-txt">احجز واتساب</span>
+          <span id="lb-btn-txt">حجز واتساب</span>
         </button>
       </div>
     </div>
@@ -65,18 +65,17 @@
     <div class="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between gap-4 text-white">
       
       <div class="flex items-center gap-4 md:gap-8">
-        <a href="index.html" class="flex items-center gap-2 group">
+        <a id="link-logo" href="index.html" class="flex items-center gap-2 group">
           <div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl p-1 shadow-lg group-hover:scale-105 transition-transform">
             <img src="logo.png" class="w-full h-full object-contain" alt="Logo">
           </div>
           <div class="hidden sm:block font-black text-lg md:text-xl uppercase" id="brand-name">الريهام تورز</div>
         </a>
         
-        <!-- روابط التنقل بجانب اللوجو -->
         <div class="hidden lg:flex items-center gap-6">
-          <a href="index.html" class="nav-link" id="n-home">الرئيسية</a>
-          <a href="flights.html" class="nav-link" id="n-flights">حجز طيران</a>
-          <a href="domestic-trips.html" class="nav-link nav-link-active" id="n-trips">رحلات داخلية</a>
+          <a href="index.html" class="nav-link link-auto" id="n-home">الرئيسية</a>
+          <a href="flights.html" class="nav-link link-auto" id="n-flights">حجز طيران</a>
+          <a href="domestic-trips.html" class="nav-link nav-link-active link-auto" id="n-trips">رحلات داخلية</a>
         </div>
       </div>
 
@@ -102,7 +101,6 @@
       <h1 id="h-title" class="font-black text-4xl md:text-7xl drop-shadow-2xl mb-4 uppercase">رحلات داخلية وسفاري</h1>
       <p id="h-sub" class="opacity-90 font-bold text-lg md:text-2xl drop-shadow-md mb-12"></p>
 
-      <!-- مربع التسجيل المستعاد (صفين منظمين) -->
       <div class="widget-box p-6 md:p-10 max-w-5xl mx-auto">
         <form onsubmit="event.preventDefault();" class="space-y-5 text-right">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -136,8 +134,8 @@
 
   <!-- الشريط العائم للتبديل -->
   <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-[150] bg-[#06152c]/90 backdrop-blur-xl p-1.5 rounded-full shadow-2xl border border-white/10 flex items-center gap-1 w-max text-white">
-    <a href="flights.html" class="px-6 md:px-10 py-3 rounded-full font-black text-xs md:text-sm text-white/70 hover:text-white transition-all flex items-center gap-2">✈️ <span id="f-f">الطيران</span></a>
-    <a href="domestic-trips.html" class="px-6 md:px-10 py-3 rounded-full font-black text-xs md:text-sm bg-[#F26522] text-white shadow-lg pointer-events-none flex items-center gap-2">📍 <span id="f-d">رحلات داخلية</span></a>
+    <a href="flights.html" id="float-flights" class="px-6 md:px-10 py-3 rounded-full font-black text-sm text-white/70 hover:text-white transition-all flex items-center gap-2">✈️ <span id="f-f">الطيران</span></a>
+    <a href="domestic-trips.html" id="float-trips" class="px-6 md:px-10 py-3 rounded-full font-black text-sm bg-[#F26522] text-white shadow-lg pointer-events-none flex items-center gap-2">📍 <span id="f-d">رحلات داخلية</span></a>
   </div>
 
   <script>
@@ -187,7 +185,7 @@
           { name: "Delfinhaus", img: "ptjsP.jpg", desc: "Schwimmen mit Delfinen + Schnorcheln + Mittagessen & Getränke + Transfer", tag: "Hurghada" },
           { name: "Orange Bay", img: "3dNyl.jpg", desc: "Insel + Schnorcheln + Mittagessen & Getränke + Transfer", tag: "Hurghada" },
           { name: "Abu Dabbab", img: "ajWpB.jpg", desc: "Schildkröten & Korallen + Frühstück & Mittagessen + Transfer", tag: "Marsa Alam" },
-          { name: "Wüstensafari", img: "9j2wQ.jpg", desc: "Wüstenabenteuer mit Quads", tag: "Hurghada" },
+          { name: "Wüstensafari", img: "9j2wQ.jpg", desc: "Wüstenابenteuer mit Quads", tag: "Hurghada" },
           { name: "Parasailing", img: "OQ6wQ.jpg", desc: "Meerblick von oben", tag: "Hurghada" },
           { name: "Wassersport", img: "8s62Q.jpg", desc: "Unterhaltsame Meeresaktivitäten", tag: "Hurghada" },
           { name: "Glasbodenboot", img: "x1Mp0.jpg", desc: "Blick auf Meer & Riffe vom Boot", tag: "Hurghada" },
@@ -198,6 +196,15 @@
 
     let curTrips = [];
     let curLang = 'ar';
+
+    // وظيفة لتحديث كافة الروابط في الصفحة لتشمل اللغة المختارة
+    function updatePageLinks(l) {
+      const links = document.querySelectorAll('a.link-auto, #link-logo, #float-flights, #float-trips');
+      links.forEach(link => {
+        const href = link.getAttribute('href').split('?')[0];
+        link.setAttribute('href', `${href}?lang=${l}`);
+      });
+    }
 
     function setLanguage(l) {
       curLang = l; const t = translations[l] || translations.ar; document.documentElement.dir = t.dir; curTrips = t.trips;
@@ -232,6 +239,8 @@
       
       document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('lang-btn-active'));
       document.getElementById('btn-'+l).classList.add('lang-btn-active');
+
+      updatePageLinks(l);
     }
 
     function openLB(i) {
@@ -254,16 +263,13 @@
       const date = document.getElementById('w-date').value;
       const phone = document.getElementById('w-phone').value;
       const email = document.getElementById('w-email').value;
-      
       const t = translations[curLang];
       if(!phone) return;
 
-      // إرسال صامت للشيت
       fetch('https://script.google.com/macros/s/AKfycbxGgySg1t6yVUE_d6Ib2AjJU__Rm18KC44SlPkCOIrW9fvSGsKTJBapuYQ7ju2R43fQfw/exec', { 
         method: 'POST', body: new URLSearchParams({tripType: 'Domestic', from: trip, date, phone, email}), mode: 'no-cors' 
       }).catch(() => {});
 
-      // التحويل للواتساب
       const text = `${t.wa_intro}\n🌴 ${t.l_trip}: ${trip}\n📅 ${t.l_date}: ${date || '?'}\n📞 ${t.l_phone}: ${phone}\n✉️ ${t.l_email}: ${email || '-'}`;
       window.open(`https://wa.me/201002429863?text=${encodeURIComponent(text)}`, "_blank");
     }
@@ -275,11 +281,19 @@
     }
 
     window.onload = function() {
-      const today = new Date().toISOString().split('T')[0];
-      document.getElementById('w-date').setAttribute('min', today);
-    };
+      // قراءة اللغة من الرابط إن وجدت
+      const urlParams = new URLSearchParams(window.location.search);
+      const langParam = urlParams.get('lang');
+      if (langParam && translations[langParam]) {
+        setLanguage(langParam);
+      } else {
+        setLanguage('ar');
+      }
 
-    setLanguage('ar');
+      const today = new Date().toISOString().split('T')[0];
+      const dateInput = document.getElementById('w-date');
+      if(dateInput) dateInput.setAttribute('min', today);
+    };
   </script>
 </body>
 </html>
