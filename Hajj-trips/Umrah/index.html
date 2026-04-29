@@ -331,8 +331,8 @@
   <script>
     const WA = "201129101092";
     
-    // عدد الصور المحددة هنا: 2 فقط
-    const images = ['1.jpg', '2.jpg'];
+    // عدد الصور المحددة هنا: 2 فقط بصيغة png
+    const images = ['1.png', '2.png'];
     
     let currentSlide = 0;
     let currentLang = "ar";
@@ -499,7 +499,6 @@
       document.getElementById("hero-btn").href = waLink;
       document.getElementById("cta-btn").href = waLink;
 
-      // الحفاظ على الروابط بنفس الآلية لتمرير اللغة كمعامل في الـ URL
       document.getElementById("logo-link").href = "../../index.html?lang=" + lang;
       document.getElementById("home-link").href = "../../index.html?lang=" + lang;
       document.getElementById("trips-link").href = "../../domestic-trips.html?lang=" + lang;
