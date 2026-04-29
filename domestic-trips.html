@@ -9,11 +9,11 @@
   <style>
     :root { --brand: #F26522; --navy: #06152c; }
     body { font-family: "Cairo", "Tajawal", sans-serif; background: #fcfaf7; overflow-x: hidden; color: #0f172a; }
-    
+
     .glass-nav { background: rgba(6, 21, 44, 0.98); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.05); }
     .nav-link { color: white; font-weight: 700; transition: 0.3s; font-size: 0.9rem; white-space: nowrap; }
     .nav-link:hover, .nav-link-active { color: var(--brand); }
-    
+
     .lang-btn { width: 36px; height: 36px; border-radius: 50%; font-weight: 900; font-size: 11px; color: white; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
     .lang-btn-active { background: var(--brand) !important; transform: scale(1.1); box-shadow: 0 4px 12px rgba(242,101,34,0.4); }
 
@@ -24,19 +24,20 @@
     .widget-box { background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); border-radius: 2.5rem; border-top: 5px solid var(--brand); box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4); position: relative; z-index: 10; }
     .input-group { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 1.25rem; padding: 1rem 1.25rem; transition: 0.3s; }
     .input-group:focus-within { border-color: var(--brand); background: rgba(0, 0, 0, 0.45); }
-    
+
     input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
 
     .album-card { overflow: hidden; border-radius: 2rem; background: white; box-shadow: 0 15px 35px rgba(0,0,0,0.1); cursor: zoom-in; transition: 0.4s; position: relative; }
     .album-card img { width: 100%; height: 450px; object-fit: cover; transition: 0.6s; }
     .album-card:hover img { transform: scale(1.05); }
+    .album-card.has-link { cursor: pointer; }
 
     #lightbox { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95); z-index: 2000; align-items: center; justify-content: center; padding: 20px; opacity: 0; transition: 0.3s; }
     #lightbox.active { display: flex; opacity: 1; }
     .lb-content { transform: scale(0.9); transition: 0.3s; max-width: 500px; width: 100%; }
     #lightbox.active .lb-content { transform: scale(1); }
     .lb-details { background: rgba(6, 21, 44, 0.98); padding: 25px; border-radius: 0 0 1.5rem 1.5rem; text-align: center; border-top: 4px solid var(--brand); color: white; }
-    
+
     select option { background-color: var(--navy); color: white; }
   </style>
 </head>
@@ -63,7 +64,7 @@
   <!-- Navbar المطور مع روابط التنقل المترجمة -->
   <nav class="fixed top-0 inset-x-0 z-[100] glass-nav py-3 md:py-4">
     <div class="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between gap-4 text-white">
-      
+
       <div class="flex items-center gap-4 md:gap-8">
         <a id="link-logo" href="index.html" class="flex items-center gap-2 group">
           <div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl p-1 shadow-lg group-hover:scale-105 transition-transform">
@@ -71,7 +72,7 @@
           </div>
           <div class="hidden sm:block font-black text-lg md:text-xl uppercase" id="brand-name">الريهام تورز</div>
         </a>
-        
+
         <div class="hidden lg:flex items-center gap-6">
           <a href="index.html" class="nav-link link-auto" id="n-home">الرئيسية</a>
           <a href="flights.html" class="nav-link link-auto" id="n-flights">حجز طيران</a>
@@ -113,7 +114,7 @@
               <input id="w-date" type="date" class="bg-transparent w-full outline-none font-bold text-white text-base">
             </div>
           </div>
-          
+
           <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-end">
             <div class="input-group">
               <label class="text-[10px] text-[#F26522] font-black uppercase block mb-1" id="l-phone">رقم الهاتف</label>
@@ -130,46 +131,6 @@
     </div>
   </header>
 
-  <!-- قسم الرحلات البحرية الجديد -->
-  <section class="py-16 px-4 md:px-6 max-w-7xl mx-auto" id="sea-trips-section">
-    <div class="text-center mb-10">
-      <h2 class="text-3xl md:text-5xl font-black text-[#06152c] mb-3">رحلات بحرية</h2>
-      <p class="text-slate-500 font-bold">اختار السفينة وشاهد تفاصيل الرحلة والصور</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-6 md:gap-8">
-
-      <div onclick="location.href='sea-trips/pirates/'" class="album-card cursor-pointer bg-white">
-        <img src="1.png" alt="Pirates Boat">
-        <div class="p-6 text-right">
-          <span class="bg-[#F26522] text-white text-[10px] font-black px-3 py-1 rounded-full inline-block mb-3">الغردقة</span>
-          <h3 class="text-2xl font-black text-[#06152c] mb-2">Pirates Boat</h3>
-          <p class="text-slate-500 font-bold text-sm leading-relaxed mb-4">
-            رحلة بحرية ممتعة بأجواء مختلفة على البحر الأحمر.
-          </p>
-          <span class="bg-[#F26522] text-white px-6 py-2 rounded-full font-black text-sm inline-block">
-            شاهد التفاصيل
-          </span>
-        </div>
-      </div>
-
-      <div onclick="location.href='sea-trips/royal/'" class="album-card cursor-pointer bg-white">
-        <img src="2.png" alt="Royal Boat">
-        <div class="p-6 text-right">
-          <span class="bg-[#F26522] text-white text-[10px] font-black px-3 py-1 rounded-full inline-block mb-3">الغردقة</span>
-          <h3 class="text-2xl font-black text-[#06152c] mb-2">Royal Boat</h3>
-          <p class="text-slate-500 font-bold text-sm leading-relaxed mb-4">
-            تجربة بحرية راقية مناسبة للعائلات والمجموعات.
-          </p>
-          <span class="bg-[#F26522] text-white px-6 py-2 rounded-full font-black text-sm inline-block">
-            شاهد التفاصيل
-          </span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
   <section class="py-16 px-4 md:px-6 max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8" id="album-grid"></section>
 
   <!-- الشريط العائم للتبديل -->
@@ -185,6 +146,8 @@
         trips: [
           { name: "دولفين هاوس", img: "ptjsP.jpg", desc: "سباحة مع الدلافين + سنوركلينج + غداء ومشروبات + انتقالات", tag: "الغردقة" },
           { name: "أورانج باي", img: "3dNyl.jpg", desc: "جزيرة + سنوركلينج + غداء ومشروبات + انتقالات", tag: "الغردقة" },
+          { name: "بايرتس بوت", img: "sea-trips/pirates/1.png", desc: "رحلة بحرية شاملة على متن Pirates Boat مع أنشطة وخدمات مميزة", tag: "الغردقة", link: "sea-trips/pirates/" },
+          { name: "رويال بوت", img: "sea-trips/royal/1.png", desc: "تجربة بحرية راقية ومناسبة للعائلات والمجموعات", tag: "الغردقة", link: "sea-trips/royal/" },
           { name: "أبو دباب", img: "ajWpB.jpg", desc: "سلاحف وشعاب مرجانية + إفطار وغداء + انتقالات", tag: "مرسى علم" },
           { name: "سفاري الصحراء", img: "9j2wQ.jpg", desc: "مغامرة صحراوية بالبيتش باجي", tag: "الغردقة" },
           { name: "براشوت", img: "OQ6wQ.jpg", desc: "إطلالة بحرية بانورامية من الأعلى", tag: "الغردقة" },
@@ -198,6 +161,8 @@
         trips: [
           { name: "Dolphin House", img: "ptjsP.jpg", desc: "Swim with dolphins + snorkeling + lunch & drinks + transfers", tag: "Hurghada" },
           { name: "Orange Bay", img: "3dNyl.jpg", desc: "Island + snorkeling + lunch & drinks + transfers", tag: "Hurghada" },
+          { name: "Pirates Boat", img: "sea-trips/pirates/1.png", desc: "A full sea trip on Pirates Boat with activities and onboard services", tag: "Hurghada", link: "sea-trips/pirates/" },
+          { name: "Royal Boat", img: "sea-trips/royal/1.png", desc: "A premium sea trip suitable for families and groups", tag: "Hurghada", link: "sea-trips/royal/" },
           { name: "Abu Dabbab", img: "ajWpB.jpg", desc: "Turtles & coral reefs + breakfast & lunch + transfers", tag: "Marsa Alam" },
           { name: "Desert Safari", img: "9j2wQ.jpg", desc: "Desert adventure with quad bikes", tag: "Hurghada" },
           { name: "Parasailing", img: "OQ6wQ.jpg", desc: "Panoramic sea view from above", tag: "Hurghada" },
@@ -211,6 +176,8 @@
         trips: [
           { name: "Дом Дельфинов", img: "ptjsP.jpg", desc: "Плавание с дельфинами + снорклинг + обед и напитки + трансфер", tag: "Хургада" },
           { name: "Оранж Бэй", img: "3dNyl.jpg", desc: "Остров + снорклинг + обед и напитки + трансфер", tag: "Хургада" },
+          { name: "Pirates Boat", img: "sea-trips/pirates/1.png", desc: "Морская прогулка на Pirates Boat с активностями и услугами на борту", tag: "Хургада", link: "sea-trips/pirates/" },
+          { name: "Royal Boat", img: "sea-trips/royal/1.png", desc: "Комфортная морская прогулка для семей и групп", tag: "Хургада", link: "sea-trips/royal/" },
           { name: "Абу Даббаб", img: "ajWpB.jpg", desc: "Черепахи и рифы + завтрак и обед + трансфер", tag: "Марса-Алам" },
           { name: "Сафари", img: "9j2wQ.jpg", desc: "Приключение в пустыне на квадроциклах", tag: "Хургада" },
           { name: "Парасейлинг", img: "OQ6wQ.jpg", desc: "Панорамный вид на море сверху", tag: "Хургада" },
@@ -224,8 +191,10 @@
         trips: [
           { name: "Delfinhaus", img: "ptjsP.jpg", desc: "Schwimmen mit Delfinen + Schnorcheln + Mittagessen & Getränke + Transfer", tag: "Hurghada" },
           { name: "Orange Bay", img: "3dNyl.jpg", desc: "Insel + Schnorcheln + Mittagessen & Getränke + Transfer", tag: "Hurghada" },
+          { name: "Pirates Boat", img: "sea-trips/pirates/1.png", desc: "Bootstour auf dem Pirates Boat mit Aktivitäten und Services an Bord", tag: "Hurghada", link: "sea-trips/pirates/" },
+          { name: "Royal Boat", img: "sea-trips/royal/1.png", desc: "Komfortable Bootstour für Familien und Gruppen", tag: "Hurghada", link: "sea-trips/royal/" },
           { name: "Abu Dabbab", img: "ajWpB.jpg", desc: "Schildkröten & Korallen + Frühstück & Mittagessen + Transfer", tag: "Marsa Alam" },
-          { name: "Wüstensafari", img: "9j2wQ.jpg", desc: "Wüstenابenteuer mit Quads", tag: "Hurghada" },
+          { name: "Wüstensafari", img: "9j2wQ.jpg", desc: "Wüstenabenteuer mit Quads", tag: "Hurghada" },
           { name: "Parasailing", img: "OQ6wQ.jpg", desc: "Meerblick von oben", tag: "Hurghada" },
           { name: "Wassersport", img: "8s62Q.jpg", desc: "Unterhaltsame Meeresaktivitäten", tag: "Hurghada" },
           { name: "Glasbodenboot", img: "x1Mp0.jpg", desc: "Blick auf Meer & Riffe vom Boot", tag: "Hurghada" },
@@ -247,19 +216,19 @@
 
     function setLanguage(l) {
       curLang = l; const t = translations[l] || translations.ar; document.documentElement.dir = t.dir; curTrips = t.trips;
-      
+
       document.getElementById('brand-name').innerText = t.brand;
       document.getElementById('n-home').innerText = t.n_home; 
       document.getElementById('n-flights').innerText = t.n_flights; 
       document.getElementById('n-trips').innerText = t.n_trips;
       document.getElementById('h-title').innerText = t.h_title; 
       document.getElementById('h-sub').innerText = t.h_sub;
-      
+
       document.getElementById('l-trip').innerText = t.l_trip; 
       document.getElementById('l-date').innerText = t.l_date;
       document.getElementById('l-phone').innerText = t.l_phone;
       document.getElementById('l-email').innerText = t.l_email;
-      
+
       document.getElementById('btn-book-main').innerText = t.btn_book;
       document.getElementById('f-f').innerText = t.f_f; 
       document.getElementById('f-d').innerText = t.f_d;
@@ -267,15 +236,16 @@
 
       document.getElementById('w-trip').innerHTML = t.trips.map(x => `<option value="${x.name}">${x.name}</option>`).join('');
       document.getElementById('album-grid').innerHTML = t.trips.map((x, i) => `
-        <div class="album-card group relative" onclick="openLB(${i})">
+        <div class="album-card group relative ${x.link ? 'has-link' : ''}" onclick="openLB(${i})">
           <img src="${x.img}" loading="lazy">
           <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/90 via-black/40 to-transparent text-white text-right">
             <span class="bg-[#F26522] text-[10px] font-black px-2 py-1 rounded-full mb-2 inline-block border border-white/20">${x.tag}</span>
             <h3 class="text-xl font-black drop-shadow-md">${x.name}</h3>
+            ${x.link ? '<span class="inline-block mt-3 bg-[#F26522] text-white px-5 py-2 rounded-full text-xs font-black">شاهد التفاصيل</span>' : ''}
           </div>
         </div>
       `).join('');
-      
+
       document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('lang-btn-active'));
       document.getElementById('btn-'+l).classList.add('lang-btn-active');
 
@@ -284,6 +254,12 @@
 
     function openLB(i) {
       const trip = curTrips[i];
+
+      if (trip.link) {
+        window.location.href = trip.link + '?lang=' + curLang;
+        return;
+      }
+
       document.getElementById('lb-img').src = trip.img;
       document.getElementById('lb-title').innerText = trip.name;
       document.getElementById('lb-desc').innerText = trip.desc;
