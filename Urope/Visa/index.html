@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>التأشيرات وتجهيز الملفات | El Reham Tours</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --brand: #F26522;
+      --navy: #06152c;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Cairo", "Tajawal", sans-serif;
+      background: #fcfaf7;
+      color: #0f172a;
+      overflow-x: hidden;
+    }
+
+    .glass-nav {
+      background: rgba(6, 21, 44, 0.98);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .lang-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      color: white;
+      font-weight: 900;
+      font-size: 11px;
+      transition: 0.3s;
+    }
+
+    .lang-active {
+      background: var(--brand);
+      box-shadow: 0 5px 15px rgba(242,101,34,.45);
+      transform: scale(1.08);
+    }
+
+    /* بانر بدون صور يعتمد على تدرج لوني فخم */
+    .top-banner {
+      position: relative;
+      width: 100%;
+      height: 75vh;
+      min-height: 550px;
+      background: radial-gradient(circle at center, #10264a 0%, var(--navy) 100%);
+      overflow: hidden;
+    }
+
+    .banner-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: linear-gradient(to bottom, rgba(6,21,44,.10), rgba(6,21,44,.48), rgba(6,21,44,.96));
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 3;
+    }
+
+    .booking-box {
+      background: white;
+      border-radius: 2rem;
+      box-shadow: 0 25px 55px rgba(0,0,0,.18);
+      border-top: 5px solid var(--brand);
+    }
+
+    .country-card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,.05);
+      border: 1px solid #f1f5f9;
+      transition: 0.3s;
+      cursor: default;
+    }
+
+    .country-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--brand);
+      box-shadow: 0 20px 40px rgba(242,101,34,.15);
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 2rem;
+      padding: 1.5rem;
+      transition: .35s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255,255,255,.14);
+    }
+
+    @media (max-width: 768px) {
+      .top-banner {
+        height: 70vh;
+        min-height: 480px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="fixed top-0 inset-x-0 z-50 glass-nav py-3">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between text-white gap-4">
+
+      <a id="logo-link" href="../../index.html" class="flex items-center gap-3">
+        <div class="w-12 h-12 bg-white rounded-xl p-1">
+          <img src="../../logo.png" class="w-full h-full object-contain" alt="El Reham Tours">
+        </div>
+        <div class="font-black text-lg" id="brand">الريهام تورز</div>
+      </a>
+
+      <div class="hidden md:flex items-center gap-5 font-bold text-sm">
+        <a id="home-link" href="../../index.html" class="hover:text-[#F26522]">الرئيسية</a>
+        <a id="trips-link" href="../../domestic-trips.html" class="hover:text-[#F26522]">الرحلات الداخلية</a>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button onclick="setLang('ar')" id="btn-ar" class="lang-btn">AR</button>
+        <button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button>
+        <button onclick="setLang('ru')" id="btn-ru" class="lang-btn">RU</button>
+        <button onclick="setLang('de')" id="btn-de" class="lang-btn">DE</button>
+      </div>
+
+    </div>
+  </nav>
+
+  <section class="top-banner flex items-center justify-center text-center text-white px-4 pt-20">
+    <div class="banner-overlay"></div>
+
+    <div class="banner-content max-w-5xl">
+      <span class="inline-block bg-[#F26522] px-5 py-2 rounded-full text-sm font-black mb-5 shadow-lg">
+        GLOBAL VISAS
+      </span>
+
+      <h1 id="hero-title" class="text-5xl md:text-8xl font-black mb-6 drop-shadow-2xl">
+        تأشيرات سياحة
+      </h1>
+
+      <p id="hero-desc" class="text-xl md:text-2xl font-bold leading-relaxed opacity-95 drop-shadow-lg max-w-4xl mx-auto">
+        تجهيز ملفات أوروبا (الشنجن) واستخراج تأشيرات السياحة لجميع الجنسيات بكل سهولة واحترافية.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-4 mt-8">
+        <a id="hero-btn"
+           href="https://wa.me/201129101092"
+           class="inline-block bg-[#F26522] text-white px-10 py-4 rounded-full font-black text-lg shadow-lg hover:scale-105 transition-transform">
+          تواصل للاستفسار
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative z-10 -mt-16 px-4 max-w-6xl mx-auto">
+    <div class="booking-box p-6 md:p-8">
+      <h2 id="booking-title" class="text-2xl md:text-4xl font-black text-[#06152c] mb-6 text-center">
+        استعلم عن تأشيرتك الآن
+      </h2>
+
+      <div class="grid md:grid-cols-4 gap-4">
+        <input id="name" class="border border-slate-200 rounded-2xl p-4 font-bold outline-none focus:border-[#F26522]" placeholder="الاسم">
+        <input id="country" class="border border-slate-200 rounded-2xl p-4 font-bold outline-none focus:border-[#F26522]" placeholder="دولة الوجهة">
+        <input id="phone" class="border border-slate-200 rounded-2xl p-4 font-bold outline-none focus:border-[#F26522]" placeholder="رقم الهاتف">
+        <button id="booking-btn" onclick="sendBooking()" class="bg-[#F26522] text-white rounded-2xl font-black text-lg min-h-[58px] hover:bg-[#d9531e] transition-all">
+          إرسال على واتساب
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 px-4 max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 id="gallery-title" class="text-3xl md:text-5xl font-black text-[#06152c] mb-3">
+        الوجهات المتاحة
+      </h2>
+      <p id="gallery-sub" class="text-slate-500 font-bold text-lg">
+        نستخرج تأشيرات السياحة للدول التالية وغيرها الكثير
+      </p>
+    </div>
+
+    <div id="countries-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6"></div>
+  </section>
+
+  <section class="py-16 px-4 bg-[#06152c] text-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 id="features-title" class="text-3xl md:text-5xl font-black mb-3">
+          خدمات تجهيز الملفات
+        </h2>
+        <p id="features-sub" class="text-white/70 font-bold text-lg">
+          ندعمك في كافة خطوات الحصول على التأشيرة بدقة واحترافية
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="feature-card"><div class="text-4xl mb-4">📂</div><h3 id="f1-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f1-text" class="text-white/75 font-bold leading-relaxed"></p></div>
+        <div class="feature-card"><div class="text-4xl mb-4">📅</div><h3 id="f2-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f2-text" class="text-white/75 font-bold leading-relaxed"></p></div>
+        <div class="feature-card"><div class="text-4xl mb-4">🛩️</div><h3 id="f3-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f3-text" class="text-white/75 font-bold leading-relaxed"></p></div>
+        <div class="feature-card"><div class="text-4xl mb-4">🏨</div><h3 id="f4-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f4-text" class="text-white/75 font-bold leading-relaxed"></p></div>
+        <div class="feature-card"><div class="text-4xl mb-4">🛡️</div><h3 id="f5-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f5-text" class="text-white/75 font-bold leading-relaxed"></p></div>
+        <div class="feature-card"><div class="text-4xl mb-4">🗣️</div><h3 id="f6-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f6-text" class="text-white/75 font-bold leading-relaxed"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-4 bg-[#06152c] text-center text-white border-t border-white/10">
+    <h2 id="cta-title" class="text-3xl md:text-5xl font-black mb-5">
+      جاهز لبدء إجراءات سفرك؟
+    </h2>
+
+    <p id="cta-sub" class="text-white/70 font-bold mb-8 text-lg">
+      تواصل معنا الآن للبدء في تجهيز ملف التأشيرة الخاص بك
+    </p>
+
+    <a id="cta-btn"
+       href="https://wa.me/201129101092"
+       class="inline-block bg-[#F26522] text-white px-10 py-4 rounded-full font-black text-lg hover:scale-105 transition-transform">
+      تواصل واتساب
+    </a>
+  </section>
+
+  <script>
+    const WA = "201129101092";
+    
+    // قائمة الأعلام الثابتة لجميع اللغات
+    const flags = ["🇦🇪", "🇸🇦", "🇰🇼", "🇴🇲", "🇶🇦", "🇧🇭", "🇯🇴", "🇪🇺", "🌎", "🌍"];
+
+    let currentLang = "ar";
+
+    const content = {
+      ar: {
+        dir: "rtl", brand: "الريهام تورز", home: "الرئيسية", trips: "الرحلات الداخلية",
+        namePlaceholder: "الاسم", phonePlaceholder: "رقم الهاتف", countryPlaceholder: "وجهة السفر المطلوبة",
+        heroTitle: "تأشيرات سياحة",
+        heroDesc: "تجهيز ملفات أوروبا (الشنجن) واستخراج تأشيرات السياحة لجميع الجنسيات بكل سهولة واحترافية.",
+        bookingTitle: "استعلم عن تأشيرتك الآن", bookingBtn: "إرسال على واتساب",
+        galleryTitle: "الوجهات المتاحة", gallerySub: "نستخرج تأشيرات السياحة للدول التالية وغيرها الكثير",
+        countries: ["الإمارات", "السعودية", "الكويت", "سلطنة عمان", "قطر", "البحرين", "الأردن", "دول الإتحاد الأوروبي", "الأمريكتين", "أفريقيا وآسيا"],
+        featuresTitle: "خدمات تجهيز الملفات", featuresSub: "ندعمك في كافة خطوات الحصول على التأشيرة بدقة واحترافية",
+        f: [
+          "تجهيز الملفات", "نقوم بتجهيز ملفات الشنجن وكافة التأشيرات باحترافية لتجنب الرفض.",
+          "حجز المواعيد", "حجز مواعيد السفارات والمراكز المتخصصة بأسرع وقت ممكن.",
+          "حجز طيران مبدئي", "توفير حجوزات طيران مبدئية ومؤكدة لتقديمها مع الملف.",
+          "حجز فندقي", "تجهيز حجوزات فندقية تتوافق مع مدة الرحلة المطلوبة للسفارة.",
+          "تأمين سفر", "إصدار وثائق تأمين سفر دولية تغطي فترة رحلتك بالكامل.",
+          "استشارات مجانية", "نرد على كافة استفساراتك ونوجهك لأفضل طريقة للحصول على التأشيرة."
+        ],
+        ctaTitle: "جاهز لبدء إجراءات سفرك؟", ctaSub: "تواصل معنا الآن للبدء في تجهيز ملف التأشيرة الخاص بك",
+        btn: "تواصل للاستفسار", ctaBtn: "تواصل واتساب", wa: "أهلاً، أريد الاستفسار عن استخراج تأشيرة لدولة: "
+      },
+      en: {
+        dir: "ltr", brand: "El Reham Tours", home: "Home", trips: "Domestic Trips",
+        namePlaceholder: "Name", phonePlaceholder: "Phone number", countryPlaceholder: "Destination Country",
+        heroTitle: "Tourist Visas",
+        heroDesc: "Europe (Schengen) file preparation and tourist visa processing for all nationalities with ease and professionalism.",
+        bookingTitle: "Inquire About Your Visa", bookingBtn: "Send on WhatsApp",
+        galleryTitle: "Available Destinations", gallerySub: "We process tourist visas for the following countries and more",
+        countries: ["UAE", "Saudi Arabia", "Kuwait", "Oman", "Qatar", "Bahrain", "Jordan", "European Union", "Americas", "Africa & Asia"],
+        featuresTitle: "File Preparation Services", featuresSub: "We support you in every step to get your visa accurately and professionally",
+        f: [
+          "File Preparation", "We professionally prepare Schengen and other visa files to avoid rejection.",
+          "Appointments", "Booking embassy and specialized center appointments as fast as possible.",
+          "Flight Booking", "Providing preliminary and confirmed flight bookings for your file.",
+          "Hotel Booking", "Preparing hotel reservations that match your required trip duration.",
+          "Travel Insurance", "Issuing international travel insurance policies covering your entire trip.",
+          "Free Consultation", "We answer all your questions and guide you to the best way to get a visa."
+        ],
+        ctaTitle: "Ready to start your travel process?", ctaSub: "Contact us now to start preparing your visa file",
+        btn: "Contact for Inquiry", ctaBtn: "WhatsApp us", wa: "Hello, I would like to inquire about a visa for: "
+      },
+      ru: {
+        dir: "ltr", brand: "El Reham Tours", home: "Главная", trips: "Внутренние туры",
+        namePlaceholder: "Имя", phonePlaceholder: "Телефон", countryPlaceholder: "Страна назначения",
+        heroTitle: "Туристические визы",
+        heroDesc: "Подготовка документов для Европы (Шенген) и оформление туристических виз для всех национальностей.",
+        bookingTitle: "Узнайте о вашей визе", bookingBtn: "Отправить в WhatsApp",
+        galleryTitle: "Доступные направления", gallerySub: "Мы оформляем туристические визы в следующие страны и многие другие",
+        countries: ["ОАЭ", "Саудовская Аравия", "Кувейт", "Оман", "Катар", "Бахрейн", "Иордания", "Евросоюз", "Америка", "Африка и Азия"],
+        featuresTitle: "Услуги по подготовке", featuresSub: "Мы поддерживаем вас на каждом этапе получения визы",
+        f: [
+          "Подготовка файлов", "Мы профессионально готовим файлы для Шенгена и других виз.",
+          "Запись на прием", "Бронирование встреч в посольствах в кратчайшие сроки.",
+          "Бронь авиабилетов", "Предоставление предварительной брони билетов для файла.",
+          "Бронь отелей", "Подготовка брони отеля в соответствии с продолжительностью поездки.",
+          "Страховка", "Оформление международных полисов туристического страхования.",
+          "Консультация", "Мы отвечаем на все ваши вопросы и помогаем получить визу."
+        ],
+        ctaTitle: "Готовы начать процесс?", ctaSub: "Свяжитесь с нами прямо сейчас, чтобы начать",
+        btn: "Связаться", ctaBtn: "WhatsApp", wa: "Здравствуйте, хочу узнать о визе в: "
+      },
+      de: {
+        dir: "ltr", brand: "El Reham Tours", home: "Startseite", trips: "Inlandsreisen",
+        namePlaceholder: "Name", phonePlaceholder: "Telefonnummer", countryPlaceholder: "Zielland",
+        heroTitle: "Touristenvisum",
+        heroDesc: "Europa (Schengen) Aktenvorbereitung und Touristenvisum-Bearbeitung für alle Nationalitäten.",
+        bookingTitle: "Erkundigen Sie sich nach Ihrem Visum", bookingBtn: "Per WhatsApp senden",
+        galleryTitle: "Verfügbare Reiseziele", gallerySub: "Wir bearbeiten Touristenvisa für folgende Länder und mehr",
+        countries: ["VAE", "Saudi-Arabien", "Kuwait", "Oman", "Katar", "Bahrain", "Jordanien", "Europäische Union", "Amerika", "Afrika & Asien"],
+        featuresTitle: "Vorbereitungsservice", featuresSub: "Wir unterstützen Sie bei jedem Schritt zu Ihrem Visum",
+        f: [
+          "Aktenvorbereitung", "Wir bereiten Schengen- und andere Visumakten professionell vor.",
+          "Termine", "Terminbuchung bei Botschaften so schnell wie möglich.",
+          "Flugbuchung", "Bereitstellung von vorläufigen Flugbuchungen für Ihre Akte.",
+          "Hotelbuchung", "Vorbereitung von Hotelreservierungen für Ihre Reise.",
+          "Reiseversicherung", "Ausstellung internationaler Reiseversicherungen.",
+          "Kostenlose Beratung", "Wir beantworten alle Ihre Fragen und helfen Ihnen."
+        ],
+        ctaTitle: "Bereit für Ihre Reise?", ctaSub: "Kontaktieren Sie uns jetzt, um mit der Vorbereitung zu beginnen",
+        btn: "Kontaktieren", ctaBtn: "WhatsApp", wa: "Hallo, ich möchte mich nach einem Visum erkundigen für: "
+      }
+    };
+
+    function setLang(lang) {
+      currentLang = lang;
+      const t = content[lang] || content.ar;
+
+      document.documentElement.lang = lang;
+      document.documentElement.dir = t.dir;
+
+      document.getElementById("brand").innerText = t.brand;
+      document.getElementById("home-link").innerText = t.home;
+      document.getElementById("trips-link").innerText = t.trips;
+      
+      document.getElementById("hero-title").innerText = t.heroTitle;
+      document.getElementById("hero-desc").innerText = t.heroDesc;
+      document.getElementById("booking-title").innerText = t.bookingTitle;
+      document.getElementById("booking-btn").innerText = t.bookingBtn;
+      document.getElementById("gallery-title").innerText = t.galleryTitle;
+      document.getElementById("gallery-sub").innerText = t.gallerySub;
+      document.getElementById("features-title").innerText = t.featuresTitle;
+      document.getElementById("features-sub").innerText = t.featuresSub;
+      document.getElementById("cta-title").innerText = t.ctaTitle;
+      document.getElementById("cta-sub").innerText = t.ctaSub;
+      document.getElementById("hero-btn").innerText = t.btn;
+      document.getElementById("cta-btn").innerText = t.ctaBtn;
+
+      document.getElementById("name").placeholder = t.namePlaceholder;
+      document.getElementById("phone").placeholder = t.phonePlaceholder;
+      document.getElementById("country").placeholder = t.countryPlaceholder;
+
+      // بناء كروت الدول بالأيقونات
+      document.getElementById('countries-grid').innerHTML = t.countries.map((c, i) => `
+        <div class="country-card">
+          <div class="text-5xl mb-3">${flags[i]}</div>
+          <h4 class="font-black text-[#06152c] text-base md:text-lg">${c}</h4>
+        </div>
+      `).join('');
+
+      for (let i = 1; i <= 6; i++) {
+        document.getElementById(`f${i}-title`).innerText = t.f[(i - 1) * 2];
+        document.getElementById(`f${i}-text`).innerText = t.f[(i - 1) * 2 + 1];
+      }
+
+      const waLink = `https://wa.me/${WA}?text=${encodeURIComponent(t.wa)}`;
+      document.getElementById("hero-btn").href = waLink;
+      document.getElementById("cta-btn").href = waLink;
+
+      document.getElementById("logo-link").href = "../../index.html?lang=" + lang;
+      document.getElementById("home-link").href = "../../index.html?lang=" + lang;
+      document.getElementById("trips-link").href = "../../domestic-trips.html?lang=" + lang;
+
+      document.querySelectorAll(".lang-btn").forEach(btn => btn.classList.remove("lang-active"));
+      document.getElementById("btn-" + lang).classList.add("lang-active");
+
+      localStorage.setItem("elreham_lang", lang);
+    }
+
+    function sendBooking() {
+      const t = content[currentLang] || content.ar;
+
+      const name = document.getElementById("name").value || "-";
+      const phone = document.getElementById("phone").value || "-";
+      const country = document.getElementById("country").value || "-";
+
+      const msg = `${t.wa} ${country}\nName: ${name}\nPhone: ${phone}`;
+
+      window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, "_blank");
+    }
+
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const langFromUrl = urlParams.get("lang");
+      const savedLang = localStorage.getItem("elreham_lang");
+
+      const finalLang = langFromUrl || savedLang || "ar";
+      setLang(finalLang);
+    };
+  </script>
+
+</body>
+</html>
