@@ -4,41 +4,164 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pirates Boat | El Reham Tours</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    :root { --brand:#F26522; --navy:#06152c; }
-    body { font-family:"Cairo","Tajawal",sans-serif; background:#fcfaf7; color:#0f172a; overflow-x:hidden; }
-    .glass-nav { background:rgba(6,21,44,.98); backdrop-filter:blur(14px); }
-    .lang-btn { width:38px; height:38px; border-radius:999px; color:white; font-weight:900; font-size:11px; transition:.3s; }
-    .lang-active { background:var(--brand); box-shadow:0 5px 15px rgba(242,101,34,.45); transform:scale(1.08); }
+    :root {
+      --brand: #F26522;
+      --navy: #06152c;
+    }
 
-    .hero { min-height:92vh; position:relative; overflow:hidden; background:#06152c; }
-    .slide { position:absolute; inset:0; opacity:0; transition:opacity 1s ease-in-out; background-size:cover; background-position:center; }
-    .slide.active { opacity:1; }
-    .hero-overlay { position:absolute; inset:0; background:linear-gradient(to bottom,rgba(6,21,44,.20),rgba(6,21,44,.96)); z-index:2; }
-    .hero-content { position:relative; z-index:3; }
+    body {
+      font-family: "Cairo", "Tajawal", sans-serif;
+      background: #fcfaf7;
+      color: #0f172a;
+      overflow-x: hidden;
+    }
 
-    .feature-card { background:white; border-radius:2rem; padding:1.5rem; box-shadow:0 15px 35px rgba(0,0,0,.08); }
-    .photo-card { border-radius:2rem; overflow:hidden; background:white; box-shadow:0 15px 35px rgba(0,0,0,.12); cursor:pointer; }
-    .photo-card img { width:100%; height:330px; object-fit:cover; transition:.45s; }
-    .photo-card:hover img { transform:scale(1.06); }
+    .glass-nav {
+      background: rgba(6, 21, 44, 0.98);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
 
-    #lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,.95); z-index:9999; align-items:center; justify-content:center; padding:20px; }
-    #lightbox img { max-width:95vw; max-height:85vh; border-radius:24px; object-fit:contain; }
+    .lang-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      color: white;
+      font-weight: 900;
+      font-size: 11px;
+      transition: 0.3s;
+    }
+
+    .lang-active {
+      background: var(--brand);
+      box-shadow: 0 5px 15px rgba(242,101,34,.45);
+      transform: scale(1.08);
+    }
+
+    /* بانر الصور المتحرك */
+    .banner {
+      position: relative;
+      width: 100%;
+      height: 88vh;
+      min-height: 620px;
+      overflow: hidden;
+      background: var(--navy);
+    }
+
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.03);
+    }
+
+    .slide.active {
+      opacity: 1;
+      animation: bannerZoom 6s ease-in-out forwards;
+    }
+
+    @keyframes bannerZoom {
+      from { transform: scale(1); }
+      to { transform: scale(1.08); }
+    }
+
+    .banner-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background:
+        linear-gradient(to bottom, rgba(6,21,44,.25), rgba(6,21,44,.55), rgba(6,21,44,.98)),
+        radial-gradient(circle at center, rgba(242,101,34,.10), transparent 55%);
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 3;
+    }
+
+    .booking-box {
+      background: white;
+      border-radius: 2rem;
+      box-shadow: 0 25px 55px rgba(0,0,0,.18);
+      border-top: 5px solid var(--brand);
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 2rem;
+      padding: 1.5rem;
+    }
+
+    .photo-card {
+      border-radius: 2rem;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 15px 35px rgba(0,0,0,.12);
+      cursor: pointer;
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 330px;
+      object-fit: cover;
+      transition: .45s;
+    }
+
+    .photo-card:hover img {
+      transform: scale(1.06);
+    }
+
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.95);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    #lightbox img {
+      max-width: 95vw;
+      max-height: 85vh;
+      border-radius: 24px;
+      object-fit: contain;
+    }
+
+    @media (max-width: 768px) {
+      .banner {
+        height: 82vh;
+        min-height: 560px;
+      }
+
+      .photo-card img {
+        height: 260px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
+  <!-- Lightbox -->
   <div id="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img" src="">
+    <img id="lightbox-img" src="" alt="Pirates Boat Image">
   </div>
 
   <!-- Navbar -->
   <nav class="fixed top-0 inset-x-0 z-50 glass-nav py-3">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between text-white gap-4">
+
       <a href="../../index.html" class="flex items-center gap-3">
         <div class="w-12 h-12 bg-white rounded-xl p-1">
           <img src="../../logo.png" class="w-full h-full object-contain" alt="El Reham Tours">
@@ -57,68 +180,83 @@
         <button onclick="setLang('ru')" id="btn-ru" class="lang-btn">RU</button>
         <button onclick="setLang('de')" id="btn-de" class="lang-btn">DE</button>
       </div>
+
     </div>
   </nav>
 
-  <!-- Hero Slider -->
-  <header class="hero flex items-center justify-center text-center text-white px-4 pt-28">
+  <!-- Animated Image Banner -->
+  <section class="banner flex items-center justify-center text-center text-white px-4 pt-24">
     <div id="slider"></div>
-    <div class="hero-overlay"></div>
+    <div class="banner-overlay"></div>
 
-    <div class="hero-content max-w-4xl">
-      <span class="inline-block bg-[#F26522] px-5 py-2 rounded-full text-sm font-black mb-5">
+    <div class="banner-content max-w-5xl">
+      <span class="inline-block bg-[#F26522] px-5 py-2 rounded-full text-sm font-black mb-5 shadow-lg">
         HURGHADA SEA TRIP
       </span>
 
-      <h1 class="text-5xl md:text-7xl font-black mb-6">Pirates Boat</h1>
+      <h1 class="text-5xl md:text-8xl font-black mb-6 drop-shadow-2xl">
+        Pirates Boat
+      </h1>
 
-      <p id="hero-desc" class="text-xl md:text-2xl font-bold leading-relaxed opacity-95">
+      <p id="hero-desc" class="text-xl md:text-2xl font-bold leading-relaxed opacity-95 drop-shadow-lg max-w-4xl mx-auto">
         رحلة بحرية ممتعة في الغردقة على مركب بطابع مختلف، مناسبة للعائلات والأصحاب والتصوير.
       </p>
 
       <div class="flex flex-wrap justify-center gap-4 mt-8">
-        <a id="hero-btn" href="https://wa.me/201129101092" class="inline-block bg-[#F26522] text-white px-10 py-4 rounded-full font-black text-lg shadow-lg">
+        <a id="hero-btn"
+           href="https://wa.me/201129101092"
+           class="inline-block bg-[#F26522] text-white px-10 py-4 rounded-full font-black text-lg shadow-lg hover:scale-105 transition-transform">
           احجز الآن
         </a>
-        <a id="gallery-btn" href="#gallery" class="inline-block bg-white/15 border border-white/30 text-white px-10 py-4 rounded-full font-black text-lg">
+
+        <a id="gallery-btn"
+           href="#gallery"
+           class="inline-block bg-white/15 border border-white/30 text-white px-10 py-4 rounded-full font-black text-lg hover:bg-white/25 transition-all">
           شاهد الصور
         </a>
       </div>
     </div>
-  </header>
+  </section>
 
   <!-- Booking Box -->
   <section class="relative z-10 -mt-16 px-4 max-w-6xl mx-auto">
-    <div class="bg-white rounded-[2rem] shadow-2xl p-6 md:p-8 border-t-4 border-[#F26522]">
-      <h2 id="booking-title" class="text-2xl md:text-4xl font-black text-[#06152c] mb-6 text-center">احجز رحلة Pirates Boat</h2>
+    <div class="booking-box p-6 md:p-8">
+      <h2 id="booking-title" class="text-2xl md:text-4xl font-black text-[#06152c] mb-6 text-center">
+        احجز رحلة Pirates Boat
+      </h2>
 
       <div class="grid md:grid-cols-4 gap-4">
-        <input id="name" class="border rounded-2xl p-4 font-bold" placeholder="الاسم">
-        <input id="phone" class="border rounded-2xl p-4 font-bold" placeholder="رقم الهاتف">
-        <input id="date" type="date" class="border rounded-2xl p-4 font-bold">
-        <button id="booking-btn" onclick="sendBooking()" class="bg-[#F26522] text-white rounded-2xl font-black text-lg">
+        <input id="name" class="border border-slate-200 rounded-2xl p-4 font-bold outline-none focus:border-[#F26522]" placeholder="الاسم">
+        <input id="phone" class="border border-slate-200 rounded-2xl p-4 font-bold outline-none focus:border-[#F26522]" placeholder="رقم الهاتف">
+        <input id="date" type="date" class="border border-slate-200 rounded-2xl p-4 font-bold outline-none focus:border-[#F26522]">
+        <button id="booking-btn" onclick="sendBooking()" class="bg-[#F26522] text-white rounded-2xl font-black text-lg min-h-[58px] hover:bg-[#d9531e] transition-all">
           إرسال على واتساب
         </button>
       </div>
     </div>
   </section>
 
-  <!-- Content -->
+  <!-- Main Content -->
   <section class="py-20 px-4 max-w-6xl mx-auto">
     <div class="grid md:grid-cols-2 gap-10 items-center">
+
       <div>
         <h2 id="section-title" class="text-3xl md:text-5xl font-black text-[#06152c] mb-6">
           يوم بحري شامل على البحر الأحمر
         </h2>
+
         <p id="section-text" class="text-slate-600 font-bold leading-loose text-lg">
           استمتع بتجربة بحرية متكاملة على متن Pirates Boat في الغردقة، حيث يجتمع البحر الصافي، أجواء المرح، الأنشطة البحرية، والخدمات المميزة في يوم واحد لا يُنسى.
         </p>
       </div>
 
       <div class="bg-[#06152c] rounded-[2rem] p-8 shadow-xl text-white">
-        <h3 id="details-title" class="text-2xl font-black text-[#F26522] mb-5">الخدمات والأنشطة المتاحة</h3>
+        <h3 id="details-title" class="text-2xl font-black text-[#F26522] mb-5">
+          الخدمات والأنشطة المتاحة
+        </h3>
         <ul id="details-list" class="space-y-4 font-bold"></ul>
       </div>
+
     </div>
   </section>
 
@@ -126,17 +264,50 @@
   <section class="py-16 px-4 bg-[#06152c] text-white">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-10">
-        <h2 id="features-title" class="text-3xl md:text-5xl font-black mb-3">كل ده على المركب</h2>
-        <p id="features-sub" class="text-white/70 font-bold">أنشطة وخدمات تخلي يومك في البحر أسهل وأمتع</p>
+        <h2 id="features-title" class="text-3xl md:text-5xl font-black mb-3">
+          كل ده على المركب
+        </h2>
+        <p id="features-sub" class="text-white/70 font-bold">
+          أنشطة وخدمات تخلي يومك في البحر أسهل وأمتع
+        </p>
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white/10 rounded-[2rem] p-6 border border-white/10"><div class="text-4xl mb-4">🤿</div><h3 id="f1-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f1-text" class="text-white/75 font-bold leading-relaxed"></p></div>
-        <div class="bg-white/10 rounded-[2rem] p-6 border border-white/10"><div class="text-4xl mb-4">🐠</div><h3 id="f2-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f2-text" class="text-white/75 font-bold leading-relaxed"></p></div>
-        <div class="bg-white/10 rounded-[2rem] p-6 border border-white/10"><div class="text-4xl mb-4">🍽️</div><h3 id="f3-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f3-text" class="text-white/75 font-bold leading-relaxed"></p></div>
-        <div class="bg-white/10 rounded-[2rem] p-6 border border-white/10"><div class="text-4xl mb-4">💆</div><h3 id="f4-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f4-text" class="text-white/75 font-bold leading-relaxed"></p></div>
-        <div class="bg-white/10 rounded-[2rem] p-6 border border-white/10"><div class="text-4xl mb-4">📸</div><h3 id="f5-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f5-text" class="text-white/75 font-bold leading-relaxed"></p></div>
-        <div class="bg-white/10 rounded-[2rem] p-6 border border-white/10"><div class="text-4xl mb-4">🎁</div><h3 id="f6-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f6-text" class="text-white/75 font-bold leading-relaxed"></p></div>
+        <div class="feature-card">
+          <div class="text-4xl mb-4">🤿</div>
+          <h3 id="f1-title" class="text-xl font-black text-[#F26522] mb-2"></h3>
+          <p id="f1-text" class="text-white/75 font-bold leading-relaxed"></p>
+        </div>
+
+        <div class="feature-card">
+          <div class="text-4xl mb-4">🐠</div>
+          <h3 id="f2-title" class="text-xl font-black text-[#F26522] mb-2"></h3>
+          <p id="f2-text" class="text-white/75 font-bold leading-relaxed"></p>
+        </div>
+
+        <div class="feature-card">
+          <div class="text-4xl mb-4">🍽️</div>
+          <h3 id="f3-title" class="text-xl font-black text-[#F26522] mb-2"></h3>
+          <p id="f3-text" class="text-white/75 font-bold leading-relaxed"></p>
+        </div>
+
+        <div class="feature-card">
+          <div class="text-4xl mb-4">💆</div>
+          <h3 id="f4-title" class="text-xl font-black text-[#F26522] mb-2"></h3>
+          <p id="f4-text" class="text-white/75 font-bold leading-relaxed"></p>
+        </div>
+
+        <div class="feature-card">
+          <div class="text-4xl mb-4">📸</div>
+          <h3 id="f5-title" class="text-xl font-black text-[#F26522] mb-2"></h3>
+          <p id="f5-text" class="text-white/75 font-bold leading-relaxed"></p>
+        </div>
+
+        <div class="feature-card">
+          <div class="text-4xl mb-4">🎁</div>
+          <h3 id="f6-title" class="text-xl font-black text-[#F26522] mb-2"></h3>
+          <p id="f6-text" class="text-white/75 font-bold leading-relaxed"></p>
+        </div>
       </div>
     </div>
   </section>
@@ -144,139 +315,301 @@
   <!-- Gallery -->
   <section id="gallery" class="py-16 px-4 max-w-7xl mx-auto">
     <div class="text-center mb-10">
-      <h2 id="gallery-title" class="text-3xl md:text-5xl font-black text-[#06152c] mb-3">صور Pirates Boat</h2>
-      <p id="gallery-sub" class="text-slate-500 font-bold">من أجواء الرحلة على الطبيعة</p>
+      <h2 id="gallery-title" class="text-3xl md:text-5xl font-black text-[#06152c] mb-3">
+        صور Pirates Boat
+      </h2>
+      <p id="gallery-sub" class="text-slate-500 font-bold">
+        من أجواء الرحلة على الطبيعة
+      </p>
     </div>
+
     <div id="gallery-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
   </section>
 
   <!-- CTA -->
   <section class="py-16 px-4 bg-[#06152c] text-center text-white">
-    <h2 id="cta-title" class="text-3xl md:text-5xl font-black mb-5">جاهز تعيش تجربة Pirates Boat؟</h2>
-    <p id="cta-sub" class="text-white/70 font-bold mb-8">تواصل معنا الآن واحجز رحلتك البحرية في الغردقة</p>
-    <a id="cta-btn" href="https://wa.me/201129101092" class="inline-block bg-[#F26522] text-white px-10 py-4 rounded-full font-black text-lg">تواصل واتساب</a>
+    <h2 id="cta-title" class="text-3xl md:text-5xl font-black mb-5">
+      جاهز تعيش تجربة Pirates Boat؟
+    </h2>
+
+    <p id="cta-sub" class="text-white/70 font-bold mb-8">
+      تواصل معنا الآن واحجز رحلتك البحرية في الغردقة
+    </p>
+
+    <a id="cta-btn"
+       href="https://wa.me/201129101092"
+       class="inline-block bg-[#F26522] text-white px-10 py-4 rounded-full font-black text-lg hover:scale-105 transition-transform">
+      تواصل واتساب
+    </a>
   </section>
 
   <script>
     const WA = "201129101092";
-    const images = Array.from({length: 15}, (_, i) => `${i + 1}.png`);
+    const images = Array.from({ length: 15 }, (_, i) => `${i + 1}.png`);
     let currentSlide = 0;
     let currentLang = "ar";
 
     const content = {
       ar: {
-        dir:"rtl", brand:"الريهام تورز", home:"الرئيسية", trips:"الرحلات الداخلية",
-        heroDesc:"رحلة بحرية ممتعة في الغردقة على مركب بطابع مختلف، مناسبة للعائلات والأصحاب والتصوير.",
-        sectionTitle:"يوم بحري شامل على البحر الأحمر",
-        sectionText:"استمتع بتجربة بحرية متكاملة على متن Pirates Boat في الغردقة، حيث يجتمع البحر الصافي، أجواء المرح، الأنشطة البحرية، والخدمات المميزة في يوم واحد لا يُنسى.",
-        detailsTitle:"الخدمات والأنشطة المتاحة",
-        details:["Diving مع Guide متخصص للتوجيه والشرح","Snorkeling وسط أجواء البحر الأحمر","وجبة غداء على المركب","جلسات مساج للرفاهية والاسترخاء","Cameraman لتوثيق لحظات الرحلة","خدمات وأنشطة متاحة ضمن برنامج الرحلة"],
-        bookingTitle:"احجز رحلة Pirates Boat", bookingBtn:"إرسال على واتساب", galleryBtn:"شاهد الصور",
-        featuresTitle:"كل ده على المركب", featuresSub:"أنشطة وخدمات تخلي يومك في البحر أسهل وأمتع",
-        f:["Diving مع Guide","تجربة غطس مع مرشد متخصص يساعدك ويوجهك خلال النشاط.","Snorkeling","استمتع بمشاهدة البحر الأحمر والشعاب والأسماك الملونة.","وجبة غداء","استراحة لذيذة على المركب وسط أجواء البحر.","مساج على المركب","لمسة رفاهية إضافية عشان اليوم يكون أهدى وألطف.","Cameraman","مصور لتوثيق أجمل لحظات الرحلة على المركب وفي البحر.","خدمات Included","مجموعة خدمات وأنشطة متاحة ضمن برنامج الرحلة."],
-        galleryTitle:"صور Pirates Boat", gallerySub:"من أجواء الرحلة على الطبيعة",
-        ctaTitle:"جاهز تعيش تجربة Pirates Boat؟", ctaSub:"تواصل معنا الآن واحجز رحلتك البحرية في الغردقة", btn:"احجز الآن", ctaBtn:"تواصل واتساب",
-        wa:"أهلاً، أريد الاستفسار عن رحلة Pirates Boat"
+        dir: "rtl",
+        brand: "الريهام تورز",
+        home: "الرئيسية",
+        trips: "الرحلات الداخلية",
+        heroDesc: "رحلة بحرية ممتعة في الغردقة على مركب بطابع مختلف، مناسبة للعائلات والأصحاب والتصوير.",
+        sectionTitle: "يوم بحري شامل على البحر الأحمر",
+        sectionText: "استمتع بتجربة بحرية متكاملة على متن Pirates Boat في الغردقة، حيث يجتمع البحر الصافي، أجواء المرح، الأنشطة البحرية، والخدمات المميزة في يوم واحد لا يُنسى.",
+        detailsTitle: "الخدمات والأنشطة المتاحة",
+        details: [
+          "Diving مع Guide متخصص للتوجيه والشرح",
+          "Snorkeling وسط أجواء البحر الأحمر",
+          "وجبة غداء على المركب",
+          "جلسات مساج للرفاهية والاسترخاء",
+          "Cameraman لتوثيق لحظات الرحلة",
+          "خدمات وأنشطة متاحة ضمن برنامج الرحلة"
+        ],
+        bookingTitle: "احجز رحلة Pirates Boat",
+        bookingBtn: "إرسال على واتساب",
+        galleryBtn: "شاهد الصور",
+        featuresTitle: "كل ده على المركب",
+        featuresSub: "أنشطة وخدمات تخلي يومك في البحر أسهل وأمتع",
+        f: [
+          "Diving مع Guide", "تجربة غطس مع مرشد متخصص يساعدك ويوجهك خلال النشاط.",
+          "Snorkeling", "استمتع بمشاهدة البحر الأحمر والشعاب والأسماك الملونة.",
+          "وجبة غداء", "استراحة لذيذة على المركب وسط أجواء البحر.",
+          "مساج على المركب", "لمسة رفاهية إضافية عشان اليوم يكون أهدى وألطف.",
+          "Cameraman", "مصور لتوثيق أجمل لحظات الرحلة على المركب وفي البحر.",
+          "خدمات Included", "مجموعة خدمات وأنشطة متاحة ضمن برنامج الرحلة."
+        ],
+        galleryTitle: "صور Pirates Boat",
+        gallerySub: "من أجواء الرحلة على الطبيعة",
+        ctaTitle: "جاهز تعيش تجربة Pirates Boat؟",
+        ctaSub: "تواصل معنا الآن واحجز رحلتك البحرية في الغردقة",
+        btn: "احجز الآن",
+        ctaBtn: "تواصل واتساب",
+        wa: "أهلاً، أريد الاستفسار عن رحلة Pirates Boat"
       },
+
       en: {
-        dir:"ltr", brand:"El Reham Tours", home:"Home", trips:"Domestic Trips",
-        heroDesc:"A fun sea trip in Hurghada on a unique themed boat, perfect for families, friends, and photos.",
-        sectionTitle:"A complete Red Sea boat day",
-        sectionText:"Enjoy a full sea experience on Pirates Boat in Hurghada, combining clear water, fun atmosphere, sea activities, and special onboard services in one unforgettable day.",
-        detailsTitle:"Activities and services",
-        details:["Diving with a professional guide","Snorkeling in the Red Sea","Lunch meal on board","Massage sessions for extra relaxation","Cameraman to capture the best moments","Included services and activities as part of the trip program"],
-        bookingTitle:"Book Pirates Boat", bookingBtn:"Send on WhatsApp", galleryBtn:"View Photos",
-        featuresTitle:"All on board", featuresSub:"Activities and services designed to make your sea day easier and more enjoyable",
-        f:["Diving with Guide","A diving experience with a specialized guide to support you.","Snorkeling","Enjoy the Red Sea, coral views, and colorful marine life.","Lunch Meal","A tasty break on board while enjoying the sea atmosphere.","Massage on Board","An extra touch of comfort and relaxation during the trip.","Cameraman","A photographer to document your best moments on board and at sea.","Included Services","A set of activities and services included within the trip program."],
-        galleryTitle:"Pirates Boat Gallery", gallerySub:"Real moments from the trip",
-        ctaTitle:"Ready for Pirates Boat?", ctaSub:"Contact us now and book your Hurghada sea trip", btn:"Book now", ctaBtn:"WhatsApp us",
-        wa:"Hello, I would like to ask about Pirates Boat trip"
+        dir: "ltr",
+        brand: "El Reham Tours",
+        home: "Home",
+        trips: "Domestic Trips",
+        heroDesc: "A fun sea trip in Hurghada on a unique themed boat, perfect for families, friends, and photos.",
+        sectionTitle: "A complete Red Sea boat day",
+        sectionText: "Enjoy a full sea experience on Pirates Boat in Hurghada, combining clear water, fun atmosphere, sea activities, and special onboard services in one unforgettable day.",
+        detailsTitle: "Activities and services",
+        details: [
+          "Diving with a professional guide",
+          "Snorkeling in the Red Sea",
+          "Lunch meal on board",
+          "Massage sessions for extra relaxation",
+          "Cameraman to capture the best moments",
+          "Included services and activities as part of the trip program"
+        ],
+        bookingTitle: "Book Pirates Boat",
+        bookingBtn: "Send on WhatsApp",
+        galleryBtn: "View Photos",
+        featuresTitle: "All on board",
+        featuresSub: "Activities and services designed to make your sea day easier and more enjoyable",
+        f: [
+          "Diving with Guide", "A diving experience with a specialized guide to support you.",
+          "Snorkeling", "Enjoy the Red Sea, coral views, and colorful marine life.",
+          "Lunch Meal", "A tasty break on board while enjoying the sea atmosphere.",
+          "Massage on Board", "An extra touch of comfort and relaxation during the trip.",
+          "Cameraman", "A photographer to document your best moments on board and at sea.",
+          "Included Services", "A set of activities and services included within the trip program."
+        ],
+        galleryTitle: "Pirates Boat Gallery",
+        gallerySub: "Real moments from the trip",
+        ctaTitle: "Ready for Pirates Boat?",
+        ctaSub: "Contact us now and book your Hurghada sea trip",
+        btn: "Book now",
+        ctaBtn: "WhatsApp us",
+        wa: "Hello, I would like to ask about Pirates Boat trip"
       },
+
       ru: {
-        dir:"ltr", brand:"El Reham Tours", home:"Главная", trips:"Внутренние туры",
-        heroDesc:"Весёлая морская прогулка в Хургаде на уникальной лодке, идеально для семей, друзей и фотографий.",
-        sectionTitle:"Полный день на Красном море",
-        sectionText:"Проведите насыщенный морской день на Pirates Boat в Хургаде: чистая вода, весёлая атмосфера, морские активности и дополнительные услуги на борту.",
-        detailsTitle:"Активности и услуги",
-        details:["Дайвинг с профессиональным гидом","Снорклинг в Красном море","Обед на борту","Массаж для дополнительного отдыха","Фотограф для лучших моментов поездки","Услуги и активности включены в программу"],
-        bookingTitle:"Забронировать Pirates Boat", bookingBtn:"Отправить в WhatsApp", galleryBtn:"Фото",
-        featuresTitle:"Всё на борту", featuresSub:"Активности и услуги для комфортного морского дня",
-        f:["Дайвинг с гидом","Погружение с опытным гидом.","Снорклинг","Наслаждайтесь Красным морем, рифами и яркими рыбами.","Обед","Приятный обед на борту.","Массаж на борту","Дополнительный комфорт и расслабление.","Фотограф","Фотограф запечатлеет лучшие моменты.","Включенные услуги","Активности и услуги в рамках программы."],
-        galleryTitle:"Фото Pirates Boat", gallerySub:"Реальные моменты поездки",
-        ctaTitle:"Готовы к Pirates Boat?", ctaSub:"Свяжитесь с нами и забронируйте морскую прогулку", btn:"Забронировать", ctaBtn:"WhatsApp",
-        wa:"Здравствуйте, хочу узнать о прогулке Pirates Boat"
+        dir: "ltr",
+        brand: "El Reham Tours",
+        home: "Главная",
+        trips: "Внутренние туры",
+        heroDesc: "Весёлая морская прогулка в Хургаде на уникальной лодке, идеально для семей, друзей и фотографий.",
+        sectionTitle: "Полный день на Красном море",
+        sectionText: "Проведите насыщенный морской день на Pirates Boat в Хургаде: чистая вода, весёлая атмосфера, морские активности и дополнительные услуги на борту.",
+        detailsTitle: "Активности и услуги",
+        details: [
+          "Дайвинг с профессиональным гидом",
+          "Снорклинг в Красном море",
+          "Обед на борту",
+          "Массаж для дополнительного отдыха",
+          "Фотограф для лучших моментов поездки",
+          "Услуги и активности включены в программу"
+        ],
+        bookingTitle: "Забронировать Pirates Boat",
+        bookingBtn: "Отправить в WhatsApp",
+        galleryBtn: "Фото",
+        featuresTitle: "Всё на борту",
+        featuresSub: "Активности и услуги для комфортного морского дня",
+        f: [
+          "Дайвинг с гидом", "Погружение с опытным гидом.",
+          "Снорклинг", "Наслаждайтесь Красным морем, рифами и яркими рыбами.",
+          "Обед", "Приятный обед на борту.",
+          "Массаж на борту", "Дополнительный комфорт и расслабление.",
+          "Фотограф", "Фотограф запечатлеет лучшие моменты.",
+          "Включенные услуги", "Активности и услуги в рамках программы."
+        ],
+        galleryTitle: "Фото Pirates Boat",
+        gallerySub: "Реальные моменты поездки",
+        ctaTitle: "Готовы к Pirates Boat?",
+        ctaSub: "Свяжитесь с нами и забронируйте морскую прогулку",
+        btn: "Забронировать",
+        ctaBtn: "WhatsApp",
+        wa: "Здравствуйте, хочу узнать о прогулке Pirates Boat"
       },
+
       de: {
-        dir:"ltr", brand:"El Reham Tours", home:"Startseite", trips:"Inlandsreisen",
-        heroDesc:"Eine unterhaltsame Bootstour in Hurghada auf einem besonderen Themenboot, ideal für Familien, Freunde und Fotos.",
-        sectionTitle:"Ein kompletter Tag am Roten Meer",
-        sectionText:"Genießen Sie einen vollständigen Ausflug auf dem Pirates Boat in Hurghada mit klarem Wasser, guter Stimmung, Meeresaktivitäten und besonderen Services an Bord.",
-        detailsTitle:"Aktivitäten und Services",
-        details:["Diving mit professionellem Guide","Snorkeling im Roten Meer","Mittagessen an Bord","Massage für zusätzliche Entspannung","Cameraman für schöne Erinnerungen","Services und Aktivitäten im Programm enthalten"],
-        bookingTitle:"Pirates Boat buchen", bookingBtn:"Per WhatsApp senden", galleryBtn:"Fotos ansehen",
-        featuresTitle:"Alles an Bord", featuresSub:"Aktivitäten und Services für einen angenehmen Tag auf dem Meer",
-        f:["Diving mit Guide","Taucherlebnis mit professionellem Guide.","Snorkeling","Genießen Sie das Rote Meer, Korallen und bunte Fische.","Mittagessen","Eine leckere Pause an Bord.","Massage an Bord","Entspannung während der Tour.","Cameraman","Ein Fotograf hält die schönsten Momente fest.","Inklusive Services","Aktivitäten und Services sind Teil des Programms."],
-        galleryTitle:"Pirates Boat Fotos", gallerySub:"Echte Momente von der Tour",
-        ctaTitle:"Bereit für Pirates Boat?", ctaSub:"Kontaktieren Sie uns jetzt und buchen Sie Ihre Bootstour", btn:"Jetzt buchen", ctaBtn:"WhatsApp",
-        wa:"Hallo, ich möchte Informationen zur Pirates Boat Tour"
+        dir: "ltr",
+        brand: "El Reham Tours",
+        home: "Startseite",
+        trips: "Inlandsreisen",
+        heroDesc: "Eine unterhaltsame Bootstour in Hurghada auf einem besonderen Themenboot, ideal für Familien, Freunde und Fotos.",
+        sectionTitle: "Ein kompletter Tag am Roten Meer",
+        sectionText: "Genießen Sie einen vollständigen Ausflug auf dem Pirates Boat in Hurghada mit klarem Wasser, guter Stimmung, Meeresaktivitäten und besonderen Services an Bord.",
+        detailsTitle: "Aktivitäten und Services",
+        details: [
+          "Diving mit professionellem Guide",
+          "Snorkeling im Roten Meer",
+          "Mittagessen an Bord",
+          "Massage für zusätzliche Entspannung",
+          "Cameraman für schöne Erinnerungen",
+          "Services und Aktivitäten im Programm enthalten"
+        ],
+        bookingTitle: "Pirates Boat buchen",
+        bookingBtn: "Per WhatsApp senden",
+        galleryBtn: "Fotos ansehen",
+        featuresTitle: "Alles an Bord",
+        featuresSub: "Aktivitäten und Services für einen angenehmen Tag auf dem Meer",
+        f: [
+          "Diving mit Guide", "Taucherlebnis mit professionellem Guide.",
+          "Snorkeling", "Genießen Sie das Rote Meer, Korallen und bunte Fische.",
+          "Mittagessen", "Eine leckere Pause an Bord.",
+          "Massage an Bord", "Entspannung während der Tour.",
+          "Cameraman", "Ein Fotograf hält die schönsten Momente fest.",
+          "Inklusive Services", "Aktivitäten und Services sind Teil des Programms."
+        ],
+        galleryTitle: "Pirates Boat Fotos",
+        gallerySub: "Echte Momente von der Tour",
+        ctaTitle: "Bereit für Pirates Boat?",
+        ctaSub: "Kontaktieren Sie uns jetzt und buchen Sie Ihre Bootstour",
+        btn: "Jetzt buchen",
+        ctaBtn: "WhatsApp",
+        wa: "Hallo, ich möchte Informationen zur Pirates Boat Tour"
       }
     };
 
-    function buildSlider(){
-      document.getElementById("slider").innerHTML = images.map((img,i)=>`<div class="slide ${i===0?'active':''}" style="background-image:url('${img}')"></div>`).join("");
-      setInterval(()=>{
+    function buildSlider() {
+      const slider = document.getElementById("slider");
+
+      slider.innerHTML = images.map((img, i) => `
+        <div class="slide ${i === 0 ? "active" : ""}" style="background-image: url('${img}')"></div>
+      `).join("");
+
+      setInterval(() => {
         const slides = document.querySelectorAll(".slide");
+        if (!slides.length) return;
+
         slides[currentSlide].classList.remove("active");
         currentSlide = (currentSlide + 1) % slides.length;
         slides[currentSlide].classList.add("active");
-      },3500);
+      }, 3500);
     }
 
-    function buildGallery(){
-      document.getElementById("gallery-grid").innerHTML = images.map((img,i)=>`
+    function buildGallery() {
+      const gallery = document.getElementById("gallery-grid");
+
+      gallery.innerHTML = images.map((img, i) => `
         <div class="photo-card" onclick="openLightbox('${img}')">
-          <img src="${img}" alt="Pirates Boat ${i+1}" loading="lazy">
-        </div>`).join("");
+          <img src="${img}" alt="Pirates Boat ${i + 1}" loading="lazy">
+        </div>
+      `).join("");
     }
 
-    function setLang(lang){
+    function setLang(lang) {
       currentLang = lang;
       const t = content[lang] || content.ar;
+
       document.documentElement.lang = lang;
       document.documentElement.dir = t.dir;
 
-      brand.innerText=t.brand; document.getElementById("home-link").innerText=t.home; document.getElementById("trips-link").innerText=t.trips;
-      document.getElementById("hero-desc").innerText=t.heroDesc; document.getElementById("section-title").innerText=t.sectionTitle;
-      document.getElementById("section-text").innerText=t.sectionText; document.getElementById("details-title").innerText=t.detailsTitle;
-      document.getElementById("booking-title").innerText=t.bookingTitle; document.getElementById("booking-btn").innerText=t.bookingBtn;
-      document.getElementById("gallery-btn").innerText=t.galleryBtn; document.getElementById("features-title").innerText=t.featuresTitle;
-      document.getElementById("features-sub").innerText=t.featuresSub; document.getElementById("gallery-title").innerText=t.galleryTitle;
-      document.getElementById("gallery-sub").innerText=t.gallerySub; document.getElementById("cta-title").innerText=t.ctaTitle;
-      document.getElementById("cta-sub").innerText=t.ctaSub; document.getElementById("hero-btn").innerText=t.btn; document.getElementById("cta-btn").innerText=t.ctaBtn;
+      document.getElementById("brand").innerText = t.brand;
+      document.getElementById("home-link").innerText = t.home;
+      document.getElementById("trips-link").innerText = t.trips;
+      document.getElementById("hero-desc").innerText = t.heroDesc;
+      document.getElementById("section-title").innerText = t.sectionTitle;
+      document.getElementById("section-text").innerText = t.sectionText;
+      document.getElementById("details-title").innerText = t.detailsTitle;
+      document.getElementById("booking-title").innerText = t.bookingTitle;
+      document.getElementById("booking-btn").innerText = t.bookingBtn;
+      document.getElementById("gallery-btn").innerText = t.galleryBtn;
+      document.getElementById("features-title").innerText = t.featuresTitle;
+      document.getElementById("features-sub").innerText = t.featuresSub;
+      document.getElementById("gallery-title").innerText = t.galleryTitle;
+      document.getElementById("gallery-sub").innerText = t.gallerySub;
+      document.getElementById("cta-title").innerText = t.ctaTitle;
+      document.getElementById("cta-sub").innerText = t.ctaSub;
+      document.getElementById("hero-btn").innerText = t.btn;
+      document.getElementById("cta-btn").innerText = t.ctaBtn;
 
-      document.getElementById("details-list").innerHTML=t.details.map(x=>`<li>✔ ${x}</li>`).join("");
-      for(let i=1;i<=6;i++){ document.getElementById(`f${i}-title`).innerText=t.f[(i-1)*2]; document.getElementById(`f${i}-text`).innerText=t.f[(i-1)*2+1]; }
+      document.getElementById("details-list").innerHTML =
+        t.details.map(item => `<li>✔ ${item}</li>`).join("");
 
-      const waLink=`https://wa.me/${WA}?text=${encodeURIComponent(t.wa)}`;
-      document.getElementById("hero-btn").href=waLink; document.getElementById("cta-btn").href=waLink;
-      document.querySelectorAll(".lang-btn").forEach(b=>b.classList.remove("lang-active"));
-      document.getElementById("btn-"+lang).classList.add("lang-active");
-      localStorage.setItem("pirates_lang",lang);
+      for (let i = 1; i <= 6; i++) {
+        document.getElementById(`f${i}-title`).innerText = t.f[(i - 1) * 2];
+        document.getElementById(`f${i}-text`).innerText = t.f[(i - 1) * 2 + 1];
+      }
+
+      const waLink = `https://wa.me/${WA}?text=${encodeURIComponent(t.wa)}`;
+      document.getElementById("hero-btn").href = waLink;
+      document.getElementById("cta-btn").href = waLink;
+
+      document.querySelectorAll(".lang-btn").forEach(btn => btn.classList.remove("lang-active"));
+      document.getElementById("btn-" + lang).classList.add("lang-active");
+
+      localStorage.setItem("pirates_lang", lang);
     }
 
-    function sendBooking(){
-      const t=content[currentLang] || content.ar;
-      const name=document.getElementById("name").value || "-";
-      const phone=document.getElementById("phone").value || "-";
-      const date=document.getElementById("date").value || "-";
-      const msg=`${t.wa}\nName: ${name}\nPhone: ${phone}\nDate: ${date}`;
-      window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,"_blank");
+    function sendBooking() {
+      const t = content[currentLang] || content.ar;
+
+      const name = document.getElementById("name").value || "-";
+      const phone = document.getElementById("phone").value || "-";
+      const date = document.getElementById("date").value || "-";
+
+      const msg = `${t.wa}
+Name: ${name}
+Phone: ${phone}
+Date: ${date}`;
+
+      window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, "_blank");
     }
 
-    function openLightbox(src){ document.getElementById("lightbox-img").src=src; document.getElementById("lightbox").style.display="flex"; }
-    function closeLightbox(){ document.getElementById("lightbox").style.display="none"; }
+    function openLightbox(src) {
+      document.getElementById("lightbox-img").src = src;
+      document.getElementById("lightbox").style.display = "flex";
+    }
 
-    window.onload=()=>{ buildSlider(); buildGallery(); setLang(localStorage.getItem("pirates_lang") || "ar"); };
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+
+    window.onload = function() {
+      buildSlider();
+      buildGallery();
+
+      const savedLang = localStorage.getItem("pirates_lang") || "ar";
+      setLang(savedLang);
+    };
   </script>
+
 </body>
 </html>
