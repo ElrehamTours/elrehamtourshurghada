@@ -1,12 +1,3 @@
-ممتاز جداً! لقد قمت بتعديل الكود ليتناسب تماماً مع طلبك. 
-
-إليك التعديلات التي قمت بها لكي يظهر كل شيء بشكل مثالي:
-1. **الصور (1 إلى 15 ما عدا 13):** قمت بتعديل الكود برمجياً ليقرأ الصور من `1.jpg` حتى `15.jpg` ويتجاهل الصورة رقم `13.jpg` تماماً كما طلبتِ.
-2. **صورة اللوجو (غلاف الكارت):** المشكلة كانت في مسار الصورة في الكود القديم (`../../logo.png`). قمت بتعديل المسار ليصبح `logo.png` مباشرة بحيث تظهر صورة اللوجو الموجودة في نفس المجلد مع الملف بدون أي مشاكل.
-
-إليك الكود المحدث بالكامل وجاهز للعمل:
-
-```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -191,16 +182,16 @@
   <nav class="fixed top-0 inset-x-0 z-50 glass-nav py-3">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between text-white gap-4">
 
-      <a id="logo-link" href="index.html" class="flex items-center gap-3">
+      <a id="logo-link" href="../../index.html" class="flex items-center gap-3">
         <div class="w-12 h-12 bg-white rounded-xl p-1">
-          <img src="logo.png" class="w-full h-full object-contain" alt="El Reham Tours">
+          <img src="../../logo.png" class="w-full h-full object-contain" alt="El Reham Tours">
         </div>
         <div class="font-black text-lg" id="brand">الريهام تورز</div>
       </a>
 
       <div class="hidden md:flex items-center gap-5 font-bold text-sm">
-        <a id="home-link" href="index.html" class="hover:text-[#F26522]">الرئيسية</a>
-        <a id="trips-link" href="domestic-trips.html" class="hover:text-[#F26522]">الرحلات الداخلية</a>
+        <a id="home-link" href="../../index.html" class="hover:text-[#F26522]">الرئيسية</a>
+        <a id="trips-link" href="../../domestic-trips.html" class="hover:text-[#F26522]">الرحلات الداخلية</a>
       </div>
 
       <div class="flex items-center gap-2">
@@ -227,7 +218,7 @@
       </h1>
 
       <p id="hero-desc" class="text-xl md:text-2xl font-bold leading-relaxed opacity-95 drop-shadow-lg max-w-4xl mx-auto">
-        تجربة بحرية راقية وشاملة في الغردقة، مناسبة للعائلات والمجموعات ومحبي الرفاهية والهدوء.
+        تجربة بحرية راقية في الغردقة، مناسبة للعائلات والمجموعات ومحبي الراحة والهدوء.
       </p>
 
       <div class="flex flex-wrap justify-center gap-4 mt-8">
@@ -280,20 +271,20 @@
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-10">
         <h2 id="features-title" class="text-3xl md:text-5xl font-black mb-3">
-          تجربة بحرية متكاملة
+          تجربة بحرية مريحة
         </h2>
         <p id="features-sub" class="text-white/70 font-bold">
-          أنشطة وخدمات حصرية ليوم لا يُنسى على البحر
+          خدمات وأنشطة مناسبة ليوم راقٍ على البحر
         </p>
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="feature-card"><div class="text-4xl mb-4">🤿</div><h3 id="f1-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f1-text" class="text-white/75 font-bold leading-relaxed"></p></div>
-        <div class="feature-card"><div class="text-4xl mb-4">🍽️</div><h3 id="f2-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f2-text" class="text-white/75 font-bold leading-relaxed"></p></div>
-        <div class="feature-card"><div class="text-4xl mb-4">💆‍♂️</div><h3 id="f3-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f3-text" class="text-white/75 font-bold leading-relaxed"></p></div>
+        <div class="feature-card"><div class="text-4xl mb-4">⛵</div><h3 id="f1-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f1-text" class="text-white/75 font-bold leading-relaxed"></p></div>
+        <div class="feature-card"><div class="text-4xl mb-4">🐠</div><h3 id="f2-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f2-text" class="text-white/75 font-bold leading-relaxed"></p></div>
+        <div class="feature-card"><div class="text-4xl mb-4">🍽️</div><h3 id="f3-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f3-text" class="text-white/75 font-bold leading-relaxed"></p></div>
         <div class="feature-card"><div class="text-4xl mb-4">📸</div><h3 id="f4-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f4-text" class="text-white/75 font-bold leading-relaxed"></p></div>
-        <div class="feature-card"><div class="text-4xl mb-4">👨‍🏫</div><h3 id="f5-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f5-text" class="text-white/75 font-bold leading-relaxed"></p></div>
-        <div class="feature-card"><div class="text-4xl mb-4">👨‍👩‍👧‍👦</div><h3 id="f6-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f6-text" class="text-white/75 font-bold leading-relaxed"></p></div>
+        <div class="feature-card"><div class="text-4xl mb-4">👨‍👩‍👧‍👦</div><h3 id="f5-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f5-text" class="text-white/75 font-bold leading-relaxed"></p></div>
+        <div class="feature-card"><div class="text-4xl mb-4">🎁</div><h3 id="f6-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f6-text" class="text-white/75 font-bold leading-relaxed"></p></div>
       </div>
     </div>
   </section>
@@ -307,7 +298,7 @@
         </h2>
 
         <p id="section-text" class="text-slate-600 font-bold leading-loose text-lg">
-          Royal Boat تقدم لك تجربة بحرية شاملة تجمع بين روعة الغطس والسنوركلينج، متعة الاسترخاء مع جلسات المساج المجانية، وخدمات التصوير الاحترافي لتوثيق أجمل لحظاتك.
+          Royal Boat تجربة بحرية مريحة تجمع بين جمال البحر الأحمر، أجواء منظمة، ووقت ممتع للسباحة والتصوير والاسترخاء.
         </p>
       </div>
 
@@ -327,7 +318,7 @@
     </h2>
 
     <p id="cta-sub" class="text-white/70 font-bold mb-8">
-      تواصل معنا الآن واحجز رحلتك البحرية الشاملة في الغردقة
+      تواصل معنا الآن واحجز رحلتك البحرية في الغردقة
     </p>
 
     <a id="cta-btn"
@@ -339,11 +330,7 @@
 
   <script>
     const WA = "201129101092";
-    
-    // قائمة الصور من 1 لـ 15 مع استبعاد رقم 13
-    const imageNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15];
-    const images = imageNumbers.map(num => `${num}.jpg`);
-    
+    const images = Array.from({ length: 16 }, (_, i) => `${i + 1}.jpg`);
     let currentSlide = 0;
     let currentLang = "ar";
 
@@ -351,118 +338,62 @@
       ar: {
         dir: "rtl", brand: "الريهام تورز", home: "الرئيسية", trips: "الرحلات الداخلية",
         namePlaceholder: "الاسم", phonePlaceholder: "رقم الهاتف",
-        heroDesc: "تجربة بحرية راقية وشاملة في الغردقة، مناسبة للعائلات والمجموعات ومحبي الرفاهية والهدوء.",
+        heroDesc: "تجربة بحرية راقية في الغردقة، مناسبة للعائلات والمجموعات ومحبي الراحة والهدوء.",
         sectionTitle: "يوم راقٍ على البحر الأحمر",
-        sectionText: "Royal Boat تقدم لك تجربة بحرية شاملة تجمع بين روعة الغطس والسنوركلينج، متعة الاسترخاء مع جلسات المساج المجانية، وخدمات التصوير الاحترافي لتوثيق أجمل لحظاتك.",
+        sectionText: "Royal Boat تجربة بحرية مريحة تجمع بين جمال البحر الأحمر، أجواء منظمة، ووقت ممتع للسباحة والتصوير والاسترخاء.",
         detailsTitle: "تفاصيل التجربة",
-        details: [
-          "رحلة بحرية شاملة ومريحة",
-          "غطس وسنوركلينج مع توفير المعدات",
-          "وجبة غداء ومشروبات مجانية",
-          "أنشطة إضافية مثل المساج المجاني",
-          "تصوير احترافي (كاميرا مان) لتوثيق الرحلة",
-          "مرشد غطس متخصص ومحترف"
-        ],
+        details: ["رحلة بحرية مريحة ومنظمة","مناسبة للعائلات والمجموعات","وقت ممتع للسباحة والاسترخاء","فرصة رائعة للتصوير على المركب","حجز واستفسار مباشر عبر واتساب","أجواء هادئة وراقية طوال اليوم"],
         bookingTitle: "احجز رحلة Royal Boat", bookingBtn: "إرسال على واتساب", galleryBtn: "شاهد الصور",
-        featuresTitle: "تجربة بحرية متكاملة", featuresSub: "أنشطة وخدمات حصرية ليوم لا يُنسى على البحر",
-        f: [
-          "غطس وسنوركلينج", "استمتع بالغطس والسنوركلينج مع توفير كافة المعدات مجاناً.",
-          "غداء ومشروبات", "وجبة غداء مميزة ومشروبات متوفرة طوال الرحلة.",
-          "مساج مجاني", "جلسات مساج مجانية على المركب لمزيد من الاسترخاء.",
-          "تصوير احترافي", "كاميرا مان محترف لتوثيق أجمل لحظاتك مجاناً.",
-          "مرشد غطس متخصص", "جايد محترف لشرح تفاصيل الغطس ومرافقتك بأمان.",
-          "مناسب للعائلات", "أجواء مريحة وآمنة تناسب جميع أفراد العائلة والمجموعات."
-        ],
+        featuresTitle: "تجربة بحرية مريحة", featuresSub: "خدمات وأنشطة مناسبة ليوم راقٍ على البحر",
+        f: ["رحلة بحرية راقية","أجواء منظمة ومريحة لعشاق البحر.","سنوركلينج","استمتع بمياه البحر الأحمر والمناظر البحرية.","وجبة غداء","تجربة مريحة مع وقت مناسب للاستراحة.","تصوير","لحظات جميلة تستحق التوثيق.","مناسب للعائلات","اختيار جيد للعائلات والمجموعات.","خدمات الرحلة","تفاصيل منظمة لتجربة أسهل وأمتع."],
         galleryTitle: "صور Royal Boat", gallerySub: "من أجواء الرحلة على الطبيعة",
-        ctaTitle: "جاهز تعيش تجربة Royal Boat؟", ctaSub: "تواصل معنا الآن واحجز رحلتك البحرية الشاملة في الغردقة",
-        btn: "احجز الآن", ctaBtn: "تواصل واتساب", wa: "أهلاً، أريد الاستفسار عن رحلة Royal Boat الشاملة"
+        ctaTitle: "جاهز تعيش تجربة Royal Boat؟", ctaSub: "تواصل معنا الآن واحجز رحلتك البحرية في الغردقة",
+        btn: "احجز الآن", ctaBtn: "تواصل واتساب", wa: "أهلاً، أريد الاستفسار عن رحلة Royal Boat"
       },
       en: {
         dir: "ltr", brand: "El Reham Tours", home: "Home", trips: "Domestic Trips",
         namePlaceholder: "Name", phonePlaceholder: "Phone number",
-        heroDesc: "A premium all-inclusive sea trip in Hurghada, perfect for families, groups, and guests who love luxury and comfort.",
+        heroDesc: "A premium sea trip in Hurghada, perfect for families, groups, and guests who love comfort and calm vibes.",
         sectionTitle: "A premium Red Sea day",
-        sectionText: "Royal Boat offers an all-inclusive sea experience combining the beauty of diving and snorkeling, relaxation with free massage sessions, and professional photography.",
+        sectionText: "Royal Boat is a comfortable sea experience combining the beauty of the Red Sea, organized vibes, swimming, photos, and relaxation.",
         detailsTitle: "Experience details",
-        details: [
-          "Comfortable all-inclusive sea trip",
-          "Diving and snorkeling with equipment provided",
-          "Free lunch meal and drinks",
-          "Extra activities like free massage",
-          "Professional cameraman to document the trip",
-          "Expert and professional diving guide"
-        ],
+        details: ["Comfortable and organized sea trip","Suitable for families and groups","Time for swimming and relaxation","Great photo moments on board","Direct booking and inquiries via WhatsApp","Calm and premium atmosphere all day"],
         bookingTitle: "Book Royal Boat", bookingBtn: "Send on WhatsApp", galleryBtn: "View Photos",
-        featuresTitle: "Complete Sea Experience", featuresSub: "Exclusive services and activities for an unforgettable sea day",
-        f: [
-          "Diving & Snorkeling", "Enjoy diving and snorkeling with all equipment provided for free.",
-          "Lunch & Drinks", "Delicious lunch buffet and drinks available throughout the trip.",
-          "Free Massage", "Complimentary massage sessions on board for ultimate relaxation.",
-          "Professional Photographer", "A professional cameraman to capture your best moments for free.",
-          "Expert Diving Guide", "A professional guide to explain diving details and keep you safe.",
-          "Family Friendly", "A comfortable and safe atmosphere perfect for families and groups."
-        ],
+        featuresTitle: "Comfortable Sea Experience", featuresSub: "Services and activities for a premium sea day",
+        f: ["Premium Boat Trip","Organized and relaxing vibes for sea lovers.","Snorkeling","Enjoy Red Sea waters and marine views.","Lunch Meal","A comfortable break during the trip.","Photography","Beautiful moments worth capturing.","Family Friendly","A good choice for families and groups.","Trip Services","Organized details for an easier and better experience."],
         galleryTitle: "Royal Boat Gallery", gallerySub: "Real moments from the trip",
-        ctaTitle: "Ready for Royal Boat?", ctaSub: "Contact us now and book your all-inclusive Hurghada sea trip",
-        btn: "Book now", ctaBtn: "WhatsApp us", wa: "Hello, I would like to ask about the all-inclusive Royal Boat trip"
+        ctaTitle: "Ready for Royal Boat?", ctaSub: "Contact us now and book your Hurghada sea trip",
+        btn: "Book now", ctaBtn: "WhatsApp us", wa: "Hello, I would like to ask about Royal Boat trip"
       },
       ru: {
         dir: "ltr", brand: "El Reham Tours", home: "Главная", trips: "Внутренние туры",
         namePlaceholder: "Имя", phonePlaceholder: "Телефон",
-        heroDesc: "Премиальная морская прогулка «Всё включено» в Хургаде, идеально подходит для семей, групп и любителей роскоши.",
-        sectionTitle: "Премиальный день на Красном море",
-        sectionText: "Royal Boat предлагает комплексный морской отдых: дайвинг, снорклинг, бесплатный массаж и профессиональную фотосъемку.",
+        heroDesc: "Комфортная морская прогулка в Хургаде для семей, групп и тех, кто любит спокойный отдых.",
+        sectionTitle: "Комфортный день на Красном море",
+        sectionText: "Royal Boat — это спокойная морская прогулка с красивыми видами Красного моря, плаванием, фотографиями и отдыхом.",
         detailsTitle: "Детали прогулки",
-        details: [
-          "Комфортная прогулка «Всё включено»",
-          "Дайвинг и снорклинг (оборудование включено)",
-          "Бесплатный обед и напитки",
-          "Дополнительные услуги, такие как бесплатный массаж",
-          "Профессиональный оператор для съемки поездки",
-          "Опытный гид по дайвингу"
-        ],
+        details: ["Комфортная и организованная морская прогулка","Подходит для семей и групп","Время для плавания и отдыха","Отличные фото на борту","Бронирование через WhatsApp","Спокойная атмосфера в течение дня"],
         bookingTitle: "Забронировать Royal Boat", bookingBtn: "Отправить в WhatsApp", galleryBtn: "Фото",
-        featuresTitle: "Комплексный морской отдых", featuresSub: "Эксклюзивные услуги для незабываемого дня на море",
-        f: [
-          "Дайвинг и Снорклинг", "Наслаждайтесь дайвингом и снорклингом со всем бесплатным оборудованием.",
-          "Обед и Напитки", "Вкусный обед и напитки доступны на протяжении всей поездки.",
-          "Бесплатный Массаж", "Бесплатные сеансы массажа на борту для максимального расслабления.",
-          "Профессиональный Фотограф", "Профессиональный оператор бесплатно запечатлит ваши лучшие моменты.",
-          "Опытный Гид по Дайвингу", "Профессиональный гид объяснит детали дайвинга и обеспечит безопасность.",
-          "Для Семей", "Комфортная и безопасная атмосфера, идеально подходящая для семей и групп."
-        ],
+        featuresTitle: "Комфортная морская прогулка", featuresSub: "Услуги и активности для приятного отдыха",
+        f: ["Морская прогулка","Комфортная атмосфера для любителей моря.","Снорклинг","Наслаждайтесь Красным морем.","Обед","Приятный перерыв во время поездки.","Фотографии","Красивые моменты на память.","Для семей","Подходит для семей и групп.","Услуги поездки","Организованные детали для удобного отдыха."],
         galleryTitle: "Фото Royal Boat", gallerySub: "Реальные моменты поездки",
-        ctaTitle: "Готовы к Royal Boat?", ctaSub: "Свяжитесь с нами и забронируйте морскую прогулку «Всё включено»",
-        btn: "Забронировать", ctaBtn: "WhatsApp", wa: "Здравствуйте, хочу узнать о прогулке Royal Boat (Всё включено)"
+        ctaTitle: "Готовы к Royal Boat?", ctaSub: "Свяжитесь с нами и забронируйте морскую прогулку",
+        btn: "Забронировать", ctaBtn: "WhatsApp", wa: "Здравствуйте, хочу узнать о прогулке Royal Boat"
       },
       de: {
         dir: "ltr", brand: "El Reham Tours", home: "Startseite", trips: "Inlandsreisen",
         namePlaceholder: "Name", phonePlaceholder: "Telefonnummer",
-        heroDesc: "Eine Premium-All-Inclusive-Bootstour in Hurghada, perfekt für Familien, Gruppen und Gäste, die Luxus und Komfort lieben.",
-        sectionTitle: "Ein Premium-Tag am Roten Meer",
-        sectionText: "Royal Boat bietet ein All-Inclusive-Erlebnis mit Tauchen, Schnorcheln, Entspannung bei kostenlosen Massagen und professioneller Fotografie.",
+        heroDesc: "Eine komfortable Bootstour in Hurghada, ideal für Familien, Gruppen und Gäste, die Ruhe und Komfort lieben.",
+        sectionTitle: "Ein komfortabler Tag am Roten Meer",
+        sectionText: "Royal Boat bietet eine entspannte Bootstour mit schönen Ausblicken, Schwimmen, Fotos und Erholung.",
         detailsTitle: "Erlebnisdetails",
-        details: [
-          "Komfortable All-Inclusive-Bootstour",
-          "Tauchen und Schnorcheln mit gestellter Ausrüstung",
-          "Kostenloses Mittagessen und Getränke",
-          "Zusätzliche Aktivitäten wie kostenlose Massage",
-          "Professioneller Kameramann zur Dokumentation",
-          "Erfahrener und professioneller Tauchguide"
-        ],
+        details: ["Komfortable und organisierte Bootstour","Geeignet für Familien und Gruppen","Zeit zum Schwimmen und Entspannen","Schöne Fotomomente an Bord","Direkte Buchung über WhatsApp","Ruhige und angenehme Atmosphäre"],
         bookingTitle: "Royal Boat buchen", bookingBtn: "Per WhatsApp senden", galleryBtn: "Fotos ansehen",
-        featuresTitle: "Komplettes Meereserlebnis", featuresSub: "Exklusive Services und Aktivitäten für einen unvergesslichen Tag",
-        f: [
-          "Tauchen & Schnorcheln", "Genießen Sie Tauchen und Schnorcheln mit kostenloser Ausrüstung.",
-          "Mittagessen & Getränke", "Köstliches Mittagessen und Getränke während der gesamten Fahrt.",
-          "Kostenlose Massage", "Kostenlose Massagesitzungen an Bord für ultimative Entspannung.",
-          "Professioneller Fotograf", "Ein professioneller Kameramann hält Ihre besten Momente kostenlos fest.",
-          "Erfahrener Tauchguide", "Ein professioneller Guide erklärt Details und sorgt für Sicherheit.",
-          "Familienfreundlich", "Eine komfortable und sichere Atmosphäre, perfekt für Familien und Gruppen."
-        ],
+        featuresTitle: "Komfortable Bootstour", featuresSub: "Services und Aktivitäten für einen schönen Tag auf dem Meer",
+        f: ["Premium Bootstour","Organisierte und entspannte Atmosphäre.","Snorkeling","Genießen Sie das Rote Meer.","Mittagessen","Eine angenehme Pause während der Tour.","Fotografie","Schöne Erinnerungen an Bord.","Familienfreundlich","Geeignet für Familien und Gruppen.","Tour Services","Organisierte Details für eine bessere Erfahrung."],
         galleryTitle: "Royal Boat Fotos", gallerySub: "Echte Momente von der Tour",
-        ctaTitle: "Bereit für Royal Boat?", ctaSub: "Kontaktieren Sie uns jetzt und buchen Sie Ihre All-Inclusive-Tour",
-        btn: "Jetzt buchen", ctaBtn: "WhatsApp", wa: "Hallo, ich möchte Informationen zur All-Inclusive Royal Boat Tour"
+        ctaTitle: "Bereit für Royal Boat?", ctaSub: "Kontaktieren Sie uns jetzt und buchen Sie Ihre Bootstour",
+        btn: "Jetzt buchen", ctaBtn: "WhatsApp", wa: "Hallo, ich möchte Informationen zur Royal Boat Tour"
       }
     };
 
@@ -485,7 +416,7 @@
       const gallery = document.getElementById("gallery-grid");
       gallery.innerHTML = images.map((img, i) => `
         <div class="photo-card" onclick="openLightbox('${img}')">
-          <img src="${img}" alt="Royal Boat image" loading="lazy" onerror="this.parentElement.style.display='none'">
+          <img src="${img}" alt="Royal Boat ${i + 1}" loading="lazy" onerror="this.parentElement.style.display='none'">
         </div>
       `).join("");
     }
@@ -531,9 +462,9 @@
       document.getElementById("hero-btn").href = waLink;
       document.getElementById("cta-btn").href = waLink;
 
-      document.getElementById("logo-link").href = "index.html?lang=" + lang;
-      document.getElementById("home-link").href = "index.html?lang=" + lang;
-      document.getElementById("trips-link").href = "domestic-trips.html?lang=" + lang;
+      document.getElementById("logo-link").href = "../../index.html?lang=" + lang;
+      document.getElementById("home-link").href = "../../index.html?lang=" + lang;
+      document.getElementById("trips-link").href = "../../domestic-trips.html?lang=" + lang;
 
       document.querySelectorAll(".lang-btn").forEach(btn => btn.classList.remove("lang-active"));
       document.getElementById("btn-" + lang).classList.add("lang-active");
@@ -548,7 +479,10 @@
       const phone = document.getElementById("phone").value || "-";
       const date = document.getElementById("date").value || "-";
 
-      const msg = `${t.wa}\nName: ${name}\nPhone: ${phone}\nDate: ${date}`;
+      const msg = `${t.wa}
+Name: ${name}
+Phone: ${phone}
+Date: ${date}`;
 
       window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, "_blank");
     }
@@ -577,4 +511,3 @@
 
 </body>
 </html>
-```
