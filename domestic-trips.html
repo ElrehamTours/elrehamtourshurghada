@@ -27,10 +27,39 @@
 
     input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
 
-    .album-card { overflow: hidden; border-radius: 2rem; background: white; box-shadow: 0 15px 35px rgba(0,0,0,0.1); cursor: zoom-in; transition: 0.4s; position: relative; }
-    .album-card img { width: 100%; height: 450px; object-fit: cover; transition: 0.6s; }
-    .album-card:hover img { transform: scale(1.05); }
-    .album-card.has-link { cursor: pointer; }
+    .album-card { overflow: hidden; border-radius: 2rem; background: white; box-shadow: 0 15px 35px rgba(0,0,0,0.1); cursor: zoom-in; transition: 0.45s; position: relative; transform: translateY(0); }
+    .album-card img { width: 100%; height: 450px; object-fit: cover; transition: 0.7s; }
+    .album-card:hover { transform: translateY(-10px); box-shadow: 0 25px 55px rgba(6,21,44,0.22); }
+    .album-card:hover img { transform: scale(1.08); }
+
+    .boat-card { cursor: pointer; border: 2px solid rgba(242,101,34,0.0); }
+    .boat-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.18) 45%, transparent 70%);
+      transform: translateX(-120%);
+      transition: 0.8s;
+      pointer-events: none;
+    }
+    .boat-card:hover::before { transform: translateX(120%); }
+    .boat-card:hover { border-color: rgba(242,101,34,0.65); }
+    .boat-badge {
+      animation: pulseBadge 2.2s ease-in-out infinite;
+    }
+    @keyframes pulseBadge {
+      0%,100% { transform: scale(1); box-shadow: 0 0 0 rgba(242,101,34,0); }
+      50% { transform: scale(1.05); box-shadow: 0 0 20px rgba(242,101,34,0.45); }
+    }
+    .fade-card {
+      opacity: 0;
+      transform: translateY(22px);
+      animation: fadeUp .7s ease forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
 
     #lightbox { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95); z-index: 2000; align-items: center; justify-content: center; padding: 20px; opacity: 0; transition: 0.3s; }
     #lightbox.active { display: flex; opacity: 1; }
@@ -61,7 +90,7 @@
 
   <div id="toast-container" class="fixed top-24 left-1/2 transform -translate-x-1/2 z-[200] pointer-events-none text-center"></div>
 
-  <!-- Navbar المطور مع روابط التنقل المترجمة -->
+  <!-- Navbar -->
   <nav class="fixed top-0 inset-x-0 z-[100] glass-nav py-3 md:py-4">
     <div class="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between gap-4 text-white">
 
@@ -142,12 +171,12 @@
   <script>
     const translations = {
       ar: {
-        dir: 'rtl', brand: "الريهام تورز", n_home: "الرئيسية", n_flights: "حجز طيران", n_trips: "رحلات داخلية", h_title: "رحلات داخلية وسفاري", h_sub: "اكتشف أجمل الأنشطة واحجز الآن", l_trip: "اختر الرحلة", l_date: "التاريخ", l_phone: "رقم الهاتف", l_email: "الإيميل", f_f: "الطيران", f_d: "رحلات داخلية", btn_book: "احجز الآن", lb_btn: "حجز واتساب", wa_intro: "أهلاً الريهام تورز، أريد حجز رحلة:", err: "يرجى إدخال الهاتف",
+        dir: 'rtl', brand: "الريهام تورز", n_home: "الرئيسية", n_flights: "حجز طيران", n_trips: "رحلات داخلية", h_title: "رحلات داخلية وسفاري", h_sub: "اكتشف أجمل الأنشطة واحجز الآن", l_trip: "اختر الرحلة", l_date: "التاريخ", l_phone: "رقم الهاتف", l_email: "الإيميل", f_f: "الطيران", f_d: "رحلات داخلية", btn_book: "احجز الآن", lb_btn: "حجز واتساب", wa_intro: "أهلاً الريهام تورز، أريد حجز رحلة:", err: "يرجى إدخال الهاتف", view_details: "شاهد التفاصيل",
         trips: [
           { name: "دولفين هاوس", img: "ptjsP.jpg", desc: "سباحة مع الدلافين + سنوركلينج + غداء ومشروبات + انتقالات", tag: "الغردقة" },
           { name: "أورانج باي", img: "3dNyl.jpg", desc: "جزيرة + سنوركلينج + غداء ومشروبات + انتقالات", tag: "الغردقة" },
-          { name: "بايرتس بوت", img: "sea-trips/pirates/1.png", desc: "رحلة بحرية شاملة على متن Pirates Boat مع أنشطة وخدمات مميزة", tag: "الغردقة", link: "sea-trips/pirates/" },
-          { name: "رويال بوت", img: "sea-trips/royal/1.png", desc: "تجربة بحرية راقية ومناسبة للعائلات والمجموعات", tag: "الغردقة", link: "sea-trips/royal/" },
+          { name: "Pirates Boat", img: "sea-trips/pirates/1.png", desc: "رحلة بحرية شاملة على متن Pirates Boat مع أنشطة وخدمات مميزة", tag: "الغردقة", link: "sea-trips/pirates/" },
+          { name: "Royal Boat", img: "sea-trips/royal/1.png", desc: "تجربة بحرية راقية ومناسبة للعائلات والمجموعات", tag: "الغردقة", link: "sea-trips/royal/" },
           { name: "أبو دباب", img: "ajWpB.jpg", desc: "سلاحف وشعاب مرجانية + إفطار وغداء + انتقالات", tag: "مرسى علم" },
           { name: "سفاري الصحراء", img: "9j2wQ.jpg", desc: "مغامرة صحراوية بالبيتش باجي", tag: "الغردقة" },
           { name: "براشوت", img: "OQ6wQ.jpg", desc: "إطلالة بحرية بانورامية من الأعلى", tag: "الغردقة" },
@@ -157,7 +186,7 @@
         ]
       },
       en: {
-        dir: 'ltr', brand: "Elreham Tours", n_home: "Home", n_flights: "Flights", n_trips: "Trips", h_title: "Domestic Trips", h_sub: "Explore & Book Best Activities", l_trip: "Select Trip", l_date: "Date", l_phone: "Phone Number", l_email: "Email", f_f: "Flights", f_d: "Trips", btn_book: "Book Now", lb_btn: "WhatsApp Book", wa_intro: "Hello Elreham Tours, I want to book a trip:", err: "Enter phone",
+        dir: 'ltr', brand: "Elreham Tours", n_home: "Home", n_flights: "Flights", n_trips: "Trips", h_title: "Domestic Trips", h_sub: "Explore & Book Best Activities", l_trip: "Select Trip", l_date: "Date", l_phone: "Phone Number", l_email: "Email", f_f: "Flights", f_d: "Trips", btn_book: "Book Now", lb_btn: "WhatsApp Book", wa_intro: "Hello Elreham Tours, I want to book a trip:", err: "Enter phone", view_details: "View Details",
         trips: [
           { name: "Dolphin House", img: "ptjsP.jpg", desc: "Swim with dolphins + snorkeling + lunch & drinks + transfers", tag: "Hurghada" },
           { name: "Orange Bay", img: "3dNyl.jpg", desc: "Island + snorkeling + lunch & drinks + transfers", tag: "Hurghada" },
@@ -172,7 +201,7 @@
         ]
       },
       ru: {
-        dir: 'ltr', brand: "Elreham Tours", n_home: "Главная", n_flights: "Авиабилеты", n_trips: "Туры", h_title: "Внутренние туры", h_sub: "Лучшие развлечения в Египте", l_trip: "Выберите тур", l_date: "Дата", l_phone: "Телефон", l_email: "Email", f_f: "Билеты", f_d: "Туры", btn_book: "Забронировать", lb_btn: "WhatsApp Бронь", wa_intro: "Здравствуйте, Elreham Tours, хочу забронировать тур:", err: "Введите номер",
+        dir: 'ltr', brand: "Elreham Tours", n_home: "Главная", n_flights: "Авиабилеты", n_trips: "Туры", h_title: "Внутренние туры", h_sub: "Лучшие развлечения в Египте", l_trip: "Выберите тур", l_date: "Дата", l_phone: "Телефон", l_email: "Email", f_f: "Билеты", f_d: "Туры", btn_book: "Забронировать", lb_btn: "WhatsApp Бронь", wa_intro: "Здравствуйте, Elreham Tours, хочу забронировать тур:", err: "Введите номер", view_details: "Подробнее",
         trips: [
           { name: "Дом Дельфинов", img: "ptjsP.jpg", desc: "Плавание с дельфинами + снорклинг + обед и напитки + трансфер", tag: "Хургада" },
           { name: "Оранж Бэй", img: "3dNyl.jpg", desc: "Остров + снорклинг + обед и напитки + трансфер", tag: "Хургада" },
@@ -187,7 +216,7 @@
         ]
       },
       de: {
-        dir: 'ltr', brand: "Elreham Tours", n_home: "Startseite", n_flights: "Flugbuchung", n_trips: "Reisen", h_title: "Inlandsreisen", h_sub: "Beste Aktivitäten buchen", l_trip: "Reise wählen", l_date: "Datum", l_phone: "Telefon", l_email: "E-Mail", f_f: "Flüge", f_d: "Reisen", btn_book: "Jetzt Buchen", lb_btn: "WhatsApp Buchung", wa_intro: "Hallo Elreham Tours, ich möchte eine Reise buchen:", err: "Nummer eingeben",
+        dir: 'ltr', brand: "Elreham Tours", n_home: "Startseite", n_flights: "Flugbuchung", n_trips: "Reisen", h_title: "Inlandsreisen", h_sub: "Beste Aktivitäten buchen", l_trip: "Reise wählen", l_date: "Datum", l_phone: "Telefon", l_email: "E-Mail", f_f: "Flüge", f_d: "Reisen", btn_book: "Jetzt Buchen", lb_btn: "WhatsApp Buchung", wa_intro: "Hallo Elreham Tours, ich möchte eine Reise buchen:", err: "Nummer eingeben", view_details: "Details ansehen",
         trips: [
           { name: "Delfinhaus", img: "ptjsP.jpg", desc: "Schwimmen mit Delfinen + Schnorcheln + Mittagessen & Getränke + Transfer", tag: "Hurghada" },
           { name: "Orange Bay", img: "3dNyl.jpg", desc: "Insel + Schnorcheln + Mittagessen & Getränke + Transfer", tag: "Hurghada" },
@@ -212,10 +241,11 @@
         const href = link.getAttribute('href').split('?')[0];
         link.setAttribute('href', `${href}?lang=${l}`);
       });
+      localStorage.setItem('elreham_lang', l);
     }
 
     function setLanguage(l) {
-      curLang = l; const t = translations[l] || translations.ar; document.documentElement.dir = t.dir; curTrips = t.trips;
+      curLang = l; const t = translations[l] || translations.ar; document.documentElement.dir = t.dir; document.documentElement.lang = l; curTrips = t.trips;
 
       document.getElementById('brand-name').innerText = t.brand;
       document.getElementById('n-home').innerText = t.n_home; 
@@ -236,12 +266,12 @@
 
       document.getElementById('w-trip').innerHTML = t.trips.map(x => `<option value="${x.name}">${x.name}</option>`).join('');
       document.getElementById('album-grid').innerHTML = t.trips.map((x, i) => `
-        <div class="album-card group relative ${x.link ? 'has-link' : ''}" onclick="openLB(${i})">
-          <img src="${x.img}" loading="lazy">
+        <div class="album-card fade-card group relative ${x.link ? 'boat-card' : ''}" style="animation-delay:${i * 0.07}s" onclick="openLB(${i})">
+          <img src="${x.img}" loading="lazy" alt="${x.name}">
           <div class="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-black/90 via-black/40 to-transparent text-white text-right">
-            <span class="bg-[#F26522] text-[10px] font-black px-2 py-1 rounded-full mb-2 inline-block border border-white/20">${x.tag}</span>
+            <span class="bg-[#F26522] text-[10px] font-black px-2 py-1 rounded-full mb-2 inline-block border border-white/20 ${x.link ? 'boat-badge' : ''}">${x.tag}</span>
             <h3 class="text-xl font-black drop-shadow-md">${x.name}</h3>
-            ${x.link ? '<span class="inline-block mt-3 bg-[#F26522] text-white px-5 py-2 rounded-full text-xs font-black">شاهد التفاصيل</span>' : ''}
+            ${x.link ? `<span class="inline-block mt-3 bg-[#F26522] text-white px-5 py-2 rounded-full text-xs font-black hover:scale-105 transition-transform">${t.view_details}</span>` : ''}
           </div>
         </div>
       `).join('');
@@ -298,11 +328,9 @@
     window.onload = function() {
       const urlParams = new URLSearchParams(window.location.search);
       const langParam = urlParams.get('lang');
-      if (langParam && translations[langParam]) {
-        setLanguage(langParam);
-      } else {
-        setLanguage('ar');
-      }
+      const savedLang = localStorage.getItem('elreham_lang');
+      const finalLang = (langParam && translations[langParam]) ? langParam : (savedLang && translations[savedLang]) ? savedLang : 'ar';
+      setLanguage(finalLang);
 
       const today = new Date().toISOString().split('T')[0];
       const dateInput = document.getElementById('w-date');
