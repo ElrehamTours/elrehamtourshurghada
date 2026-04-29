@@ -14,10 +14,51 @@
     .glass-nav { background: rgba(6, 21, 44, 0.98); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.08); }
     .lang-btn { width: 38px; height: 38px; border-radius: 999px; color: white; font-weight: 900; font-size: 11px; transition: 0.3s; }
     .lang-active { background: var(--brand); box-shadow: 0 5px 15px rgba(242,101,34,.45); transform: scale(1.08); }
-    .banner { position: relative; width: 100%; height: 88vh; min-height: 620px; overflow: hidden; background: var(--navy); }
-    .slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease-in-out; background-size: cover; background-position: center; transform: scale(1.03); }
-    .slide.active { opacity: 1; animation: bannerZoom 6s ease-in-out forwards; }
-    @keyframes bannerZoom { from { transform: scale(1); } to { transform: scale(1.08); } }
+    .dynamic-banner {
+      position: relative;
+      width: 100%;
+      height: 92vh;
+      min-height: 650px;
+      overflow: hidden;
+      background: var(--navy);
+    }
+
+    .banner-track {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      width: 3000%;
+      height: 100%;
+      animation: slideTrack 48s linear infinite;
+    }
+
+    .banner-track:hover {
+      animation-play-state: paused;
+    }
+
+    .banner-img {
+      width: calc(100% / 30);
+      height: 100%;
+      flex-shrink: 0;
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.02);
+    }
+
+    @keyframes slideTrack {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    html[dir="rtl"] .banner-track {
+      animation-name: slideTrackRTL;
+    }
+
+    @keyframes slideTrackRTL {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(50%); }
+    }
+
     .banner-overlay { position: absolute; inset: 0; z-index: 2; background: linear-gradient(to bottom, rgba(6,21,44,.25), rgba(6,21,44,.55), rgba(6,21,44,.98)), radial-gradient(circle at center, rgba(242,101,34,.10), transparent 55%); }
     .banner-content { position: relative; z-index: 3; }
     .booking-box { background: white; border-radius: 2rem; box-shadow: 0 25px 55px rgba(0,0,0,.18); border-top: 5px solid var(--brand); }
@@ -52,8 +93,8 @@
     </div>
   </nav>
 
-  <section class="banner flex items-center justify-center text-center text-white px-4 pt-24">
-    <div id="slider"></div><div class="banner-overlay"></div>
+  <section class="dynamic-banner flex items-center justify-center text-center text-white px-4 pt-24">
+    <div id="banner-track" class="banner-track"></div><div class="banner-overlay"></div>
     <div class="banner-content max-w-5xl">
       <span class="inline-block bg-[#F26522] px-5 py-2 rounded-full text-sm font-black mb-5 shadow-lg">HURGHADA SEA TRIP</span>
       <h1 class="text-5xl md:text-8xl font-black mb-6 drop-shadow-2xl">Pirates Boat</h1>
@@ -108,7 +149,6 @@
   <script>
     const WA = "201129101092";
     const images = Array.from({ length: 15 }, (_, i) => `${i + 1}.png`);
-    let currentSlide = 0;
     let currentLang = "ar";
     const content = {
       ar:{dir:"rtl",brand:"الريهام تورز",home:"الرئيسية",trips:"الرحلات الداخلية",namePlaceholder:"الاسم",phonePlaceholder:"رقم الهاتف",heroDesc:"رحلة بحرية ممتعة في الغردقة على مركب بطابع مختلف، مناسبة للعائلات والأصحاب والتصوير.",sectionTitle:"يوم بحري شامل على البحر الأحمر",sectionText:"استمتع بتجربة بحرية متكاملة على متن Pirates Boat في الغردقة، حيث يجتمع البحر الصافي، أجواء المرح، الأنشطة البحرية، والخدمات المميزة في يوم واحد لا يُنسى.",detailsTitle:"الخدمات والأنشطة المتاحة",details:["Diving مع Guide متخصص للتوجيه والشرح","Snorkeling وسط أجواء البحر الأحمر","وجبة غداء على المركب","جلسات مساج للرفاهية والاسترخاء","Cameraman لتوثيق لحظات الرحلة","خدمات وأنشطة متاحة ضمن برنامج الرحلة"],bookingTitle:"احجز رحلة Pirates Boat",bookingBtn:"إرسال على واتساب",galleryBtn:"شاهد الصور",featuresTitle:"كل ده على المركب",featuresSub:"أنشطة وخدمات تخلي يومك في البحر أسهل وأمتع",f:["Diving مع Guide","تجربة غطس مع مرشد متخصص يساعدك ويوجهك خلال النشاط.","Snorkeling","استمتع بمشاهدة البحر الأحمر والشعاب والأسماك الملونة.","وجبة غداء","استراحة لذيذة على المركب وسط أجواء البحر.","مساج على المركب","لمسة رفاهية إضافية عشان اليوم يكون أهدى وألطف.","Cameraman","مصور لتوثيق أجمل لحظات الرحلة على المركب وفي البحر.","خدمات Included","مجموعة خدمات وأنشطة متاحة ضمن برنامج الرحلة."],galleryTitle:"صور Pirates Boat",gallerySub:"من أجواء الرحلة على الطبيعة",ctaTitle:"جاهز تعيش تجربة Pirates Boat؟",ctaSub:"تواصل معنا الآن واحجز رحلتك البحرية في الغردقة",btn:"احجز الآن",ctaBtn:"تواصل واتساب",wa:"أهلاً، أريد الاستفسار عن رحلة Pirates Boat"},
@@ -126,4 +166,13 @@
     window.onload=function(){buildSlider();buildGallery();const urlParams=new URLSearchParams(window.location.search);const langFromUrl=urlParams.get("lang");const savedLang=localStorage.getItem("elreham_lang");const finalLang=langFromUrl||savedLang||"ar";setLang(finalLang);};
   </script>
 </body>
-</html>
+</html>    function buildBanner() {
+      const track = document.getElementById("banner-track");
+      const repeatedImages = [...images, ...images];
+
+      track.innerHTML = repeatedImages.map(img => `
+        <div class="banner-img" style="background-image:url('${img}')"></div>
+      `).join("");
+    }
+
+
