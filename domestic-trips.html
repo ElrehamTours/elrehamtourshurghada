@@ -130,6 +130,46 @@
     </div>
   </header>
 
+  <!-- قسم الرحلات البحرية الجديد -->
+  <section class="py-16 px-4 md:px-6 max-w-7xl mx-auto" id="sea-trips-section">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl md:text-5xl font-black text-[#06152c] mb-3">رحلات بحرية</h2>
+      <p class="text-slate-500 font-bold">اختار السفينة وشاهد تفاصيل الرحلة والصور</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 md:gap-8">
+
+      <div onclick="location.href='sea-trips/pirates/'" class="album-card cursor-pointer bg-white">
+        <img src="1.png" alt="Pirates Boat">
+        <div class="p-6 text-right">
+          <span class="bg-[#F26522] text-white text-[10px] font-black px-3 py-1 rounded-full inline-block mb-3">الغردقة</span>
+          <h3 class="text-2xl font-black text-[#06152c] mb-2">Pirates Boat</h3>
+          <p class="text-slate-500 font-bold text-sm leading-relaxed mb-4">
+            رحلة بحرية ممتعة بأجواء مختلفة على البحر الأحمر.
+          </p>
+          <span class="bg-[#F26522] text-white px-6 py-2 rounded-full font-black text-sm inline-block">
+            شاهد التفاصيل
+          </span>
+        </div>
+      </div>
+
+      <div onclick="location.href='sea-trips/royal/'" class="album-card cursor-pointer bg-white">
+        <img src="2.png" alt="Royal Boat">
+        <div class="p-6 text-right">
+          <span class="bg-[#F26522] text-white text-[10px] font-black px-3 py-1 rounded-full inline-block mb-3">الغردقة</span>
+          <h3 class="text-2xl font-black text-[#06152c] mb-2">Royal Boat</h3>
+          <p class="text-slate-500 font-bold text-sm leading-relaxed mb-4">
+            تجربة بحرية راقية مناسبة للعائلات والمجموعات.
+          </p>
+          <span class="bg-[#F26522] text-white px-6 py-2 rounded-full font-black text-sm inline-block">
+            شاهد التفاصيل
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <section class="py-16 px-4 md:px-6 max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8" id="album-grid"></section>
 
   <!-- الشريط العائم للتبديل -->
@@ -197,7 +237,6 @@
     let curTrips = [];
     let curLang = 'ar';
 
-    // وظيفة لتحديث كافة الروابط في الصفحة لتشمل اللغة المختارة
     function updatePageLinks(l) {
       const links = document.querySelectorAll('a.link-auto, #link-logo, #float-flights, #float-trips');
       links.forEach(link => {
@@ -281,7 +320,6 @@
     }
 
     window.onload = function() {
-      // قراءة اللغة من الرابط إن وجدت
       const urlParams = new URLSearchParams(window.location.search);
       const langParam = urlParams.get('lang');
       if (langParam && translations[langParam]) {
