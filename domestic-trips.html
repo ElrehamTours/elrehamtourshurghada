@@ -72,7 +72,6 @@
 </head>
 <body class="pb-24">
 
-  <!-- Lightbox -->
   <div id="lightbox" onclick="closeLB()">
     <button class="absolute top-6 right-6 text-white hover:text-[#F26522] transition-colors z-[2001]"><svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
     <div class="lb-content shadow-2xl" onclick="event.stopPropagation()">
@@ -90,7 +89,6 @@
 
   <div id="toast-container" class="fixed top-24 left-1/2 transform -translate-x-1/2 z-[200] pointer-events-none text-center"></div>
 
-  <!-- Navbar -->
   <nav class="fixed top-0 inset-x-0 z-[100] glass-nav py-3 md:py-4">
     <div class="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between gap-4 text-white">
 
@@ -162,7 +160,6 @@
 
   <section class="py-16 px-4 md:px-6 max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8" id="album-grid"></section>
 
-  <!-- الشريط العائم للتبديل -->
   <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-[150] bg-[#06152c]/90 backdrop-blur-xl p-1.5 rounded-full shadow-2xl border border-white/10 flex items-center gap-1 w-max text-white">
     <a href="flights.html" id="float-flights" class="px-6 md:px-10 py-3 rounded-full font-black text-sm text-white/70 hover:text-white transition-all flex items-center gap-2">✈️ <span id="f-f">الطيران</span></a>
     <a href="domestic-trips.html" id="float-trips" class="px-6 md:px-10 py-3 rounded-full font-black text-sm bg-[#F26522] text-white shadow-lg pointer-events-none flex items-center gap-2">📍 <span id="f-d">رحلات داخلية</span></a>
@@ -176,7 +173,7 @@
           { name: "دولفين هاوس", img: "ptjsP.jpg", desc: "سباحة مع الدلافين + سنوركلينج + غداء ومشروبات + انتقالات", tag: "الغردقة" },
           { name: "أورانج باي", img: "3dNyl.jpg", desc: "جزيرة + سنوركلينج + غداء ومشروبات + انتقالات", tag: "الغردقة" },
           { name: "Pirates Boat", img: "sea-trips/pirates/1.png", desc: "رحلة بحرية شاملة على متن Pirates Boat مع أنشطة وخدمات مميزة", tag: "الغردقة", link: "sea-trips/pirates/" },
-          { name: "Royal Boat", img: "sea-trips/royal/1.png", desc: "تجربة بحرية راقية ومناسبة للعائلات والمجموعات", tag: "الغردقة", link: "sea-trips/royal/" },
+          { name: "Royal Boat", img: "sea-trips/royal/1.jpg", desc: "تجربة بحرية راقية ومناسبة للعائلات والمجموعات", tag: "الغردقة", link: "sea-trips/royal/" },
           { name: "أبو دباب", img: "ajWpB.jpg", desc: "سلاحف وشعاب مرجانية + إفطار وغداء + انتقالات", tag: "مرسى علم" },
           { name: "سفاري الصحراء", img: "9j2wQ.jpg", desc: "مغامرة صحراوية بالبيتش باجي", tag: "الغردقة" },
           { name: "براشوت", img: "OQ6wQ.jpg", desc: "إطلالة بحرية بانورامية من الأعلى", tag: "الغردقة" },
@@ -191,7 +188,7 @@
           { name: "Dolphin House", img: "ptjsP.jpg", desc: "Swim with dolphins + snorkeling + lunch & drinks + transfers", tag: "Hurghada" },
           { name: "Orange Bay", img: "3dNyl.jpg", desc: "Island + snorkeling + lunch & drinks + transfers", tag: "Hurghada" },
           { name: "Pirates Boat", img: "sea-trips/pirates/1.png", desc: "A full sea trip on Pirates Boat with activities and onboard services", tag: "Hurghada", link: "sea-trips/pirates/" },
-          { name: "Royal Boat", img: "sea-trips/royal/1.png", desc: "A premium sea trip suitable for families and groups", tag: "Hurghada", link: "sea-trips/royal/" },
+          { name: "Royal Boat", img: "sea-trips/royal/1.jpg", desc: "A premium sea trip suitable for families and groups", tag: "Hurghada", link: "sea-trips/royal/" },
           { name: "Abu Dabbab", img: "ajWpB.jpg", desc: "Turtles & coral reefs + breakfast & lunch + transfers", tag: "Marsa Alam" },
           { name: "Desert Safari", img: "9j2wQ.jpg", desc: "Desert adventure with quad bikes", tag: "Hurghada" },
           { name: "Parasailing", img: "OQ6wQ.jpg", desc: "Panoramic sea view from above", tag: "Hurghada" },
@@ -206,7 +203,7 @@
           { name: "Дом Дельфинов", img: "ptjsP.jpg", desc: "Плавание с дельфинами + снорклинг + обед и напитки + трансфер", tag: "Хургада" },
           { name: "Оранж Бэй", img: "3dNyl.jpg", desc: "Остров + снорклинг + обед и напитки + трансфер", tag: "Хургада" },
           { name: "Pirates Boat", img: "sea-trips/pirates/1.png", desc: "Морская прогулка на Pirates Boat с активностями и услугами на борту", tag: "Хургада", link: "sea-trips/pirates/" },
-          { name: "Royal Boat", img: "sea-trips/royal/1.png", desc: "Комфортная морская прогулка для семей и групп", tag: "Хургада", link: "sea-trips/royal/" },
+          { name: "Royal Boat", img: "sea-trips/royal/1.jpg", desc: "Комфортная морская прогулка для семей и групп", tag: "Хургада", link: "sea-trips/royal/" },
           { name: "Абу Даббаб", img: "ajWpB.jpg", desc: "Черепахи и рифы + завтрак и обед + трансфер", tag: "Марса-Алам" },
           { name: "Сафари", img: "9j2wQ.jpg", desc: "Приключение в пустыне на квадроциклах", tag: "Хургада" },
           { name: "Парасейлинг", img: "OQ6wQ.jpg", desc: "Панорамный вид на море сверху", tag: "Хургада" },
@@ -221,7 +218,7 @@
           { name: "Delfinhaus", img: "ptjsP.jpg", desc: "Schwimmen mit Delfinen + Schnorcheln + Mittagessen & Getränke + Transfer", tag: "Hurghada" },
           { name: "Orange Bay", img: "3dNyl.jpg", desc: "Insel + Schnorcheln + Mittagessen & Getränke + Transfer", tag: "Hurghada" },
           { name: "Pirates Boat", img: "sea-trips/pirates/1.png", desc: "Bootstour auf dem Pirates Boat mit Aktivitäten und Services an Bord", tag: "Hurghada", link: "sea-trips/pirates/" },
-          { name: "Royal Boat", img: "sea-trips/royal/1.png", desc: "Komfortable Bootstour für Familien und Gruppen", tag: "Hurghada", link: "sea-trips/royal/" },
+          { name: "Royal Boat", img: "sea-trips/royal/1.jpg", desc: "Komfortable Bootstour für Familien und Gruppen", tag: "Hurghada", link: "sea-trips/royal/" },
           { name: "Abu Dabbab", img: "ajWpB.jpg", desc: "Schildkröten & Korallen + Frühstück & Mittagessen + Transfer", tag: "Marsa Alam" },
           { name: "Wüstensafari", img: "9j2wQ.jpg", desc: "Wüstenabenteuer mit Quads", tag: "Hurghada" },
           { name: "Parasailing", img: "OQ6wQ.jpg", desc: "Meerblick von oben", tag: "Hurghada" },
