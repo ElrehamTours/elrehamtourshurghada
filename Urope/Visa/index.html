@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>التأشيرات والشنجن | El Reham Tours</title>
+  <title>التأشيرات وتجهيز الملفات | El Reham Tours</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
@@ -24,14 +24,13 @@
     .banner-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(6,21,44,.2), rgba(6,21,44,.95)); }
 
     .country-card {
-      background: white; border-radius: 1.5rem; padding: 1.5rem; text-align: center;
+      background: white; border-radius: 1.5rem; padding: 1.2rem; text-align: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.04); border: 1px solid #f1f5f9; transition: 0.4s;
     }
     .country-card:hover { transform: translateY(-8px); border-color: var(--brand); box-shadow: 0 20px 40px rgba(242,101,34,0.15); }
-    .flag-icon { font-size: 3.5rem; margin-bottom: 1rem; display: block; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1)); }
+    .flag-icon { font-size: 3rem; margin-bottom: 0.5rem; display: block; }
 
     .booking-box { background: white; border-radius: 2.5rem; box-shadow: 0 30px 60px rgba(0,0,0,0.15); border-top: 6px solid var(--brand); }
-    
     .special-label { background: linear-gradient(90deg, var(--brand), #ff8c42); color: white; padding: 5px 15px; border-radius: 50px; font-size: 13px; font-weight: 900; }
   </style>
 </head>
@@ -41,12 +40,12 @@
   <nav class="fixed top-0 inset-x-0 z-50 glass-nav py-3">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-between text-white gap-4">
       <a id="logo-link" href="../../index.html" class="flex items-center gap-3">
-        <div class="w-12 h-12 bg-white rounded-xl p-1"><img src="../../logo.png" class="w-full h-full object-contain" alt="Logo"></div>
+        <div class="w-12 h-12 bg-white rounded-xl p-1 shadow-inner"><img src="../../logo.png" class="w-full h-full object-contain" alt="Logo"></div>
         <div class="font-black text-lg" id="brand">الريهام تورز</div>
       </a>
       <div class="hidden md:flex items-center gap-6 font-bold text-sm">
-        <a id="home-link" href="../../index.html" class="hover:text-[#F26522] transition-colors">الرئيسية</a>
-        <a id="trips-link" href="../../domestic-trips.html" class="hover:text-[#F26522] transition-colors">الرحلات الداخلية</a>
+        <a id="home-link" href="../../index.html" class="hover:text-[#F26522]">الرئيسية</a>
+        <a id="trips-link" href="../../domestic-trips.html" class="hover:text-[#F26522]">الرحلات الداخلية</a>
       </div>
       <div class="flex items-center gap-2">
         <button onclick="setLang('ar')" id="btn-ar" class="lang-btn">AR</button>
@@ -62,10 +61,7 @@
     <div class="relative z-10 max-w-6xl">
       <div class="flex justify-center mb-5"><span id="hero-label" class="special-label uppercase tracking-tighter"></span></div>
       <h1 id="hero-title" class="text-3xl md:text-6xl font-black mb-3"></h1>
-      <p id="hero-desc" class="text-base md:text-xl font-bold opacity-80 mb-6"></p>
-      <div class="flex justify-center">
-        <a id="hero-btn" href="#" onclick="sendVisaRequest(); return false;" class="inline-block bg-[#F26522] text-white px-8 py-3 rounded-full font-black text-lg shadow-lg hover:scale-105 transition-transform"></a>
-      </div>
+      <p id="hero-desc" class="text-base md:text-xl font-bold opacity-80"></p>
     </div>
   </section>
 
@@ -74,20 +70,11 @@
       <h2 id="booking-title" class="text-2xl md:text-3xl font-black text-[#06152c] mb-6 text-center"></h2>
       <div class="grid md:grid-cols-4 gap-4 items-end">
         <div class="md:col-span-3 grid md:grid-cols-3 gap-4 text-right">
-          <div>
-            <label id="l-name" class="text-[10px] text-[#F26522] font-black block mb-1 px-2"></label>
-            <input id="v-name" class="w-full bg-slate-50 border-slate-100 border rounded-2xl p-4 font-bold outline-none focus:border-[#F26522] transition-all">
-          </div>
-          <div>
-            <label id="l-dest" class="text-[10px] text-[#F26522] font-black block mb-1 px-2"></label>
-            <input id="v-dest" class="w-full bg-slate-50 border-slate-100 border rounded-2xl p-4 font-bold outline-none focus:border-[#F26522] transition-all">
-          </div>
-          <div>
-            <label id="l-phone" class="text-[10px] text-[#F26522] font-black block mb-1 px-2"></label>
-            <input id="v-phone" class="w-full bg-slate-50 border-slate-100 border rounded-2xl p-4 font-bold outline-none focus:border-[#F26522] transition-all">
-          </div>
+          <div><label id="l-name" class="text-[10px] text-[#F26522] font-black block mb-1 px-2"></label><input id="v-name" class="w-full bg-slate-50 border-slate-100 border rounded-2xl p-4 font-bold outline-none focus:border-[#F26522]"></div>
+          <div><label id="l-dest" class="text-[10px] text-[#F26522] font-black block mb-1 px-2"></label><input id="v-dest" class="w-full bg-slate-50 border-slate-100 border rounded-2xl p-4 font-bold outline-none focus:border-[#F26522]"></div>
+          <div><label id="l-phone" class="text-[10px] text-[#F26522] font-black block mb-1 px-2"></label><input id="v-phone" class="w-full bg-slate-50 border-slate-100 border rounded-2xl p-4 font-bold outline-none focus:border-[#F26522]"></div>
         </div>
-        <button id="booking-btn" onclick="sendVisaRequest()" class="bg-[#25D366] text-white rounded-2xl font-black text-lg h-[60px] shadow-lg hover:bg-[#20b858] hover:scale-[1.02] active:scale-95 transition-all"></button>
+        <button id="booking-btn" onclick="sendVisaRequest()" class="bg-[#25D366] text-white rounded-2xl font-black text-lg h-[60px] shadow-lg hover:scale-[1.02] active:scale-95 transition-all"></button>
       </div>
     </div>
   </section>
@@ -97,68 +84,125 @@
       <h2 id="dest-title" class="text-3xl md:text-5xl font-black text-[#06152c] mb-4"></h2>
       <p id="dest-sub" class="text-slate-500 font-bold text-lg"></p>
     </div>
-    <div id="countries-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6"></div>
-  </section>
-
-  <section class="py-16 bg-slate-50 px-4">
-    <div class="max-w-4xl mx-auto bg-white border border-slate-200 p-8 rounded-[3rem] text-center shadow-sm">
-      <h3 id="spec-title" class="text-2xl font-black text-[#06152c] mb-4"></h3>
-      <p id="spec-desc" class="text-slate-600 font-bold leading-relaxed"></p>
-      <div class="flex justify-center gap-4 mt-6 text-4xl drop-shadow-md">🇵🇸 🇸🇾 🇱🇾 🇸🇩 🇾🇪</div>
-    </div>
+    <div id="countries-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6"></div>
   </section>
 
   <script>
     const WA_PHONE = "201129101092";
-    
-    // الأعلام الثابتة لجميع اللغات
-    const flags = ["🇪🇺", "🇦🇪", "🇸🇦", "🇹🇷", "🇺🇸", "🇬🇧"];
+    const visas = [
+      {f:"🇺🇸", ar:"أمريكا", en:"USA", ru:"США", de:"USA"},
+      {f:"🇬🇧", ar:"إنجلترا", en:"UK", ru:"Англия", de:"England"},
+      {f:"🇨🇦", ar:"كندا", en:"Canada", ru:"Канада", de:"Kanada"},
+      {f:"🇫🇷", ar:"فرنسا", en:"France", ru:"Франция", de:"Frankreich"},
+      {f:"🇮🇹", ar:"إيطاليا", en:"Italy", ru:"Италия", de:"Italien"},
+      {f:"🇪🇸", ar:"إسبانيا", en:"Spain", ru:"Испания", de:"Spanien"},
+      {f:"🇩🇪", ar:"ألمانيا", en:"Germany", ru:"Германия", de:"Deutschland"},
+      {f:"🇳🇱", ar:"هولندا", en:"Netherlands", ru:"Нидерланды", de:"Niederlande"},
+      {f:"🇬🇷", ar:"اليونان", en:"Greece", ru:"Греция", de:"Griechenland"},
+      {f:"🇭🇷", ar:"كرواتيا", en:"Croatia", ru:"Хорватия", de:"Kroatien"},
+      {f:"🇹🇷", ar:"تركيا", en:"Turkey", ru:"Турция", de:"Türkei"},
+      {f:"🇯🇵", ar:"اليابان", en:"Japan", ru:"Япония", de:"Japan"},
+      {f:"🇨🇳", ar:"الصين", en:"China", ru:"Китай", de:"China"},
+      {f:"🇹🇭", ar:"تايلاند", en:"Thailand", ru:"Таиланд", de:"Thailand"},
+      {f:"🇰🇷", ar:"كوريا الجنوبية", en:"South Korea", ru:"Южная Корея", de:"Südkorea"},
+      {f:"🇲🇦", ar:"المغرب", en:"Morocco", ru:"Марокко", de:"Marokko"},
+      {f:"🇹🇳", ar:"تونس", en:"Tunisia", ru:"Тунис", de:"Tunesien"},
+      {f:"🇩🇿", ar:"الجزائر", en:"Algeria", ru:"Алжир", de:"Algerien"},
+      {f:"🇧🇷", ar:"البرازيل", en:"Brazil", ru:"Бразилия", de:"Brasilien"},
+      {f:"🇦🇺", ar:"أستراليا", en:"Australia", ru:"Австралия", de:"Australien"}
+    ];
 
-    // قاموس الترجمة المحدث بالكامل والمربوط بالـ IDs
     const content = {
       ar: {
         dir: "rtl", brand: "الريهام تورز", home: "الرئيسية", trips: "الرحلات الداخلية",
-        heroL: "مركز تأشيرات معتمد",
+        heroL: "خدمات التأشيرات العالمية",
         heroT: "استخراج تأشيرات سياحة وتجهيز ملفات شنجن",
-        heroD: "وجهتك القادمة تبدأ من هنا.. نخدم جميع الجنسيات بدقة واحترافية عالية لضمان القبول.",
-        heroB: "تواصل للاستفسار",
-        bookT: "جهز ملفك الآن",
-        lN: "الاسم بالكامل", lD: "الوجهة المطلوبة", lP: "رقم الهاتف",
-        pN: "اكتب اسمك", pD: "دولة السفر", pP: "رقمك",
-        bookB: "تواصل واتساب",
-        destT: "أهم الوجهات والخدمات", destS: "نحن خبراء في استخراج تأشيرات الدول التالية وكافة دول العالم",
-        countries: ["الشنجن", "دبي", "السعودية", "تركيا", "أمريكا", "بريطانيا"],
-        specT: "خدمة خاصة لجميع الجنسيات",
-        specD: "نتميز بتجهيز ملفات التأشيرات للأخوة الفلسطينيين (وثائق مصرية وغيرها)، السوريين، الليبيين، السودانيين، واليمنيين.",
+        heroD: "تجهيز ملفك بالكامل لجميع الجنسيات مع ضمان أعلى نسب القبول وحجز الفنادق عالمياً.",
+        bookT: "ابدأ إجراءات تأشيرتك الآن",
+        lN: "الاسم", lD: "الوجهة", lP: "الهاتف", bookB: "تواصل واتساب",
+        destT: "وجهاتنا حول العالم", destS: "نخدمك في استخراج التأشيرات للدول التالية وكافة دول العالم",
         waMsg: "أهلاً الريهام تورز، أريد استشارة بخصوص تأشيرة لـ: "
       },
       en: {
         dir: "ltr", brand: "El Reham Tours", home: "Home", trips: "Domestic Trips",
-        heroL: "Certified Visa Center",
-        heroT: "Tourist Visas & Schengen File Prep",
-        heroD: "Your next destination starts here. We serve all nationalities with high precision to ensure approval.",
-        heroB: "Contact Us",
-        bookT: "Prepare Your File Now",
-        lN: "Full Name", lD: "Destination", lP: "Phone Number",
-        pN: "Enter your name", pD: "Country", pP: "Your number",
-        bookB: "WhatsApp Us",
-        destT: "Top Destinations", destS: "We are experts in processing visas for the following countries and worldwide",
-        countries: ["Schengen", "Dubai", "Saudi Arabia", "Turkey", "USA", "UK"],
-        specT: "Special Service for All Nationalities",
-        specD: "We specialize in visa files for Palestinians, Syrians, Libyans, Sudanese, and Yemenis.",
+        heroL: "Global Visa Services",
+        heroT: "Tourist Visas & Schengen File Preparation",
+        heroD: "Full document preparation for all nationalities with the highest approval rates and worldwide hotel bookings.",
+        bookT: "Start Your Visa Process Now",
+        lN: "Name", lD: "Destination", lP: "Phone", bookB: "WhatsApp Us",
+        destT: "Our Global Destinations", destS: "We assist you in obtaining visas for the following countries and worldwide",
         waMsg: "Hello El Reham Tours, I need a visa consultation for: "
       },
       ru: {
         dir: "ltr", brand: "El Reham Tours", home: "Главная", trips: "Внутренние туры",
-        heroL: "Сертифицированный визовый центр",
+        heroL: "Глобальные визовые услуги",
         heroT: "Туристические визы и Шенген",
-        heroD: "Мы обслуживаем все национальности с высокой точностью для гарантии одобрения.",
-        heroB: "Связаться с нами",
-        bookT: "Подготовьте документы сейчас",
-        lN: "Полное имя", lD: "Направление", lP: "Телефон",
-        pN: "Ваше имя", pD: "Страна", pP: "Ваш номер",
-        bookB: "Написать в WhatsApp",
-        destT: "Популярные направления", destS: "Мы оформляем визы в следующие страны и по всему миру",
-        countries: ["Шенген", "Дубай", "Саудовская Аравия", "Турция", "США", "Великобритания"],
-        specT: "Особый сервис для всех",
-        specD: "Мы специализируемся на оформлении виз для граждан Палестины, Сирии
+        heroD: "Полная подготовка документов для всех национальностей и бронирование отелей по всему миру.",
+        bookT: "Начните оформление визы сейчас",
+        lN: "Имя", lD: "Направление", lP: "Телефон", bookB: "Написать в WhatsApp",
+        destT: "Наши направления", destS: "Мы помогаем в получении виз в следующие страны и по всему миру",
+        waMsg: "Здравствуйте, El Reham Tours, мне нужна консультация по визе в: "
+      },
+      de: {
+        dir: "ltr", brand: "El Reham Tours", home: "Startseite", trips: "Inlandsreisen",
+        heroL: "Globale Visadienste",
+        heroT: "Touristenvisa & Schengen-Vorbereitung",
+        heroD: "Komplette Aktenvorbereitung für alle Nationalitäten und weltweite Hotelbuchungen.",
+        bookT: "Visumprozess jetzt starten",
+        lN: "Name", lD: "Reiseziel", lP: "Telefon", bookB: "WhatsApp uns",
+        destT: "Unsere Reiseziele", destS: "Wir unterstützen Sie bei der Erteilung von Visa für folgende Länder und weltweit",
+        waMsg: "Hallo El Reham Tours, ich benötige eine Visumberatung für: "
+      }
+    };
+
+    function setLang(lang) {
+      const t = content[lang] || content.ar;
+      document.documentElement.lang = lang; document.documentElement.dir = t.dir;
+
+      document.getElementById("brand").innerText = t.brand;
+      document.getElementById("home-link").innerText = t.home;
+      document.getElementById("trips-link").innerText = t.trips;
+      document.getElementById("hero-label").innerText = t.heroL;
+      document.getElementById("hero-title").innerText = t.heroT;
+      document.getElementById("hero-desc").innerText = t.heroD;
+      document.getElementById("booking-title").innerText = t.bookT;
+      document.getElementById("l-name").innerText = t.lN;
+      document.getElementById("l-dest").innerText = t.lD;
+      document.getElementById("l-phone").innerText = t.lP;
+      document.getElementById("booking-btn").innerText = t.bookB;
+      document.getElementById("dest-title").innerText = t.destT;
+      document.getElementById("dest-sub").innerText = t.destS;
+
+      document.getElementById('countries-grid').innerHTML = visas.map(v => `
+        <div class="country-card">
+          <span class="flag-icon">${v.f}</span>
+          <h4 class="font-black text-[#06152c] text-lg">${v[lang] || v.ar}</h4>
+        </div>
+      `).join('');
+
+      document.getElementById("logo-link").href = "../../index.html?lang=" + lang;
+      document.getElementById("home-link").href = "../../index.html?lang=" + lang;
+      document.getElementById("trips-link").href = "../../domestic-trips.html?lang=" + lang;
+
+      document.querySelectorAll(".lang-btn").forEach(btn => btn.classList.remove("lang-active"));
+      document.getElementById("btn-" + lang).classList.add("lang-active");
+      localStorage.setItem("elreham_lang", lang);
+    }
+
+    function sendVisaRequest() {
+      const lang = localStorage.getItem("elreham_lang") || "ar";
+      const t = content[lang] || content.ar;
+      const name = document.getElementById("v-name").value || "-";
+      const dest = document.getElementById("v-dest").value || "-";
+      const phone = document.getElementById("v-phone").value || "-";
+      const msg = `${t.waMsg}${dest}\nName: ${name}\nPhone: ${phone}`;
+      window.open(`https://wa.me/${WA_PHONE}?text=${encodeURIComponent(msg)}`, "_blank");
+    }
+
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      setLang(urlParams.get("lang") || localStorage.getItem("elreham_lang") || "ar");
+    };
+  </script>
+</body>
+</html>
