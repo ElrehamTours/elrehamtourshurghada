@@ -60,21 +60,34 @@
   <section class="top-banner text-center text-white px-4">
     <div class="banner-overlay"></div>
     <div class="relative z-10 max-w-6xl">
-      <div class="flex justify-center mb-5"><span class="special-label uppercase tracking-tighter">Professional Visa Center</span></div>
+      <div class="flex justify-center mb-5"><span id="hero-label" class="special-label uppercase tracking-tighter"></span></div>
       <h1 id="hero-title" class="text-3xl md:text-6xl font-black mb-3"></h1>
-      <p id="hero-desc" class="text-base md:text-xl font-bold opacity-80"></p>
+      <p id="hero-desc" class="text-base md:text-xl font-bold opacity-80 mb-6"></p>
+      <div class="flex justify-center">
+        <a id="hero-btn" href="#" onclick="sendVisaRequest(); return false;" class="inline-block bg-[#F26522] text-white px-8 py-3 rounded-full font-black text-lg shadow-lg hover:scale-105 transition-transform"></a>
+      </div>
     </div>
   </section>
 
   <section class="relative z-10 -mt-16 px-4 max-w-5xl mx-auto">
     <div class="booking-box p-6 md:p-10">
+      <h2 id="booking-title" class="text-2xl md:text-3xl font-black text-[#06152c] mb-6 text-center"></h2>
       <div class="grid md:grid-cols-4 gap-4 items-end">
         <div class="md:col-span-3 grid md:grid-cols-3 gap-4 text-right">
-          <div><label id="l-name" class="text-[10px] text-brand font-black block mb-1 px-2"></label><input id="v-name" class="w-full bg-slate-50 border-slate-100 border rounded-2xl p-4 font-bold outline-none focus:border-[#F26522] transition-all"></div>
-          <div><label id="l-dest" class="text-[10px] text-brand font-black block mb-1 px-2"></label><input id="v-dest" class="w-full bg-slate-50 border-slate-100 border rounded-2xl p-4 font-bold outline-none focus:border-[#F26522] transition-all"></div>
-          <div><label id="l-phone" class="text-[10px] text-brand font-black block mb-1 px-2"></label><input id="v-phone" class="w-full bg-slate-50 border-slate-100 border rounded-2xl p-4 font-bold outline-none focus:border-[#F26522] transition-all"></div>
+          <div>
+            <label id="l-name" class="text-[10px] text-[#F26522] font-black block mb-1 px-2"></label>
+            <input id="v-name" class="w-full bg-slate-50 border-slate-100 border rounded-2xl p-4 font-bold outline-none focus:border-[#F26522] transition-all">
+          </div>
+          <div>
+            <label id="l-dest" class="text-[10px] text-[#F26522] font-black block mb-1 px-2"></label>
+            <input id="v-dest" class="w-full bg-slate-50 border-slate-100 border rounded-2xl p-4 font-bold outline-none focus:border-[#F26522] transition-all">
+          </div>
+          <div>
+            <label id="l-phone" class="text-[10px] text-[#F26522] font-black block mb-1 px-2"></label>
+            <input id="v-phone" class="w-full bg-slate-50 border-slate-100 border rounded-2xl p-4 font-bold outline-none focus:border-[#F26522] transition-all">
+          </div>
         </div>
-        <button onclick="sendVisaRequest()" class="bg-[#F26522] text-white rounded-2xl font-black text-lg h-[60px] shadow-lg hover:bg-[#d9531e] hover:scale-[1.02] active:scale-95 transition-all">تواصل واتساب</button>
+        <button id="booking-btn" onclick="sendVisaRequest()" class="bg-[#25D366] text-white rounded-2xl font-black text-lg h-[60px] shadow-lg hover:bg-[#20b858] hover:scale-[1.02] active:scale-95 transition-all"></button>
       </div>
     </div>
   </section>
@@ -89,95 +102,63 @@
 
   <section class="py-16 bg-slate-50 px-4">
     <div class="max-w-4xl mx-auto bg-white border border-slate-200 p-8 rounded-[3rem] text-center shadow-sm">
-      <h3 id="spec-title" class="text-2xl font-black text-navy mb-4"></h3>
+      <h3 id="spec-title" class="text-2xl font-black text-[#06152c] mb-4"></h3>
       <p id="spec-desc" class="text-slate-600 font-bold leading-relaxed"></p>
-      <div id="spec-flags" class="flex justify-center gap-4 mt-6 text-3xl">🇵🇸 🇸🇾 🇱🇾 🇸🇩 🇾🇪</div>
+      <div class="flex justify-center gap-4 mt-6 text-4xl drop-shadow-md">🇵🇸 🇸🇾 🇱🇾 🇸🇩 🇾🇪</div>
     </div>
   </section>
 
   <script>
     const WA_PHONE = "201129101092";
-    const visaList = [
-      { f: "🇪🇺", ar: "الشنجن", en: "Schengen", ru: "Шенген", de: "Schengen" },
-      { f: "🇦🇪", ar: "دبي", en: "Dubai", ru: "Дубай", de: "Dubai" },
-      { f: "🇸🇦", ar: "السعودية", en: "Saudi Arabia", ru: "Саудовская Аравия", de: "Saudi-Arabien" },
-      { f: "🇹🇷", ar: "تركيا", en: "Turkey", ru: "Турция", de: "Türkei" },
-      { f: "🇺🇸", ar: "أمريكا", en: "USA", ru: "США", de: "USA" },
-      { f: "🇬🇧", ar: "بريطانيا", en: "UK", ru: "Великобритания", de: "UK" }
-    ];
+    
+    // الأعلام الثابتة لجميع اللغات
+    const flags = ["🇪🇺", "🇦🇪", "🇸🇦", "🇹🇷", "🇺🇸", "🇬🇧"];
 
+    // قاموس الترجمة المحدث بالكامل والمربوط بالـ IDs
     const content = {
       ar: {
         dir: "rtl", brand: "الريهام تورز", home: "الرئيسية", trips: "الرحلات الداخلية",
+        heroL: "مركز تأشيرات معتمد",
         heroT: "استخراج تأشيرات سياحة وتجهيز ملفات شنجن",
         heroD: "وجهتك القادمة تبدأ من هنا.. نخدم جميع الجنسيات بدقة واحترافية عالية لضمان القبول.",
-        bookT: "جهز ملفك الآن", lN: "الاسم", lD: "الوجهة", lP: "الهاتف",
+        heroB: "تواصل للاستفسار",
+        bookT: "جهز ملفك الآن",
+        lN: "الاسم بالكامل", lD: "الوجهة المطلوبة", lP: "رقم الهاتف",
+        pN: "اكتب اسمك", pD: "دولة السفر", pP: "رقمك",
+        bookB: "تواصل واتساب",
         destT: "أهم الوجهات والخدمات", destS: "نحن خبراء في استخراج تأشيرات الدول التالية وكافة دول العالم",
+        countries: ["الشنجن", "دبي", "السعودية", "تركيا", "أمريكا", "بريطانيا"],
         specT: "خدمة خاصة لجميع الجنسيات",
         specD: "نتميز بتجهيز ملفات التأشيرات للأخوة الفلسطينيين (وثائق مصرية وغيرها)، السوريين، الليبيين، السودانيين، واليمنيين.",
         waMsg: "أهلاً الريهام تورز، أريد استشارة بخصوص تأشيرة لـ: "
       },
       en: {
         dir: "ltr", brand: "El Reham Tours", home: "Home", trips: "Domestic Trips",
-        heroT: "Tourist Visas & Schengen File Preparation",
+        heroL: "Certified Visa Center",
+        heroT: "Tourist Visas & Schengen File Prep",
         heroD: "Your next destination starts here. We serve all nationalities with high precision to ensure approval.",
-        bookT: "Prepare Your File", lN: "Name", lD: "Destination", lP: "Phone",
-        destT: "Key Destinations", destS: "We are experts in visas for the following countries and worldwide",
+        heroB: "Contact Us",
+        bookT: "Prepare Your File Now",
+        lN: "Full Name", lD: "Destination", lP: "Phone Number",
+        pN: "Enter your name", pD: "Country", pP: "Your number",
+        bookB: "WhatsApp Us",
+        destT: "Top Destinations", destS: "We are experts in processing visas for the following countries and worldwide",
+        countries: ["Schengen", "Dubai", "Saudi Arabia", "Turkey", "USA", "UK"],
         specT: "Special Service for All Nationalities",
         specD: "We specialize in visa files for Palestinians, Syrians, Libyans, Sudanese, and Yemenis.",
         waMsg: "Hello El Reham Tours, I need a visa consultation for: "
-      }
-      // يمكن تكرار نفس النمط لـ RU و DE
-    };
-
-    function setLang(lang) {
-      const t = content[lang] || content.ar;
-      document.documentElement.lang = lang; document.documentElement.dir = t.dir;
-      
-      document.getElementById("brand").innerText = t.brand;
-      document.getElementById("home-link").innerText = t.home;
-      document.getElementById("trips-link").innerText = t.trips;
-      document.getElementById("hero-title").innerText = t.heroT;
-      document.getElementById("hero-desc").innerText = t.heroD;
-      document.getElementById("dest-title").innerText = t.destT;
-      document.getElementById("dest-sub").innerText = t.destS;
-      document.getElementById("spec-title").innerText = t.specT;
-      document.getElementById("spec-desc").innerText = t.specD;
-
-      document.getElementById("l-name").innerText = t.lN;
-      document.getElementById("l-dest").innerText = t.lD;
-      document.getElementById("l-phone").innerText = t.lP;
-
-      document.getElementById('countries-grid').innerHTML = visaList.map(v => `
-        <div class="country-card">
-          <span class="flag-icon">${v.f}</span>
-          <h4 class="font-black text-[#06152c] text-xl">${v[lang] || v.ar}</h4>
-        </div>
-      `).join('');
-
-      document.getElementById("logo-link").href = "../../index.html?lang=" + lang;
-      document.getElementById("home-link").href = "../../index.html?lang=" + lang;
-      document.getElementById("trips-link").href = "../../domestic-trips.html?lang=" + lang;
-
-      document.querySelectorAll(".lang-btn").forEach(btn => btn.classList.remove("lang-active"));
-      document.getElementById("btn-" + lang).classList.add("lang-active");
-      localStorage.setItem("elreham_lang", lang);
-    }
-
-    function sendVisaRequest() {
-      const lang = localStorage.getItem("elreham_lang") || "ar";
-      const t = content[lang] || content.ar;
-      const name = document.getElementById("v-name").value || "-";
-      const dest = document.getElementById("v-dest").value || "-";
-      const phone = document.getElementById("v-phone").value || "-";
-      const msg = `${t.waMsg} ${dest}\nName: ${name}\nPhone: ${phone}`;
-      window.open(`https://wa.me/${WA_PHONE}?text=${encodeURIComponent(msg)}`, "_blank");
-    }
-
-    window.onload = function() {
-      const urlParams = new URLSearchParams(window.location.search);
-      setLang(urlParams.get("lang") || localStorage.getItem("elreham_lang") || "ar");
-    };
-  </script>
-</body>
-</html>
+      },
+      ru: {
+        dir: "ltr", brand: "El Reham Tours", home: "Главная", trips: "Внутренние туры",
+        heroL: "Сертифицированный визовый центр",
+        heroT: "Туристические визы и Шенген",
+        heroD: "Мы обслуживаем все национальности с высокой точностью для гарантии одобрения.",
+        heroB: "Связаться с нами",
+        bookT: "Подготовьте документы сейчас",
+        lN: "Полное имя", lD: "Направление", lP: "Телефон",
+        pN: "Ваше имя", pD: "Страна", pP: "Ваш номер",
+        bookB: "Написать в WhatsApp",
+        destT: "Популярные направления", destS: "Мы оформляем визы в следующие страны и по всему миру",
+        countries: ["Шенген", "Дубай", "Саудовская Аравия", "Турция", "США", "Великобритания"],
+        specT: "Особый сервис для всех",
+        specD: "Мы специализируемся на оформлении виз для граждан Палестины, Сирии
