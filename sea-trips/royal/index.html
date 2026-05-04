@@ -278,13 +278,48 @@
         </p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="feature-card"><div class="text-4xl mb-4">⛵</div><h3 id="f1-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f1-text" class="text-white/75 font-bold leading-relaxed"></p></div>
-        <div class="feature-card"><div class="text-4xl mb-4">🐠</div><h3 id="f2-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f2-text" class="text-white/75 font-bold leading-relaxed"></p></div>
-        <div class="feature-card"><div class="text-4xl mb-4">🍽️</div><h3 id="f3-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f3-text" class="text-white/75 font-bold leading-relaxed"></p></div>
-        <div class="feature-card"><div class="text-4xl mb-4">📸</div><h3 id="f4-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f4-text" class="text-white/75 font-bold leading-relaxed"></p></div>
-        <div class="feature-card"><div class="text-4xl mb-4">👨‍👩‍👧‍👦</div><h3 id="f5-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f5-text" class="text-white/75 font-bold leading-relaxed"></p></div>
-        <div class="feature-card"><div class="text-4xl mb-4">🎁</div><h3 id="f6-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f6-text" class="text-white/75 font-bold leading-relaxed"></p></div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="feature-card">
+          <div class="text-4xl mb-4">⛵</div>
+          <h3 id="f1-title" class="text-xl font-black text-[#F26522] mb-2"></h3>
+          <p id="f1-text" class="text-white/75 font-bold leading-relaxed"></p>
+        </div>
+
+        <div class="feature-card">
+          <div class="text-4xl mb-4">🐠</div>
+          <h3 id="f2-title" class="text-xl font-black text-[#F26522] mb-2"></h3>
+          <p id="f2-text" class="text-white/75 font-bold leading-relaxed"></p>
+        </div>
+
+        <div class="feature-card">
+          <div class="text-4xl mb-4">🍽️</div>
+          <h3 id="f3-title" class="text-xl font-black text-[#F26522] mb-2"></h3>
+          <p id="f3-text" class="text-white/75 font-bold leading-relaxed"></p>
+        </div>
+
+        <div class="feature-card">
+          <div class="text-4xl mb-4">📸</div>
+          <h3 id="f4-title" class="text-xl font-black text-[#F26522] mb-2"></h3>
+          <p id="f4-text" class="text-white/75 font-bold leading-relaxed"></p>
+        </div>
+
+        <div class="feature-card">
+          <div class="text-4xl mb-4">👨‍👩‍👧‍👦</div>
+          <h3 id="f5-title" class="text-xl font-black text-[#F26522] mb-2"></h3>
+          <p id="f5-text" class="text-white/75 font-bold leading-relaxed"></p>
+        </div>
+
+        <div class="feature-card">
+          <div class="text-4xl mb-4">💆</div>
+          <h3 id="f6-title" class="text-xl font-black text-[#F26522] mb-2"></h3>
+          <p id="f6-text" class="text-white/75 font-bold leading-relaxed"></p>
+        </div>
+
+        <div class="feature-card">
+          <div class="text-4xl mb-4">🎁</div>
+          <h3 id="f7-title" class="text-xl font-black text-[#F26522] mb-2"></h3>
+          <p id="f7-text" class="text-white/75 font-bold leading-relaxed"></p>
+        </div>
       </div>
     </div>
   </section>
@@ -336,64 +371,203 @@
 
     const content = {
       ar: {
-        dir: "rtl", brand: "الريهام تورز", home: "الرئيسية", trips: "الرحلات الداخلية",
-        namePlaceholder: "الاسم", phonePlaceholder: "رقم الهاتف",
+        dir: "rtl",
+        brand: "الريهام تورز",
+        home: "الرئيسية",
+        trips: "الرحلات الداخلية",
+        namePlaceholder: "الاسم",
+        phonePlaceholder: "رقم الهاتف",
         heroDesc: "تجربة بحرية راقية في الغردقة، مناسبة للعائلات والمجموعات ومحبي الراحة والهدوء.",
         sectionTitle: "يوم راقٍ على البحر الأحمر",
         sectionText: "Royal Boat تجربة بحرية مريحة تجمع بين جمال البحر الأحمر، أجواء منظمة، ووقت ممتع للسباحة والتصوير والاسترخاء.",
         detailsTitle: "تفاصيل التجربة",
-        details: ["رحلة بحرية مريحة ومنظمة","مناسبة للعائلات والمجموعات","وقت ممتع للسباحة والاسترخاء","فرصة رائعة للتصوير على المركب","حجز واستفسار مباشر عبر واتساب","أجواء هادئة وراقية طوال اليوم"],
-        bookingTitle: "احجز رحلة Royal Boat", bookingBtn: "إرسال على واتساب", galleryBtn: "شاهد الصور",
-        featuresTitle: "تجربة بحرية مريحة", featuresSub: "خدمات وأنشطة مناسبة ليوم راقٍ على البحر",
-        f: ["رحلة بحرية راقية","أجواء منظمة ومريحة لعشاق البحر.","سنوركلينج","استمتع بمياه البحر الأحمر والمناظر البحرية.","وجبة غداء","تجربة مريحة مع وقت مناسب للاستراحة.","تصوير","لحظات جميلة تستحق التوثيق.","مناسب للعائلات","اختيار جيد للعائلات والمجموعات.","خدمات الرحلة","تفاصيل منظمة لتجربة أسهل وأمتع."],
-        galleryTitle: "صور Royal Boat", gallerySub: "من أجواء الرحلة على الطبيعة",
-        ctaTitle: "جاهز تعيش تجربة Royal Boat؟", ctaSub: "تواصل معنا الآن واحجز رحلتك البحرية في الغردقة",
-        btn: "احجز الآن", ctaBtn: "تواصل واتساب", wa: "أهلاً، أريد الاستفسار عن رحلة Royal Boat"
+        details: [
+          "رحلة بحرية مريحة ومنظمة",
+          "مناسبة للعائلات والمجموعات",
+          "وقت ممتع للسباحة والاسترخاء",
+          "فرصة رائعة للتصوير على المركب",
+          "جلسة مساج لزيادة الراحة والاسترخاء",
+          "حجز واستفسار مباشر عبر واتساب",
+          "أجواء هادئة وراقية طوال اليوم"
+        ],
+        bookingTitle: "احجز رحلة Royal Boat",
+        bookingBtn: "إرسال على واتساب",
+        galleryBtn: "شاهد الصور",
+        featuresTitle: "تجربة بحرية مريحة",
+        featuresSub: "خدمات وأنشطة مناسبة ليوم راقٍ على البحر",
+        f: [
+          "رحلة بحرية راقية",
+          "أجواء منظمة ومريحة لعشاق البحر.",
+          "سنوركلينج",
+          "استمتع بمياه البحر الأحمر والمناظر البحرية.",
+          "وجبة غداء",
+          "تجربة مريحة مع وقت مناسب للاستراحة.",
+          "تصوير",
+          "لحظات جميلة تستحق التوثيق.",
+          "مناسب للعائلات",
+          "اختيار جيد للعائلات والمجموعات.",
+          "مساج على المركب",
+          "لمسة راحة إضافية تساعدك على الاسترخاء أثناء اليوم.",
+          "خدمات الرحلة",
+          "تفاصيل منظمة لتجربة أسهل وأمتع."
+        ],
+        galleryTitle: "صور Royal Boat",
+        gallerySub: "من أجواء الرحلة على الطبيعة",
+        ctaTitle: "جاهز تعيش تجربة Royal Boat؟",
+        ctaSub: "تواصل معنا الآن واحجز رحلتك البحرية في الغردقة",
+        btn: "احجز الآن",
+        ctaBtn: "تواصل واتساب",
+        wa: "أهلاً، أريد الاستفسار عن رحلة Royal Boat"
       },
+
       en: {
-        dir: "ltr", brand: "El Reham Tours", home: "Home", trips: "Domestic Trips",
-        namePlaceholder: "Name", phonePlaceholder: "Phone number",
+        dir: "ltr",
+        brand: "El Reham Tours",
+        home: "Home",
+        trips: "Domestic Trips",
+        namePlaceholder: "Name",
+        phonePlaceholder: "Phone number",
         heroDesc: "A premium sea trip in Hurghada, perfect for families, groups, and guests who love comfort and calm vibes.",
         sectionTitle: "A premium Red Sea day",
         sectionText: "Royal Boat is a comfortable sea experience combining the beauty of the Red Sea, organized vibes, swimming, photos, and relaxation.",
         detailsTitle: "Experience details",
-        details: ["Comfortable and organized sea trip","Suitable for families and groups","Time for swimming and relaxation","Great photo moments on board","Direct booking and inquiries via WhatsApp","Calm and premium atmosphere all day"],
-        bookingTitle: "Book Royal Boat", bookingBtn: "Send on WhatsApp", galleryBtn: "View Photos",
-        featuresTitle: "Comfortable Sea Experience", featuresSub: "Services and activities for a premium sea day",
-        f: ["Premium Boat Trip","Organized and relaxing vibes for sea lovers.","Snorkeling","Enjoy Red Sea waters and marine views.","Lunch Meal","A comfortable break during the trip.","Photography","Beautiful moments worth capturing.","Family Friendly","A good choice for families and groups.","Trip Services","Organized details for an easier and better experience."],
-        galleryTitle: "Royal Boat Gallery", gallerySub: "Real moments from the trip",
-        ctaTitle: "Ready for Royal Boat?", ctaSub: "Contact us now and book your Hurghada sea trip",
-        btn: "Book now", ctaBtn: "WhatsApp us", wa: "Hello, I would like to ask about Royal Boat trip"
+        details: [
+          "Comfortable and organized sea trip",
+          "Suitable for families and groups",
+          "Time for swimming and relaxation",
+          "Great photo moments on board",
+          "Massage session for extra comfort and relaxation",
+          "Direct booking and inquiries via WhatsApp",
+          "Calm and premium atmosphere all day"
+        ],
+        bookingTitle: "Book Royal Boat",
+        bookingBtn: "Send on WhatsApp",
+        galleryBtn: "View Photos",
+        featuresTitle: "Comfortable Sea Experience",
+        featuresSub: "Services and activities for a premium sea day",
+        f: [
+          "Premium Boat Trip",
+          "Organized and relaxing vibes for sea lovers.",
+          "Snorkeling",
+          "Enjoy Red Sea waters and marine views.",
+          "Lunch Meal",
+          "A comfortable break during the trip.",
+          "Photography",
+          "Beautiful moments worth capturing.",
+          "Family Friendly",
+          "A good choice for families and groups.",
+          "Massage on Board",
+          "An extra comfort touch for more relaxation during the day.",
+          "Trip Services",
+          "Organized details for an easier and better experience."
+        ],
+        galleryTitle: "Royal Boat Gallery",
+        gallerySub: "Real moments from the trip",
+        ctaTitle: "Ready for Royal Boat?",
+        ctaSub: "Contact us now and book your Hurghada sea trip",
+        btn: "Book now",
+        ctaBtn: "WhatsApp us",
+        wa: "Hello, I would like to ask about Royal Boat trip"
       },
+
       ru: {
-        dir: "ltr", brand: "El Reham Tours", home: "Главная", trips: "Внутренние туры",
-        namePlaceholder: "Имя", phonePlaceholder: "Телефон",
+        dir: "ltr",
+        brand: "El Reham Tours",
+        home: "Главная",
+        trips: "Внутренние туры",
+        namePlaceholder: "Имя",
+        phonePlaceholder: "Телефон",
         heroDesc: "Комфортная морская прогулка в Хургаде для семей, групп и тех, кто любит спокойный отдых.",
         sectionTitle: "Комфортный день на Красном море",
         sectionText: "Royal Boat — это спокойная морская прогулка с красивыми видами Красного моря, плаванием, фотографиями и отдыхом.",
         detailsTitle: "Детали прогулки",
-        details: ["Комфортная и организованная морская прогулка","Подходит для семей и групп","Время для плавания и отдыха","Отличные фото на борту","Бронирование через WhatsApp","Спокойная атмосфера в течение дня"],
-        bookingTitle: "Забронировать Royal Boat", bookingBtn: "Отправить в WhatsApp", galleryBtn: "Фото",
-        featuresTitle: "Комфортная морская прогулка", featuresSub: "Услуги и активности для приятного отдыха",
-        f: ["Морская прогулка","Комфортная атмосфера для любителей моря.","Снорклинг","Наслаждайтесь Красным морем.","Обед","Приятный перерыв во время поездки.","Фотографии","Красивые моменты на память.","Для семей","Подходит для семей и групп.","Услуги поездки","Организованные детали для удобного отдыха."],
-        galleryTitle: "Фото Royal Boat", gallerySub: "Реальные моменты поездки",
-        ctaTitle: "Готовы к Royal Boat?", ctaSub: "Свяжитесь с нами и забронируйте морскую прогулку",
-        btn: "Забронировать", ctaBtn: "WhatsApp", wa: "Здравствуйте, хочу узнать о прогулке Royal Boat"
+        details: [
+          "Комфортная и организованная морская прогулка",
+          "Подходит для семей и групп",
+          "Время для плавания и отдыха",
+          "Отличные фото на борту",
+          "Массаж для дополнительного комфорта и отдыха",
+          "Бронирование через WhatsApp",
+          "Спокойная атмосфера в течение дня"
+        ],
+        bookingTitle: "Забронировать Royal Boat",
+        bookingBtn: "Отправить в WhatsApp",
+        galleryBtn: "Фото",
+        featuresTitle: "Комфортная морская прогулка",
+        featuresSub: "Услуги и активности для приятного отдыха",
+        f: [
+          "Морская прогулка",
+          "Комфортная атмосфера для любителей моря.",
+          "Снорклинг",
+          "Наслаждайтесь Красным морем.",
+          "Обед",
+          "Приятный перерыв во время поездки.",
+          "Фотографии",
+          "Красивые моменты на память.",
+          "Для семей",
+          "Подходит для семей и групп.",
+          "Массаж на борту",
+          "Дополнительный комфорт и расслабление во время дня.",
+          "Услуги поездки",
+          "Организованные детали для удобного отдыха."
+        ],
+        galleryTitle: "Фото Royal Boat",
+        gallerySub: "Реальные моменты поездки",
+        ctaTitle: "Готовы к Royal Boat?",
+        ctaSub: "Свяжитесь с нами и забронируйте морскую прогулку",
+        btn: "Забронировать",
+        ctaBtn: "WhatsApp",
+        wa: "Здравствуйте, хочу узнать о прогулке Royal Boat"
       },
+
       de: {
-        dir: "ltr", brand: "El Reham Tours", home: "Startseite", trips: "Inlandsreisen",
-        namePlaceholder: "Name", phonePlaceholder: "Telefonnummer",
+        dir: "ltr",
+        brand: "El Reham Tours",
+        home: "Startseite",
+        trips: "Inlandsreisen",
+        namePlaceholder: "Name",
+        phonePlaceholder: "Telefonnummer",
         heroDesc: "Eine komfortable Bootstour in Hurghada, ideal für Familien, Gruppen und Gäste, die Ruhe und Komfort lieben.",
         sectionTitle: "Ein komfortabler Tag am Roten Meer",
         sectionText: "Royal Boat bietet eine entspannte Bootstour mit schönen Ausblicken, Schwimmen, Fotos und Erholung.",
         detailsTitle: "Erlebnisdetails",
-        details: ["Komfortable und organisierte Bootstour","Geeignet für Familien und Gruppen","Zeit zum Schwimmen und Entspannen","Schöne Fotomomente an Bord","Direkte Buchung über WhatsApp","Ruhige und angenehme Atmosphäre"],
-        bookingTitle: "Royal Boat buchen", bookingBtn: "Per WhatsApp senden", galleryBtn: "Fotos ansehen",
-        featuresTitle: "Komfortable Bootstour", featuresSub: "Services und Aktivitäten für einen schönen Tag auf dem Meer",
-        f: ["Premium Bootstour","Organisierte und entspannte Atmosphäre.","Snorkeling","Genießen Sie das Rote Meer.","Mittagessen","Eine angenehme Pause während der Tour.","Fotografie","Schöne Erinnerungen an Bord.","Familienfreundlich","Geeignet für Familien und Gruppen.","Tour Services","Organisierte Details für eine bessere Erfahrung."],
-        galleryTitle: "Royal Boat Fotos", gallerySub: "Echte Momente von der Tour",
-        ctaTitle: "Bereit für Royal Boat?", ctaSub: "Kontaktieren Sie uns jetzt und buchen Sie Ihre Bootstour",
-        btn: "Jetzt buchen", ctaBtn: "WhatsApp", wa: "Hallo, ich möchte Informationen zur Royal Boat Tour"
+        details: [
+          "Komfortable und organisierte Bootstour",
+          "Geeignet für Familien und Gruppen",
+          "Zeit zum Schwimmen und Entspannen",
+          "Schöne Fotomomente an Bord",
+          "Massage für zusätzlichen Komfort und Entspannung",
+          "Direkte Buchung über WhatsApp",
+          "Ruhige und angenehme Atmosphäre"
+        ],
+        bookingTitle: "Royal Boat buchen",
+        bookingBtn: "Per WhatsApp senden",
+        galleryBtn: "Fotos ansehen",
+        featuresTitle: "Komfortable Bootstour",
+        featuresSub: "Services und Aktivitäten für einen schönen Tag auf dem Meer",
+        f: [
+          "Premium Bootstour",
+          "Organisierte und entspannte Atmosphäre.",
+          "Snorkeling",
+          "Genießen Sie das Rote Meer.",
+          "Mittagessen",
+          "Eine angenehme Pause während der Tour.",
+          "Fotografie",
+          "Schöne Erinnerungen an Bord.",
+          "Familienfreundlich",
+          "Geeignet für Familien und Gruppen.",
+          "Massage an Bord",
+          "Zusätzlicher Komfort und Entspannung während des Tages.",
+          "Tour Services",
+          "Organisierte Details für eine bessere Erfahrung."
+        ],
+        galleryTitle: "Royal Boat Fotos",
+        gallerySub: "Echte Momente von der Tour",
+        ctaTitle: "Bereit für Royal Boat?",
+        ctaSub: "Kontaktieren Sie uns jetzt und buchen Sie Ihre Bootstour",
+        btn: "Jetzt buchen",
+        ctaBtn: "WhatsApp",
+        wa: "Hallo, ich möchte Informationen zur Royal Boat Tour"
       }
     };
 
@@ -453,7 +627,7 @@
       document.getElementById("details-list").innerHTML =
         t.details.map(item => `<li>✔ ${item}</li>`).join("");
 
-      for (let i = 1; i <= 6; i++) {
+      for (let i = 1; i <= 7; i++) {
         document.getElementById(`f${i}-title`).innerText = t.f[(i - 1) * 2];
         document.getElementById(`f${i}-text`).innerText = t.f[(i - 1) * 2 + 1];
       }
