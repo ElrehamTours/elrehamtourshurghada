@@ -44,7 +44,6 @@
       transform: scale(1.08);
     }
 
-    /* TOP MOVING IMAGE BANNER */
     .top-banner {
       position: relative;
       width: 100%;
@@ -285,13 +284,36 @@
         </p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="feature-card"><div class="text-4xl mb-4">🤿</div><h3 id="f1-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f1-text" class="text-white/75 font-bold leading-relaxed"></p></div>
-        <div class="feature-card"><div class="text-4xl mb-4">🐠</div><h3 id="f2-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f2-text" class="text-white/75 font-bold leading-relaxed"></p></div>
-        <div class="feature-card"><div class="text-4xl mb-4">🍽️</div><h3 id="f3-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f3-text" class="text-white/75 font-bold leading-relaxed"></p></div>
-        <div class="feature-card"><div class="text-4xl mb-4">💆</div><h3 id="f4-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f4-text" class="text-white/75 font-bold leading-relaxed"></p></div>
-        <div class="feature-card"><div class="text-4xl mb-4">📸</div><h3 id="f5-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f5-text" class="text-white/75 font-bold leading-relaxed"></p></div>
-        <div class="feature-card"><div class="text-4xl mb-4">🎁</div><h3 id="f6-title" class="text-xl font-black text-[#F26522] mb-2"></h3><p id="f6-text" class="text-white/75 font-bold leading-relaxed"></p></div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div class="feature-card">
+          <div class="text-4xl mb-4">🤿</div>
+          <h3 id="f1-title" class="text-xl font-black text-[#F26522] mb-2"></h3>
+          <p id="f1-text" class="text-white/75 font-bold leading-relaxed"></p>
+        </div>
+
+        <div class="feature-card">
+          <div class="text-4xl mb-4">🐠</div>
+          <h3 id="f2-title" class="text-xl font-black text-[#F26522] mb-2"></h3>
+          <p id="f2-text" class="text-white/75 font-bold leading-relaxed"></p>
+        </div>
+
+        <div class="feature-card">
+          <div class="text-4xl mb-4">🍽️</div>
+          <h3 id="f3-title" class="text-xl font-black text-[#F26522] mb-2"></h3>
+          <p id="f3-text" class="text-white/75 font-bold leading-relaxed"></p>
+        </div>
+
+        <div class="feature-card">
+          <div class="text-4xl mb-4">📸</div>
+          <h3 id="f4-title" class="text-xl font-black text-[#F26522] mb-2"></h3>
+          <p id="f4-text" class="text-white/75 font-bold leading-relaxed"></p>
+        </div>
+
+        <div class="feature-card">
+          <div class="text-4xl mb-4">🎁</div>
+          <h3 id="f5-title" class="text-xl font-black text-[#F26522] mb-2"></h3>
+          <p id="f5-text" class="text-white/75 font-bold leading-relaxed"></p>
+        </div>
       </div>
     </div>
   </section>
@@ -345,64 +367,179 @@
 
     const content = {
       ar: {
-        dir: "rtl", brand: "الريهام تورز", home: "الرئيسية", trips: "الرحلات الداخلية",
-        namePlaceholder: "الاسم", phonePlaceholder: "رقم الهاتف",
+        dir: "rtl",
+        brand: "الريهام تورز",
+        home: "الرئيسية",
+        trips: "الرحلات الداخلية",
+        namePlaceholder: "الاسم",
+        phonePlaceholder: "رقم الهاتف",
         heroDesc: "رحلة بحرية ممتعة في الغردقة على مركب بطابع مختلف، مناسبة للعائلات والأصحاب والتصوير.",
         sectionTitle: "يوم بحري شامل على البحر الأحمر",
         sectionText: "استمتع بتجربة بحرية متكاملة على متن Pirates Boat في الغردقة، حيث يجتمع البحر الصافي، أجواء المرح، الأنشطة البحرية، والخدمات المميزة في يوم واحد لا يُنسى.",
         detailsTitle: "الخدمات والأنشطة المتاحة",
-        details: ["Diving مع Guide متخصص للتوجيه والشرح","Snorkeling وسط أجواء البحر الأحمر","وجبة غداء على المركب","جلسات مساج للرفاهية والاسترخاء","Cameraman لتوثيق لحظات الرحلة","خدمات وأنشطة متاحة ضمن برنامج الرحلة"],
-        bookingTitle: "احجز رحلة Pirates Boat", bookingBtn: "إرسال على واتساب", galleryBtn: "شاهد الصور",
-        featuresTitle: "كل ده على المركب", featuresSub: "أنشطة وخدمات تخلي يومك في البحر أسهل وأمتع",
-        f: ["Diving مع Guide","تجربة غطس مع مرشد متخصص يساعدك ويوجهك خلال النشاط.","Snorkeling","استمتع بمشاهدة البحر الأحمر والشعاب والأسماك الملونة.","وجبة غداء","استراحة لذيذة على المركب وسط أجواء البحر.","مساج على المركب","لمسة رفاهية إضافية عشان اليوم يكون أهدى وألطف.","Cameraman","مصور لتوثيق أجمل لحظات الرحلة على المركب وفي البحر.","خدمات Included","مجموعة خدمات وأنشطة متاحة ضمن برنامج الرحلة."],
-        galleryTitle: "صور Pirates Boat", gallerySub: "من أجواء الرحلة على الطبيعة",
-        ctaTitle: "جاهز تعيش تجربة Pirates Boat؟", ctaSub: "تواصل معنا الآن واحجز رحلتك البحرية في الغردقة",
-        btn: "احجز الآن", ctaBtn: "تواصل واتساب", wa: "أهلاً، أريد الاستفسار عن رحلة Pirates Boat"
+        details: [
+          "Diving مع Guide متخصص للتوجيه والشرح",
+          "Snorkeling وسط أجواء البحر الأحمر",
+          "وجبة غداء على المركب",
+          "Cameraman لتوثيق لحظات الرحلة",
+          "خدمات وأنشطة متاحة ضمن برنامج الرحلة"
+        ],
+        bookingTitle: "احجز رحلة Pirates Boat",
+        bookingBtn: "إرسال على واتساب",
+        galleryBtn: "شاهد الصور",
+        featuresTitle: "كل ده على المركب",
+        featuresSub: "أنشطة وخدمات تخلي يومك في البحر أسهل وأمتع",
+        f: [
+          "Diving مع Guide",
+          "تجربة غطس مع مرشد متخصص يساعدك ويوجهك خلال النشاط.",
+          "Snorkeling",
+          "استمتع بمشاهدة البحر الأحمر والشعاب والأسماك الملونة.",
+          "وجبة غداء",
+          "استراحة لذيذة على المركب وسط أجواء البحر.",
+          "Cameraman",
+          "مصور لتوثيق أجمل لحظات الرحلة على المركب وفي البحر.",
+          "خدمات Included",
+          "مجموعة خدمات وأنشطة متاحة ضمن برنامج الرحلة."
+        ],
+        galleryTitle: "صور Pirates Boat",
+        gallerySub: "من أجواء الرحلة على الطبيعة",
+        ctaTitle: "جاهز تعيش تجربة Pirates Boat؟",
+        ctaSub: "تواصل معنا الآن واحجز رحلتك البحرية في الغردقة",
+        btn: "احجز الآن",
+        ctaBtn: "تواصل واتساب",
+        wa: "أهلاً، أريد الاستفسار عن رحلة Pirates Boat"
       },
+
       en: {
-        dir: "ltr", brand: "El Reham Tours", home: "Home", trips: "Domestic Trips",
-        namePlaceholder: "Name", phonePlaceholder: "Phone number",
+        dir: "ltr",
+        brand: "El Reham Tours",
+        home: "Home",
+        trips: "Domestic Trips",
+        namePlaceholder: "Name",
+        phonePlaceholder: "Phone number",
         heroDesc: "A fun sea trip in Hurghada on a unique themed boat, perfect for families, friends, and photos.",
         sectionTitle: "A complete Red Sea boat day",
         sectionText: "Enjoy a full sea experience on Pirates Boat in Hurghada, combining clear water, fun atmosphere, sea activities, and special onboard services in one unforgettable day.",
         detailsTitle: "Activities and services",
-        details: ["Diving with a professional guide","Snorkeling in the Red Sea","Lunch meal on board","Massage sessions for extra relaxation","Cameraman to capture the best moments","Included services and activities as part of the trip program"],
-        bookingTitle: "Book Pirates Boat", bookingBtn: "Send on WhatsApp", galleryBtn: "View Photos",
-        featuresTitle: "All on board", featuresSub: "Activities and services designed to make your sea day easier and more enjoyable",
-        f: ["Diving with Guide","A diving experience with a specialized guide to support you.","Snorkeling","Enjoy the Red Sea, coral views, and colorful marine life.","Lunch Meal","A tasty break on board while enjoying the sea atmosphere.","Massage on Board","An extra touch of comfort and relaxation during the trip.","Cameraman","A photographer to document your best moments on board and at sea.","Included Services","A set of activities and services included within the trip program."],
-        galleryTitle: "Pirates Boat Gallery", gallerySub: "Real moments from the trip",
-        ctaTitle: "Ready for Pirates Boat?", ctaSub: "Contact us now and book your Hurghada sea trip",
-        btn: "Book now", ctaBtn: "WhatsApp us", wa: "Hello, I would like to ask about Pirates Boat trip"
+        details: [
+          "Diving with a professional guide",
+          "Snorkeling in the Red Sea",
+          "Lunch meal on board",
+          "Cameraman to capture the best moments",
+          "Included services and activities as part of the trip program"
+        ],
+        bookingTitle: "Book Pirates Boat",
+        bookingBtn: "Send on WhatsApp",
+        galleryBtn: "View Photos",
+        featuresTitle: "All on board",
+        featuresSub: "Activities and services designed to make your sea day easier and more enjoyable",
+        f: [
+          "Diving with Guide",
+          "A diving experience with a specialized guide to support you.",
+          "Snorkeling",
+          "Enjoy the Red Sea, coral views, and colorful marine life.",
+          "Lunch Meal",
+          "A tasty break on board while enjoying the sea atmosphere.",
+          "Cameraman",
+          "A photographer to document your best moments on board and at sea.",
+          "Included Services",
+          "A set of activities and services included within the trip program."
+        ],
+        galleryTitle: "Pirates Boat Gallery",
+        gallerySub: "Real moments from the trip",
+        ctaTitle: "Ready for Pirates Boat?",
+        ctaSub: "Contact us now and book your Hurghada sea trip",
+        btn: "Book now",
+        ctaBtn: "WhatsApp us",
+        wa: "Hello, I would like to ask about Pirates Boat trip"
       },
+
       ru: {
-        dir: "ltr", brand: "El Reham Tours", home: "Главная", trips: "Внутренние туры",
-        namePlaceholder: "Имя", phonePlaceholder: "Телефон",
+        dir: "ltr",
+        brand: "El Reham Tours",
+        home: "Главная",
+        trips: "Внутренние туры",
+        namePlaceholder: "Имя",
+        phonePlaceholder: "Телефон",
         heroDesc: "Весёлая морская прогулка в Хургаде на уникальной лодке, идеально для семей, друзей и фотографий.",
         sectionTitle: "Полный день на Красном море",
         sectionText: "Проведите насыщенный морской день на Pirates Boat в Хургаде: чистая вода, весёлая атмосфера, морские активности и дополнительные услуги на борту.",
         detailsTitle: "Активности и услуги",
-        details: ["Дайвинг с профессиональным гидом","Снорклинг в Красном море","Обед на борту","Массаж для дополнительного отдыха","Фотограф для лучших моментов поездки","Услуги и активности включены в программу"],
-        bookingTitle: "Забронировать Pirates Boat", bookingBtn: "Отправить в WhatsApp", galleryBtn: "Фото",
-        featuresTitle: "Всё на борту", featuresSub: "Активности и услуги для комфортного морского дня",
-        f: ["Дайвинг с гидом","Погружение с опытным гидом.","Снорклинг","Наслаждайтесь Красным морем, рифами и яркими рыбами.","Обед","Приятный обед на борту.","Массаж на борту","Дополнительный комфорт и расслабление.","Фотограф","Фотограф запечатлеет лучшие моменты.","Включенные услуги","Активности и услуги в рамках программы."],
-        galleryTitle: "Фото Pirates Boat", gallerySub: "Реальные моменты поездки",
-        ctaTitle: "Готовы к Pirates Boat?", ctaSub: "Свяжитесь с нами и забронируйте морскую прогулку",
-        btn: "Забронировать", ctaBtn: "WhatsApp", wa: "Здравствуйте, хочу узнать о прогулке Pirates Boat"
+        details: [
+          "Дайвинг с профессиональным гидом",
+          "Снорклинг в Красном море",
+          "Обед на борту",
+          "Фотограф для лучших моментов поездки",
+          "Услуги и активности включены в программу"
+        ],
+        bookingTitle: "Забронировать Pirates Boat",
+        bookingBtn: "Отправить в WhatsApp",
+        galleryBtn: "Фото",
+        featuresTitle: "Всё на борту",
+        featuresSub: "Активности и услуги для комфортного морского дня",
+        f: [
+          "Дайвинг с гидом",
+          "Погружение с опытным гидом.",
+          "Снорклинг",
+          "Наслаждайтесь Красным морем, рифами и яркими рыбами.",
+          "Обед",
+          "Приятный обед на борту.",
+          "Фотограф",
+          "Фотограф запечатлеет лучшие моменты.",
+          "Включенные услуги",
+          "Активности и услуги в рамках программы."
+        ],
+        galleryTitle: "Фото Pirates Boat",
+        gallerySub: "Реальные моменты поездки",
+        ctaTitle: "Готовы к Pirates Boat?",
+        ctaSub: "Свяжитесь с нами и забронируйте морскую прогулку",
+        btn: "Забронировать",
+        ctaBtn: "WhatsApp",
+        wa: "Здравствуйте, хочу узнать о прогулке Pirates Boat"
       },
+
       de: {
-        dir: "ltr", brand: "El Reham Tours", home: "Startseite", trips: "Inlandsreisen",
-        namePlaceholder: "Name", phonePlaceholder: "Telefonnummer",
+        dir: "ltr",
+        brand: "El Reham Tours",
+        home: "Startseite",
+        trips: "Inlandsreisen",
+        namePlaceholder: "Name",
+        phonePlaceholder: "Telefonnummer",
         heroDesc: "Eine unterhaltsame Bootstour in Hurghada auf einem besonderen Themenboot, ideal für Familien, Freunde und Fotos.",
         sectionTitle: "Ein kompletter Tag am Roten Meer",
         sectionText: "Genießen Sie einen vollständigen Ausflug auf dem Pirates Boat in Hurghada mit klarem Wasser, guter Stimmung, Meeresaktivitäten und besonderen Services an Bord.",
         detailsTitle: "Aktivitäten und Services",
-        details: ["Diving mit professionellem Guide","Snorkeling im Roten Meer","Mittagessen an Bord","Massage für zusätzliche Entspannung","Cameraman für schöne Erinnerungen","Services und Aktivitäten im Programm enthalten"],
-        bookingTitle: "Pirates Boat buchen", bookingBtn: "Per WhatsApp senden", galleryBtn: "Fotos ansehen",
-        featuresTitle: "Alles an Bord", featuresSub: "Aktivitäten und Services für einen angenehmen Tag auf dem Meer",
-        f: ["Diving mit Guide","Taucherlebnis mit professionellem Guide.","Snorkeling","Genießen Sie das Rote Meer, Korallen und bunte Fische.","Mittagessen","Eine leckere Pause an Bord.","Massage an Bord","Entspannung während der Tour.","Cameraman","Ein Fotograf hält die schönsten Momente fest.","Inklusive Services","Aktivitäten und Services sind Teil des Programms."],
-        galleryTitle: "Pirates Boat Fotos", gallerySub: "Echte Momente von der Tour",
-        ctaTitle: "Bereit für Pirates Boat?", ctaSub: "Kontaktieren Sie uns jetzt und buchen Sie Ihre Bootstour",
-        btn: "Jetzt buchen", ctaBtn: "WhatsApp", wa: "Hallo, ich möchte Informationen zur Pirates Boat Tour"
+        details: [
+          "Diving mit professionellem Guide",
+          "Snorkeling im Roten Meer",
+          "Mittagessen an Bord",
+          "Cameraman für schöne Erinnerungen",
+          "Services und Aktivitäten im Programm enthalten"
+        ],
+        bookingTitle: "Pirates Boat buchen",
+        bookingBtn: "Per WhatsApp senden",
+        galleryBtn: "Fotos ansehen",
+        featuresTitle: "Alles an Bord",
+        featuresSub: "Aktivitäten und Services für einen angenehmen Tag auf dem Meer",
+        f: [
+          "Diving mit Guide",
+          "Taucherlebnis mit professionellem Guide.",
+          "Snorkeling",
+          "Genießen Sie das Rote Meer, Korallen und bunte Fische.",
+          "Mittagessen",
+          "Eine leckere Pause an Bord.",
+          "Cameraman",
+          "Ein Fotograf hält die schönsten Momente fest.",
+          "Inklusive Services",
+          "Aktivitäten und Services sind Teil des Programms."
+        ],
+        galleryTitle: "Pirates Boat Fotos",
+        gallerySub: "Echte Momente von der Tour",
+        ctaTitle: "Bereit für Pirates Boat?",
+        ctaSub: "Kontaktieren Sie uns jetzt und buchen Sie Ihre Bootstour",
+        btn: "Jetzt buchen",
+        ctaBtn: "WhatsApp",
+        wa: "Hallo, ich möchte Informationen zur Pirates Boat Tour"
       }
     };
 
@@ -462,7 +599,7 @@
       document.getElementById("details-list").innerHTML =
         t.details.map(item => `<li>✔ ${item}</li>`).join("");
 
-      for (let i = 1; i <= 6; i++) {
+      for (let i = 1; i <= 5; i++) {
         document.getElementById(`f${i}-title`).innerText = t.f[(i - 1) * 2];
         document.getElementById(`f${i}-text`).innerText = t.f[(i - 1) * 2 + 1];
       }
