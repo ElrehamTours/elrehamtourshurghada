@@ -10,8 +10,18 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+
     gtag('js', new Date());
     gtag('config', 'G-687NXW78R5');
+
+    function trackLead(eventName, eventLabel) {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, {
+          event_category: 'lead',
+          event_label: eventLabel
+        });
+      }
+    }
   </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -19,70 +29,30 @@
   <style>
     :root { --brand: #F26522; --navy: #06152c; }
     body { font-family: "Cairo", "Tajawal", sans-serif; background: #040d1a; color: white; overflow-x: hidden; }
-    
-    /* جعل الفيديو خلفية ثابتة لكل الصفحة */
-    .video-bg-container { 
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-      z-index: -2; overflow: hidden; 
-    }
+    .video-bg-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; overflow: hidden; }
     .video-bg-container video { width: 100%; height: 100%; object-fit: cover; }
-    .video-overlay { 
-      position: fixed; inset: 0; 
-      background: linear-gradient(to bottom, rgba(6, 21, 44, 0.5) 0%, rgba(6, 21, 44, 0.2) 50%, rgba(6, 21, 44, 0.8) 100%); 
-      z-index: -1; 
-    }
-
-    /* هيدر زجاجي شفاف لدمجه مع الفيديو */
-    .hero-simple { 
-      background: rgba(6, 21, 44, 0.4); backdrop-filter: blur(8px); 
-      border-bottom: 1px solid rgba(255,255,255,0.05); 
-      padding: 10px 0; text-align: center; color: white; position: sticky; top: 0; z-index: 100;
-    }
-    
-    /* شريط لغات زجاجي */
-    .lang-bar { 
-      background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); 
-      border-bottom: 1px solid rgba(255,255,255,0.05); padding: 8px 0;
-      position: sticky; top: 75px; z-index: 90;
-    }
-    
-    .lang-full-btn { 
-      font-weight: 700; font-size: 0.85rem; padding: 6px 14px; border-radius: 50px; 
-      transition: 0.3s; color: white; display: inline-flex; align-items: center; gap: 6px; 
-      border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05);
-    }
+    .video-overlay { position: fixed; inset: 0; background: linear-gradient(to bottom, rgba(6, 21, 44, 0.5) 0%, rgba(6, 21, 44, 0.2) 50%, rgba(6, 21, 44, 0.8) 100%); z-index: -1; }
+    .hero-simple { background: rgba(6, 21, 44, 0.4); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 10px 0; text-align: center; color: white; position: sticky; top: 0; z-index: 100; }
+    .lang-bar { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 8px 0; position: sticky; top: 75px; z-index: 90; }
+    .lang-full-btn { font-weight: 700; font-size: 0.85rem; padding: 6px 14px; border-radius: 50px; transition: 0.3s; color: white; display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); }
     .lang-full-btn:hover { background: rgba(242,101,34,0.2); border-color: var(--brand); }
     .lang-full-active { background: var(--brand) !important; border-color: var(--brand) !important; box-shadow: 0 4px 15px rgba(242,101,34,0.4); }
 
-    /* الطائرة المتحركة */
     @keyframes flyAcross {
       0% { transform: translate(-25vw, 15vh) scale(0.5) rotate(-10deg); opacity: 0; }
-      15% { opacity: 0.8; } 
+      15% { opacity: 0.8; }
       100% { transform: translate(110vw, -10vh) scale(1.1) rotate(-10deg); opacity: 0; }
     }
-    .flying-plane { position: fixed; top: 20%; left: -10%; width: clamp(200px, 30vw, 450px); opacity: 0.8; animation: flyAcross 22s linear infinite; pointer-events: none; z-index: 10; }
 
-    .widget-box { 
-      background: rgba(10, 29, 56, 0.7); backdrop-filter: blur(20px); 
-      border-radius: 2rem; border: 1px solid rgba(255,255,255,0.1); 
-      border-top: 4px solid var(--brand); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5); 
-    }
-    .input-group { 
-      background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1); 
-      border-radius: 1rem; padding: 0.7rem 1rem; transition: 0.3s; display: flex; align-items: center; gap: 10px; 
-    }
+    .flying-plane { position: fixed; top: 20%; left: -10%; width: clamp(200px, 30vw, 450px); opacity: 0.8; animation: flyAcross 22s linear infinite; pointer-events: none; z-index: 10; }
+    .widget-box { background: rgba(10, 29, 56, 0.7); backdrop-filter: blur(20px); border-radius: 2rem; border: 1px solid rgba(255,255,255,0.1); border-top: 4px solid var(--brand); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5); }
+    .input-group { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 1rem; padding: 0.7rem 1rem; transition: 0.3s; display: flex; align-items: center; gap: 10px; }
     .input-group:focus-within { border-color: var(--brand); background: rgba(0, 0, 0, 0.5); }
     .input-group input { background: transparent; width: 100%; outline: none; color: white; font-weight: 700; font-size: 0.9rem; }
     .input-group svg { color: var(--brand); flex-shrink: 0; opacity: 0.9; width: 18px; }
     input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
-
-    .service-card { 
-      background: rgba(255,255,255,0.95); border-radius: 1.5rem; padding: 2rem; 
-      text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
-      transition: 0.4s; cursor: pointer; border: 1px solid transparent; color: var(--navy);
-    }
+    .service-card { background: rgba(255,255,255,0.95); border-radius: 1.5rem; padding: 2rem; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: 0.4s; cursor: pointer; border: 1px solid transparent; color: var(--navy); }
     .service-card:hover { transform: translateY(-8px); border-color: var(--brand); }
-    
     footer { background: rgba(4, 13, 26, 0.95); backdrop-filter: blur(10px); color: white; padding: 60px 20px 30px; border-top: 1px solid rgba(255,255,255,0.05); }
     .footer-link { color: rgba(255,255,255,0.6); transition: 0.3s; display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 0.85rem; text-align: right; }
     .footer-link:hover { color: var(--brand); }
@@ -90,9 +60,9 @@
     .social-btn:hover { background: var(--brand); transform: scale(1.1); }
   </style>
 </head>
+
 <body class="pb-2">
 
-  <!-- خلفية الفيديو الثابتة -->
   <div class="video-bg-container">
     <video autoplay loop muted playsinline poster="flight background.jpg">
       <source src="index background.mp4" type="video/mp4">
@@ -100,12 +70,10 @@
     <div class="video-overlay"></div>
   </div>
 
-  <!-- الطائرة المتحركة الثابتة في الشاشة -->
   <img src="image_c2dae4.png" alt="Plane" class="flying-plane" />
 
   <div id="toast-container" class="fixed top-32 left-1/2 transform -translate-x-1/2 z-[200] pointer-events-none text-center"></div>
 
-  <!-- Navbar زجاجي -->
   <header class="hero-simple shadow-lg">
     <div class="absolute top-0 rtl:right-4 ltr:left-4 w-20 h-28 md:w-28 md:h-36 bg-white rounded-b-xl p-2 flex items-center justify-center z-[110] shadow-xl cursor-pointer" onclick="navigate('index.html')">
       <img src="logo.png" alt="Logo" class="w-full h-full object-contain">
@@ -119,7 +87,6 @@
     </div>
   </header>
 
-  <!-- شريط اللغات الزجاجي -->
   <section class="lang-bar shadow-md">
     <div class="max-w-7xl mx-auto px-4 flex items-center justify-center gap-2 md:gap-4 flex-wrap">
       <div class="flex items-center gap-1.5 text-white/40 font-bold text-[9px] uppercase border-r border-white/10 pr-3 mr-1 hidden sm:flex">
@@ -133,10 +100,7 @@
     </div>
   </section>
 
-  <!-- المحتوى الرئيسي -->
   <main class="relative z-20 pt-10 pb-20 px-4 flex flex-col items-center w-full">
-    
-    <!-- كروت الخدمات المدمجة -->
     <div class="max-w-6xl w-full grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
       <div class="service-card" onclick="navigate('domestic-trips.html')">
         <div class="text-[#F26522] flex justify-center mb-3"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
@@ -144,7 +108,7 @@
         <p id="domestic-desc" class="text-slate-500 text-[11px] mb-4">اكتشف جمال مصر واستمتع بأفضل الأنشطة السياحية.</p>
         <span id="domestic-btn" class="bg-[#F26522] text-white px-6 py-2 rounded-full font-black text-[10px] shadow-md inline-block">اكتشف الرحلات</span>
       </div>
-      
+
       <div class="service-card" onclick="navigate('flights.html')">
         <div class="text-[#F26522] flex justify-center mb-3"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div>
         <h2 id="flights-title" class="text-lg font-black mb-2 text-[#06152c]">حجز طيران وعروض</h2>
@@ -152,7 +116,6 @@
         <span id="flights-btn" class="bg-[#F26522] text-white px-6 py-2 rounded-full font-black text-[10px] shadow-md inline-block">شاهد العروض</span>
       </div>
 
-      <!-- المربع الجديد للحج والعمرة -->
       <div class="service-card" onclick="navigate('Hajj-trips/Umrah/index.html')">
         <div class="text-[#F26522] flex justify-center mb-3">
           <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -165,7 +128,6 @@
         <span id="hajj-btn" class="bg-[#F26522] text-white px-6 py-2 rounded-full font-black text-[10px] shadow-md inline-block">التفاصيل</span>
       </div>
 
-      <!-- المربع الجديد للتأشيرات -->
       <div class="service-card" onclick="navigate('Urope/Visa/index.html')">
         <div class="text-[#F26522] flex justify-center mb-3">
           <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
@@ -180,7 +142,6 @@
       </div>
     </div>
 
-    <!-- بوكس التسجيل الخماسي الكامل -->
     <div class="widget-box p-6 md:p-8 max-w-4xl w-full">
       <h2 id="booking-title" class="text-center font-black text-2xl md:text-4xl mb-8 text-white">سجل الآن للحجز</h2>
       <form onsubmit="event.preventDefault();" class="space-y-4 text-right">
@@ -198,7 +159,6 @@
     </div>
   </main>
 
-  <!-- Footer المدمج مع قنوات السوشيال ميديا -->
   <footer>
     <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 border-b border-white/10 pb-12 text-right">
       <div>
@@ -206,19 +166,21 @@
         <p class="text-white/50 text-sm leading-relaxed mb-8" id="f-slogan">بداية ونهاية كل رحلة</p>
         <h4 class="text-xs font-black text-[#F26522] uppercase tracking-widest mb-4" id="txt-social">تابعنا على</h4>
         <div class="flex gap-4 rtl:justify-start ltr:justify-end">
-          <a href="https://facebook.com/elrehamtours" target="_blank" class="social-btn"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="https://instagram.com/elrehamtours" target="_blank" class="social-btn"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg></a>
-          <a href="https://wa.me/201002429863" target="_blank" class="social-btn"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg></a>
+          <a href="https://facebook.com/elrehamtours" target="_blank" class="social-btn" onclick="trackLead('facebook_click', 'footer_facebook');"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://instagram.com/elrehamtours" target="_blank" class="social-btn" onclick="trackLead('instagram_click', 'footer_instagram');"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg></a>
+          <a href="https://wa.me/201002429863" target="_blank" class="social-btn" onclick="trackLead('whatsapp_click', 'footer_whatsapp');"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg></a>
         </div>
       </div>
+
       <div>
         <h4 class="text-lg font-black mb-8 border-r-4 border-brand pr-4 text-white" id="f-contact-t">تواصل معنا</h4>
         <div class="space-y-5">
-          <a href="tel:01002429863" class="footer-link"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 01002429863</a>
-          <a href="mailto:elrehamtours@gmail.com" class="footer-link lowercase text-xs md:text-sm"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg> elrehamtours@gmail.com</a>
+          <a href="tel:01002429863" class="footer-link" onclick="trackLead('phone_click', 'footer_phone');"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 01002429863</a>
+          <a href="mailto:elrehamtours@gmail.com" class="footer-link lowercase text-xs md:text-sm" onclick="trackLead('email_click', 'footer_email');"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg> elrehamtours@gmail.com</a>
           <div class="footer-link leading-relaxed"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> <span id="f-addr">شارع مترو متفرع من شيراتون، الغردقة</span></div>
         </div>
       </div>
+
       <div>
         <h4 class="text-lg font-black mb-8 border-r-4 border-brand pr-4 text-white" id="f-pages-t">صفحاتنا</h4>
         <div class="grid grid-cols-2 gap-4">
@@ -230,6 +192,7 @@
         </div>
       </div>
     </div>
+
     <div class="text-center mt-12 text-white/20 text-[10px] font-bold uppercase tracking-[0.4em]">© 2024 Elreham Tours & Aviation - Egypt</div>
   </footer>
 
@@ -245,59 +208,61 @@
 
     function setLanguage(l, shouldPersist = true) {
       if (!trans[l]) l = 'ar';
-      curLang = l; const t = trans[l]; document.documentElement.dir = t.dir; document.documentElement.lang = l;
-      if (shouldPersist) { try { localStorage.setItem('elreham_lang', l); } catch (e) {} }
+      curLang = l;
+      const t = trans[l];
+      document.documentElement.dir = t.dir;
+      document.documentElement.lang = l;
+
+      if (shouldPersist) {
+        try { localStorage.setItem('elreham_lang', l); } catch (e) {}
+      }
 
       document.getElementById('txt-lang-select').innerText = t.l_select;
-      document.getElementById('hero-title').innerText = t.title; 
+      document.getElementById('hero-title').innerText = t.title;
       document.getElementById('hero-desc').innerText = t.desc;
-      document.getElementById('welcome-msg').innerText = t.welcome; 
+      document.getElementById('welcome-msg').innerText = t.welcome;
       document.getElementById('domestic-title').innerText = t.domestic_t;
-      document.getElementById('domestic-desc').innerText = t.domestic_d; 
+      document.getElementById('domestic-desc').innerText = t.domestic_d;
       document.getElementById('domestic-btn').innerText = t.domestic_b;
-      document.getElementById('flights-title').innerText = t.flights_t; 
+      document.getElementById('flights-title').innerText = t.flights_t;
       document.getElementById('flights-desc').innerText = t.flights_d;
       document.getElementById('flights-btn').innerText = t.flights_b;
-      
-      // نصوص كارت الحج والعمرة
-      document.getElementById('hajj-title').innerText = t.hajj_t; 
+      document.getElementById('hajj-title').innerText = t.hajj_t;
       document.getElementById('hajj-desc').innerText = t.hajj_d;
-      document.getElementById('hajj-btn').innerText = t.hajj_b; 
-
-      // نصوص كارت التأشيرات
-      document.getElementById('visas-title').innerText = t.visas_t; 
+      document.getElementById('hajj-btn').innerText = t.hajj_b;
+      document.getElementById('visas-title').innerText = t.visas_t;
       document.getElementById('visas-desc').innerText = t.visas_d;
       document.getElementById('visas-btn').innerText = t.visas_b;
-
       document.getElementById('booking-title').innerText = t.book_t;
-      document.getElementById('l-from').innerText = t.l_from; 
+      document.getElementById('l-from').innerText = t.l_from;
       document.getElementById('l-to').innerText = t.l_to;
-      document.getElementById('l-date').innerText = t.l_date; 
+      document.getElementById('l-date').innerText = t.l_date;
       document.getElementById('l-phone').innerText = t.l_phone;
-      document.getElementById('l-email').innerText = t.l_email; 
+      document.getElementById('l-email').innerText = t.l_email;
       document.getElementById('btn-book').innerText = t.btn;
-      document.getElementById('f-brand').innerText = t.title; 
+      document.getElementById('f-brand').innerText = t.title;
       document.getElementById('f-slogan').innerText = t.desc;
-      document.getElementById('f-contact-t').innerText = t.contact_t; 
+      document.getElementById('f-contact-t').innerText = t.contact_t;
       document.getElementById('f-pages-t').innerText = t.pages_t;
-      document.getElementById('f-addr').innerText = t.addr; 
+      document.getElementById('f-addr').innerText = t.addr;
       document.getElementById('fn-home').innerText = t.home;
-      document.getElementById('fn-flights').innerText = t.flights_t; 
+      document.getElementById('fn-flights').innerText = t.flights_t;
       document.getElementById('fn-trips').innerText = t.domestic_t;
       document.getElementById('fn-hajj').innerText = t.hajj_t;
       document.getElementById('fn-visas').innerText = t.visas_t;
       document.getElementById('txt-social').innerText = t.social;
-      
+
       document.querySelectorAll('.lang-full-btn').forEach(b => b.classList.remove('lang-full-active'));
-      const btn = document.getElementById('fbtn-' + l); if(btn) btn.classList.add('lang-full-active');
+      const btn = document.getElementById('fbtn-' + l);
+      if (btn) btn.classList.add('lang-full-active');
+
       updatePageLinks();
     }
 
     function updatePageLinks() {
       document.querySelectorAll('a[href]').forEach(link => {
         const href = link.getAttribute('href');
-        if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || 
-            href.startsWith('https://') || href.startsWith('http://') || href.startsWith('javascript:')) return;
+        if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('https://') || href.startsWith('http://') || href.startsWith('javascript:')) return;
         const separator = href.includes('?') ? '&' : '?';
         link.setAttribute('href', href.split('?')[0] + separator + "lang=" + curLang);
       });
@@ -305,24 +270,60 @@
 
     function navigate(p) {
       if (!p) return;
+
+      trackLead('navigation_click', p);
+
       const separator = p.includes('?') ? '&' : '?';
       window.location.href = p + separator + "lang=" + curLang;
     }
 
     function sendMain() {
-      const f = document.getElementById('w-from').value, t_ = document.getElementById('w-to').value, d = document.getElementById('w-date').value, p = document.getElementById('w-phone').value, e = document.getElementById('w-email').value;
-      if(!p) return;
-      fetch('https://script.google.com/macros/s/AKfycbxGgySg1t6yVUE_d6Ib2AjJU__Rm18KC44SlPkCOIrW9fvSGsKTJBapuYQ7ju2R43fQfw/exec', { method: 'POST', body: new URLSearchParams({tripType:'HomeFull', from:f, to:t_, date:d, phone:p, email:e}), mode: 'no-cors' });
-      window.open(`https://wa.me/201002429863?text=${encodeURIComponent(trans[curLang].wa + "\n🛫 " + f + " -> " + t_ + "\n📅 " + d + "\n📞 " + p)}`, "_blank");
+      const f = document.getElementById('w-from').value;
+      const t_ = document.getElementById('w-to').value;
+      const d = document.getElementById('w-date').value;
+      const p = document.getElementById('w-phone').value;
+      const e = document.getElementById('w-email').value;
+
+      if (!p) return;
+
+      fetch('https://script.google.com/macros/s/AKfycbxGgySg1t6yVUE_d6Ib2AjJU__Rm18KC44SlPkCOIrW9fvSGsKTJBapuYQ7ju2R43fQfw/exec', {
+        method: 'POST',
+        body: new URLSearchParams({
+          tripType: 'HomeFull',
+          from: f,
+          to: t_,
+          date: d,
+          phone: p,
+          email: e
+        }),
+        mode: 'no-cors'
+      });
+
+      trackLead('booking_whatsapp_click', 'main_booking_form');
+
+      window.open(
+        `https://wa.me/201002429863?text=${encodeURIComponent(
+          trans[curLang].wa +
+          "\n🛫 " + f + " -> " + t_ +
+          "\n📅 " + d +
+          "\n📞 " + p
+        )}`,
+        "_blank"
+      );
     }
 
     window.onload = () => {
       const u = new URLSearchParams(window.location.search).get('lang');
-      let savedLang = null; try { savedLang = localStorage.getItem('elreham_lang'); } catch (e) {}
+      let savedLang = null;
+
+      try { savedLang = localStorage.getItem('elreham_lang'); } catch (e) {}
+
       const finalLang = (u && trans[u] ? u : null) || (savedLang && trans[savedLang] ? savedLang : null) || 'ar';
       setLanguage(finalLang, false);
+
       const today = new Date().toISOString().split('T')[0];
-      const dateInput = document.getElementById('w-date'); if (dateInput) dateInput.setAttribute('min', today);
+      const dateInput = document.getElementById('w-date');
+      if (dateInput) dateInput.setAttribute('min', today);
     };
   </script>
 </body>
