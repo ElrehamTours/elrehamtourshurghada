@@ -4,6 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>الريهام تورز | الرئيسية - بوابتك لعالم السفر</title>
+
+  <!-- Google tag (gtag.js) - El Reham Tours -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-687NXW78R5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-687NXW78R5');
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -227,7 +237,7 @@
     const trans = {
       ar: { dir: 'rtl', l_select: "اللغة", title: "الريهام تورز", desc: "بداية ونهاية كل رحلة", welcome: "بوابتك المثالية للسياحة والطيران", domestic_t: "رحلات داخلية وسفاري", domestic_d: "اكتشف جمال مصر واستمتع بأفضل الأنشطة السياحية.", domestic_b: "اكتشف الرحلات", flights_t: "حجز طيران وعروض", flights_d: "تذاكر طيران دولي وداخلي بأسعار حصرية.", flights_b: "شاهد العروض", hajj_t: "الحج والعمرة", hajj_d: "برامج متميزة لرحلات الحج والعمرة بأسعار مناسبة.", hajj_b: "التفاصيل", visas_t: "تأشيرات سياحة", visas_d: "استخراج تأشيرات السياحة وتجهيز ملفات الشنجن.", visas_b: "التفاصيل", book_t: "سجل الآن للحجز", l_from: "من", l_to: "إلى", l_date: "التاريخ", l_phone: "الهاتف", l_email: "الإيميل", btn: "احجز الآن", wa: "طلب حجز من الرئيسية:", addr: "شارع مترو متفرع من شيراتون، الغردقة", contact_t: "تواصل معنا", pages_t: "صفحاتنا", home: "الرئيسية", social: "تابعنا على" },
       en: { dir: 'ltr', l_select: "Language", title: "Elreham Tours", desc: "The start and end of every journey", welcome: "Your ideal gateway to tourism", domestic_t: "Domestic Trips", domestic_d: "Discover Egypt's beauty with best activities.", domestic_b: "Explore Trips", flights_t: "Flights & Offers", flights_d: "Cheapest international and domestic flights.", flights_b: "View Offers", hajj_t: "Hajj & Umrah", hajj_d: "Premium packages for Hajj and Umrah at affordable prices.", hajj_b: "View Details", visas_t: "Tourist Visas", visas_d: "Schengen file preparation and tourist visa processing.", visas_b: "Details", book_t: "Register Now", l_from: "From", l_to: "To", l_date: "Date", l_phone: "Phone", l_email: "Email", btn: "Book Now", wa: "Booking from Home:", addr: "Metro St. off Sheraton, Hurghada", contact_t: "Contact Us", pages_t: "Pages", home: "Home", social: "Follow Us" },
-      ru: { dir: 'ltr', l_select: "Язык", title: "Elreham Tours", desc: "Начало и конец каждой поездки", welcome: "Добро пожаловать к нам", domestic_t: "Внутренние туры", domestic_d: "Красоты Египта по лучшим ценам.", domestic_b: "Подробнее", flights_t: "Авиабилеты", flights_d: "Лучшие цены на международные рейсы.", flights_b: "Акции", hajj_t: "Хадж и Умра", hajj_d: "Премиальные пакеты для Хаджа и Умры по доступным ценам.", hajj_b: "Подробнее", visas_t: "Туристические визы", visas_d: "Оформление виз и подготовка документов для Шенгена.", visas_b: "Подробнее", book_t: "Забронировать", l_from: "Откуда", l_to: "Куда", l_date: "Дата", l_phone: "Телефон", l_email: "Email", btn: "Забронировать", wa: "Запрос:", addr: "Метро-стрит, Хургада", contact_t: "Контакты", pages_t: "Страницы", home: "Главная", social: "Соцсети" },
+      ru: { dir: 'ltr', l_select: "Язык", title: "Elreham Tours", desc: "Начало и конец каждой поездки", welcome: "Добро пожаловать к нам", domestic_t: "Внутренние туры", domestic_d: "Красоты Египта по лучшим ценам.", domestic_b: "Подробнее", flights_t: "Авиабилеты", flights_d: "Лучшие цены на международные рейсы.", flights_b: "Акции", hajj_t: "Хадж и Умра", hajj_d: "Премиальные пакеты для Хаджа и Умры по доступным ценам.", hajj_b: "Подробнее", visas_t: "Туристические визы", visas_d: "Оформление виз и подготовка документов для Шенгена.", visas_b: "Подробнее", book_t: "Забронировать", l_from: "Откуда", l_to: "Куدا", l_date: "Дата", l_phone: "Телефон", l_email: "Email", btn: "Забронировать", wa: "Запрос:", addr: "Метро-стрит, Хургада", contact_t: "Контакты", pages_t: "Страницы", home: "Главная", social: "Соцсети" },
       de: { dir: 'ltr', l_select: "Sprache", title: "Elreham Tours", desc: "Anfang und Ende jeder Reise", welcome: "Willkommen bei uns", domestic_t: "Inlandsreisen", domestic_d: "Entdecken Sie Ägypten zum Bestpreis.", domestic_b: "Entdecken", flights_t: "Flüge & Angebote", flights_d: "Günstigste Flugtickets weltweit.", flights_b: "Angebote", hajj_t: "Haddsch & Umrah", hajj_d: "Premium-Pakete für Haddsch und Umrah zu erschwinglichen Preisen.", hajj_b: "Details", visas_t: "Touristenvisum", visas_d: "Schengen-Aktenvorbereitung und Touristenvisum-Bearbeitung.", visas_b: "Details", book_t: "Jetzt Buchen", l_from: "Von", l_to: "Nach", l_date: "Datum", l_phone: "Telefon", l_email: "Email", btn: "Buchen", wa: "Anfrage:", addr: "Metro Str., Hurghada", contact_t: "Kontakt", pages_t: "Seiten", home: "Startseite", social: "Folgen" }
     };
 
