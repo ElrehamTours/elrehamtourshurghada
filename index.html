@@ -5,14 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>الريهام تورز | الرئيسية - بوابتك لعالم السفر</title>
 
-  <!-- Google tag (gtag.js) - El Reham Tours -->
+  <!-- Google tag (gtag.js) - El Reham Tours | GA4 + Google Ads -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-687NXW78R5"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
 
     gtag('js', new Date());
+
+    /* GA4 Property */
     gtag('config', 'G-687NXW78R5');
+
+    /* Google Ads Account Tag */
+    gtag('config', 'AW-17491889350');
 
     function trackLead(eventName, eventLabel) {
       if (typeof gtag === 'function') {
@@ -78,6 +83,7 @@
       box-shadow: 0 14px 35px rgba(0,0,0,0.35);
       border: 1px solid rgba(255,255,255,0.35);
       transition: transform 0.25s ease, box-shadow 0.25s ease;
+      text-decoration: none;
     }
     .floating-whatsapp:hover {
       transform: translateY(-4px) scale(1.03);
@@ -98,7 +104,6 @@
         font-size: 13px;
       }
     }
-
   </style>
 </head>
 
@@ -342,7 +347,12 @@
       const p = document.getElementById('w-phone').value;
       const e = document.getElementById('w-email').value;
 
-      if (!p) return;
+      if (!p) {
+        alert('من فضلك اكتب رقم الهاتف أولاً.');
+        return;
+      }
+
+      trackLead('booking_link_click', 'main_booking_form');
 
       fetch('https://script.google.com/macros/s/AKfycbxGgySg1t6yVUE_d6Ib2AjJU__Rm18KC44SlPkCOIrW9fvSGsKTJBapuYQ7ju2R43fQfw/exec', {
         method: 'POST',
@@ -357,17 +367,7 @@
         mode: 'no-cors'
       });
 
-      trackLead('booking_whatsapp_click', 'main_booking_form');
-
-      window.open(
-        `https://wa.me/201002429863?text=${encodeURIComponent(
-          trans[curLang].wa +
-          "\n🛫 " + f + " -> " + t_ +
-          "\n📅 " + d +
-          "\n📞 " + p
-        )}`,
-        "_blank"
-      );
+      alert('تم إرسال طلب الحجز بنجاح، وسيتم التواصل معك قريبًا.');
     }
 
     window.onload = () => {
