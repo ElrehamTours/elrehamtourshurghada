@@ -286,6 +286,8 @@
 
       if (!p) return;
 
+      trackLead('booking_link_click', 'main_booking_form');
+
       fetch('https://script.google.com/macros/s/AKfycbxGgySg1t6yVUE_d6Ib2AjJU__Rm18KC44SlPkCOIrW9fvSGsKTJBapuYQ7ju2R43fQfw/exec', {
         method: 'POST',
         body: new URLSearchParams({
@@ -299,17 +301,7 @@
         mode: 'no-cors'
       });
 
-      trackLead('booking_whatsapp_click', 'main_booking_form');
-
-      window.open(
-        `https://wa.me/201002429863?text=${encodeURIComponent(
-          trans[curLang].wa +
-          "\n🛫 " + f + " -> " + t_ +
-          "\n📅 " + d +
-          "\n📞 " + p
-        )}`,
-        "_blank"
-      );
+      alert('تم إرسال طلب الحجز بنجاح، وسيتم التواصل معك قريبًا.');
     }
 
     window.onload = () => {
