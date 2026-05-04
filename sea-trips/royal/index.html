@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Royal Boat | El Reham Tours</title>
 
+  <!-- Google tag (gtag.js) - El Reham Tours -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-687NXW78R5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-687NXW78R5');
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
 
@@ -653,10 +663,7 @@
       const phone = document.getElementById("phone").value || "-";
       const date = document.getElementById("date").value || "-";
 
-      const msg = `${t.wa}
-Name: ${name}
-Phone: ${phone}
-Date: ${date}`;
+      const msg = `${t.wa}\nName: ${name}\nPhone: ${phone}\nDate: ${date}`;
 
       window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, "_blank");
     }
