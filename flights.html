@@ -51,7 +51,7 @@
     .widget-box { background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); border-radius: 2.5rem; border-top: 5px solid var(--brand); box-shadow: 0 25px 50px rgba(0,0,0,0.4); position: relative; z-index: 10; }
     .input-group { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 1.25rem; padding: 0.8rem 1.25rem; transition: 0.3s; display: flex; align-items: center; gap: 12px; min-height: 64px; }
     .input-group:focus-within { border-color: var(--brand); background: rgba(0, 0, 0, 0.45); }
-    .input-group input, .input-group select { background: transparent; width: 100%; outline: none; color: white; font-weight: 700; border: 0; }
+    .input-group input, .input-group select { background: transparent; width: 100%; outline: none; color: white; font-weight: 700; border: 0; cursor: pointer; appearance: auto; }
     .input-group select option { color: #06152c; background: white; font-weight: 700; }
     .input-group svg { color: var(--brand); flex-shrink: 0; }
     input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
@@ -118,14 +118,164 @@
               <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
               <div class="flex-1">
                 <label class="text-[9px] text-[#F26522] font-black uppercase block mb-1" id="l-from">من</label>
-                <select id="w-from" aria-label="من"></select>
+                <select id="w-from" aria-label="من">
+<option value="">اختر الدولة</option>
+                  <option value="🇪🇬 مصر">🇪🇬 مصر</option>
+                  <option value="🇸🇦 السعودية" selected>🇸🇦 السعودية</option>
+                  <option value="🇦🇪 الإمارات">🇦🇪 الإمارات</option>
+                  <option value="🇰🇼 الكويت">🇰🇼 الكويت</option>
+                  <option value="🇶🇦 قطر">🇶🇦 قطر</option>
+                  <option value="🇧🇭 البحرين">🇧🇭 البحرين</option>
+                  <option value="🇴🇲 عمان">🇴🇲 عمان</option>
+                  <option value="🇯🇴 الأردن">🇯🇴 الأردن</option>
+                  <option value="🇱🇧 لبنان">🇱🇧 لبنان</option>
+                  <option value="🇮🇶 العراق">🇮🇶 العراق</option>
+                  <option value="🇸🇾 سوريا">🇸🇾 سوريا</option>
+                  <option value="🇵🇸 فلسطين">🇵🇸 فلسطين</option>
+                  <option value="🇾🇪 اليمن">🇾🇪 اليمن</option>
+                  <option value="🇲🇦 المغرب">🇲🇦 المغرب</option>
+                  <option value="🇹🇳 تونس">🇹🇳 تونس</option>
+                  <option value="🇩🇿 الجزائر">🇩🇿 الجزائر</option>
+                  <option value="🇱🇾 ليبيا">🇱🇾 ليبيا</option>
+                  <option value="🇸🇩 السودان">🇸🇩 السودان</option>
+                  <option value="🇲🇷 موريتانيا">🇲🇷 موريتانيا</option>
+                  <option value="🇹🇷 تركيا">🇹🇷 تركيا</option>
+                  <option value="🇬🇪 جورجيا">🇬🇪 جورجيا</option>
+                  <option value="🇦🇿 أذربيجان">🇦🇿 أذربيجان</option>
+                  <option value="🇦🇲 أرمينيا">🇦🇲 أرمينيا</option>
+                  <option value="🇨🇾 قبرص">🇨🇾 قبرص</option>
+                  <option value="🇬🇧 بريطانيا">🇬🇧 بريطانيا</option>
+                  <option value="🇫🇷 فرنسا">🇫🇷 فرنسا</option>
+                  <option value="🇩🇪 ألمانيا">🇩🇪 ألمانيا</option>
+                  <option value="🇮🇹 إيطاليا">🇮🇹 إيطاليا</option>
+                  <option value="🇪🇸 إسبانيا">🇪🇸 إسبانيا</option>
+                  <option value="🇳🇱 هولندا">🇳🇱 هولندا</option>
+                  <option value="🇧🇪 بلجيكا">🇧🇪 بلجيكا</option>
+                  <option value="🇨🇭 سويسرا">🇨🇭 سويسرا</option>
+                  <option value="🇦🇹 النمسا">🇦🇹 النمسا</option>
+                  <option value="🇬🇷 اليونان">🇬🇷 اليونان</option>
+                  <option value="🇵🇹 البرتغال">🇵🇹 البرتغال</option>
+                  <option value="🇵🇱 بولندا">🇵🇱 بولندا</option>
+                  <option value="🇨🇿 التشيك">🇨🇿 التشيك</option>
+                  <option value="🇭🇺 المجر">🇭🇺 المجر</option>
+                  <option value="🇷🇴 رومانيا">🇷🇴 رومانيا</option>
+                  <option value="🇧🇬 بلغاريا">🇧🇬 بلغاريا</option>
+                  <option value="🇭🇷 كرواتيا">🇭🇷 كرواتيا</option>
+                  <option value="🇸🇪 السويد">🇸🇪 السويد</option>
+                  <option value="🇳🇴 النرويج">🇳🇴 النرويج</option>
+                  <option value="🇩🇰 الدنمارك">🇩🇰 الدنمارك</option>
+                  <option value="🇫🇮 فنلندا">🇫🇮 فنلندا</option>
+                  <option value="🇮🇪 أيرلندا">🇮🇪 أيرلندا</option>
+                  <option value="🇷🇺 روسيا">🇷🇺 روسيا</option>
+                  <option value="🇺🇦 أوكرانيا">🇺🇦 أوكرانيا</option>
+                  <option value="🇺🇸 أمريكا">🇺🇸 أمريكا</option>
+                  <option value="🇨🇦 كندا">🇨🇦 كندا</option>
+                  <option value="🇲🇽 المكسيك">🇲🇽 المكسيك</option>
+                  <option value="🇧🇷 البرازيل">🇧🇷 البرازيل</option>
+                  <option value="🇦🇷 الأرجنتين">🇦🇷 الأرجنتين</option>
+                  <option value="🇹🇭 تايلاند">🇹🇭 تايلاند</option>
+                  <option value="🇮🇩 إندونيسيا">🇮🇩 إندونيسيا</option>
+                  <option value="🇲🇾 ماليزيا">🇲🇾 ماليزيا</option>
+                  <option value="🇸🇬 سنغافورة">🇸🇬 سنغافورة</option>
+                  <option value="🇻🇳 فيتنام">🇻🇳 فيتنام</option>
+                  <option value="🇵🇭 الفلبين">🇵🇭 الفلبين</option>
+                  <option value="🇮🇳 الهند">🇮🇳 الهند</option>
+                  <option value="🇵🇰 باكستان">🇵🇰 باكستان</option>
+                  <option value="🇧🇩 بنجلاديش">🇧🇩 بنجلاديش</option>
+                  <option value="🇱🇰 سريلانكا">🇱🇰 سريلانكا</option>
+                  <option value="🇨🇳 الصين">🇨🇳 الصين</option>
+                  <option value="🇯🇵 اليابان">🇯🇵 اليابان</option>
+                  <option value="🇰🇷 كوريا الجنوبية">🇰🇷 كوريا الجنوبية</option>
+                  <option value="🇲🇻 المالديف">🇲🇻 المالديف</option>
+                  <option value="🇿🇦 جنوب أفريقيا">🇿🇦 جنوب أفريقيا</option>
+                  <option value="🇰🇪 كينيا">🇰🇪 كينيا</option>
+                  <option value="🇹🇿 تنزانيا">🇹🇿 تنزانيا</option>
+                  <option value="🇪🇹 إثيوبيا">🇪🇹 إثيوبيا</option>
+                  <option value="🇦🇺 أستراليا">🇦🇺 أستراليا</option>
+                  <option value="🇳🇿 نيوزيلندا">🇳🇿 نيوزيلندا</option>
+                </select>
               </div>
             </div>
             <div class="input-group">
               <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               <div class="flex-1">
                 <label class="text-[9px] text-[#F26522] font-black uppercase block mb-1" id="l-to">إلى</label>
-                <select id="w-to" aria-label="إلى"></select>
+                <select id="w-to" aria-label="إلى">
+<option value="">اختر الدولة</option>
+                  <option value="🇪🇬 مصر" selected>🇪🇬 مصر</option>
+                  <option value="🇸🇦 السعودية">🇸🇦 السعودية</option>
+                  <option value="🇦🇪 الإمارات">🇦🇪 الإمارات</option>
+                  <option value="🇰🇼 الكويت">🇰🇼 الكويت</option>
+                  <option value="🇶🇦 قطر">🇶🇦 قطر</option>
+                  <option value="🇧🇭 البحرين">🇧🇭 البحرين</option>
+                  <option value="🇴🇲 عمان">🇴🇲 عمان</option>
+                  <option value="🇯🇴 الأردن">🇯🇴 الأردن</option>
+                  <option value="🇱🇧 لبنان">🇱🇧 لبنان</option>
+                  <option value="🇮🇶 العراق">🇮🇶 العراق</option>
+                  <option value="🇸🇾 سوريا">🇸🇾 سوريا</option>
+                  <option value="🇵🇸 فلسطين">🇵🇸 فلسطين</option>
+                  <option value="🇾🇪 اليمن">🇾🇪 اليمن</option>
+                  <option value="🇲🇦 المغرب">🇲🇦 المغرب</option>
+                  <option value="🇹🇳 تونس">🇹🇳 تونس</option>
+                  <option value="🇩🇿 الجزائر">🇩🇿 الجزائر</option>
+                  <option value="🇱🇾 ليبيا">🇱🇾 ليبيا</option>
+                  <option value="🇸🇩 السودان">🇸🇩 السودان</option>
+                  <option value="🇲🇷 موريتانيا">🇲🇷 موريتانيا</option>
+                  <option value="🇹🇷 تركيا">🇹🇷 تركيا</option>
+                  <option value="🇬🇪 جورجيا">🇬🇪 جورجيا</option>
+                  <option value="🇦🇿 أذربيجان">🇦🇿 أذربيجان</option>
+                  <option value="🇦🇲 أرمينيا">🇦🇲 أرمينيا</option>
+                  <option value="🇨🇾 قبرص">🇨🇾 قبرص</option>
+                  <option value="🇬🇧 بريطانيا">🇬🇧 بريطانيا</option>
+                  <option value="🇫🇷 فرنسا">🇫🇷 فرنسا</option>
+                  <option value="🇩🇪 ألمانيا">🇩🇪 ألمانيا</option>
+                  <option value="🇮🇹 إيطاليا">🇮🇹 إيطاليا</option>
+                  <option value="🇪🇸 إسبانيا">🇪🇸 إسبانيا</option>
+                  <option value="🇳🇱 هولندا">🇳🇱 هولندا</option>
+                  <option value="🇧🇪 بلجيكا">🇧🇪 بلجيكا</option>
+                  <option value="🇨🇭 سويسرا">🇨🇭 سويسرا</option>
+                  <option value="🇦🇹 النمسا">🇦🇹 النمسا</option>
+                  <option value="🇬🇷 اليونان">🇬🇷 اليونان</option>
+                  <option value="🇵🇹 البرتغال">🇵🇹 البرتغال</option>
+                  <option value="🇵🇱 بولندا">🇵🇱 بولندا</option>
+                  <option value="🇨🇿 التشيك">🇨🇿 التشيك</option>
+                  <option value="🇭🇺 المجر">🇭🇺 المجر</option>
+                  <option value="🇷🇴 رومانيا">🇷🇴 رومانيا</option>
+                  <option value="🇧🇬 بلغاريا">🇧🇬 بلغاريا</option>
+                  <option value="🇭🇷 كرواتيا">🇭🇷 كرواتيا</option>
+                  <option value="🇸🇪 السويد">🇸🇪 السويد</option>
+                  <option value="🇳🇴 النرويج">🇳🇴 النرويج</option>
+                  <option value="🇩🇰 الدنمارك">🇩🇰 الدنمارك</option>
+                  <option value="🇫🇮 فنلندا">🇫🇮 فنلندا</option>
+                  <option value="🇮🇪 أيرلندا">🇮🇪 أيرلندا</option>
+                  <option value="🇷🇺 روسيا">🇷🇺 روسيا</option>
+                  <option value="🇺🇦 أوكرانيا">🇺🇦 أوكرانيا</option>
+                  <option value="🇺🇸 أمريكا">🇺🇸 أمريكا</option>
+                  <option value="🇨🇦 كندا">🇨🇦 كندا</option>
+                  <option value="🇲🇽 المكسيك">🇲🇽 المكسيك</option>
+                  <option value="🇧🇷 البرازيل">🇧🇷 البرازيل</option>
+                  <option value="🇦🇷 الأرجنتين">🇦🇷 الأرجنتين</option>
+                  <option value="🇹🇭 تايلاند">🇹🇭 تايلاند</option>
+                  <option value="🇮🇩 إندونيسيا">🇮🇩 إندونيسيا</option>
+                  <option value="🇲🇾 ماليزيا">🇲🇾 ماليزيا</option>
+                  <option value="🇸🇬 سنغافورة">🇸🇬 سنغافورة</option>
+                  <option value="🇻🇳 فيتنام">🇻🇳 فيتنام</option>
+                  <option value="🇵🇭 الفلبين">🇵🇭 الفلبين</option>
+                  <option value="🇮🇳 الهند">🇮🇳 الهند</option>
+                  <option value="🇵🇰 باكستان">🇵🇰 باكستان</option>
+                  <option value="🇧🇩 بنجلاديش">🇧🇩 بنجلاديش</option>
+                  <option value="🇱🇰 سريلانكا">🇱🇰 سريلانكا</option>
+                  <option value="🇨🇳 الصين">🇨🇳 الصين</option>
+                  <option value="🇯🇵 اليابان">🇯🇵 اليابان</option>
+                  <option value="🇰🇷 كوريا الجنوبية">🇰🇷 كوريا الجنوبية</option>
+                  <option value="🇲🇻 المالديف">🇲🇻 المالديف</option>
+                  <option value="🇿🇦 جنوب أفريقيا">🇿🇦 جنوب أفريقيا</option>
+                  <option value="🇰🇪 كينيا">🇰🇪 كينيا</option>
+                  <option value="🇹🇿 تنزانيا">🇹🇿 تنزانيا</option>
+                  <option value="🇪🇹 إثيوبيا">🇪🇹 إثيوبيا</option>
+                  <option value="🇦🇺 أستراليا">🇦🇺 أستراليا</option>
+                  <option value="🇳🇿 نيوزيلندا">🇳🇿 نيوزيلندا</option>
+                </select>
               </div>
             </div>
             <div class="input-group">
@@ -205,7 +355,79 @@
 
   <script>
     const countries = [
-      ['🇪🇬', 'مصر'], ['🇸🇦', 'السعودية'], ['🇦🇪', 'الإمارات'], ['🇰🇼', 'الكويت'], ['🇶🇦', 'قطر'], ['🇧🇭', 'البحرين'], ['🇴🇲', 'عمان'], ['🇯🇴', 'الأردن'], ['🇱🇧', 'لبنان'], ['🇹🇷', 'تركيا'], ['🇬🇪', 'جورجيا'], ['🇦🇿', 'أذربيجان'], ['🇹🇭', 'تايلاند'], ['🇮🇩', 'إندونيسيا'], ['🇲🇻', 'المالديف'], ['🇲🇾', 'ماليزيا'], ['🇸🇬', 'سنغافورة'], ['🇻🇳', 'فيتنام'], ['🇬🇧', 'بريطانيا'], ['🇫🇷', 'فرنسا'], ['🇩🇪', 'ألمانيا'], ['🇮🇹', 'إيطاليا'], ['🇪🇸', 'إسبانيا'], ['🇳🇱', 'هولندا'], ['🇨🇭', 'سويسرا'], ['🇦🇹', 'النمسا'], ['🇬🇷', 'اليونان'], ['🇲🇦', 'المغرب'], ['🇹🇳', 'تونس'], ['🇺🇸', 'أمريكا'], ['🇨🇦', 'كندا'], ['🇦🇺', 'أستراليا']
+      ['🇪🇬', 'مصر'],
+      ['🇸🇦', 'السعودية'],
+      ['🇦🇪', 'الإمارات'],
+      ['🇰🇼', 'الكويت'],
+      ['🇶🇦', 'قطر'],
+      ['🇧🇭', 'البحرين'],
+      ['🇴🇲', 'عمان'],
+      ['🇯🇴', 'الأردن'],
+      ['🇱🇧', 'لبنان'],
+      ['🇮🇶', 'العراق'],
+      ['🇸🇾', 'سوريا'],
+      ['🇵🇸', 'فلسطين'],
+      ['🇾🇪', 'اليمن'],
+      ['🇲🇦', 'المغرب'],
+      ['🇹🇳', 'تونس'],
+      ['🇩🇿', 'الجزائر'],
+      ['🇱🇾', 'ليبيا'],
+      ['🇸🇩', 'السودان'],
+      ['🇲🇷', 'موريتانيا'],
+      ['🇹🇷', 'تركيا'],
+      ['🇬🇪', 'جورجيا'],
+      ['🇦🇿', 'أذربيجان'],
+      ['🇦🇲', 'أرمينيا'],
+      ['🇨🇾', 'قبرص'],
+      ['🇬🇧', 'بريطانيا'],
+      ['🇫🇷', 'فرنسا'],
+      ['🇩🇪', 'ألمانيا'],
+      ['🇮🇹', 'إيطاليا'],
+      ['🇪🇸', 'إسبانيا'],
+      ['🇳🇱', 'هولندا'],
+      ['🇧🇪', 'بلجيكا'],
+      ['🇨🇭', 'سويسرا'],
+      ['🇦🇹', 'النمسا'],
+      ['🇬🇷', 'اليونان'],
+      ['🇵🇹', 'البرتغال'],
+      ['🇵🇱', 'بولندا'],
+      ['🇨🇿', 'التشيك'],
+      ['🇭🇺', 'المجر'],
+      ['🇷🇴', 'رومانيا'],
+      ['🇧🇬', 'بلغاريا'],
+      ['🇭🇷', 'كرواتيا'],
+      ['🇸🇪', 'السويد'],
+      ['🇳🇴', 'النرويج'],
+      ['🇩🇰', 'الدنمارك'],
+      ['🇫🇮', 'فنلندا'],
+      ['🇮🇪', 'أيرلندا'],
+      ['🇷🇺', 'روسيا'],
+      ['🇺🇦', 'أوكرانيا'],
+      ['🇺🇸', 'أمريكا'],
+      ['🇨🇦', 'كندا'],
+      ['🇲🇽', 'المكسيك'],
+      ['🇧🇷', 'البرازيل'],
+      ['🇦🇷', 'الأرجنتين'],
+      ['🇹🇭', 'تايلاند'],
+      ['🇮🇩', 'إندونيسيا'],
+      ['🇲🇾', 'ماليزيا'],
+      ['🇸🇬', 'سنغافورة'],
+      ['🇻🇳', 'فيتنام'],
+      ['🇵🇭', 'الفلبين'],
+      ['🇮🇳', 'الهند'],
+      ['🇵🇰', 'باكستان'],
+      ['🇧🇩', 'بنجلاديش'],
+      ['🇱🇰', 'سريلانكا'],
+      ['🇨🇳', 'الصين'],
+      ['🇯🇵', 'اليابان'],
+      ['🇰🇷', 'كوريا الجنوبية'],
+      ['🇲🇻', 'المالديف'],
+      ['🇿🇦', 'جنوب أفريقيا'],
+      ['🇰🇪', 'كينيا'],
+      ['🇹🇿', 'تنزانيا'],
+      ['🇪🇹', 'إثيوبيا'],
+      ['🇦🇺', 'أستراليا'],
+      ['🇳🇿', 'نيوزيلندا']
     ];
 
     const trans = {
