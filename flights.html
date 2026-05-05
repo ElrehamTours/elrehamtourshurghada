@@ -1,164 +1,355 @@
-Skip to content
-ElrehamTours
-elrehamtourshurghada
-Repository navigation
-Code
-Issues
-Pull requests
-Agents
-Actions
-Projects
-Wiki
-Security and quality
-Insights
-Settings
-Commit a9a1060
-ElrehamTours
-ElrehamTours
-authored
-5 days ago
-·
-·
-Verified
-update index visa hajj
-main
-1 parent 
-d9b35cb
- commit 
-a9a1060
-1 file changed
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الريهام تورز | حجز طيران دولي وداخلي - أفضل العروض</title>
 
-+49
--6
-Lines changed: 49 additions & 6 deletions
-File tree
-Filter files…
-index.html
-Search within code
- 
-‎index.html‎
-+49
--6
-Lines changed: 49 additions & 6 deletions
-Original file line number	Diff line number	Diff line change
-@@ -127,19 +127,47 @@
-  <main class="relative z-20 pt-10 pb-20 px-4 flex flex-col items-center w-full">
+  <!-- Google tag (gtag.js) - El Reham Tours | GA4 + Google Ads -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-687NXW78R5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
 
-    <!-- كروت الخدمات المدمجة -->
-    <div class="max-w-4xl w-full grid md:grid-cols-2 gap-6 mb-12">
-    <div class="max-w-6xl w-full grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-      <div class="service-card" onclick="navigate('domestic-trips.html')">
-        <div class="text-[#F26522] flex justify-center mb-3"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h2 id="domestic-title" class="text-lg font-black mb-2 text-[#06152c]">رحلات داخلية وسفاري</h2>
-        <p id="domestic-desc" class="text-slate-500 text-[11px] mb-4">اكتشف جمال مصر واستمتع بأفضل الأنشطة السياحية.</p>
-        <span id="domestic-btn" class="bg-[#F26522] text-white px-6 py-2 rounded-full font-black text-[10px] shadow-md inline-block">اكتشف الرحلات</span>
-      </div>
-      
-      <div class="service-card" onclick="navigate('flights.html')">
-        <div class="text-[#F26522] flex justify-center mb-3"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg></div>
-        <h2 id="flights-title" class="text-lg font-black mb-2 text-[#06152c]">حجز طيران وعروض</h2>
-        <p id="flights-desc" class="text-slate-500 text-[11px] mb-4">أرخص تذاكر الطيران الدولي والداخلي مع عروض حصرية.</p>
-        <span id="flights-btn" class="bg-[#F26522] text-white px-6 py-2 rounded-full font-black text-[10px] shadow-md inline-block">شاهد العروض</span>
-      </div>
-      <!-- المربع الجديد للحج والعمرة -->
-      <div class="service-card" onclick="navigate('Hajj-trips/Umrah/index.html')">
-        <div class="text-[#F26522] flex justify-center mb-3">
-          <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"></path>
-            <path d="M10 15.5a4.5 4.5 0 1 1 5-7.5 4.5 4.5 0 1 0-5 7.5z"></path>
-          </svg>
+    gtag('js', new Date());
+    gtag('config', 'G-687NXW78R5');
+    gtag('config', 'AW-17491889350');
+
+    function trackLead(eventName, eventLabel) {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, {
+          event_category: 'lead',
+          event_label: eventLabel
+        });
+      }
+    }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --brand: #F26522; --navy: #06152c; }
+    body { font-family: "Cairo", "Tajawal", sans-serif; background: #fcfaf7; color: var(--navy); overflow-x: hidden; }
+
+    .glass-nav { background: rgba(6, 21, 44, 0.98); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .nav-link { color: white; font-weight: 700; transition: 0.3s; font-size: 0.9rem; white-space: nowrap; }
+    .nav-link:hover, .nav-link-active { color: var(--brand); }
+    .lang-btn { width: 36px; height: 36px; border-radius: 50%; font-weight: 900; font-size: 11px; color: white; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+    .lang-btn-active { background: var(--brand) !important; transform: scale(1.1); box-shadow: 0 4px 12px rgba(242,101,34,0.4); }
+
+    .hero-wrap {
+      position: relative; min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+      background: linear-gradient(rgba(6,21,44,0.5), rgba(6,21,44,0.8)), url('flight background.jpg') center/cover;
+      padding: 120px 20px 60px; overflow: hidden;
+    }
+    @keyframes flyAcross {
+      0% { transform: translate(-20vw, 20vh) scale(0.6) rotate(-10deg); opacity: 0; }
+      15% { opacity: 0.6; }
+      100% { transform: translate(110vw, -15vh) scale(1.1) rotate(-10deg); opacity: 0; }
+    }
+    .flying-plane { position: absolute; top: 15%; left: -10%; width: clamp(250px, 35vw, 500px); opacity: 0.6; animation: flyAcross 25s linear infinite; pointer-events: none; z-index: 5; }
+    .widget-box { background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(20px); border-radius: 2.5rem; border-top: 5px solid var(--brand); box-shadow: 0 25px 50px rgba(0,0,0,0.4); position: relative; z-index: 10; }
+    .input-group { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 1.25rem; padding: 0.8rem 1.25rem; transition: 0.3s; display: flex; align-items: center; gap: 12px; min-height: 64px; }
+    .input-group:focus-within { border-color: var(--brand); background: rgba(0, 0, 0, 0.45); }
+    .input-group input, .input-group select { background: transparent; width: 100%; outline: none; color: white; font-weight: 700; border: 0; }
+    .input-group select option { color: #06152c; background: white; font-weight: 700; }
+    .input-group svg { color: var(--brand); flex-shrink: 0; }
+    input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
+    .promo-card { overflow: hidden; border-radius: 2rem; background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; cursor: pointer; border: 1px solid #f1f5f9; }
+    .promo-card:hover { transform: translateY(-8px); border-color: var(--brand); box-shadow: 0 20px 40px rgba(242,101,34,0.1); }
+    footer { background: #040d1a; color: white; padding: 70px 20px 30px; }
+    .footer-link { color: rgba(255,255,255,0.6); transition: 0.3s; display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 0.9rem; text-align: right; }
+    .footer-link:hover { color: var(--brand); }
+    .social-btn { width: 45px; height: 45px; border-radius: 12px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; transition: 0.3s; color: white; }
+    .social-btn:hover { background: var(--brand); transform: scale(1.1); }
+
+    .floating-whatsapp {
+      position: fixed; bottom: 24px; left: 24px; z-index: 9999; display: inline-flex; align-items: center; gap: 10px;
+      background: #25D366; color: #fff; padding: 13px 18px; border-radius: 999px; font-weight: 900; font-size: 14px;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.35); border: 1px solid rgba(255,255,255,0.35); transition: transform 0.25s ease, box-shadow 0.25s ease; text-decoration: none;
+    }
+    .floating-whatsapp:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 18px 45px rgba(37,211,102,0.35); }
+    .floating-whatsapp svg { width: 22px; height: 22px; flex-shrink: 0; }
+    @media (max-width: 640px) {
+      .floating-whatsapp { left: 14px; right: 14px; bottom: 16px; justify-content: center; padding: 13px 16px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body class="pb-2">
+
+  <div id="toast-container" class="fixed top-24 left-1/2 transform -translate-x-1/2 z-[200] pointer-events-none text-center"></div>
+
+  <nav class="fixed top-0 inset-x-0 z-[100] glass-nav py-3 md:py-4 shadow-2xl">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between gap-4 text-white">
+      <div class="flex items-center gap-4 md:gap-8">
+        <a href="javascript:void(0)" onclick="navigate('index.html')" class="flex items-center gap-2 group">
+          <div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl p-1 shadow-lg group-hover:scale-105 transition-transform">
+            <img src="logo.png" class="w-full h-full object-contain" alt="Logo">
+          </div>
+          <div class="hidden sm:block font-black text-lg md:text-xl uppercase" id="brand-name">الريهام تورز</div>
+        </a>
+        <div class="hidden lg:flex items-center gap-6">
+          <a href="javascript:void(0)" onclick="navigate('index.html')" class="nav-link" id="n-home">الرئيسية</a>
+          <a href="javascript:void(0)" onclick="navigate('flights.html')" class="nav-link nav-link-active" id="n-flights">حجز طيران</a>
+          <a href="javascript:void(0)" onclick="navigate('domestic-trips.html')" class="nav-link" id="n-trips">رحلات داخلية</a>
         </div>
-        <h2 id="hajj-title" class="text-lg font-black mb-2 text-[#06152c]">الحج والعمرة</h2>
-        <p id="hajj-desc" class="text-slate-500 text-[11px] mb-4">برامج متميزة لرحلات الحج والعمرة بأسعار مناسبة.</p>
-        <span id="hajj-btn" class="bg-[#F26522] text-white px-6 py-2 rounded-full font-black text-[10px] shadow-md inline-block">التفاصيل</span>
       </div>
-      <!-- المربع الجديد للتأشيرات -->
-      <div class="service-card" onclick="navigate('Urope/Visa/index.html')">
-        <div class="text-[#F26522] flex justify-center mb-3">
-          <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
-            <circle cx="12" cy="10" r="3"></circle>
-            <path d="M8 18h8"></path>
-          </svg>
+      <div class="flex items-center gap-3">
+        <div class="flex bg-white/5 p-1 rounded-full border border-white/10 backdrop-blur-md">
+          <button onclick="setLanguage('de')" id="btn-de" class="lang-btn">DE</button>
+          <button onclick="setLanguage('ru')" id="btn-ru" class="lang-btn">RU</button>
+          <button onclick="setLanguage('en')" id="btn-en" class="lang-btn">EN</button>
+          <button onclick="setLanguage('ar')" id="btn-ar" class="lang-btn">AR</button>
         </div>
-        <h2 id="visas-title" class="text-lg font-black mb-2 text-[#06152c]">التأشيرات</h2>
-        <p id="visas-desc" class="text-slate-500 text-[11px] mb-4">استخراج تأشيرات السياحة وتجهيز ملفات الشنجن.</p>
-        <span id="visas-btn" class="bg-[#F26522] text-white px-6 py-2 rounded-full font-black text-[10px] shadow-md inline-block">التفاصيل</span>
       </div>
     </div>
+  </nav>
 
-    <!-- بوكس التسجيل الخماسي الكامل -->
-@@ -187,6 +215,8 @@ <h4 class="text-lg font-black mb-8 border-r-4 border-brand pr-4 text-white" id="
+  <header class="hero-wrap">
+    <img src="image_c2dae4.png" class="flying-plane" alt="Plane">
+    <div class="max-w-6xl mx-auto w-full relative z-10 px-4 text-center">
+      <h1 id="h-title" class="text-4xl md:text-8xl font-black text-white mb-4 drop-shadow-2xl uppercase">حجز طيران</h1>
+      <p id="h-sub" class="text-lg md:text-2xl text-white/90 mb-12 font-bold drop-shadow-md"></p>
+
+      <div class="widget-box p-6 md:p-10 max-w-5xl mx-auto">
+        <form onsubmit="event.preventDefault();" class="space-y-6 text-right">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div class="input-group">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              <div class="flex-1">
+                <label class="text-[9px] text-[#F26522] font-black uppercase block mb-1" id="l-from">من</label>
+                <select id="w-from" aria-label="من"></select>
+              </div>
+            </div>
+            <div class="input-group">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div class="flex-1">
+                <label class="text-[9px] text-[#F26522] font-black uppercase block mb-1" id="l-to">إلى</label>
+                <select id="w-to" aria-label="إلى"></select>
+              </div>
+            </div>
+            <div class="input-group">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              <div class="flex-1">
+                <label class="text-[9px] text-[#F26522] font-black uppercase block mb-1" id="l-date">التاريخ</label>
+                <input id="w-date" type="date" class="text-white">
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5 items-end">
+            <div class="input-group">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <div class="flex-1">
+                <label class="text-[9px] text-[#F26522] font-black uppercase block mb-1" id="l-phone">الهاتف</label>
+                <input id="w-phone" type="tel" placeholder="..." class="text-white">
+              </div>
+            </div>
+            <div class="input-group">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg>
+              <div class="flex-1">
+                <label class="text-[9px] text-[#F26522] font-black uppercase block mb-1" id="l-email">الإيميل</label>
+                <input id="w-email" type="email" placeholder="..." class="text-white">
+              </div>
+            </div>
+            <button type="button" onclick="sendFlight()" class="bg-[#F26522] text-white rounded-[1.25rem] font-black text-xl h-[64px] shadow-lg hover:bg-[#d9531e] transition-all hover:scale-[1.01] active:scale-95 uppercase" id="btn-book">احجز الآن</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <section class="py-20 px-6 max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-8" id="promo-grid"></section>
+
+  <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-[150] bg-[#06152c]/90 backdrop-blur-xl p-1.5 rounded-full shadow-2xl border border-white/10 flex items-center gap-1 w-max text-white">
+    <a href="javascript:void(0)" onclick="navigate('flights.html')" class="px-6 md:px-10 py-3 rounded-full font-black text-sm bg-[#F26522] text-white shadow-lg pointer-events-none">✈️ <span id="f-f">الطيران</span></a>
+    <a href="javascript:void(0)" onclick="navigate('domestic-trips.html')" class="px-6 md:px-10 py-3 rounded-full font-black text-sm text-white/70 hover:text-white transition-all">📍 <span id="f-d">رحلات داخلية</span></a>
+  </div>
+
+  <footer>
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-12 border-b border-white/10 pb-12 text-right">
+      <div>
+        <h3 class="text-2xl font-black mb-2 text-white" id="f-brand">الريهام تورز</h3>
+        <p class="text-white/50 text-sm leading-relaxed mb-8" id="f-slogan">بداية ونهاية كل رحلة</p>
+        <h4 class="text-xs font-black text-[#F26522] uppercase tracking-widest mb-4" id="txt-social">تابعنا على</h4>
+        <div class="flex gap-4 rtl:justify-start ltr:justify-end">
+          <a href="https://facebook.com/elrehamtours" target="_blank" class="social-btn" onclick="trackLead('facebook_click','flights_footer_facebook')"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://instagram.com/elrehamtours" target="_blank" class="social-btn" onclick="trackLead('instagram_click','flights_footer_instagram')"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"/></svg></a>
+          <a href="https://tiktok.com/@elrehamtours" target="_blank" class="social-btn" onclick="trackLead('tiktok_click','flights_footer_tiktok')"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12.31 1.548c.547-.384 1.137-.732 1.765-1.041a12.13 12.13 0 0 1 2.373-.895c.811-.223 1.654-.337 2.505-.339v3.468c-.628.006-1.25.1-1.848.279a6.03 6.03 0 0 0-1.748.835 6.13 6.13 0 0 0-1.464 1.341 6.13 6.13 0 0 0-1.01 1.706V12.5a4.375 4.375 0 1 1-8.75 0 4.375 4.375 0 0 1 8.685-1.127l.065.127V1.548z"/></svg></a>
+          <a href="https://wa.me/201002429863" target="_blank" class="social-btn" onclick="trackLead('whatsapp_click','flights_footer_whatsapp')"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-lg font-black mb-8 border-r-4 border-brand pr-4 text-white" id="f-contact-t">تواصل معنا</h4>
+        <div class="space-y-5">
+          <a href="tel:01002429863" class="footer-link" onclick="trackLead('phone_click','flights_footer_phone')"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 01002429863</a>
+          <a href="mailto:elrehamtours@gmail.com" class="footer-link lowercase" onclick="trackLead('email_click','flights_footer_email')"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="m22 6-10 7L2 6"/></svg> elrehamtours@gmail.com</a>
+          <div class="footer-link leading-relaxed"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> <span id="f-addr">شارع مترو متفرع من شيراتون، الغردقة</span></div>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-lg font-black mb-8 border-r-4 border-brand pr-4 text-white" id="f-pages-t">صفحاتنا</h4>
+        <div class="grid grid-cols-2 gap-4">
           <a href="javascript:void(0)" onclick="navigate('index.html')" class="footer-link" id="fn-home">الرئيسية</a>
           <a href="javascript:void(0)" onclick="navigate('flights.html')" class="footer-link" id="fn-flights">الطيران</a>
           <a href="javascript:void(0)" onclick="navigate('domestic-trips.html')" class="footer-link" id="fn-trips">الرحلات</a>
-          <a href="javascript:void(0)" onclick="navigate('Hajj-trips/Umrah/index.html')" class="footer-link" id="fn-hajj">الحج والعمرة</a>
-          <a href="javascript:void(0)" onclick="navigate('Urope/Visa/index.html')" class="footer-link" id="fn-visas">التأشيرات</a>
         </div>
       </div>
     </div>
-@@ -195,10 +225,10 @@ <h4 class="text-lg font-black mb-8 border-r-4 border-brand pr-4 text-white" id="
+    <div class="text-center mt-12 text-white/20 text-[10px] font-bold uppercase tracking-[0.4em]">© 2024 Elreham Tours & Aviation - Egypt</div>
+  </footer>
 
-
-  <!-- Floating WhatsApp Button - Flights Page -->
-  <a
-    href="https://wa.me/201002429863?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D8%A7%D9%84%D8%B1%D9%8A%D9%87%D8%A7%D9%85%20%D8%AA%D9%88%D8%B1%D8%B2%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AD%D8%AC%D8%B2%20%D8%B7%D9%8A%D8%B1%D8%A7%D9%86"
-    target="_blank"
-    rel="noopener"
-    class="floating-whatsapp"
-    onclick="trackLead('floating_whatsapp_click', 'flights_floating_whatsapp');"
-    aria-label="تواصل واتساب مع الريهام تورز"
-  >
-    <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-      <path d="M20.52 3.48A11.88 11.88 0 0 0 12.06 0C5.46 0 .08 5.37.08 11.97c0 2.11.55 4.17 1.6 5.99L0 24l6.2-1.63a11.96 11.96 0 0 0 5.86 1.49h.01c6.6 0 11.97-5.37 11.98-11.97 0-3.2-1.25-6.2-3.53-8.41zM12.07 21.84h-.01a9.93 9.93 0 0 1-5.06-1.38l-.36-.21-3.68.97.98-3.59-.23-.37a9.94 9.94 0 0 1-1.52-5.29c0-5.49 4.47-9.96 9.97-9.96a9.9 9.9 0 0 1 7.04 2.92 9.9 9.9 0 0 1 2.92 7.04c0 5.49-4.47 9.96-9.96 9.96z"/>
-    </svg>
+  <a href="https://wa.me/201002429863?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D8%A7%D9%84%D8%B1%D9%8A%D9%87%D8%A7%D9%85%20%D8%AA%D9%88%D8%B1%D8%B2%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AD%D8%AC%D8%B2%20%D8%B7%D9%8A%D8%B1%D8%A7%D9%86" target="_blank" rel="noopener" class="floating-whatsapp" onclick="trackLead('floating_whatsapp_click','flights_floating_whatsapp')" aria-label="تواصل واتساب مع الريهام تورز">
+    <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M20.52 3.48A11.88 11.88 0 0 0 12.06 0C5.46 0 .08 5.37.08 11.97c0 2.11.55 4.17 1.6 5.99L0 24l6.2-1.63a11.96 11.96 0 0 0 5.86 1.49h.01c6.6 0 11.97-5.37 11.98-11.97 0-3.2-1.25-6.2-3.53-8.41zM12.07 21.84h-.01a9.93 9.93 0 0 1-5.06-1.38l-.36-.21-3.68.97.98-3.59-.23-.37a9.94 9.94 0 0 1-1.52-5.29c0-5.49 4.47-9.96 9.97-9.96a9.9 9.9 0 0 1 7.04 2.92 9.9 9.9 0 0 1 2.92 7.04c0 5.49-4.47 9.96-9.96 9.96z"/></svg>
     <span>تواصل واتساب الآن</span>
   </a>
 
   <script>
+    const countries = [
+      ['🇪🇬', 'مصر'], ['🇸🇦', 'السعودية'], ['🇦🇪', 'الإمارات'], ['🇰🇼', 'الكويت'], ['🇶🇦', 'قطر'], ['🇧🇭', 'البحرين'], ['🇴🇲', 'عمان'], ['🇯🇴', 'الأردن'], ['🇱🇧', 'لبنان'], ['🇹🇷', 'تركيا'], ['🇬🇪', 'جورجيا'], ['🇦🇿', 'أذربيجان'], ['🇹🇭', 'تايلاند'], ['🇮🇩', 'إندونيسيا'], ['🇲🇻', 'المالديف'], ['🇲🇾', 'ماليزيا'], ['🇸🇬', 'سنغافورة'], ['🇻🇳', 'فيتنام'], ['🇬🇧', 'بريطانيا'], ['🇫🇷', 'فرنسا'], ['🇩🇪', 'ألمانيا'], ['🇮🇹', 'إيطاليا'], ['🇪🇸', 'إسبانيا'], ['🇳🇱', 'هولندا'], ['🇨🇭', 'سويسرا'], ['🇦🇹', 'النمسا'], ['🇬🇷', 'اليونان'], ['🇲🇦', 'المغرب'], ['🇹🇳', 'تونس'], ['🇺🇸', 'أمريكا'], ['🇨🇦', 'كندا'], ['🇦🇺', 'أستراليا']
+    ];
+
     const trans = {
-      ar: { dir: 'rtl', l_select: "اللغة", title: "الريهام تورز", desc: "بداية ونهاية كل رحلة", welcome: "بوابتك المثالية للسياحة والطيران", domestic_t: "رحلات داخلية وسفاري", domestic_d: "اكتشف جمال مصر واستمتع بأفضل الأنشطة السياحية.", domestic_b: "اكتشف الرحلات", flights_t: "حجز طيران وعروض", flights_d: "تذاكر طيران دولي وداخلي بأسعار حصرية.", flights_b: "شاهد العروض", book_t: "سجل الآن للحجز", l_from: "من", l_to: "إلى", l_date: "التاريخ", l_phone: "الهاتف", l_email: "الإيميل", btn: "احجز الآن", wa: "طلب حجز من الرئيسية:", addr: "شارع مترو متفرع من شيراتون، الغردقة", contact_t: "تواصل معنا", pages_t: "صفحاتنا", home: "الرئيسية", social: "تابعنا على" },
-      en: { dir: 'ltr', l_select: "Language", title: "Elreham Tours", desc: "The start and end of every journey", welcome: "Your ideal gateway to tourism", domestic_t: "Domestic Trips", domestic_d: "Discover Egypt's beauty with best activities.", domestic_b: "Explore Trips", flights_t: "Flights & Offers", flights_d: "Cheapest international and domestic flights.", flights_b: "View Offers", book_t: "Register Now", l_from: "From", l_to: "To", l_date: "Date", l_phone: "Phone", l_email: "Email", btn: "Book Now", wa: "Booking from Home:", addr: "Metro St. off Sheraton, Hurghada", contact_t: "Contact Us", pages_t: "Pages", home: "Home", social: "Follow Us" },
-      ru: { dir: 'ltr', l_select: "Язык", title: "Elreham Tours", desc: "Начало и конец каждой поездки", welcome: "Добро пожаловать к нам", domestic_t: "Внутренние туры", domestic_d: "Красоты Египта по лучшим ценам.", domestic_b: "Подробнее", flights_t: "Авиабилеты", flights_d: "Лучшие цены на международные рейсы.", flights_b: "Акции", book_t: "Забронировать", l_from: "Откуда", l_to: "Куда", l_date: "Дата", l_phone: "Телефон", l_email: "Email", btn: "Забронировать", wa: "Запрос:", addr: "Метро-стрит, Хургада", contact_t: "Контакты", pages_t: "Страницы", home: "Главная", social: "Соцсети" },
-      de: { dir: 'ltr', l_select: "Sprache", title: "Elreham Tours", desc: "Anfang und Ende jeder Reise", welcome: "Willkommen bei uns", domestic_t: "Inlandsreisen", domestic_d: "Entdecken Sie Ägypten zum Bestpreis.", domestic_b: "Entdecken", flights_t: "Flüge & Angebote", flights_d: "Günstigste Flugtickets weltweit.", flights_b: "Angebote", book_t: "Jetzt Buchen", l_from: "Von", l_to: "Nach", l_date: "Datum", l_phone: "Telefon", l_email: "Email", btn: "Buchen", wa: "Anfrage:", addr: "Metro Str., Hurghada", contact_t: "Kontakt", pages_t: "Seiten", home: "Startseite", social: "Folgen" }
-      ar: { dir: 'rtl', l_select: "اللغة", title: "الريهام تورز", desc: "بداية ونهاية كل رحلة", welcome: "بوابتك المثالية للسياحة والطيران", domestic_t: "رحلات داخلية وسفاري", domestic_d: "اكتشف جمال مصر واستمتع بأفضل الأنشطة السياحية.", domestic_b: "اكتشف الرحلات", flights_t: "حجز طيران وعروض", flights_d: "تذاكر طيران دولي وداخلي بأسعار حصرية.", flights_b: "شاهد العروض", hajj_t: "الحج والعمرة", hajj_d: "برامج متميزة لرحلات الحج والعمرة بأسعار مناسبة.", hajj_b: "التفاصيل", visas_t: "تأشيرات سياحة", visas_d: "استخراج تأشيرات السياحة وتجهيز ملفات الشنجن.", visas_b: "التفاصيل", book_t: "سجل الآن للحجز", l_from: "من", l_to: "إلى", l_date: "التاريخ", l_phone: "الهاتف", l_email: "الإيميل", btn: "احجز الآن", wa: "طلب حجز من الرئيسية:", addr: "شارع مترو متفرع من شيراتون، الغردقة", contact_t: "تواصل معنا", pages_t: "صفحاتنا", home: "الرئيسية", social: "تابعنا على" },
-      en: { dir: 'ltr', l_select: "Language", title: "Elreham Tours", desc: "The start and end of every journey", welcome: "Your ideal gateway to tourism", domestic_t: "Domestic Trips", domestic_d: "Discover Egypt's beauty with best activities.", domestic_b: "Explore Trips", flights_t: "Flights & Offers", flights_d: "Cheapest international and domestic flights.", flights_b: "View Offers", hajj_t: "Hajj & Umrah", hajj_d: "Premium packages for Hajj and Umrah at affordable prices.", hajj_b: "View Details", visas_t: "Tourist Visas", visas_d: "Schengen file preparation and tourist visa processing.", visas_b: "Details", book_t: "Register Now", l_from: "From", l_to: "To", l_date: "Date", l_phone: "Phone", l_email: "Email", btn: "Book Now", wa: "Booking from Home:", addr: "Metro St. off Sheraton, Hurghada", contact_t: "Contact Us", pages_t: "Pages", home: "Home", social: "Follow Us" },
-      ru: { dir: 'ltr', l_select: "Язык", title: "Elreham Tours", desc: "Начало и конец каждой поездки", welcome: "Добро пожаловать к нам", domestic_t: "Внутренние туры", domestic_d: "Красоты Египта по лучшим ценам.", domestic_b: "Подробнее", flights_t: "Авиабилеты", flights_d: "Лучшие цены на международные рейсы.", flights_b: "Акции", hajj_t: "Хадж и Умра", hajj_d: "Премиальные пакеты для Хаджа и Умры по доступным ценам.", hajj_b: "Подробнее", visas_t: "Туристические визы", visas_d: "Оформление виз и подготовка документов для Шенгена.", visas_b: "Подробнее", book_t: "Забронировать", l_from: "Откуда", l_to: "Куда", l_date: "Дата", l_phone: "Телефон", l_email: "Email", btn: "Забронировать", wa: "Запрос:", addr: "Метро-стрит, Хургада", contact_t: "Контакты", pages_t: "Страницы", home: "Главная", social: "Соцсети" },
-      de: { dir: 'ltr', l_select: "Sprache", title: "Elreham Tours", desc: "Anfang und Ende jeder Reise", welcome: "Willkommen bei uns", domestic_t: "Inlandsreisen", domestic_d: "Entdecken Sie Ägypten zum Bestpreis.", domestic_b: "Entdecken", flights_t: "Flüge & Angebote", flights_d: "Günstigste Flugtickets weltweit.", flights_b: "Angebote", hajj_t: "Haddsch & Umrah", hajj_d: "Premium-Pakete für Haddsch und Umrah zu erschwinglichen Preisen.", hajj_b: "Details", visas_t: "Touristenvisum", visas_d: "Schengen-Aktenvorbereitung und Touristenvisum-Bearbeitung.", visas_b: "Details", book_t: "Jetzt Buchen", l_from: "Von", l_to: "Nach", l_date: "Datum", l_phone: "Telefon", l_email: "Email", btn: "Buchen", wa: "Anfrage:", addr: "Metro Str., Hurghada", contact_t: "Kontakt", pages_t: "Seiten", home: "Startseite", social: "Folgen" }
+      ar: { dir: 'rtl', brand: "الريهام تورز", n_home: "الرئيسية", n_flights: "حجز طيران", n_trips: "رحلات داخلية", h_title: "حجز طيران", h_sub: "بداية ونهاية كل رحلة", l_from: "من", l_to: "إلى", l_date: "التاريخ", l_phone: "الهاتف", l_email: "الإيميل", btn: "احجز الآن", f_f: "الطيران", f_d: "رحلات داخلية", wa_intro: "أريد حجز طيران إلى:", contact_t: "تواصل معنا", pages_t: "صفحاتنا", social: "تابعنا على", addr: "شارع مترو، شيراتون، الغردقة", items: [{name: "دبي", img: "3.png", tag: "الخليج"}, {name: "تركيا", img: "6.png", tag: "تاريخ"}, {name: "أوروبا", img: "14.png", tag: "سياحة"}, {name: "المالديف", img: "15.png", tag: "استجمام"}] },
+      en: { dir: 'ltr', brand: "Elreham Tours", n_home: "Home", n_flights: "Flights", n_trips: "Trips", h_title: "Flight Booking", h_sub: "Start & end of every journey", l_from: "From", l_to: "To", l_date: "Date", l_phone: "Phone", l_email: "Email", btn: "Book Now", f_f: "Flights", f_d: "Trips", wa_intro: "I want to book a flight to:", contact_t: "Contact Us", pages_t: "Pages", social: "Follow Us", addr: "Metro St, Hurghada", items: [{name: "Dubai", img: "3.png", tag: "Gulf"}, {name: "Turkey", img: "6.png", tag: "History"}, {name: "Europe", img: "14.png", tag: "Tourism"}, {name: "Maldives", img: "15.png", tag: "Relax"}] },
+      ru: { dir: 'ltr', brand: "Elreham Tours", n_home: "Главная", n_flights: "Билеты", n_trips: "Туры", h_title: "Авиабилеты", h_sub: "Начало и конец каждой поездки", l_from: "Откуда", l_to: "Куда", l_date: "Дата", l_phone: "Телефон", l_email: "Email", btn: "Забронировать", f_f: "Билеты", f_d: "Туры", wa_intro: "Хочу забронировать билет в:", contact_t: "Контакты", pages_t: "Страницы", social: "Соцсети", addr: "Метро-стрит, Хургада", items: [{name: "Дубай", img: "3.png", tag: "Залив"}, {name: "Турция", img: "6.png", tag: "История"}, {name: "Европа", img: "14.png", tag: "Туризм"}, {name: "Мальдивы", img: "15.png", tag: "Отдых"}] },
+      de: { dir: 'ltr', brand: "Elreham Tours", n_home: "Startseite", n_flights: "Flüge", n_trips: "Reisen", h_title: "Flugbuchung", h_sub: "Anfang und Ende jeder Reise", l_from: "Von", l_to: "Nach", l_date: "Datum", l_phone: "Telefon", l_email: "Email", btn: "Buchen", f_f: "Flüge", f_d: "Reisen", wa_intro: "Flug buchen nach:", contact_t: "Kontakt", pages_t: "Seiten", social: "Folgen", addr: "Metro Str., Hurghada", items: [{name: "Dubai", img: "3.png", tag: "Golf"}, {name: "Türkei", img: "6.png", tag: "Geschichte"}, {name: "Europa", img: "14.png", tag: "Tourismus"}, {name: "Malediven", img: "15.png", tag: "Entspannung"}] }
     };
 
     let curLang = 'ar';
-@@ -217,7 +247,18 @@ <h4 class="text-lg font-black mb-8 border-r-4 border-brand pr-4 text-white" id="
-      document.getElementById('domestic-btn').innerText = t.domestic_b;
-      document.getElementById('flights-title').innerText = t.flights_t; 
-      document.getElementById('flights-desc').innerText = t.flights_d;
-      document.getElementById('flights-btn').innerText = t.flights_b; 
-      document.getElementById('flights-btn').innerText = t.flights_b;
-      
-      // نصوص كارت الحج والعمرة
-      document.getElementById('hajj-title').innerText = t.hajj_t; 
-      document.getElementById('hajj-desc').innerText = t.hajj_d;
-      document.getElementById('hajj-btn').innerText = t.hajj_b; 
-      // نصوص كارت التأشيرات
-      document.getElementById('visas-title').innerText = t.visas_t; 
-      document.getElementById('visas-desc').innerText = t.visas_d;
-      document.getElementById('visas-btn').innerText = t.visas_b;
-      document.getElementById('booking-title').innerText = t.book_t;
-      document.getElementById('l-from').innerText = t.l_from; 
+
+    function populateCountries() {
+      const from = document.getElementById('w-from');
+      const to = document.getElementById('w-to');
+      if (!from || !to) return;
+      const options = countries.map(([flag, name]) => `<option value="${flag} ${name}">${flag} ${name}</option>`).join('');
+      from.innerHTML = '<option value="">اختر الدولة</option>' + options;
+      to.innerHTML = '<option value="">اختر الدولة</option>' + options;
+      from.value = '🇸🇦 السعودية';
+      to.value = '🇪🇬 مصر';
+    }
+
+    function setLanguage(l, shouldPersist = true) {
+      if (!trans[l]) l = 'ar';
+      curLang = l;
+      const t = trans[l];
+      document.documentElement.dir = t.dir;
+      document.documentElement.lang = l;
+      if (shouldPersist) { try { localStorage.setItem('elreham_lang', l); } catch (e) {} }
+
+      document.getElementById('brand-name').innerText = t.brand;
+      document.getElementById('n-home').innerText = t.n_home;
+      document.getElementById('n-flights').innerText = t.n_flights;
+      document.getElementById('n-trips').innerText = t.n_trips;
+      document.getElementById('h-title').innerText = t.h_title;
+      document.getElementById('h-sub').innerText = t.h_sub;
+      document.getElementById('l-from').innerText = t.l_from;
       document.getElementById('l-to').innerText = t.l_to;
-@@ -233,6 +274,8 @@ <h4 class="text-lg font-black mb-8 border-r-4 border-brand pr-4 text-white" id="
-      document.getElementById('fn-home').innerText = t.home;
-      document.getElementById('fn-flights').innerText = t.flights_t; 
-      document.getElementById('fn-trips').innerText = t.domestic_t;
-      document.getElementById('fn-hajj').innerText = t.hajj_t;
-      document.getElementById('fn-visas').innerText = t.visas_t;
+      document.getElementById('l-date').innerText = t.l_date;
+      document.getElementById('l-phone').innerText = t.l_phone;
+      document.getElementById('l-email').innerText = t.l_email;
+      document.getElementById('btn-book').innerText = t.btn;
+      document.getElementById('f-f').innerText = t.f_f;
+      document.getElementById('f-d').innerText = t.f_d;
+      document.getElementById('f-brand').innerText = t.brand;
+      document.getElementById('f-slogan').innerText = t.h_sub;
+      document.getElementById('f-contact-t').innerText = t.contact_t;
+      document.getElementById('f-pages-t').innerText = t.pages_t;
+      document.getElementById('f-addr').innerText = t.addr;
+      document.getElementById('fn-home').innerText = t.n_home;
+      document.getElementById('fn-flights').innerText = t.n_flights;
+      document.getElementById('fn-trips').innerText = t.n_trips;
       document.getElementById('txt-social').innerText = t.social;
 
-      document.querySelectorAll('.lang-full-btn').forEach(b => b.classList.remove('lang-full-active'));
-0 commit comments
-Comments
-0
- (0)
-Comment
-You're not receiving notifications from this thread.
+      document.getElementById('promo-grid').innerHTML = t.items.map(i => `
+        <div class="promo-card group" onclick="bookFromCard('${i.name}')">
+          <img src="${i.img}" class="w-full h-[380px] object-cover transition-transform group-hover:scale-110">
+          <div class="p-6 text-right">
+            <span class="bg-[#F26522] text-white text-[10px] px-3 py-1 rounded-full font-black uppercase">${i.tag}</span>
+            <h3 class="text-2xl font-black mt-3 text-[#06152c]">${i.name}</h3>
+            <div class="mt-4 text-[#25D366] font-bold text-sm">WhatsApp ${t.btn}</div>
+          </div>
+        </div>
+      `).join('');
+
+      document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('lang-btn-active'));
+      const btn = document.getElementById('btn-' + l);
+      if (btn) btn.classList.add('lang-btn-active');
+      updatePageLinks();
+    }
+
+    function withLang(url) {
+      try {
+        const fullUrl = new URL(url, window.location.href);
+        fullUrl.searchParams.set('lang', curLang);
+        return fullUrl.toString();
+      } catch (e) {
+        const separator = url.includes('?') ? '&' : '?';
+        return url + separator + 'lang=' + encodeURIComponent(curLang);
+      }
+    }
+
+    function updatePageLinks() {
+      document.querySelectorAll('a[href]').forEach(link => {
+        const href = link.getAttribute('href');
+        if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('https://') || href.startsWith('http://') || href.startsWith('javascript:')) return;
+        link.setAttribute('href', withLang(href));
+      });
+    }
+
+    function navigate(p) {
+      if (!p) return;
+      trackLead('navigation_click', 'flights_' + p);
+      try { localStorage.setItem('elreham_lang', curLang); } catch (e) {}
+      window.location.assign(withLang(p));
+    }
+
+    function bookFromCard(dest) {
+      trackLead('flight_promo_whatsapp_click', dest);
+      window.open(`https://wa.me/201002429863?text=${encodeURIComponent(trans[curLang].wa_intro + ' ' + dest)}`, '_blank');
+    }
+
+    function sendFlight() {
+      const f = document.getElementById('w-from').value;
+      const t_ = document.getElementById('w-to').value;
+      const d = document.getElementById('w-date').value;
+      const p = document.getElementById('w-phone').value;
+      const e = document.getElementById('w-email').value;
+
+      if (!p) {
+        alert('من فضلك اكتب رقم الهاتف أولاً.');
+        return;
+      }
+
+      trackLead('flight_booking_link_click', 'flight_booking_form');
+
+      fetch('https://script.google.com/macros/s/AKfycbxGgySg1t6yVUE_d6Ib2AjJU__Rm18KC44SlPkCOIrW9fvSGsKTJBapuYQ7ju2R43fQfw/exec', {
+        method: 'POST',
+        body: new URLSearchParams({
+          tripType: 'Flight',
+          from: f,
+          to: t_,
+          date: d,
+          phone: p,
+          email: e
+        }),
+        mode: 'no-cors'
+      });
+
+      alert('تم إرسال طلب حجز الطيران بنجاح، وسيتم التواصل معك قريبًا.');
+    }
+
+    window.onload = () => {
+      populateCountries();
+      const urlLang = new URLSearchParams(window.location.search).get('lang');
+      let savedLang = null;
+      try { savedLang = localStorage.getItem('elreham_lang'); } catch (e) {}
+      const finalLang = (urlLang && trans[urlLang] ? urlLang : null) || (savedLang && trans[savedLang] ? savedLang : null) || 'ar';
+      setLanguage(finalLang, false);
+      try { localStorage.setItem('elreham_lang', finalLang); } catch (e) {}
+      const today = new Date().toISOString().split('T')[0];
+      const dateInput = document.getElementById('w-date');
+      if (dateInput) dateInput.setAttribute('min', today);
+    };
+  </script>
+</body>
+</html>
