@@ -5,14 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>الريهام تورز | رحلات داخلية وسفاري</title>
 
-  <!-- Google tag (gtag.js) - El Reham Tours -->
+  <!-- Google tag (gtag.js) - El Reham Tours | GA4 + Google Ads -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-687NXW78R5"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+
     gtag('js', new Date());
 
+    /* GA4 Property */
     gtag('config', 'G-687NXW78R5');
+
+    /* Google Ads Account Tag */
+    gtag('config', 'AW-17491889350');
+
+    function trackLead(eventName, eventLabel) {
+      if (typeof gtag === 'function') {
+        gtag('event', eventName, {
+          event_category: 'lead',
+          event_label: eventLabel
+        });
+      }
+    }
   </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -79,6 +93,47 @@
     .lb-details { background: rgba(6, 21, 44, 0.98); padding: 25px; border-radius: 0 0 1.5rem 1.5rem; text-align: center; border-top: 4px solid var(--brand); color: white; }
 
     select option { background-color: var(--navy); color: white; }
+
+
+    /* Floating WhatsApp Button - Domestic Page */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 92px;
+      left: 24px;
+      z-index: 9999;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: #fff;
+      padding: 13px 18px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 14px;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.35);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      text-decoration: none;
+    }
+    .floating-whatsapp:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 18px 45px rgba(37,211,102,0.35);
+    }
+    .floating-whatsapp svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+    }
+    @media (max-width: 640px) {
+      .floating-whatsapp {
+        left: 14px;
+        right: 14px;
+        bottom: 88px;
+        justify-content: center;
+        padding: 13px 16px;
+        font-size: 13px;
+      }
+    }
   </style>
 </head>
 <body class="pb-24">
@@ -175,6 +230,23 @@
     <a href="flights.html" id="float-flights" class="px-6 md:px-10 py-3 rounded-full font-black text-sm text-white/70 hover:text-white transition-all flex items-center gap-2">✈️ <span id="f-f">الطيران</span></a>
     <a href="domestic-trips.html" id="float-trips" class="px-6 md:px-10 py-3 rounded-full font-black text-sm bg-[#F26522] text-white shadow-lg pointer-events-none flex items-center gap-2">📍 <span id="f-d">رحلات داخلية</span></a>
   </div>
+
+
+  <!-- Floating WhatsApp Button - Domestic Page -->
+  <a
+    href="https://wa.me/201002429863?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D8%A7%D9%84%D8%B1%D9%8A%D9%87%D8%A7%D9%85%20%D8%AA%D9%88%D8%B1%D8%B2%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B1%D8%AD%D9%84%D8%A9%20%D8%AF%D8%A7%D8%AE%D9%84%D9%8A%D8%A9"
+    target="_blank"
+    rel="noopener"
+    class="floating-whatsapp"
+    onclick="trackLead('floating_whatsapp_click', 'domestic_floating_whatsapp');"
+    aria-label="تواصل واتساب مع الريهام تورز"
+  >
+    <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M20.52 3.48A11.88 11.88 0 0 0 12.06 0C5.46 0 .08 5.37.08 11.97c0 2.11.55 4.17 1.6 5.99L0 24l6.2-1.63a11.96 11.96 0 0 0 5.86 1.49h.01c6.6 0 11.97-5.37 11.98-11.97 0-3.2-1.25-6.2-3.53-8.41zM12.07 21.84h-.01a9.93 9.93 0 0 1-5.06-1.38l-.36-.21-3.68.97.98-3.59-.23-.37a9.94 9.94 0 0 1-1.52-5.29c0-5.49 4.47-9.96 9.97-9.96a9.9 9.9 0 0 1 7.04 2.92 9.9 9.9 0 0 1 2.92 7.04c0 5.49-4.47 9.96-9.96 9.96z"/>
+    </svg>
+    <span>تواصل واتساب الآن</span>
+  </a>
 
   <script>
     const translations = {
@@ -294,6 +366,7 @@
       const trip = curTrips[i];
 
       if (trip.link) {
+        trackLead('domestic_trip_details_click', trip.name);
         window.location.href = trip.link + '?lang=' + curLang;
         return;
       }
@@ -317,19 +390,37 @@
       const phone = document.getElementById('w-phone').value;
       const email = document.getElementById('w-email').value;
       const t = translations[curLang];
-      if(!phone) return;
+      if (!phone) {
+        alert(t.err || 'يرجى إدخال الهاتف');
+        return;
+      }
 
-      fetch('https://script.google.com/macros/s/AKfycbxGgySg1t6yVUE_d6Ib2AjJU__Rm18KC44SlPkCOIrW9fvSGsKTJBapuYQ7ju2R43fQfw/exec', { 
-        method: 'POST', body: new URLSearchParams({tripType: 'Domestic', from: trip, date, phone, email}), mode: 'no-cors' 
+      fetch('https://script.google.com/macros/s/AKfycbxGgySg1t6yVUE_d6Ib2AjJU__Rm18KC44SlPkCOIrW9fvSGsKTJBapuYQ7ju2R43fQfw/exec', {
+        method: 'POST',
+        body: new URLSearchParams({
+          tripType: 'Domestic',
+          trip: trip,
+          date: date,
+          phone: phone,
+          email: email
+        }),
+        mode: 'no-cors'
       }).catch(() => {});
 
-      const text = `${t.wa_intro}\n🌴 ${t.l_trip}: ${trip}\n📅 ${t.l_date}: ${date || '?'}\n📞 ${t.l_phone}: ${phone}\n✉️ ${t.l_email}: ${email || '-'}`;
+      trackLead('domestic_booking_whatsapp_click', 'domestic_booking_form');
+
+      const text = `${t.wa_intro}
+🌴 ${t.l_trip}: ${trip}
+📅 ${t.l_date}: ${date || '?'}
+📞 ${t.l_phone}: ${phone}
+✉️ ${t.l_email}: ${email || '-'}`;
       window.open(`https://wa.me/201002429863?text=${encodeURIComponent(text)}`, "_blank");
     }
 
     function sendFromLB() {
       const title = document.getElementById('lb-title').innerText;
       const t = translations[curLang];
+      trackLead('domestic_lightbox_whatsapp_click', title);
       window.open(`https://wa.me/201002429863?text=${encodeURIComponent(t.wa_intro + " " + title)}`, "_blank");
     }
 
