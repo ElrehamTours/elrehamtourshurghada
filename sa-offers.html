@@ -73,11 +73,11 @@
     .input-group svg { color: var(--brand); flex-shrink: 0; opacity: 0.9; width: 18px; }
     input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
 
-    /* تصميم الكروت البصرية الجديد */
+    /* تصميم الكروت البصرية */
     .visual-card { 
       background: rgba(255, 255, 255, 0.98); border-radius: 1.5rem; overflow: hidden;
       box-shadow: 0 15px 35px rgba(0,0,0,0.3); transition: all 0.4s ease; 
-      color: var(--navy); border: 1px solid transparent; display: flex; flex-col; h-full;
+      color: var(--navy); border: 1px solid transparent; display: flex; flex-direction: column; h-full;
     }
     .visual-card:hover { transform: translateY(-8px); border-color: var(--brand); box-shadow: 0 20px 40px rgba(242,101,34,0.15); }
 
@@ -144,7 +144,7 @@
               <select id="w-from" aria-label="اختر مكان المغادرة">
                 <option value="🇸🇦 السعودية" selected>🇸🇦 السعودية (الرياض / جدة / الدمام)</option>
                 <option value="🇪🇬 مصر">🇪🇬 مصر</option>
-                <option value="🇦🇪 الإمارات">🇦ئه الإمارات</option>
+                <option value="🇦🇪 الإمارات">🇦🇪 الإمارات</option>
                 <option value="وجهة أخرى">وجهة أخرى</option>
               </select>
             </div>
@@ -201,7 +201,7 @@
       
       <div class="visual-card flex flex-col cursor-pointer" onclick="document.getElementById('booking-section').scrollIntoView({ behavior: 'smooth' });">
         <div class="h-40 w-full overflow-hidden relative">
-          <img src="1.jpg" alt="حجز طيران دولي" class="w-full h-full object-cover">
+          <img src="1.png" alt="حجز طيران دولي" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
         </div>
         <div class="p-5 flex-1 flex flex-col justify-between">
@@ -214,7 +214,7 @@
 
       <div class="visual-card flex flex-col cursor-pointer" onclick="document.getElementById('booking-section').scrollIntoView({ behavior: 'smooth' });">
         <div class="h-40 w-full overflow-hidden relative">
-          <img src="10.jpg" alt="بكجات وبرامج الإجازات" class="w-full h-full object-cover">
+          <img src="15.png" alt="بكجات وبرامج الإجازات" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
         </div>
         <div class="p-5 flex-1 flex flex-col justify-between">
@@ -227,7 +227,7 @@
 
       <div class="visual-card flex flex-col cursor-pointer" onclick="document.getElementById('booking-section').scrollIntoView({ behavior: 'smooth' });">
         <div class="h-40 w-full overflow-hidden relative">
-          <img src="11.jpg" alt="خدمة عملاء 24 ساعة" class="w-full h-full object-cover">
+          <img src="18.png" alt="خدمة عملاء 24 ساعة" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
         </div>
         <div class="p-5 flex-1 flex flex-col justify-between">
@@ -240,7 +240,7 @@
 
       <div class="visual-card flex flex-col cursor-pointer" onclick="document.getElementById('booking-section').scrollIntoView({ behavior: 'smooth' });">
         <div class="h-40 w-full overflow-hidden relative">
-          <img src="12.jpg" alt="مكتب معتمد وموثوق" class="w-full h-full object-cover">
+          <img src="19.png" alt="مكتب معتمد وموثوق" class="w-full h-full object-cover">
           <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
         </div>
         <div class="p-5 flex-1 flex flex-col justify-between">
