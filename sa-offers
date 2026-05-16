@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>أفضل عروض الطيران الحصرية | الريهام تورز</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-687NXW78R5"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('js', new Date());
+
+    /* GA4 Property */
+    gtag('config', 'G-687NXW78R5');
+
+    /* Google Ads Account Tag */
+    gtag('config', 'AW-17491889350');
+
+    // دالة التتبع الاحترافية لربط نقرات الواتساب والفورم بجوجل إدز مباشرة
+    function trackLead(eventName, eventLabel) {
+      if (typeof gtag === 'function') {
+        // إرسال الحدث لـ GA4
+        gtag('event', eventName, {
+          event_category: 'lead',
+          event_label: eventLabel
+        });
+        
+        // إرسال التحويل الأساسي لحملة جوجل Ads (Contact Goal)
+        gtag('event', 'conversion', {
+          'send_to': 'AW-17491889350',
+          'value': 1.0,
+          'currency': 'EGP'
+        });
+      }
+    }
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --brand: #F26522; --navy: #06152c; }
+    body { font-family: "Cairo", "Tajawal", sans-serif; background: #040d1a; color: white; overflow-x: hidden; }
+
+    .video-bg-container { 
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+      z-index: -2; overflow: hidden; 
+    }
+    .video-bg-container video { width: 100%; height: 100%; object-fit: cover; }
+    .video-overlay { 
+      position: fixed; inset: 0; 
+      background: linear-gradient(to bottom, rgba(6, 21, 44, 0.6) 0%, rgba(6, 21, 44, 0.4) 50%, rgba(6, 21, 44, 0.9) 100%); 
+      z-index: -1; 
+    }
+
+    .hero-simple { 
+      background: rgba(6, 21, 44, 0.6); backdrop-filter: blur(12px); 
+      border-bottom: 1px solid rgba(255,255,255,0.08); 
+      padding: 15px 0; text-align: center; color: white; position: sticky; top: 0; z-index: 100;
+    }
+
+    .widget-box { 
+      background: rgba(10, 29, 56, 0.75); backdrop-filter: blur(20px); 
+      border-radius: 2rem; border: 1px solid rgba(255,255,255,0.1); 
+      border-top: 4px solid var(--brand); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6); 
+    }
+    .input-group { 
+      background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.15); 
+      border-radius: 1rem; padding: 0.7rem 1rem; transition: 0.3s; display: flex; align-items: center; gap: 10px; 
+    }
+    .input-group:focus-within { border-color: var(--brand); background: rgba(0, 0, 0, 0.6); }
+    .input-group input { background: transparent; width: 100%; outline: none; color: white; font-weight: 700; font-size: 0.9rem; }
+    .input-group select { background: transparent; width: 100%; outline: none; color: white; font-weight: 700; font-size: 0.9rem; border: 0; cursor: pointer; }
+    .input-group select option { background: #06152c; color: white; font-weight: 700; }
+    .input-group svg { color: var(--brand); flex-shrink: 0; opacity: 0.9; width: 18px; }
+    input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
+
+    .service-card { 
+      background: rgba(255,255,255,0.98); border-radius: 1.5rem; padding: 2rem; 
+      text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.3); 
+      transition: 0.4s; border: 1px solid transparent; color: var(--navy);
+    }
+    .service-card:hover { transform: translateY(-5px); border-color: var(--brand); }
+
+    footer { background: rgba(4, 13, 26, 0.98); backdrop-filter: blur(10px); color: white; padding: 40px 20px 30px; border-top: 1px solid rgba(255,255,255,0.05); }
+
+    .floating-whatsapp {
+      position: fixed; bottom: 24px; left: 24px; z-index: 9999;
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25D366; color: #fff; padding: 14px 22px;
+      border-radius: 999px; font-weight: 900; font-size: 15px;
+      box-shadow: 0 14px 35px rgba(37,211,102,0.4);
+      border: 1px solid rgba(255,255,255,0.25);
+      transition: all 0.25s ease; text-decoration: none;
+    }
+    .floating-whatsapp:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 18px 45px rgba(37,211,102,0.5);
+    }
+    .floating-whatsapp svg { width: 24px; height: 24px; flex-shrink: 0; }
+    
+    @media (max-width: 640px) {
+      .floating-whatsapp { left: 14px; right: 14px; bottom: 16px; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="video-bg-container">
+    <video autoplay loop muted playsinline poster="flight background.jpg">
+      <source src="index background.mp4" type="video/mp4">
+    </video>
+    <div class="video-overlay"></div>
+  </div>
+
+  <header class="hero-simple shadow-lg">
+    <div class="absolute top-0 right-4 w-20 h-24 md:w-24 md:h-30 bg-white rounded-b-xl p-2 flex items-center justify-center z-[110] shadow-xl">
+      <img src="logo.png" alt="الريهام تورز" class="w-full h-full object-contain">
+    </div>
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between">
+      <div class="pr-24 py-1 text-right">
+        <div class="font-black text-xl md:text-2xl text-white uppercase">الريهام تورز للسياحة</div>
+        <p class="text-[10px] md:text-xs text-[#F26522] font-black uppercase tracking-widest">مكتب معتمد - تأكيد فوري للحجوزات</p>
+      </div>
+      <div class="text-white/90 font-bold text-xs hidden sm:block bg-white/10 px-4 py-1.5 rounded-full backdrop-blur">عروض الطيران الحصرية لمصر والدولي</div>
+    </div>
+  </header>
+
+  <main class="relative z-20 pt-12 pb-24 px-4 flex flex-col items-center w-full max-w-6xl mx-auto">
+    
+    <div class="text-center mb-12 max-w-3xl">
+      <h1 class="text-3xl md:text-5xl font-black text-white leading-tight mb-4">لا تشيل هم الحجز! طيرانك لمصر بأقل سعر</h1>
+      <p class="text-white/70 text-sm md:text-base font-medium">قارن بين أفضل عروض الطيران واحجز تذكرتك المؤكدة في دقائق عبر الواتساب أو بسجل بياناتك الآن</p>
+    </div>
+
+    <div id="booking-section" class="widget-box p-6 md:p-8 w-full max-w-4xl mb-16">
+      <h2 class="text-center font-black text-xl md:text-3xl mb-6 text-white border-b border-white/10 pb-4">طلب تسعير وحجز فوري للرحلات</h2>
+      <form onsubmit="event.preventDefault();" class="space-y-4 text-right">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          
+          <div class="input-group">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            <div class="flex-1 text-right">
+              <label class="text-[9px] text-[#F26522] font-black uppercase block mb-0.5">من (محطة المغادرة)</label>
+              <select id="w-from" aria-label="اختر دولة المغادرة">
+                <option value="🇸🇦 السعودية" selected>🇸🇦 السعودية (الرياض / جدة)</option>
+                <option value="🇪🇬 مصر">🇪🇬 مصر</option>
+                <option value="🇦🇪 الإمارات">🇦🇪 الإمارات</option>
+                <option value="🇰🇼 الكويت">🇰🇼 الكويت</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div class="flex-1 text-right">
+              <label class="text-[9px] text-[#F26522] font-black uppercase block mb-0.5">إلى (وجهة الوصول)</label>
+              <select id="w-to" aria-label="اختر دولة الوصول">
+                <option value="🇪🇬 مصر" selected>🇪🇬 مصر (القاهرة / الإسكندرية)</option>
+                <option value="🇸🇦 السعودية">🇸🇦 السعودية</option>
+                <option value="🇦🇪 الإمارات">🇦🇪 الإمارات</option>
+                <option value="🇹🇷 تركيا">🇹🇷 تركيا</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            <div class="flex-1 text-right">
+              <label class="text-[9px] text-[#F26522] font-black uppercase block mb-0.5">تاريخ السفر المتوقع</label>
+              <input id="w-date" type="date">
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+          <div class="input-group">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <div class="flex-1 text-right">
+              <label class="text-[9px] text-[#F26522] font-black uppercase block mb-0.5">رقم الجوال (يفضل واتساب)</label>
+              <input id="w-phone" type="tel" placeholder="05xxxxxxxx">
+            </div>
+          </div>
+
+          <div class="input-group">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <div class="flex-1 text-right">
+              <label class="text-[9px] text-[#F26522] font-black uppercase block mb-0.5">الاسم الكريم</label>
+              <input id="w-name" type="text" placeholder="اكتب اسمك هنا">
+            </div>
+          </div>
+
+          <button type="button" onclick="sendMain()" class="w-full bg-[#F26522] text-white h-[55px] rounded-xl font-black text-lg uppercase shadow-lg hover:scale-[1.01] active:scale-95 transition-all">اطلب السعر الحالي الآن</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="w-full grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div class="service-card">
+        <div class="text-[#F26522] flex justify-center mb-3"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <h3 class="text-lg font-black mb-2 text-[#06152c]">تأكيد فوري للحجز</h3>
+        <p class="text-slate-500 text-[11px]">ارتباط مباشر بأنظمة الحجز لضمان إصدار تذكرتك فوراً وبأمان تام.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="text-[#F26522] flex justify-center mb-3"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div>
+        <h3 class="text-lg font-black mb-2 text-[#06152c]">أرخص الأسعار والعروض</h3>
+        <p class="text-slate-500 text-[11px]">خصومات حصرية وعروض خاصة متوفرة على الرحلات العائلية والمجموعات.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="text-[#F26522] flex justify-center mb-3"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/></svg></div>
+        <h3 class="text-lg font-black mb-2 text-[#06152c]">دعم فني 24 ساعة</h3>
+        <p class="text-slate-500 text-[11px]">فريق متخصص يتابع معك تفاصيل رحلتك وتعديل الحجوزات عبر الواتساب في أي وقت.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="text-[#F26522] flex justify-center mb-3"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
+        <h3 class="text-lg font-black mb-2 text-[#06152c]">وكالة معتمدة وموثوقة</h3>
+        <p class="text-slate-500 text-[11px]">الريهام تورز اسم عريق يضمن لك رحلة مريحة وخالية من أي تعقيدات.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 border-b border-white/10 pb-8 text-right">
+      <div>
+        <h3 class="text-2xl font-black mb-2 text-white">الريهام تورز للطيران</h3>
+        <p class="text-white/50 text-sm leading-relaxed mb-4">بوابتك المثالية لحجز الطيران وتخطيط الرحلات المريحة والآمنة.</p>
+      </div>
+      <div class="flex flex-col md:items-end justify-center space-y-3">
+        <a href="tel:01002429863" class="text-white/80 hover:text-[#F26522] transition flex items-center gap-2 font-bold text-lg" onclick="trackLead('phone_click', 'landing_footer_phone');">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 
+          01002429863
+        </a>
+        <p class="text-white/40 text-xs">شارع مترو متفرع من شيراتون، الغردقة، مصر</p>
+      </div>
+    </div>
+    <div class="text-center mt-6 text-white/20 text-[10px] font-bold uppercase tracking-[0.4em]">© 2026 Elreham Tours - All Rights Reserved</div>
+  </footer>
+
+  <a
+    href="https://wa.me/201002429863?text=%D8%A3%D9%87%D9%84%D8%A1%20%D8%A7%D9%84%D8%B1%D9%8A%D9%87%D8%A7%D9%85%20%D8%AA%D9%88%D8%B1%D8%B2%D8%8C%20%D8%A3%D9%86%D8%A7%20%D9%81%D9%8A%20%D8%A7%D9%84%D8%B3%D8%B9%D9%84%D9%88%D8%AF%D9%8A%D8%A9%20%D9%88%D8%A3%D8%B1%D9%8A%D9%85%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%B9%D8%B1%D9%88%D8%B6%20%D8%AD%D8%AC%D8%B2%20%D8%A7%D9%84%D8%B7%D9%8A%D8%B1%D8%A7%D9%86"
+    target="_blank"
+    rel="noopener"
+    class="floating-whatsapp"
+    onclick="trackLead('whatsapp_click', 'landing_page_floating_whatsapp');"
+    aria-label="تواصل واتساب مع الريهام تورز"
+  >
+    <svg fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M20.52 3.48A11.88 11.88 0 0 0 12.06 0C5.46 0 .08 5.37.08 11.97c0 2.11.55 4.17 1.6 5.99L0 24l6.2-1.63a11.96 11.96 0 0 0 5.86 1.49h.01c6.6 0 11.97-5.37 11.98-11.97 0-3.2-1.25-6.2-3.53-8.41zM12.07 21.84h-.01a9.93 9.93 0 0 1-5.06-1.38l-.36-.21-3.68.97.98-3.59-.23-.37a9.94 9.94 0 0 1-1.52-5.29c0-5.49 4.47-9.96 9.97-9.96a9.9 9.9 0 0 1 7.04 2.92 9.9 9.9 0 0 1 2.92 7.04c0 5.49-4.47 9.96-9.96 9.96z"/>
+    </svg>
+    <span>تواصل واتساب للحجز الفوري</span>
+  </a>
+
+  <script>
+    function sendMain() {
+      const f = document.getElementById('w-from').value;
+      const t_ = document.getElementById('w-to').value;
+      const d = document.getElementById('w-date').value;
+      const p = document.getElementById('w-phone').value;
+      const n = document.getElementById('w-name').value;
+
+      if (!f || !t_ || !d || !p || !n) {
+        alert('أبشر، يرجى ملء كافة الخانات لتزويدك بأدق سعر للرحلة.');
+        return;
+      }
+
+      // تتبع النقرة وإرسال الإحالة لجوجل إدز
+      trackLead('landing_booking_submit', 'main_landing_form');
+
+      fetch('https://script.google.com/macros/s/AKfycbxGgySg1t6yVUE_d6Ib2AjJU__Rm18KC44SlPkCOIrW9fvSGsKTJBapuYQ7ju2R43fQfw/exec', {
+        method: 'POST',
+        body: new URLSearchParams({
+          tripType: 'LandingKSA',
+          from: f,
+          to: t_,
+          date: d,
+          phone: p,
+          name: n
+        }),
+        mode: 'no-cors'
+      });
+
+      alert('تم استلام طلبك بنجاح يافندم، سيقوم موظف الحجوزات بالتواصل معك عبر الواتساب فوراً.');
+    }
+
+    window.onload = () => {
+      // ضبط أقل تاريخ ممكن ليكون اليوم لمنع حجوزات التواريخ القديمة
+      const today = new Date().toISOString().split('T')[0];
+      const dateInput = document.getElementById('w-date'); 
+      if (dateInput) dateInput.setAttribute('min', today);
+    };
+  </script>
+</body>
+</html>
